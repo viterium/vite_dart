@@ -104,7 +104,7 @@ class AccountBlock with _$AccountBlock {
     @JsonKey(readValue: readTokenInfo)
         required TokenInfo tokenInfo,
     @JsonKey(readValue: readAmount)
-    required BigInt amount,
+        required BigInt amount,
     required BigInt height,
     BigInt? fee,
     BigInt? difficulty,
@@ -133,5 +133,6 @@ class AccountBlock with _$AccountBlock {
   Address get otherAddress => blockType.isSendType ? toAddress : fromAddress;
 
   late final Decimal value =
-      Decimal.fromBigInt(amount) / Decimal.ten.pow(tokenInfo.decimals);
+      (amount.toDecimal() / Decimal.ten.pow(tokenInfo.decimals))
+          .toDecimal(scaleOnInfinitePrecision: tokenInfo.decimals);
 }

@@ -9,7 +9,7 @@ environment:
 
 dependencies:
   bip39: ^1.0.6
-  decimal: ^1.5.0
+  decimal: ^2.1.0
   freezed_annotation: ^1.1.0
   hex: ^0.2.0
   http: ^0.13.3

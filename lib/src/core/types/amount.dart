@@ -17,7 +17,8 @@ class Amount with _$Amount {
 
   factory Amount.raw(BigInt raw, {required TokenInfo tokenInfo}) => Amount(
         tokenInfo: tokenInfo,
-        value: Decimal.fromBigInt(raw) / Decimal.ten.pow(tokenInfo.decimals),
+        value: (raw.toDecimal() / Decimal.ten.pow(tokenInfo.decimals))
+            .toDecimal(scaleOnInfinitePrecision: tokenInfo.decimals),
       );
 
   Token get token => tokenInfo.token;

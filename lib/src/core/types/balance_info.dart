@@ -25,5 +25,6 @@ class BalanceInfo with _$BalanceInfo {
       _$BalanceInfoFromJson(json);
 
   late final Decimal value =
-      Decimal.fromBigInt(balance) / Decimal.ten.pow(tokenInfo.decimals);
+      (balance.toDecimal() / Decimal.ten.pow(tokenInfo.decimals))
+          .toDecimal(scaleOnInfinitePrecision: tokenInfo.decimals);
 }
