@@ -1,7 +1,7 @@
 import 'dart:typed_data';
 
-import 'package:vite/rpcapi.dart';
-
+import '../../rpcapi.dart';
+import '../utils/utils.dart';
 import 'pow_client.dart';
 import 'types.dart';
 import 'types/hash_height.dart';
@@ -138,6 +138,8 @@ class ViteClient extends RpcClientBase implements PowClient {
 
   @override
   Future<Uint8List> getPowNonce(BigInt difficulty, Hash powHash) {
-    return api.getPowNonce(difficulty.toString(), powHash.hex);
+    return api
+        .getPowNonce<String>(difficulty.toString(), powHash.hex)
+        .then((value) => base64ToBytes(value));
   }
 }
