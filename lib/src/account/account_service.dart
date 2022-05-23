@@ -67,7 +67,7 @@ class AccountService {
     return hash;
   }
 
-  Future<Hash> sendRawTransaction({
+  Future<Hash> sendTransaction({
     required Address address,
     required Address toAddress,
     required Token token,
@@ -128,14 +128,14 @@ class AccountService {
     return hash;
   }
 
-  Future<Hash> sendTransaction({
-    required Address address,
+  Future<Hash> transfer({
+    required Address fromAddress,
     required Address toAddress,
     required Amount amount,
     Uint8List? data,
-  }) async {
-    return sendRawTransaction(
-      address: address,
+  }) {
+    return sendTransaction(
+      address: fromAddress,
       toAddress: toAddress,
       token: amount.token,
       rawAmount: amount.raw,
@@ -159,31 +159,70 @@ class AccountService {
   Future<RpcQuotaInfo> quotaForAddress(Address address) =>
       client.getQuotaForAddress(address);
 
-  Future<void> voteForSbp(Address address, String sbpName) async {
+  Future<Hash> stakeForQuota({
+    required Address address,
+    Address? beneficiary,
+    required BigInt rawAmount,
+  }) async {
+    final quota = Contract.quotaContract;
+    final abi = ContractAbi.fromJson(quota.abi);
+    final data = abi.encodeFunction('StakeForQuota', [beneficiary ?? address]);
+
+    final hash = await sendTransaction(
+      address: address,
+      toAddress: Address.parse(quota.contractAddress),
+      token: Token.vite,
+      rawAmount: rawAmount,
+      data: data,
+    );
+    return hash;
+  }
+
+  Future<Hash> cancelQuotaStaking({
+    required Address address,
+    required RpcHex recordId,
+  }) async {
+    final quota = Contract.quotaContract;
+    final abi = ContractAbi.fromJson(quota.abi);
+    final data = abi.encodeFunction('CancelQuotaStaking', [recordId]);
+
+    final hash = await sendTransaction(
+      address: address,
+      toAddress: Address.parse(quota.contractAddress),
+      token: Token.vite,
+      rawAmount: BigInt.zero,
+      data: data,
+    );
+    return hash;
+  }
+
+  Future<Hash> voteForSbp(Address address, String sbpName) async {
     final consensus = Contract.consensusContract;
     final abi = consensus.contractAbi;
     final data = abi.encodeFunction('VoteForSBP', [sbpName]);
 
-    await sendRawTransaction(
+    final hash = await sendTransaction(
       address: address,
       toAddress: Address.parse(consensus.contractAddress),
       token: Token.vite,
       rawAmount: BigInt.zero,
       data: data,
     );
+    return hash;
   }
 
-  Future<void> cancelSbpVote(Address address) async {
+  Future<Hash> cancelSbpVote(Address address) async {
     final consensus = Contract.consensusContract;
     final abi = consensus.contractAbi;
     final data = abi.encodeFunction('CancelSBPVoting', []);
 
-    await sendRawTransaction(
+    final hash = await sendTransaction(
       address: address,
       toAddress: Address.parse(consensus.contractAddress),
       token: Token.vite,
       rawAmount: BigInt.zero,
       data: data,
     );
+    return hash;
   }
 }
