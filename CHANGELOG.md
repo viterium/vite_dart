@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.2
+
+* Update AccountService
+* Fix getPowNonce
+
 ## 0.1.1
 
 * Update decimal dependency
