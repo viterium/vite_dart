@@ -405,6 +405,19 @@ class RpcContractCallParams with _$RpcContractCallParams {
 }
 
 @freezed
+class RpcQueryParams with _$RpcQueryParams {
+  const factory RpcQueryParams({
+    required ViteAddress address,
+    required RpcBase64 data,
+    int? height,
+    RpcHash? snapshotHash,
+  }) = _RpcQueryParams;
+
+  factory RpcQueryParams.fromJson(Map<String, dynamic> json) =>
+      _$RpcQueryParamsFromJson(json);
+}
+
+@freezed
 class RpcQuotaInfo with _$RpcQuotaInfo {
   const factory RpcQuotaInfo({
     required String currentQuota,
@@ -427,6 +440,7 @@ class RpcStakeInfo with _$RpcStakeInfo {
     required bool isDelegated,
     ViteAddress? delegateAddress,
     @Default(0) int bid,
+    RpcHex? id,
   }) = _RpcStakeInfo;
 
   factory RpcStakeInfo.fromJson(Map<String, dynamic> json) =>

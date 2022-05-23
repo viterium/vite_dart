@@ -6716,6 +6716,223 @@ abstract class _RpcContractCallParams implements RpcContractCallParams {
       throw _privateConstructorUsedError;
 }
 
+RpcQueryParams _$RpcQueryParamsFromJson(Map<String, dynamic> json) {
+  return _RpcQueryParams.fromJson(json);
+}
+
+/// @nodoc
+class _$RpcQueryParamsTearOff {
+  const _$RpcQueryParamsTearOff();
+
+  _RpcQueryParams call(
+      {required String address,
+      required String data,
+      int? height,
+      String? snapshotHash}) {
+    return _RpcQueryParams(
+      address: address,
+      data: data,
+      height: height,
+      snapshotHash: snapshotHash,
+    );
+  }
+
+  RpcQueryParams fromJson(Map<String, Object?> json) {
+    return RpcQueryParams.fromJson(json);
+  }
+}
+
+/// @nodoc
+const $RpcQueryParams = _$RpcQueryParamsTearOff();
+
+/// @nodoc
+mixin _$RpcQueryParams {
+  String get address => throw _privateConstructorUsedError;
+  String get data => throw _privateConstructorUsedError;
+  int? get height => throw _privateConstructorUsedError;
+  String? get snapshotHash => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $RpcQueryParamsCopyWith<RpcQueryParams> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $RpcQueryParamsCopyWith<$Res> {
+  factory $RpcQueryParamsCopyWith(
+          RpcQueryParams value, $Res Function(RpcQueryParams) then) =
+      _$RpcQueryParamsCopyWithImpl<$Res>;
+  $Res call({String address, String data, int? height, String? snapshotHash});
+}
+
+/// @nodoc
+class _$RpcQueryParamsCopyWithImpl<$Res>
+    implements $RpcQueryParamsCopyWith<$Res> {
+  _$RpcQueryParamsCopyWithImpl(this._value, this._then);
+
+  final RpcQueryParams _value;
+  // ignore: unused_field
+  final $Res Function(RpcQueryParams) _then;
+
+  @override
+  $Res call({
+    Object? address = freezed,
+    Object? data = freezed,
+    Object? height = freezed,
+    Object? snapshotHash = freezed,
+  }) {
+    return _then(_value.copyWith(
+      address: address == freezed
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String,
+      data: data == freezed
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as String,
+      height: height == freezed
+          ? _value.height
+          : height // ignore: cast_nullable_to_non_nullable
+              as int?,
+      snapshotHash: snapshotHash == freezed
+          ? _value.snapshotHash
+          : snapshotHash // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$RpcQueryParamsCopyWith<$Res>
+    implements $RpcQueryParamsCopyWith<$Res> {
+  factory _$RpcQueryParamsCopyWith(
+          _RpcQueryParams value, $Res Function(_RpcQueryParams) then) =
+      __$RpcQueryParamsCopyWithImpl<$Res>;
+  @override
+  $Res call({String address, String data, int? height, String? snapshotHash});
+}
+
+/// @nodoc
+class __$RpcQueryParamsCopyWithImpl<$Res>
+    extends _$RpcQueryParamsCopyWithImpl<$Res>
+    implements _$RpcQueryParamsCopyWith<$Res> {
+  __$RpcQueryParamsCopyWithImpl(
+      _RpcQueryParams _value, $Res Function(_RpcQueryParams) _then)
+      : super(_value, (v) => _then(v as _RpcQueryParams));
+
+  @override
+  _RpcQueryParams get _value => super._value as _RpcQueryParams;
+
+  @override
+  $Res call({
+    Object? address = freezed,
+    Object? data = freezed,
+    Object? height = freezed,
+    Object? snapshotHash = freezed,
+  }) {
+    return _then(_RpcQueryParams(
+      address: address == freezed
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String,
+      data: data == freezed
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as String,
+      height: height == freezed
+          ? _value.height
+          : height // ignore: cast_nullable_to_non_nullable
+              as int?,
+      snapshotHash: snapshotHash == freezed
+          ? _value.snapshotHash
+          : snapshotHash // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_RpcQueryParams implements _RpcQueryParams {
+  const _$_RpcQueryParams(
+      {required this.address,
+      required this.data,
+      this.height,
+      this.snapshotHash});
+
+  factory _$_RpcQueryParams.fromJson(Map<String, dynamic> json) =>
+      _$$_RpcQueryParamsFromJson(json);
+
+  @override
+  final String address;
+  @override
+  final String data;
+  @override
+  final int? height;
+  @override
+  final String? snapshotHash;
+
+  @override
+  String toString() {
+    return 'RpcQueryParams(address: $address, data: $data, height: $height, snapshotHash: $snapshotHash)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _RpcQueryParams &&
+            const DeepCollectionEquality().equals(other.address, address) &&
+            const DeepCollectionEquality().equals(other.data, data) &&
+            const DeepCollectionEquality().equals(other.height, height) &&
+            const DeepCollectionEquality()
+                .equals(other.snapshotHash, snapshotHash));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(address),
+      const DeepCollectionEquality().hash(data),
+      const DeepCollectionEquality().hash(height),
+      const DeepCollectionEquality().hash(snapshotHash));
+
+  @JsonKey(ignore: true)
+  @override
+  _$RpcQueryParamsCopyWith<_RpcQueryParams> get copyWith =>
+      __$RpcQueryParamsCopyWithImpl<_RpcQueryParams>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_RpcQueryParamsToJson(this);
+  }
+}
+
+abstract class _RpcQueryParams implements RpcQueryParams {
+  const factory _RpcQueryParams(
+      {required String address,
+      required String data,
+      int? height,
+      String? snapshotHash}) = _$_RpcQueryParams;
+
+  factory _RpcQueryParams.fromJson(Map<String, dynamic> json) =
+      _$_RpcQueryParams.fromJson;
+
+  @override
+  String get address;
+  @override
+  String get data;
+  @override
+  int? get height;
+  @override
+  String? get snapshotHash;
+  @override
+  @JsonKey(ignore: true)
+  _$RpcQueryParamsCopyWith<_RpcQueryParams> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
 RpcQuotaInfo _$RpcQuotaInfoFromJson(Map<String, dynamic> json) {
   return _RpcQuotaInfo.fromJson(json);
 }
@@ -6927,7 +7144,8 @@ class _$RpcStakeInfoTearOff {
       required int expirationTime,
       required bool isDelegated,
       String? delegateAddress,
-      int bid = 0}) {
+      int bid = 0,
+      String? id}) {
     return _RpcStakeInfo(
       stakeAddress: stakeAddress,
       stakeAmount: stakeAmount,
@@ -6937,6 +7155,7 @@ class _$RpcStakeInfoTearOff {
       isDelegated: isDelegated,
       delegateAddress: delegateAddress,
       bid: bid,
+      id: id,
     );
   }
 
@@ -6958,6 +7177,7 @@ mixin _$RpcStakeInfo {
   bool get isDelegated => throw _privateConstructorUsedError;
   String? get delegateAddress => throw _privateConstructorUsedError;
   int get bid => throw _privateConstructorUsedError;
+  String? get id => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -6978,7 +7198,8 @@ abstract class $RpcStakeInfoCopyWith<$Res> {
       int expirationTime,
       bool isDelegated,
       String? delegateAddress,
-      int bid});
+      int bid,
+      String? id});
 }
 
 /// @nodoc
@@ -6999,6 +7220,7 @@ class _$RpcStakeInfoCopyWithImpl<$Res> implements $RpcStakeInfoCopyWith<$Res> {
     Object? isDelegated = freezed,
     Object? delegateAddress = freezed,
     Object? bid = freezed,
+    Object? id = freezed,
   }) {
     return _then(_value.copyWith(
       stakeAddress: stakeAddress == freezed
@@ -7033,6 +7255,10 @@ class _$RpcStakeInfoCopyWithImpl<$Res> implements $RpcStakeInfoCopyWith<$Res> {
           ? _value.bid
           : bid // ignore: cast_nullable_to_non_nullable
               as int,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -7052,7 +7278,8 @@ abstract class _$RpcStakeInfoCopyWith<$Res>
       int expirationTime,
       bool isDelegated,
       String? delegateAddress,
-      int bid});
+      int bid,
+      String? id});
 }
 
 /// @nodoc
@@ -7075,6 +7302,7 @@ class __$RpcStakeInfoCopyWithImpl<$Res> extends _$RpcStakeInfoCopyWithImpl<$Res>
     Object? isDelegated = freezed,
     Object? delegateAddress = freezed,
     Object? bid = freezed,
+    Object? id = freezed,
   }) {
     return _then(_RpcStakeInfo(
       stakeAddress: stakeAddress == freezed
@@ -7109,6 +7337,10 @@ class __$RpcStakeInfoCopyWithImpl<$Res> extends _$RpcStakeInfoCopyWithImpl<$Res>
           ? _value.bid
           : bid // ignore: cast_nullable_to_non_nullable
               as int,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -7124,7 +7356,8 @@ class _$_RpcStakeInfo implements _RpcStakeInfo {
       required this.expirationTime,
       required this.isDelegated,
       this.delegateAddress,
-      this.bid = 0});
+      this.bid = 0,
+      this.id});
 
   factory _$_RpcStakeInfo.fromJson(Map<String, dynamic> json) =>
       _$$_RpcStakeInfoFromJson(json);
@@ -7146,10 +7379,12 @@ class _$_RpcStakeInfo implements _RpcStakeInfo {
   @JsonKey()
   @override
   final int bid;
+  @override
+  final String? id;
 
   @override
   String toString() {
-    return 'RpcStakeInfo(stakeAddress: $stakeAddress, stakeAmount: $stakeAmount, expirationHeight: $expirationHeight, beneficiary: $beneficiary, expirationTime: $expirationTime, isDelegated: $isDelegated, delegateAddress: $delegateAddress, bid: $bid)';
+    return 'RpcStakeInfo(stakeAddress: $stakeAddress, stakeAmount: $stakeAmount, expirationHeight: $expirationHeight, beneficiary: $beneficiary, expirationTime: $expirationTime, isDelegated: $isDelegated, delegateAddress: $delegateAddress, bid: $bid, id: $id)';
   }
 
   @override
@@ -7171,7 +7406,8 @@ class _$_RpcStakeInfo implements _RpcStakeInfo {
                 .equals(other.isDelegated, isDelegated) &&
             const DeepCollectionEquality()
                 .equals(other.delegateAddress, delegateAddress) &&
-            const DeepCollectionEquality().equals(other.bid, bid));
+            const DeepCollectionEquality().equals(other.bid, bid) &&
+            const DeepCollectionEquality().equals(other.id, id));
   }
 
   @override
@@ -7184,7 +7420,8 @@ class _$_RpcStakeInfo implements _RpcStakeInfo {
       const DeepCollectionEquality().hash(expirationTime),
       const DeepCollectionEquality().hash(isDelegated),
       const DeepCollectionEquality().hash(delegateAddress),
-      const DeepCollectionEquality().hash(bid));
+      const DeepCollectionEquality().hash(bid),
+      const DeepCollectionEquality().hash(id));
 
   @JsonKey(ignore: true)
   @override
@@ -7206,7 +7443,8 @@ abstract class _RpcStakeInfo implements RpcStakeInfo {
       required int expirationTime,
       required bool isDelegated,
       String? delegateAddress,
-      int bid}) = _$_RpcStakeInfo;
+      int bid,
+      String? id}) = _$_RpcStakeInfo;
 
   factory _RpcStakeInfo.fromJson(Map<String, dynamic> json) =
       _$_RpcStakeInfo.fromJson;
@@ -7227,6 +7465,8 @@ abstract class _RpcStakeInfo implements RpcStakeInfo {
   String? get delegateAddress;
   @override
   int get bid;
+  @override
+  String? get id;
   @override
   @JsonKey(ignore: true)
   _$RpcStakeInfoCopyWith<_RpcStakeInfo> get copyWith =>

@@ -29,6 +29,8 @@ abstract class RpcContract implements RpcClientBase {
   Future<RpcBase64> callOffchainMethod(RpcContractCallParams params) =>
       api.callOffchainMethod(params.toJson());
 
+  Future<RpcBase64> query(RpcQueryParams params) => api.query(params.toJson());
+
   Future<Map<RpcHex, RpcHex>> getContractStorage(
           ViteAddress address, RpcHex key) async =>
       Map.castFrom(

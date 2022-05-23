@@ -615,6 +615,30 @@ Map<String, dynamic> _$$_RpcContractCallParamsToJson(
       'data': instance.data,
     };
 
+_$_RpcQueryParams _$$_RpcQueryParamsFromJson(Map json) => _$_RpcQueryParams(
+      address: json['address'] as String,
+      data: json['data'] as String,
+      height: json['height'] as int?,
+      snapshotHash: json['snapshotHash'] as String?,
+    );
+
+Map<String, dynamic> _$$_RpcQueryParamsToJson(_$_RpcQueryParams instance) {
+  final val = <String, dynamic>{
+    'address': instance.address,
+    'data': instance.data,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('height', instance.height);
+  writeNotNull('snapshotHash', instance.snapshotHash);
+  return val;
+}
+
 _$_RpcQuotaInfo _$$_RpcQuotaInfoFromJson(Map json) => _$_RpcQuotaInfo(
       currentQuota: json['currentQuota'] as String,
       maxQuota: json['maxQuota'] as String,
@@ -637,6 +661,7 @@ _$_RpcStakeInfo _$$_RpcStakeInfoFromJson(Map json) => _$_RpcStakeInfo(
       isDelegated: json['isDelegated'] as bool,
       delegateAddress: json['delegateAddress'] as String?,
       bid: json['bid'] as int? ?? 0,
+      id: json['id'] as String?,
     );
 
 Map<String, dynamic> _$$_RpcStakeInfoToJson(_$_RpcStakeInfo instance) {
@@ -657,6 +682,7 @@ Map<String, dynamic> _$$_RpcStakeInfoToJson(_$_RpcStakeInfo instance) {
 
   writeNotNull('delegateAddress', instance.delegateAddress);
   val['bid'] = instance.bid;
+  writeNotNull('id', instance.id);
   return val;
 }
 
