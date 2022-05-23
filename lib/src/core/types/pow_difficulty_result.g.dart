@@ -9,7 +9,7 @@ part of 'pow_difficulty_result.dart';
 _$_PowDifficultyResult _$$_PowDifficultyResultFromJson(Map json) =>
     _$_PowDifficultyResult(
       requiredQuota: json['requiredQuota'] as String,
-      difficulty: _convertDifficulty(json['difficulty'] as String),
+      difficulty: BigInt.tryParse(json['difficulty'] as String),
       qc: BigInt.parse(json['qc'] as String),
       isCongestion: json['isCongestion'] as bool,
     );

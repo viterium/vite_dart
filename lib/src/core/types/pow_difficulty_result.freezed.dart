@@ -24,7 +24,7 @@ class _$PowDifficultyResultTearOff {
 
   _PowDifficultyResult call(
       {required String requiredQuota,
-      @JsonKey(fromJson: _convertDifficulty) BigInt? difficulty,
+      @JsonKey(fromJson: BigInt.tryParse) BigInt? difficulty,
       required BigInt qc,
       required bool isCongestion}) {
     return _PowDifficultyResult(
@@ -46,7 +46,7 @@ const $PowDifficultyResult = _$PowDifficultyResultTearOff();
 /// @nodoc
 mixin _$PowDifficultyResult {
   String get requiredQuota => throw _privateConstructorUsedError;
-  @JsonKey(fromJson: _convertDifficulty)
+  @JsonKey(fromJson: BigInt.tryParse)
   BigInt? get difficulty => throw _privateConstructorUsedError;
   BigInt get qc => throw _privateConstructorUsedError;
   bool get isCongestion => throw _privateConstructorUsedError;
@@ -64,7 +64,7 @@ abstract class $PowDifficultyResultCopyWith<$Res> {
       _$PowDifficultyResultCopyWithImpl<$Res>;
   $Res call(
       {String requiredQuota,
-      @JsonKey(fromJson: _convertDifficulty) BigInt? difficulty,
+      @JsonKey(fromJson: BigInt.tryParse) BigInt? difficulty,
       BigInt qc,
       bool isCongestion});
 }
@@ -115,7 +115,7 @@ abstract class _$PowDifficultyResultCopyWith<$Res>
   @override
   $Res call(
       {String requiredQuota,
-      @JsonKey(fromJson: _convertDifficulty) BigInt? difficulty,
+      @JsonKey(fromJson: BigInt.tryParse) BigInt? difficulty,
       BigInt qc,
       bool isCongestion});
 }
@@ -164,7 +164,7 @@ class __$PowDifficultyResultCopyWithImpl<$Res>
 class _$_PowDifficultyResult implements _PowDifficultyResult {
   const _$_PowDifficultyResult(
       {required this.requiredQuota,
-      @JsonKey(fromJson: _convertDifficulty) this.difficulty,
+      @JsonKey(fromJson: BigInt.tryParse) this.difficulty,
       required this.qc,
       required this.isCongestion});
 
@@ -174,7 +174,7 @@ class _$_PowDifficultyResult implements _PowDifficultyResult {
   @override
   final String requiredQuota;
   @override
-  @JsonKey(fromJson: _convertDifficulty)
+  @JsonKey(fromJson: BigInt.tryParse)
   final BigInt? difficulty;
   @override
   final BigInt qc;
@@ -223,7 +223,7 @@ class _$_PowDifficultyResult implements _PowDifficultyResult {
 abstract class _PowDifficultyResult implements PowDifficultyResult {
   const factory _PowDifficultyResult(
       {required String requiredQuota,
-      @JsonKey(fromJson: _convertDifficulty) BigInt? difficulty,
+      @JsonKey(fromJson: BigInt.tryParse) BigInt? difficulty,
       required BigInt qc,
       required bool isCongestion}) = _$_PowDifficultyResult;
 
@@ -233,7 +233,7 @@ abstract class _PowDifficultyResult implements PowDifficultyResult {
   @override
   String get requiredQuota;
   @override
-  @JsonKey(fromJson: _convertDifficulty)
+  @JsonKey(fromJson: BigInt.tryParse)
   BigInt? get difficulty;
   @override
   BigInt get qc;
