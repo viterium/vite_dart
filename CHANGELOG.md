@@ -4,6 +4,9 @@
 
 * Update AccountService
 * Fix getPowNonce
+* Add decode function output
+* Add contract_query rpc method
+* Fix solidity types encoding / decoding
 
 ## 0.1.1
 
