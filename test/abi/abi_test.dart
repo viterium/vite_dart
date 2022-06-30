@@ -1,6 +1,8 @@
+import 'dart:convert';
+
 import 'package:test/test.dart';
-import 'package:vite/vite.dart';
 import 'package:vite/utils.dart' as utils;
+import 'package:vite/vite.dart';
 
 void main() {
   test('Constructor encode and decode', () {
@@ -92,5 +94,549 @@ void main() {
     final f = abi.findFunctionByData(encodedParams);
     expect(f, isNotNull);
     expect(f!.name, equals('send'));
+  });
+
+  test('Only one non-indexed token id', () {
+    final abi = ContractAbi([
+      AbiEntry.fromJson({
+        'anonymous': false,
+        'inputs': [
+          {
+            'indexed': false,
+            'internalType': 'tokenId',
+            'name': 'tti',
+            'type': 'tokenId'
+          }
+        ],
+        'name': 'TestEvent',
+        'type': 'event'
+      })
+    ]);
+
+    final data = hexToBytes(
+      '00000000000000000000000000000000000000000000b0de22e5d54c92c43c3a',
+    );
+    final topic = Hash.parse(
+      '8b5075daac7054843301efa983d65ebb0a2ab0943c4464c5d90116bac31b558e',
+    );
+
+    final result = abi.decodeEvent(
+      data,
+      [topic],
+    );
+    print(result);
+  });
+
+  group('encodeParameter', () {
+    test('uint256', () {
+      final expected =
+          '000000000000000000000000000000000000000000000000000000008bd02b7b';
+      final r = SolidityType.getType('uint256').encode(2345675643);
+      expect(r.hex, equals(expected));
+    });
+
+    test('uint', () {
+      final expected =
+          '000000000000000000000000000000000000000000000000000000008bd02b7b';
+      final r = SolidityType.getType('uint').encode(2345675643);
+      expect(r.hex, equals(expected));
+    });
+
+    test('int 2', () {
+      final expected =
+          '0000000000000000000000000000000000000000000000000000000000000002';
+      final r = SolidityType.getType('int').encode(BigInt.parse('2'));
+      expect(r.hex, equals(expected));
+    });
+
+    test('int -2', () {
+      final expected =
+          'fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe';
+      final r = SolidityType.getType('int').encode(BigInt.parse('-2'));
+      expect(r.hex, equals(expected));
+    });
+
+    test('int -19999999999999999999999999999999999999999999999999999999999999',
+        () {
+      final expected =
+          'fffffffffffff38dd0f10627f5529bdb2c52d4846810af0ac000000000000001';
+      final r = SolidityType.getType('int').encode(BigInt.parse(
+          '-19999999999999999999999999999999999999999999999999999999999999'));
+      expect(r.hex, equals(expected));
+    });
+
+    test('uint8', () {
+      final expected =
+          '0000000000000000000000000000000000000000000000000000000000000002';
+      final r = SolidityType.getType('uint8').encode(2);
+      expect(r.hex, equals(expected));
+    });
+
+    test('uint8[]', () {
+      final expected =
+          '000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000002';
+      final r = SolidityType.getType('uint8[]').encode([1, 2]);
+      expect(r.hex, equals(expected));
+    });
+
+    test('uint16', () {
+      final expected =
+          '0000000000000000000000000000000000000000000000000000000000000002';
+      final r = SolidityType.getType('uint16').encode(2);
+      expect(r.hex, equals(expected));
+    });
+
+    test('uint16[]', () {
+      final expected =
+          '000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000002';
+      final r = SolidityType.getType('uint16[]').encode([1, 2]);
+      expect(r.hex, equals(expected));
+    });
+
+    test('uint32', () {
+      final expected =
+          '0000000000000000000000000000000000000000000000000000000000000002';
+      final r = SolidityType.getType('uint32').encode(2);
+      expect(r.hex, equals(expected));
+    });
+
+    test('uint32[]', () {
+      final expected =
+          '000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000002';
+      final r = SolidityType.getType('uint32[]').encode([1, 2]);
+      expect(r.hex, equals(expected));
+    });
+
+    test('uint64', () {
+      final expected =
+          '0000000000000000000000000000000000000000000000000000000000000002';
+      final r = SolidityType.getType('uint64').encode(2);
+      expect(r.hex, equals(expected));
+    });
+
+    test('uint64[]', () {
+      final expected =
+          '000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000002';
+      final r = SolidityType.getType('uint64[]').encode([1, 2]);
+      expect(r.hex, equals(expected));
+    });
+
+    test('uint256', () {
+      final expected =
+          '0000000000000000000000000000000000000000000000000000000000000002';
+      final r = SolidityType.getType('uint256').encode(2);
+      expect(r.hex, equals(expected));
+    });
+
+    test('uint256[]', () {
+      final expected =
+          '000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000002';
+      final r = SolidityType.getType('uint256[]').encode([1, 2]);
+      expect(r.hex, equals(expected));
+    });
+
+    test('int8', () {
+      final expected =
+          '0000000000000000000000000000000000000000000000000000000000000002';
+      final r = SolidityType.getType('int8').encode(2);
+      expect(r.hex, equals(expected));
+    });
+
+    test('int8 -2', () {
+      final expected =
+          'fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe';
+      final r = SolidityType.getType('int8').encode(-2);
+      expect(r.hex, equals(expected));
+    });
+
+    test('int8[]', () {
+      final expected =
+          '000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000002';
+      final r = SolidityType.getType('int8[]').encode([1, 2]);
+      expect(r.hex, equals(expected));
+    });
+
+    test('int8[] -2', () {
+      final expected =
+          '0000000000000000000000000000000000000000000000000000000000000002fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffeffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff9d';
+      final r = SolidityType.getType('int8[]').encode([-2, -99]);
+      expect(r.hex, equals(expected));
+    });
+
+    test('int16', () {
+      final expected =
+          '0000000000000000000000000000000000000000000000000000000000000002';
+      final r = SolidityType.getType('int16').encode(2);
+      expect(r.hex, equals(expected));
+    });
+
+    test('int16 -2', () {
+      final expected =
+          'fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe';
+      final r = SolidityType.getType('int16').encode(-2);
+      expect(r.hex, equals(expected));
+    });
+
+    test('int16[]', () {
+      final expected =
+          '000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000002';
+      final r = SolidityType.getType('int16[]').encode([1, 2]);
+      expect(r.hex, equals(expected));
+    });
+
+    test('int16[] -2', () {
+      final expected =
+          '0000000000000000000000000000000000000000000000000000000000000002fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffeffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff9d';
+      final r = SolidityType.getType('int16[]').encode([-2, -99]);
+      expect(r.hex, equals(expected));
+    });
+
+    test('int16', () {
+      final expected =
+          '0000000000000000000000000000000000000000000000000000000000000002';
+      final r = SolidityType.getType('int16').encode(2);
+      expect(r.hex, equals(expected));
+    });
+
+    test('int16 -2', () {
+      final expected =
+          'fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe';
+      final r = SolidityType.getType('int16').encode(-2);
+      expect(r.hex, equals(expected));
+    });
+
+    test('int16[]', () {
+      final expected =
+          '000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000002';
+      final r = SolidityType.getType('int16[]').encode([1, 2]);
+      expect(r.hex, equals(expected));
+    });
+
+    test('int16[] -2', () {
+      final expected =
+          '0000000000000000000000000000000000000000000000000000000000000002fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffeffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff9d';
+      final r = SolidityType.getType('int16[]').encode([-2, -99]);
+      expect(r.hex, equals(expected));
+    });
+
+    test('int32', () {
+      final expected =
+          '0000000000000000000000000000000000000000000000000000000000000002';
+      final r = SolidityType.getType('int32').encode(2);
+      expect(r.hex, equals(expected));
+    });
+
+    test('int32 -2', () {
+      final expected =
+          'fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe';
+      final r = SolidityType.getType('int32').encode(-2);
+      expect(r.hex, equals(expected));
+    });
+
+    test('int32[]', () {
+      final expected =
+          '000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000002';
+      final r = SolidityType.getType('int32[]').encode([1, 2]);
+      expect(r.hex, equals(expected));
+    });
+
+    test('int32[] -2', () {
+      final expected =
+          '0000000000000000000000000000000000000000000000000000000000000002fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffeffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff9d';
+      final r = SolidityType.getType('int32[]').encode([-2, -99]);
+      expect(r.hex, equals(expected));
+    });
+
+    test('int64', () {
+      final expected =
+          '0000000000000000000000000000000000000000000000000000000000000002';
+      final r = SolidityType.getType('int64').encode(2);
+      expect(r.hex, equals(expected));
+    });
+
+    test('int64 -2', () {
+      final expected =
+          'fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe';
+      final r = SolidityType.getType('int64').encode(-2);
+      expect(r.hex, equals(expected));
+    });
+
+    test('int64[]', () {
+      final expected =
+          '000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000002';
+      final r = SolidityType.getType('int64[]').encode([1, 2]);
+      expect(r.hex, equals(expected));
+    });
+
+    test('int64[] -2', () {
+      final expected =
+          '0000000000000000000000000000000000000000000000000000000000000002fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffeffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff9d';
+      final r = SolidityType.getType('int64[]').encode([-2, -99]);
+      expect(r.hex, equals(expected));
+    });
+
+    test('int256', () {
+      final expected =
+          '0000000000000000000000000000000000000000000000000000000000000002';
+      final r = SolidityType.getType('int256').encode(2);
+      expect(r.hex, equals(expected));
+    });
+
+    test('int256 -2', () {
+      final expected =
+          'fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe';
+      final r = SolidityType.getType('int256').encode(-2);
+      expect(r.hex, equals(expected));
+    });
+
+    test('int256[]', () {
+      final expected =
+          '000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000002';
+      final r = SolidityType.getType('int256[]').encode([1, 2]);
+      expect(r.hex, equals(expected));
+    });
+
+    test('int256[] -2', () {
+      final expected =
+          '0000000000000000000000000000000000000000000000000000000000000002fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffeffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff9d';
+      final r = SolidityType.getType('int256[]').encode([-2, -99]);
+      expect(r.hex, equals(expected));
+    });
+
+    test('bytes', () {
+      final expected =
+          '0000000000000000000000000000000000000000000000000000000000000003df32340000000000000000000000000000000000000000000000000000000000';
+      final r = SolidityType.getType('bytes').encode('0xdf3234');
+      expect(r.hex, equals(expected));
+    });
+
+    test('bytes 1- 32', () {
+      final expected =
+          '0100000000000000000000000000000000000000000000000000000000000000';
+      for (int i = 1; i <= 32; ++i) {
+        final data = '0x01${List.generate(i - 1, (_) => '00').join()}';
+        final r = SolidityType.getType('bytes$i').encode(data);
+        expect(r.hex, equals(expected));
+      }
+    });
+
+    test('bytes1', () {
+      final expected =
+          '0100000000000000000000000000000000000000000000000000000000000000';
+      final r = SolidityType.getType('bytes1').encode('0x01');
+      expect(r.hex, equals(expected));
+    });
+
+    test('bytes32', () {
+      final expected =
+          '0100000000000000000000000000000000000000000000000000000000000000';
+      final r = SolidityType.getType('bytes32').encode(
+          '0x0100000000000000000000000000000000000000000000000000000000000000');
+      expect(r.hex, equals(expected));
+    });
+
+    test('address', () {
+      final expected =
+          '0000000000000000000000010000000000000000000000000000000000000000';
+      final r = SolidityType.getType('address')
+          .encode('vite_010000000000000000000000000000000000000063bef3da00');
+      expect(r.hex, equals(expected));
+    });
+    test('address[]', () {
+      final expected =
+          '000000000000000000000000000000000000000000000000000000000000000200000000000000000000000100000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000';
+      final r = SolidityType.getType('address[]').encode([
+        'vite_010000000000000000000000000000000000000063bef3da00',
+        'vite_0200000000000000000000000000000000000000e4194eedc2',
+      ]);
+      expect(r.hex, equals(expected));
+    });
+
+    test('tokenId', () {
+      final expected =
+          '000000000000000000000000000000000000000000005649544520544f4b454e';
+      final r = SolidityType.getType('tokenId')
+          .encode('tti_5649544520544f4b454e6e40');
+      expect(r.hex, equals(expected));
+    });
+
+    test('tokenId[]', () {
+      final expected =
+          '000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000002000000000000000000';
+      final r = SolidityType.getType('tokenId[]').encode([
+        'tti_01000000000000000000fb5e',
+        'tti_02000000000000000000199f',
+      ]);
+      expect(r.hex, equals(expected));
+    });
+
+    test('gid', () {
+      final expected =
+          '0000000000000000000000000000000000000000000001000000000000000000';
+      final r = SolidityType.getType('gid').encode('01000000000000000000');
+      expect(r.hex, equals(expected));
+    });
+
+    test('gid[]', () {
+      final expected =
+          '000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000002000000000000000000';
+      final r = SolidityType.getType('gid[]')
+          .encode(['01000000000000000000', '02000000000000000000']);
+      expect(r.hex, equals(expected));
+    });
+
+    test('bool false', () {
+      final expected =
+          '0000000000000000000000000000000000000000000000000000000000000000';
+      final r = SolidityType.getType('bool').encode(false);
+      expect(r.hex, equals(expected));
+    });
+    test('bool true', () {
+      final expected =
+          '0000000000000000000000000000000000000000000000000000000000000001';
+      final r = SolidityType.getType('bool').encode(true);
+      expect(r.hex, equals(expected));
+    });
+
+    test('bytes32[]', () {
+      final expected =
+          '000000000000000000000000000000000000000000000000000000000000000201000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000';
+      final r = SolidityType.getType('bytes32[]').encode([
+        '0x0100000000000000000000000000000000000000000000000000000000000000',
+        '0x0200000000000000000000000000000000000000000000000000000000000000'
+      ]);
+      expect(r.hex, equals(expected));
+    });
+
+    test('bytes32[] string', () {
+      final expected =
+          '000000000000000000000000000000000000000000000000000000000000000201000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000';
+      final r = SolidityType.getType('bytes32[]').encode(
+          '["0x0100000000000000000000000000000000000000000000000000000000000000","0x0200000000000000000000000000000000000000000000000000000000000000"]');
+      expect(r.hex, equals(expected));
+    });
+
+    test('bytes 0x', () {
+      final expected =
+          '0000000000000000000000000000000000000000000000000000000000000003df32340000000000000000000000000000000000000000000000000000000000';
+      final r = SolidityType.getType('bytes').encode('0xdf3234');
+      expect(r.hex, equals(expected));
+    });
+
+    test('bytes 0x', () {
+      final expected =
+          '0000000000000000000000000000000000000000000000000000000000000003df32340000000000000000000000000000000000000000000000000000000000';
+      final r = SolidityType.getType('bytes').encode('df3234');
+      expect(r.hex, equals(expected));
+    });
+
+    test('string foobar', () {
+      final expected =
+          '0000000000000000000000000000000000000000000000000000000000000006666f6f6261720000000000000000000000000000000000000000000000000000';
+      final r = SolidityType.getType('string').encode('foobar');
+      expect(r.hex, equals(expected));
+    });
+
+    test('string 0x02', () {
+      final expected =
+          '00000000000000000000000000000000000000000000000000000000000000043078303200000000000000000000000000000000000000000000000000000000';
+      final r = SolidityType.getType('string').encode('0x02');
+      expect(r.hex, equals(expected));
+    });
+
+    test('string 02ab', () {
+      final expected =
+          '00000000000000000000000000000000000000000000000000000000000000043032616200000000000000000000000000000000000000000000000000000000';
+      final r = SolidityType.getType('string').encode('02ab');
+      expect(r.hex, equals(expected));
+    });
+
+    test('uint8[2]', () {
+      final expected =
+          '00000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000002';
+      final r = SolidityType.getType('uint8[2]').encode([1, 2]);
+      expect(r.hex, equals(expected));
+    });
+
+    test('uint32[2][3][4]', () {
+      final expected =
+          '000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000003000000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000050000000000000000000000000000000000000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000000700000000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000000000000009000000000000000000000000000000000000000000000000000000000000000a000000000000000000000000000000000000000000000000000000000000000b000000000000000000000000000000000000000000000000000000000000000c000000000000000000000000000000000000000000000000000000000000000d000000000000000000000000000000000000000000000000000000000000000e000000000000000000000000000000000000000000000000000000000000000f000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000110000000000000000000000000000000000000000000000000000000000000012000000000000000000000000000000000000000000000000000000000000001300000000000000000000000000000000000000000000000000000000000000140000000000000000000000000000000000000000000000000000000000000015000000000000000000000000000000000000000000000000000000000000001600000000000000000000000000000000000000000000000000000000000000170000000000000000000000000000000000000000000000000000000000000018';
+      final r = SolidityType.getType('uint32[2][3][4]').encode([
+        [
+          [1, 2],
+          [3, 4],
+          [5, 6]
+        ],
+        [
+          [7, 8],
+          [9, 10],
+          [11, 12]
+        ],
+        [
+          [13, 14],
+          [15, 16],
+          [17, 18]
+        ],
+        [
+          [19, 20],
+          [21, 22],
+          [23, 24]
+        ]
+      ]);
+      expect(r.hex, equals(expected));
+    });
+
+    test('uint32[2][3][4] string', () {
+      final expected =
+          '000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000003000000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000050000000000000000000000000000000000000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000000700000000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000000000000009000000000000000000000000000000000000000000000000000000000000000a000000000000000000000000000000000000000000000000000000000000000b000000000000000000000000000000000000000000000000000000000000000c000000000000000000000000000000000000000000000000000000000000000d000000000000000000000000000000000000000000000000000000000000000e000000000000000000000000000000000000000000000000000000000000000f000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000110000000000000000000000000000000000000000000000000000000000000012000000000000000000000000000000000000000000000000000000000000001300000000000000000000000000000000000000000000000000000000000000140000000000000000000000000000000000000000000000000000000000000015000000000000000000000000000000000000000000000000000000000000001600000000000000000000000000000000000000000000000000000000000000170000000000000000000000000000000000000000000000000000000000000018';
+      final r = SolidityType.getType('uint32[2][3][4]').encode(json.encode([
+        [
+          [1, 2],
+          [3, 4],
+          [5, 6]
+        ],
+        [
+          [7, 8],
+          [9, 10],
+          [11, 12]
+        ],
+        [
+          [13, 14],
+          [15, 16],
+          [17, 18]
+        ],
+        [
+          [19, 20],
+          [21, 22],
+          [23, 24]
+        ]
+      ]));
+      expect(r.hex, equals(expected));
+    });
+  });
+
+  group('getAbiByName', () {
+    test('empty function name', () {
+      final abi = ContractAbi.fromJson([
+        {
+          'name': 'myFunction',
+          'type': 'function',
+          'inputs': [
+            {'type': 'uint256', 'name': 'myNumber'},
+            {'type': 'string', 'name': 'myString'}
+          ]
+        },
+        {
+          'name': 'myOtherFunction',
+          'type': 'function',
+          'inputs': [
+            {'type': 'uint256', 'name': 'myNumber'},
+            {'type': 'string', 'name': 'myString'}
+          ]
+        }
+      ]);
+      final method = abi.findFunctionByName('');
+      expect(method, equals(null));
+    });
   });
 }
