@@ -22,6 +22,9 @@ class FunctionEntry extends AbiEntry {
     return Uint8List.fromList(encodeSignature() + encodeArguments(args));
   }
 
+  List<Object> decodeOutput(Uint8List encoded) =>
+      AbiEntry.decodeList(outputs, encoded);
+
 
   @override
   List<Object> decode(Uint8List encoded) {
