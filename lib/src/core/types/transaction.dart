@@ -15,8 +15,7 @@ part 'transaction.g.dart';
 @freezed
 class RawTransaction with _$RawTransaction {
   factory RawTransaction({
-    @JsonKey(name: 'blockType')
-    @BlockTypeConverter() required BlockType type,
+    @JsonKey(name: 'blockType') @BlockTypeConverter() required BlockType type,
     Address? address,
     Address? toAddress,
     BigInt? fee,
@@ -43,19 +42,20 @@ class RawTransaction with _$RawTransaction {
     Uint8List? data,
     Uint8List? nonce,
     BigInt? difficulty,
-  }) =>
-      RawTransaction(
-        type: BlockType.transferRequest,
-        address: address,
-        height: height,
-        previousHash: previousHash,
-        toAddress: toAddress,
-        token: token,
-        amount: amount,
-        data: data,
-        nonce: nonce,
-        difficulty: difficulty
-      );
+  }) {
+    return RawTransaction(
+      type: BlockType.transferRequest,
+      address: address,
+      height: height,
+      previousHash: previousHash,
+      toAddress: toAddress,
+      token: token,
+      amount: amount,
+      data: data,
+      nonce: nonce,
+      difficulty: difficulty,
+    );
+  }
 
   factory RawTransaction.receive({
     required Address address,
@@ -75,6 +75,40 @@ class RawTransaction with _$RawTransaction {
       data: data,
       nonce: nonce,
       difficulty: difficulty,
+    );
+  }
+
+  factory RawTransaction.createContract({
+    required Address address,
+    required Uint8List data,
+    BigInt? fee,
+  }) {
+    return RawTransaction(
+      type: BlockType.createContractRequest,
+      address: address,
+      data: data,
+      fee: fee ?? BigInt.parse('10000000000000000000'),
+      token: Token.vite,
+    );
+  }
+
+  factory RawTransaction.callContract({
+    required Address address,
+    required Address contractAddress,
+    required BigInt amount,
+    required Token token,
+    required Uint8List data,
+    BigInt? fee,
+  }) {
+    assert(contractAddress.isContractAddress);
+    return RawTransaction(
+      type: BlockType.transferRequest,
+      address: address,
+      toAddress: contractAddress,
+      amount: amount,
+      token: token,
+      fee: fee,
+      data: data,
     );
   }
 
