@@ -28,6 +28,16 @@ Uint8List leftPadBytes(Uint8List bytes, int size) {
   return result;
 }
 
+Uint8List rightPadBytes(Uint8List bytes, int size) {
+  if (bytes.lengthInBytes >= size) {
+    return bytes;
+  }
+
+  final result = Uint8List(size);
+  result.setAll(0, bytes);
+  return result;
+}
+
 String bytesToHex(Uint8List bytes) => HEX.encode(bytes);
 
 Uint8List hexToBytes(String hex) => Uint8List.fromList(HEX.decode(hex));

@@ -4,19 +4,18 @@ import 'dart:typed_data';
 import '../core/types.dart';
 import '../utils/utils.dart' as utils;
 import 'abi_entries.dart';
-import 'types.dart';
 
 class ContractAbi {
-  late final Iterable<AbiEntry> entries;
+  final Iterable<AbiEntry> entries;
 
-  ContractAbi(this.entries);
+  const ContractAbi(this.entries);
 
   static ContractAbi fromJsonString(String jsonString) {
     final List<dynamic> entries = json.decode(jsonString);
     return ContractAbi(entries.map((e) => AbiEntry.fromJson(e)));
   }
 
-  static ContractAbi fromJson(List<Map<String, dynamic>> json) {
+  factory ContractAbi.fromJson(List<Map<String, dynamic>> json) {
     return ContractAbi(json.map((e) => AbiEntry.fromJson(e)));
   }
 
@@ -36,7 +35,7 @@ class ContractAbi {
     try {
       final c = entries.firstWhere((e) => e.type == AbiEntryType.constructor)
           as ConstructorEntry;
-      return AbiEntryParam.decodeList(c.inputs, encoded);
+      return AbiEntry.decodeList(c.inputs, encoded);
     } on StateError {
       throw 'Constructor does not exist';
     }
@@ -63,6 +62,14 @@ class ContractAbi {
     }
   }
 
+  List<Object> decodeFunctionOutput(String name, Uint8List encoded) {
+    final f = findFunctionByName(name);
+    if (f == null) {
+      throw 'Function does not exist';
+    }
+    return f.decodeOutput(encoded);
+  }
+
   // Offchain
   Uint8List encodeOffchain(String name, List<Object> args) {
     final f = findOffchainByName(name);
@@ -75,7 +82,7 @@ class ContractAbi {
   List<Object> decodeOffchainOutput(String name, Uint8List encoded) {
     final f = findOffchainByName(name);
     if (f == null) {
-      throw 'offchain does not exist';
+      throw 'Offchain does not exist';
     }
     return f.decodeOutput(encoded);
   }
@@ -91,18 +98,13 @@ class ContractAbi {
           topics.first.hex == element.encodeSignature().hex) as EventEntry;
       final result = <Object>[];
       final argTopics = e.anonymous ? topics : topics.skip(1);
-      final encoded = BytesBuilder(copy: false);
+      final bytesBuilder = BytesBuilder(copy: false);
       for (final topic in argTopics) {
-        encoded.add(topic);
+        bytesBuilder.add(topic);
       }
-      final indexed = AbiEntryParam.decodeList(
-        e.filteredInputs(true),
-        encoded.takeBytes(),
-      );
-      final notIndexed = AbiEntryParam.decodeList(
-        e.filteredInputs(false),
-        data,
-      );
+      final bytes = bytesBuilder.takeBytes();
+      final indexed = AbiEntry.decodeList(e.filteredInputs(true), bytes);
+      final notIndexed = AbiEntry.decodeList(e.filteredInputs(false), data);
       for (final input in e.inputs) {
         result.add(
           input.indexed ? indexed.removeAt(0) : notIndexed.removeAt(0),
@@ -110,7 +112,7 @@ class ContractAbi {
       }
       return result;
     } on StateError {
-      throw 'Unknown event';
+      throw Exception('Unknown event');
     }
   }
 

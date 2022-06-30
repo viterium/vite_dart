@@ -15,13 +15,17 @@ class Bytes32Type extends SolidityType {
       return IntType.encodeBigInt(bigInt);
     }
     if (value is String) {
-      final bytes = hexToBytes(value);
-      return leftPadBytes(bytes, SolidityType.int32Size);
+      var hex = value.toLowerCase().trim();
+      if (hex.startsWith('0x')) {
+        hex = hex.substring(2);
+      }
+      final bytes = hexToBytes(hex);
+      return rightPadBytes(bytes, SolidityType.int32Size);
     }
     if (value is Uint8List) {
-      return leftPadBytes(value, SolidityType.int32Size);
+      return rightPadBytes(value, SolidityType.int32Size);
     }
-    throw 'Can\'t encode type ${value.runtimeType} to bytes32';
+    throw Exception('Can\'t encode type ${value.runtimeType} to bytes32');
   }
 
   @override

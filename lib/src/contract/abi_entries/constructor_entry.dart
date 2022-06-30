@@ -9,6 +9,7 @@ class ConstructorEntry extends AbiEntry {
   }) : super(
           name: '',
           inputs: inputs,
+          outputs: const [],
           type: AbiEntryType.constructor,
         );
 
@@ -16,7 +17,7 @@ class ConstructorEntry extends AbiEntry {
 
   @override
   List<Object> decode(Uint8List encoded) =>
-      AbiEntryParam.decodeList(inputs, encoded);
+      AbiEntry.decodeList(inputs, encoded);
 
   @override
   String formatSignature([String? contractName]) => 'function $contractName';

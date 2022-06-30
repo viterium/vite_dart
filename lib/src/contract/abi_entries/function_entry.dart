@@ -7,11 +7,13 @@ class FunctionEntry extends AbiEntry {
   FunctionEntry({
     required String name,
     required List<AbiEntryParam> inputs,
+    List<AbiEntryParam> outputs = const [],
     required bool payable,
     required AbiEntryType type,
   }) : super(
           name: name,
           inputs: inputs,
+          outputs: outputs,
           type: type,
           payable: payable,
         );
@@ -20,9 +22,10 @@ class FunctionEntry extends AbiEntry {
     return Uint8List.fromList(encodeSignature() + encodeArguments(args));
   }
 
+
   @override
   List<Object> decode(Uint8List encoded) {
-    return AbiEntryParam.decodeList(
+    return AbiEntry.decodeList(
       inputs,
       encoded.sublist(encodedSignatureLength),
     );
@@ -38,6 +41,6 @@ class FunctionEntry extends AbiEntry {
 
   @override
   String toString() {
-    return 'onMessage $name(${inputs.join(", ")}';
+    return 'function $name(${inputs.join(", ")}';
   }
 }

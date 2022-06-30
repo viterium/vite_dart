@@ -21,7 +21,7 @@ class IntType extends NumericType {
   static Uint8List encodeBigInt(BigInt value) {
     final bytes = bigIntToBytes(value);
 
-    final result = Uint8List(32);
+    final result = value.isNegative ? Uint8List(32).complement : Uint8List(32);
     result.setAll(32 - bytes.lengthInBytes, bytes);
     return result;
   }

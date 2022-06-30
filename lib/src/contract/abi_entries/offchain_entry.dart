@@ -18,7 +18,7 @@ class OffchainEntry extends AbiEntry {
         );
 
   List<Object> decodeOutput(Uint8List encoded) =>
-      AbiEntryParam.decodeList(outputs!, encoded);
+      AbiEntry.decodeList(outputs, encoded);
 
   Uint8List encode(List<Object> args) {
     return Uint8List.fromList(encodeSignature() + encodeArguments(args));
@@ -26,7 +26,7 @@ class OffchainEntry extends AbiEntry {
 
   @override
   List<Object> decode(Uint8List encoded) {
-    return AbiEntryParam.decodeList(
+    return AbiEntry.decodeList(
       inputs,
       encoded.sublist(encodedSignatureLength),
     );

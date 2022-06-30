@@ -5,8 +5,8 @@ import 'array_type.dart';
 class StaticArrayType extends ArrayType {
   late final int length;
   StaticArrayType(String name) : super(name) {
-    final idx1 = name.indexOf('[');
-    final idx2 = name.indexOf(']', idx1);
+    final idx1 = name.lastIndexOf('[');
+    final idx2 = name.lastIndexOf(']');
     final dim = name.substring(idx1 + 1, idx2);
     length = int.parse(dim);
   }

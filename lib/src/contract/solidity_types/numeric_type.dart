@@ -15,7 +15,7 @@ abstract class NumericType extends SolidityType {
       if (s.startsWith('0x')) {
         s = s.substring(2);
         radix = 16;
-      } else if (isHex(s)) {
+      } else if (s.length == 64 && isHex(s)) {
         radix = 16;
       }
       bigInt = BigInt.parse(s, radix: radix);

@@ -10,16 +10,14 @@ abstract class ArrayType extends SolidityType {
   late final SolidityType elementType;
 
   ArrayType(String name) : super(name) {
-    final idx = name.indexOf('[');
+    final idx = name.lastIndexOf('[');
     final st = name.substring(0, idx);
-    final idx2 = name.indexOf(']', idx);
-    final subDim = idx2 + 1 == name.length ? '' : name.substring(idx2 + 1);
-    elementType = SolidityType.getType(st + subDim);
+    elementType = SolidityType.getType(st); // + subDim);
   }
 
   static SolidityType getType(String typeName) {
-    final idx1 = typeName.indexOf('[');
-    final idx2 = typeName.indexOf(']', idx1);
+    final idx1 = typeName.lastIndexOf('[');
+    final idx2 = typeName.lastIndexOf(']');
     if (idx1 + 1 == idx2) {
       return DynamicArrayType(typeName);
     } else {
@@ -34,7 +32,7 @@ abstract class ArrayType extends SolidityType {
     }
     if (value is String) {
       try {
-        final array = json.decode(value) as List<Object>;
+        final array = json.decode(value) as List;
         final elements = array.map((e) => e.toString()).toList();
         return encodeList(elements);
       } catch (e) {

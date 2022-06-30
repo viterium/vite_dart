@@ -155,11 +155,6 @@ class _$_AbiEntryParam implements _AbiEntryParam {
   final SolidityType type;
 
   @override
-  String toString() {
-    return 'AbiEntryParam(indexed: $indexed, name: $name, type: $type)';
-  }
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&

@@ -11,19 +11,24 @@ class BytesType extends SolidityType {
 
   @override
   Uint8List encode(Object value) {
-    final Uint8List bb;
+    final Uint8List bytes;
     if (value is Uint8List) {
-      bb = value;
+      bytes = value;
     } else if (value is String) {
-      bb = hexToBytes(value);
+      var hex = value.toLowerCase().trim();
+      if (hex.startsWith('0x')) {
+        hex = hex.substring(2);
+      }
+      bytes = hexToBytes(hex);
     } else {
-      throw 'Unsuported value type for "bytes"';
+      throw Exception('Unsuported value type for "bytes"');
     }
-    final ret = Uint8List(
-        ((bb.lengthInBytes - 1) ~/ SolidityType.int32Size + 1) *
-            SolidityType.int32Size);
-    ret.setRange(0, bb.length, bb);
-    return Uint8List.fromList(IntType.encodeInt(bb.length) + ret);
+    final ret = Uint8List(((bytes.length - 1) ~/ SolidityType.int32Size + 1) *
+        SolidityType.int32Size);
+    ret.setRange(0, bytes.length, bytes);
+
+    final data = Uint8List.fromList(IntType.encodeInt(bytes.length) + ret);
+    return data;
   }
 
   @override

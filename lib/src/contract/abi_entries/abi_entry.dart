@@ -1,7 +1,7 @@
 import 'dart:typed_data';
 
 import '../../utils/utils.dart' as utils;
-import '../solidity_types/int_type.dart';
+import '../solidity_types.dart';
 import '../types.dart';
 import 'constructor_entry.dart';
 import 'event_entry.dart';
@@ -26,7 +26,7 @@ abstract class AbiEntry {
   final bool anonymous;
   final String name;
   final List<AbiEntryParam> inputs;
-  final List<AbiEntryParam>? outputs;
+  final List<AbiEntryParam> outputs;
   final AbiEntryType type;
   final bool payable;
 
@@ -34,7 +34,7 @@ abstract class AbiEntry {
     this.anonymous = false,
     required this.name,
     required this.inputs,
-    this.outputs,
+    required this.outputs,
     required this.type,
     this.payable = false,
   });
@@ -48,8 +48,8 @@ abstract class AbiEntry {
     final outputs = (json['outputs'] as List<dynamic>? ?? [])
         .map((e) => AbiEntryParam.fromJson(e))
         .toList();
-    final type =
-        abiEntryTypeMapping[json['type'] as String] ?? AbiEntryType.constructor;
+    final typeString = (json['type'] ?? 'constructor') as String;
+    final type = abiEntryTypeMapping[typeString] ?? AbiEntryType.constructor;
     final payable = json['payable'] as bool? ?? false;
 
     switch (type) {
@@ -59,6 +59,7 @@ abstract class AbiEntry {
         return FunctionEntry(
           name: name,
           inputs: inputs,
+          outputs: outputs,
           payable: payable,
           type: type,
         );
@@ -130,4 +131,32 @@ abstract class AbiEntry {
   }
 
   List<Object> decode(Uint8List encoded);
+
+  static List<Object> decodeList(
+    List<AbiEntryParam> params,
+    Uint8List encoded,
+  ) {
+    final result = <Object>[];
+    var offset = 0;
+    for (final param in params) {
+      final decoded = decodeType(param.type, encoded, offset);
+      result.add(decoded);
+      offset += param.type.fixedSize;
+    }
+    return result;
+  }
+
+  static Object decodeType(
+    SolidityType type,
+    Uint8List encoded, [
+    int offset = 0,
+  ]) {
+    final decoded = type.isDynamicType
+        ? type.decode(
+            encoded,
+            IntType.decodeBigInt(encoded, offset).toInt(),
+          )
+        : type.decode(encoded, offset);
+    return decoded;
+  }
 }

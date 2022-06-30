@@ -15,6 +15,7 @@ class EventEntry extends AbiEntry {
           anonymous: anonymous,
           name: name,
           inputs: inputs,
+          outputs: const [],
           type: AbiEntryType.event,
           payable: false,
         );
@@ -22,13 +23,13 @@ class EventEntry extends AbiEntry {
   List<Object> decodeTopics(Uint8List data, List<Uint8List> topics) {
     final result = <Object>[];
     final argTopics = anonymous ? topics : topics.skip(1);
-    final bytes = BytesBuilder(copy: false);
+    final bytesBuilder = BytesBuilder(copy: false);
     for (var element in argTopics) {
-      bytes.add(element);
+      bytesBuilder.add(element);
     }
-    final indexed =
-        AbiEntryParam.decodeList(filteredInputs(true), bytes.takeBytes());
-    final notIndexed = AbiEntryParam.decodeList(filteredInputs(false), data);
+    final bytes = bytesBuilder.takeBytes();
+    final indexed = AbiEntry.decodeList(filteredInputs(true), bytes);
+    final notIndexed = AbiEntry.decodeList(filteredInputs(false), data);
 
     for (final input in inputs) {
       result.add(input.indexed ? indexed.removeAt(0) : notIndexed.removeAt(0));
