@@ -1,6 +1,6 @@
-import 'package:vite/contract.dart';
-
 import '../core/constants.dart';
+import '../core/types.dart';
+import 'contract_abi.dart';
 
 class Contract {
   final String contractAddress;
@@ -9,6 +9,7 @@ class Contract {
   final List<Map<String, dynamic>> callbacks;
 
   ContractAbi get contractAbi => ContractAbi.fromJson(abi);
+  Address get address => Address.parse(contractAddress);
 
   const Contract({
     required this.contractAddress,
