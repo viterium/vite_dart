@@ -14,24 +14,40 @@ class AccountService {
     PowClient? powClient,
   }) : powClient = powClient ?? client;
 
-  Future<Hash> receiveTransaction({
-    required Address address,
-    required Hash sendBlockHash,
-  }) async {
+  Future<Hash> sendRawTransaction(RawTransaction rawTx) async {
+    final address = rawTx.address;
+    final toAddress = rawTx.toAddress;
+
+    if (address == null) {
+      throw Exception('Missing source address');
+    }
+    if (rawTx.type.isSendType && toAddress == null) {
+      throw Exception('Missing destination address');
+    }
+    if (rawTx.type.isReceiveType && rawTx.sendBlockHash == null) {
+      throw Exception('Missing sendBlockHash');
+    }
+
     final canSign = await signer.canSignForAddress(address);
     if (!canSign) {
       throw Exception('Can\'t sign for address $address');
     }
 
-    final hashHeight = await client.getAccountHashHeight(address);
-    final height = BigInt.from(hashHeight.height + 1);
-    final previousHash = hashHeight.hash;
+    var height = rawTx.height;
+    var previousHash = rawTx.previousHash;
+    if (previousHash == null || height == null) {
+      final hashHeight = await client.getAccountHashHeight(address);
+      height = BigInt.from(hashHeight.height + 1);
+      previousHash = hashHeight.hash;
+    }
 
     // check pow
     final powParams = PowDifficultyParams(
       address: address,
       previousHash: previousHash,
-      blockType: BlockType.reponse,
+      blockType: rawTx.type,
+      toAddress: toAddress,
+      data: rawTx.data,
     );
 
     final result = await client.getPowDifficulty(powParams);
@@ -42,21 +58,19 @@ class AccountService {
       nonce = await powClient.getPowNonce(difficulty, powHash);
     }
 
-    final receiveTx = RawTransaction.receive(
-      address: address,
+    rawTx = rawTx.copyWith(
       height: height,
       previousHash: previousHash,
-      sendBlockHash: sendBlockHash,
       nonce: nonce,
       difficulty: difficulty,
     );
 
-    final hash = computeTxHash(receiveTx);
+    final hash = computeTxHash(rawTx);
 
     final publicKey = await signer.publicKeyOfAddress(address);
     final signature = await signer.sign(hash.bytes, address);
 
-    final rawTx = receiveTx.copyWith(
+    rawTx = rawTx.copyWith(
       hash: hash,
       publicKey: publicKey,
       signature: signature,
@@ -70,88 +84,88 @@ class AccountService {
   Future<Hash> sendTransaction({
     required Address address,
     required Address toAddress,
-    required Token token,
-    required BigInt rawAmount,
+    BigInt? amount,
+    Token? token,
     Uint8List? data,
   }) async {
-    final canSign = await signer.canSignForAddress(address);
-    if (!canSign) {
-      throw Exception('Can\'t sign for address $address');
-    }
-
-    final hashHeight = await client.getAccountHashHeight(address);
-    final height = BigInt.from(hashHeight.height + 1);
-    final previousHash = hashHeight.hash;
-
-    // check pow
-    final powParams = PowDifficultyParams(
+    final transaction = RawTransaction.send(
       address: address,
-      previousHash: previousHash,
-      blockType: BlockType.transferRequest,
       toAddress: toAddress,
+      amount: amount ?? BigInt.zero,
+      token: token ?? Token.vite,
       data: data,
     );
-
-    final result = await client.getPowDifficulty(powParams);
-    final difficulty = result.difficulty;
-    Uint8List? nonce;
-    if (difficulty != null) {
-      final powHash = computePowDataHash(address, previousHash);
-      nonce = await powClient.getPowNonce(difficulty, powHash);
-    }
-
-    final sendTx = RawTransaction.send(
-      address: address,
-      height: height,
-      previousHash: previousHash,
-      toAddress: toAddress,
-      token: token,
-      amount: rawAmount,
-      nonce: nonce,
-      difficulty: difficulty,
-      data: data,
-    );
-
-    final hash = computeTxHash(sendTx);
-
-    final publicKey = await signer.publicKeyOfAddress(address);
-    final signature = await signer.sign(hash.bytes, address);
-
-    final rawTx = sendTx.copyWith(
-      hash: hash,
-      publicKey: publicKey,
-      signature: signature,
-    );
-
-    await client.sendRawTransaction(rawTx);
-
-    return hash;
+    return sendRawTransaction(transaction);
   }
 
-  Future<Hash> transfer({
-    required Address fromAddress,
+  Future<Hash> transferAmount(
+    Amount amount, {
+    required Address address,
     required Address toAddress,
-    required Amount amount,
     Uint8List? data,
   }) {
     return sendTransaction(
-      address: fromAddress,
+      address: address,
       toAddress: toAddress,
       token: amount.token,
-      rawAmount: amount.raw,
+      amount: amount.raw,
       data: data,
     );
+  }
+
+  Future<Hash> receiveTransaction({
+    required Address address,
+    required Hash sendBlockHash,
+  }) async {
+    final transaction = RawTransaction.receive(
+      address: address,
+      sendBlockHash: sendBlockHash,
+    );
+
+    return sendRawTransaction(transaction);
+  }
+
+  Future<Hash> callContract({
+    required Address address,
+    required Address contractAddress,
+    BigInt? amount,
+    Token? token,
+    BigInt? fee,
+    required Uint8List data,
+  }) async {
+    assert(contractAddress.isContractAddress);
+    final rawTx = RawTransaction.callContract(
+      address: address,
+      contractAddress: contractAddress,
+      amount: amount ?? BigInt.zero,
+      token: token ?? Token.vite,
+      fee: fee,
+      data: data,
+    );
+    return sendRawTransaction(rawTx);
+  }
+
+  Future<Hash> createContract({
+    required Address address,
+    required Address contractAddress,
+    required Uint8List data,
+    BigInt? fee,
+  }) async {
+    assert(contractAddress.isContractAddress);
+    final rawTx = RawTransaction.createContract(
+      address: address,
+      contractAddress: contractAddress,
+      data: data,
+      fee: fee,
+    );
+    return sendRawTransaction(rawTx);
   }
 
   Future<List<AccountBlock>> unreceivedBlocksForAddress(
     Address address, [
     int count = 1,
-  ]) async {
-    return client.getUnreceivedBlocksByAddress(
-      address,
-      pageSize: count,
-    );
-  }
+  ]) =>
+      client.getUnreceivedBlocksByAddress(address, pageSize: count);
 
   Future<AccountInfo> accountInfoForAddress(Address address) =>
       client.getAccountInfo(address);
@@ -162,17 +176,16 @@ class AccountService {
   Future<Hash> stakeForQuota({
     required Address address,
     Address? beneficiary,
-    required BigInt rawAmount,
+    required BigInt amount,
   }) async {
     final quota = Contract.quotaContract;
-    final abi = ContractAbi.fromJson(quota.abi);
+    final abi = quota.contractAbi;
     final data = abi.encodeFunction('StakeForQuota', [beneficiary ?? address]);
 
-    final hash = await sendTransaction(
+    final hash = await callContract(
       address: address,
-      toAddress: Address.parse(quota.contractAddress),
-      token: Token.vite,
-      rawAmount: rawAmount,
+      contractAddress: quota.address,
+      amount: amount,
       data: data,
     );
     return hash;
@@ -183,14 +196,12 @@ class AccountService {
     required RpcHex recordId,
   }) async {
     final quota = Contract.quotaContract;
-    final abi = ContractAbi.fromJson(quota.abi);
+    final abi = quota.contractAbi;
     final data = abi.encodeFunction('CancelQuotaStaking', [recordId]);
 
-    final hash = await sendTransaction(
+    final hash = await callContract(
       address: address,
-      toAddress: Address.parse(quota.contractAddress),
-      token: Token.vite,
-      rawAmount: BigInt.zero,
+      contractAddress: quota.address,
       data: data,
     );
     return hash;
@@ -201,11 +212,9 @@ class AccountService {
     final abi = consensus.contractAbi;
     final data = abi.encodeFunction('VoteForSBP', [sbpName]);
 
-    final hash = await sendTransaction(
+    final hash = await callContract(
       address: address,
-      toAddress: Address.parse(consensus.contractAddress),
-      token: Token.vite,
-      rawAmount: BigInt.zero,
+      contractAddress: consensus.address,
       data: data,
     );
     return hash;
@@ -216,11 +225,9 @@ class AccountService {
     final abi = consensus.contractAbi;
     final data = abi.encodeFunction('CancelSBPVoting', []);
 
-    final hash = await sendTransaction(
+    final hash = await callContract(
       address: address,
-      toAddress: Address.parse(consensus.contractAddress),
-      token: Token.vite,
-      rawAmount: BigInt.zero,
+      contractAddress: consensus.address,
       data: data,
     );
     return hash;

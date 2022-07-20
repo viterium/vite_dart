@@ -34,12 +34,12 @@ class RawTransaction with _$RawTransaction {
 
   factory RawTransaction.send({
     required Address address,
-    required BigInt height,
-    required Hash previousHash,
     required Address toAddress,
     required Token token,
     required BigInt amount,
     Uint8List? data,
+    BigInt? height,
+    Hash? previousHash,
     Uint8List? nonce,
     BigInt? difficulty,
   }) {
@@ -59,9 +59,9 @@ class RawTransaction with _$RawTransaction {
 
   factory RawTransaction.receive({
     required Address address,
-    required BigInt height,
-    required Hash previousHash,
     required Hash sendBlockHash,
+    BigInt? height,
+    Hash? previousHash,
     Uint8List? data,
     Uint8List? nonce,
     BigInt? difficulty,
@@ -80,12 +80,14 @@ class RawTransaction with _$RawTransaction {
 
   factory RawTransaction.createContract({
     required Address address,
+    required Address contractAddress,
     required Uint8List data,
     BigInt? fee,
   }) {
     return RawTransaction(
       type: BlockType.createContractRequest,
       address: address,
+      toAddress: contractAddress,
       data: data,
       fee: fee ?? BigInt.parse('10000000000000000000'),
       token: Token.vite,
