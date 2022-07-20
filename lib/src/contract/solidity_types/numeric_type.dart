@@ -26,7 +26,9 @@ abstract class NumericType extends SolidityType {
     } else if (value is Uint8List) {
       bigInt = bytesToBigInt(value);
     } else {
-      throw 'Invalid value for type "$this": $value (${value.runtimeType})';
+      throw Exception(
+        'Invalid value for type "$this": $value (${value.runtimeType})',
+      );
     }
     return bigInt;
   }

@@ -93,7 +93,7 @@ abstract class AbiEntry {
 
   Uint8List encodeArguments(List<Object> args) {
     if (args.length > inputs.length) {
-      throw 'Too many arguments: ${args.length} > ${inputs.length}';
+      throw Exception('Too many arguments: ${args.length} > ${inputs.length}');
     }
     var staticSize = 0;
     var dynamicCount = 0;

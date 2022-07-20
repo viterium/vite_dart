@@ -20,7 +20,7 @@ class StaticArrayType extends ArrayType {
   @override
   Uint8List encodeList(List<Object> list) {
     if (list.length != length) {
-      throw 'List length (${list.length}) != $length for type $name';
+      throw Exception('List length (${list.length}) != $length for type $name');
     }
     return encodeTuple(list);
   }

@@ -15,8 +15,12 @@ class Hash with _$Hash {
   factory Hash(Uint8List bytes) = _Hash;
 
   static Hash parse(String hex) {
-    if (hex.length != kHashHexLength) throw 'Invalid hash lenght';
-    if (!utils.isHex(hex)) throw 'Invalid hex';
+    if (hex.length != kHashHexLength) {
+      throw Exception('Invalid hash lenght');
+    }
+    if (!utils.isHex(hex)) {
+      throw Exception('Invalid hex');
+    }
 
     final bytes = utils.hexToBytes(hex);
     return Hash(bytes);

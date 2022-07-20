@@ -19,7 +19,9 @@ class TokenIdType extends IntType {
     if (value is Token) {
       return leftPadBytes(value.core, SolidityType.int32Size);
     }
-    throw 'Invalid value for type "$this": $value (${value.runtimeType})';
+    throw Exception(
+      'Invalid value for type "$this": $value (${value.runtimeType})',
+    );
   }
 
   @override

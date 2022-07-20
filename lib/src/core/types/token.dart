@@ -18,20 +18,20 @@ class Token with _$Token {
 
   static Token parse(TokenId tokenId) {
     if (tokenId.length != kTokenIdLength) {
-      throw 'Invalid token format';
+      throw Exception('Invalid token format');
     }
     if (!tokenId.startsWith(kTokenIdPrefix)) {
-      throw 'Invalid token format';
+      throw Exception('Invalid token format');
     }
     final tokenHex = tokenId.substring(kTokenIdPrefix.length);
-    if (!utils.isHex(tokenHex)) throw 'Invalid hex format';
+    if (!utils.isHex(tokenHex)) throw Exception('Invalid hex format');
 
     final coreHex = tokenHex.substring(0, 2 * kTokenCoreSize);
     final core = utils.hexToBytes(coreHex);
     final checksumHex = tokenHex.substring(2 * kTokenCoreSize);
     final token = Token(core);
     if (token.checksum.hex != checksumHex) {
-      throw 'Invalid checksum';
+      throw Exception('Invalid checksum');
     }
 
     return token;

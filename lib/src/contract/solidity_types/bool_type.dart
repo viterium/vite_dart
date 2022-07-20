@@ -19,6 +19,6 @@ class BoolType extends IntType {
     } else if (value is bool) {
       return super.encode(value ? 1 : 0);
     }
-    throw 'Wrong value for bool type: $value';
+    throw Exception('Wrong value for bool type: $value');
   }
 }

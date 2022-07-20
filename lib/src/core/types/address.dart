@@ -23,15 +23,15 @@ class Address with _$Address {
 
   factory Address.parse(ViteAddress address) {
     if (address.length != kViteAddressLength) {
-      throw 'Invalid address length';
+      throw Exception('Invalid address length');
     }
     if (!address.startsWith(kViteAddressPrefix)) {
-      throw 'Invalid Vite Address format';
+      throw Exception('Invalid Vite Address format');
     }
 
     final addressHex = address.substring(kViteAddressPrefix.length);
     if (!utils.isHex(addressHex)) {
-      throw 'Invalid Vite Address format';
+      throw Exception('Invalid Vite Address format');
     }
 
     final coreHex = addressHex.substring(0, 2 * kAddressCoreSize);
@@ -47,7 +47,7 @@ class Address with _$Address {
     } else if (checksum.complement.hex == checksumHex) {
       return Address.contract(core);
     } else {
-      throw 'Incorrect checksum';
+      throw Exception('Incorrect checksum');
     }
   }
 

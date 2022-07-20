@@ -10,7 +10,9 @@ class StringType extends BytesType {
 
   @override
   Uint8List encode(Object value) {
-    if (value is! String) throw 'String value expected for type "string"';
+    if (value is! String) {
+      throw Exception('String value expected for type "string"');
+    }
     return super.encode(stringToBytesUtf8(value));
   }
 

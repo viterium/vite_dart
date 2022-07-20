@@ -8,8 +8,12 @@ class FunctionType extends Bytes32Type {
 
   @override
   Uint8List encode(Object value) {
-    if (value is! Uint8List) throw 'Expected Uint8List value for FunctionType';
-    if (value.lengthInBytes != 24) throw 'Invalid size for FunctionType';
+    if (value is! Uint8List) {
+      throw Exception('Expected Uint8List value for FunctionType');
+    }
+    if (value.lengthInBytes != 24) {
+      throw Exception('Invalid size for FunctionType');
+    }
     return super.encode(Uint8List.fromList(value + Uint8List(8)));
   }
 }

@@ -25,7 +25,7 @@ class Bytes32Type extends SolidityType {
     if (value is Uint8List) {
       return rightPadBytes(value, SolidityType.int32Size);
     }
-    throw Exception('Can\'t encode type ${value.runtimeType} to bytes32');
+    throw Exception('Can\'t encode type ${value.runtimeType} to $name');
   }
 
   @override

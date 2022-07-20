@@ -23,7 +23,7 @@ extension BlockTypeHelper on BlockType {
   int get rawValue => index + 1;
   static BlockType parseRawValue(int value) {
     if (value < 1 || value > BlockType.values.length) {
-      throw 'Invalid block type value';
+      throw Exception('Invalid block type value');
     }
     return BlockType.values[value - 1];
   }

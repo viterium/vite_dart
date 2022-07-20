@@ -36,11 +36,11 @@ abstract class ArrayType extends SolidityType {
         final elements = array.map((e) => e.toString()).toList();
         return encodeList(elements);
       } catch (e) {
-        throw 'Encode array type failed: $e';
+        throw Exception('Encode array type failed: $e');
       }
     }
 
-    throw 'List value expected for type $name';
+    throw Exception('List value expected for type $name');
   }
 
   Uint8List encodeList(List<Object> list);

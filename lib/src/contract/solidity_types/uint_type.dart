@@ -15,7 +15,9 @@ class UintType extends NumericType {
   }
 
   static Uint8List encodeFromBigInt(BigInt value) {
-    if (value.sign == -1) throw 'Wrong value for uint type: $value';
+    if (value.sign == -1) {
+      throw Exception('Wrong value for uint type: $value');
+    }
     final bytes = bigIntToBytes(value);
 
     final result = Uint8List(32);

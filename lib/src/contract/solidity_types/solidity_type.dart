@@ -34,7 +34,7 @@ abstract class SolidityType {
     if (typeName == bytesTypeKey) return BytesType();
     if (typeName == functionTypeKey) return FunctionType();
     if (typeName.startsWith(bytesTypeKey)) return Bytes32Type(typeName);
-    throw 'Unknown type: $typeName';
+    throw Exception('Unknown type: $typeName');
   }
 
   static String nameOf(SolidityType type) => type.toString();

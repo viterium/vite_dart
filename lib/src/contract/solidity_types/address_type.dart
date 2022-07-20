@@ -19,7 +19,9 @@ class AddressType extends IntType {
     if (value is Address) {
       return leftPadBytes(value.bytes, SolidityType.int32Size);
     }
-    throw 'Invalid value for type "$this": $value (${value.runtimeType})';
+    throw Exception(
+      'Invalid value for type "$this": $value (${value.runtimeType})',
+    );
   }
 
   @override

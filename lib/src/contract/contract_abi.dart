@@ -27,7 +27,7 @@ class ContractAbi {
       ) as ConstructorEntry;
       return c.encode(args);
     } on StateError {
-      throw 'Constructor does not exist';
+      throw Exception('Constructor does not exist');
     }
   }
 
@@ -37,7 +37,7 @@ class ContractAbi {
           as ConstructorEntry;
       return AbiEntry.decodeList(c.inputs, encoded);
     } on StateError {
-      throw 'Constructor does not exist';
+      throw Exception('Constructor does not exist');
     }
   }
 
@@ -45,7 +45,7 @@ class ContractAbi {
   Uint8List encodeFunction(String name, List<Object> args) {
     final f = findFunctionByName(name);
     if (f == null) {
-      throw 'Function does not exist';
+      throw Exception('Function does not exist');
     }
     return f.encode(args);
   }
@@ -58,14 +58,14 @@ class ContractAbi {
           entry.encodeSignature().hex == signature.hex);
       return f.decode(encoded);
     } on StateError {
-      throw 'Function does not exist';
+      throw Exception('Function does not exist');
     }
   }
 
   List<Object> decodeFunctionOutput(String name, Uint8List encoded) {
     final f = findFunctionByName(name);
     if (f == null) {
-      throw 'Function does not exist';
+      throw Exception('Function does not exist');
     }
     return f.decodeOutput(encoded);
   }
@@ -74,7 +74,7 @@ class ContractAbi {
   Uint8List encodeOffchain(String name, List<Object> args) {
     final f = findOffchainByName(name);
     if (f == null) {
-      throw 'Offchain does not exist';
+      throw Exception('Offchain $name does not exist');
     }
     return f.encode(args);
   }
@@ -82,7 +82,7 @@ class ContractAbi {
   List<Object> decodeOffchainOutput(String name, Uint8List encoded) {
     final f = findOffchainByName(name);
     if (f == null) {
-      throw 'Offchain does not exist';
+      throw Exception('Offchain $name does not exist');
     }
     return f.decodeOutput(encoded);
   }
