@@ -4,7 +4,7 @@ A dart library for [Vite](https://vite.org) blockchain.
 
 ### Features
 
-- Support for Vite RPC v2 APIs - [RPC v2 API](https://docs.vite.org/vite-docs/api/rpc)
+- Support for Vite [RPC v2 API](https://docs.vite.org/vite-docs/api/rpc)
 - Vite Wallet Key Derivation - [VEP3](https://docs.vite.org/vite-docs/vep/vep-3.html)
 - Transaction signing
 - Contract ABI parsing

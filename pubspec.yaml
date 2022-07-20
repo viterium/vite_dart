@@ -2,7 +2,7 @@ name: vite
 description: A dart library for the Vite blockchain. Send transactions and interact with smart contracts!
 homepage: https://viterium.io
 repository: https://github.com/viterium/vite_dart
-version: 0.1.2
+version: 0.1.3
 
 environment:
   sdk: ">=2.16.0 <3.0.0"

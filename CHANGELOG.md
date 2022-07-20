@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.3
+
+* Use BigInt instead of Decimal in Amount
+* Add address getter in Contract
+* Refactor Account Service and RawTransaction
+* Add TokenInfo for Unknown tokenId
+
 ## 0.1.2
 
 * Update AccountService
