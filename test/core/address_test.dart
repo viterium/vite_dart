@@ -19,6 +19,9 @@ void main() {
   test('Invalid address parsing', () {
     final invalidAddress =
         'vit_da3ca9bac9f05fce8f4eead36610756b6eb48282ff10a81d6d';
-    expect(() => Address.parse(invalidAddress), throwsA(TypeMatcher<String>()));
+    expect(
+      () => Address.parse(invalidAddress),
+      throwsA(TypeMatcher<Exception>()),
+    );
   });
 }
