@@ -26,6 +26,12 @@ class TokenInfo with _$TokenInfo {
     index: 0,
   );
 
+  static TokenInfo unknownToken(Token token) => TokenInfo.zero.copyWith(
+        token: token,
+        tokenName: 'Unknown',
+        tokenSymbol: 'UNK',
+      );
+
   static final vite = TokenInfo(
     token: Token.parse(viteTokenId),
     tokenName: 'VITE',
