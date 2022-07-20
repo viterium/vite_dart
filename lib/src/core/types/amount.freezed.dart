@@ -18,9 +18,9 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$AmountTearOff {
   const _$AmountTearOff();
 
-  _Amount call({required Decimal value, required TokenInfo tokenInfo}) {
+  _Amount call({required BigInt raw, required TokenInfo tokenInfo}) {
     return _Amount(
-      value: value,
+      raw: raw,
       tokenInfo: tokenInfo,
     );
   }
@@ -31,7 +31,7 @@ const $Amount = _$AmountTearOff();
 
 /// @nodoc
 mixin _$Amount {
-  Decimal get value => throw _privateConstructorUsedError;
+  BigInt get raw => throw _privateConstructorUsedError;
   TokenInfo get tokenInfo => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -42,7 +42,7 @@ mixin _$Amount {
 abstract class $AmountCopyWith<$Res> {
   factory $AmountCopyWith(Amount value, $Res Function(Amount) then) =
       _$AmountCopyWithImpl<$Res>;
-  $Res call({Decimal value, TokenInfo tokenInfo});
+  $Res call({BigInt raw, TokenInfo tokenInfo});
 
   $TokenInfoCopyWith<$Res> get tokenInfo;
 }
@@ -57,14 +57,14 @@ class _$AmountCopyWithImpl<$Res> implements $AmountCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? value = freezed,
+    Object? raw = freezed,
     Object? tokenInfo = freezed,
   }) {
     return _then(_value.copyWith(
-      value: value == freezed
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as Decimal,
+      raw: raw == freezed
+          ? _value.raw
+          : raw // ignore: cast_nullable_to_non_nullable
+              as BigInt,
       tokenInfo: tokenInfo == freezed
           ? _value.tokenInfo
           : tokenInfo // ignore: cast_nullable_to_non_nullable
@@ -85,7 +85,7 @@ abstract class _$AmountCopyWith<$Res> implements $AmountCopyWith<$Res> {
   factory _$AmountCopyWith(_Amount value, $Res Function(_Amount) then) =
       __$AmountCopyWithImpl<$Res>;
   @override
-  $Res call({Decimal value, TokenInfo tokenInfo});
+  $Res call({BigInt raw, TokenInfo tokenInfo});
 
   @override
   $TokenInfoCopyWith<$Res> get tokenInfo;
@@ -102,14 +102,14 @@ class __$AmountCopyWithImpl<$Res> extends _$AmountCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? value = freezed,
+    Object? raw = freezed,
     Object? tokenInfo = freezed,
   }) {
     return _then(_Amount(
-      value: value == freezed
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as Decimal,
+      raw: raw == freezed
+          ? _value.raw
+          : raw // ignore: cast_nullable_to_non_nullable
+              as BigInt,
       tokenInfo: tokenInfo == freezed
           ? _value.tokenInfo
           : tokenInfo // ignore: cast_nullable_to_non_nullable
@@ -121,16 +121,16 @@ class __$AmountCopyWithImpl<$Res> extends _$AmountCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Amount extends _Amount {
-  _$_Amount({required this.value, required this.tokenInfo}) : super._();
+  _$_Amount({required this.raw, required this.tokenInfo}) : super._();
 
   @override
-  final Decimal value;
+  final BigInt raw;
   @override
   final TokenInfo tokenInfo;
 
   @override
   String toString() {
-    return 'Amount(value: $value, tokenInfo: $tokenInfo)';
+    return 'Amount(raw: $raw, tokenInfo: $tokenInfo)';
   }
 
   @override
@@ -138,14 +138,14 @@ class _$_Amount extends _Amount {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Amount &&
-            const DeepCollectionEquality().equals(other.value, value) &&
+            const DeepCollectionEquality().equals(other.raw, raw) &&
             const DeepCollectionEquality().equals(other.tokenInfo, tokenInfo));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(value),
+      const DeepCollectionEquality().hash(raw),
       const DeepCollectionEquality().hash(tokenInfo));
 
   @JsonKey(ignore: true)
@@ -155,12 +155,12 @@ class _$_Amount extends _Amount {
 }
 
 abstract class _Amount extends Amount {
-  factory _Amount({required Decimal value, required TokenInfo tokenInfo}) =
+  factory _Amount({required BigInt raw, required TokenInfo tokenInfo}) =
       _$_Amount;
   _Amount._() : super._();
 
   @override
-  Decimal get value;
+  BigInt get raw;
   @override
   TokenInfo get tokenInfo;
   @override
