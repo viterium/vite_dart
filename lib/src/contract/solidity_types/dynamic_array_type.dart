@@ -7,7 +7,7 @@ class DynamicArrayType extends ArrayType {
   DynamicArrayType(String name) : super(name);
 
   @override
-  String get canonicalName => elementType.canonicalName + "[]";
+  String get canonicalName => '${elementType.canonicalName}[]';
 
   @override
   bool get isDynamicType => true;

@@ -1,5 +1,6 @@
 import 'dart:typed_data';
 
+import '../../core/types/hash.dart';
 import '../../utils/utils.dart' as utils;
 import '../solidity_types.dart';
 import '../types.dart';
@@ -61,7 +62,6 @@ abstract class AbiEntry {
           inputs: inputs,
           outputs: outputs,
           payable: payable,
-          type: type,
         );
       case AbiEntryType.offchain:
         return OffchainEntry(
@@ -88,6 +88,8 @@ abstract class AbiEntry {
     final signature = formatSignature();
     return utils.digest(data: utils.stringToBytesUtf8(signature));
   }
+
+  Hash get signatureHash => Hash(encodeSignature());
 
   Uint8List encodeSignature() => fingerprintSignature();
 

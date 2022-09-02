@@ -9,12 +9,11 @@ class FunctionEntry extends AbiEntry {
     required List<AbiEntryParam> inputs,
     List<AbiEntryParam> outputs = const [],
     required bool payable,
-    required AbiEntryType type,
   }) : super(
           name: name,
           inputs: inputs,
           outputs: outputs,
-          type: type,
+          type: AbiEntryType.function,
           payable: payable,
         );
 

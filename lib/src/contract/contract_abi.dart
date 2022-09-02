@@ -88,6 +88,22 @@ class ContractAbi {
   }
 
   // Events
+  Uint8List encodeEvent(String name) {
+    final e = findEventByName(name);
+    if (e == null) {
+      throw Exception('Unknown event $name');
+    }
+    return e.encodeSignature();
+  }
+
+  Hash topicForEvent(String name) {
+    final e = findEventByName(name);
+    if (e == null) {
+      throw Exception('Unknown event $name');
+    }
+    return e.signatureHash;
+  }
+
   List<Object> decodeEventWithTopics(Uint8List data, List<Uint8List> topics) {
     if (topics.isEmpty) {
       return [];

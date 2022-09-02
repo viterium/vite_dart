@@ -10,6 +10,12 @@ class Bytes32Type extends SolidityType {
 
   @override
   Uint8List encode(Object value) {
+    if (value is Hash) {
+      return value.bytes;
+    }
+    if (value is Uint8List) {
+      return rightPadBytes(value, SolidityType.int32Size);
+    }
     if (value is num) {
       final bigInt = BigInt.from(value);
       return IntType.encodeBigInt(bigInt);
@@ -22,9 +28,7 @@ class Bytes32Type extends SolidityType {
       final bytes = hexToBytes(hex);
       return rightPadBytes(bytes, SolidityType.int32Size);
     }
-    if (value is Uint8List) {
-      return rightPadBytes(value, SolidityType.int32Size);
-    }
+
     throw Exception('Can\'t encode type ${value.runtimeType} to $name');
   }
 
