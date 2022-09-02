@@ -1,6 +1,6 @@
 import 'package:vite/vite.dart';
 
-void main() async {
+Future<void> main() async {
   final client = RpcClient.ws('wss://node.vite.net/gvite/ws');
 
   // create snapshot block subscription
