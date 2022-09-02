@@ -1,5 +1,4 @@
-import 'package:vite/api.dart';
-
+import '../../api/util.dart';
 import '../rpc_api_base.dart';
 
 abstract class RpcUtilApi implements RpcApiBase, UtilApi {

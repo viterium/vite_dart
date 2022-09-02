@@ -1,6 +1,5 @@
-import 'package:vite/api.dart';
-import 'package:vite/core.dart';
-
+import '../../api/subscribe.dart';
+import '../../core/types/basic.dart';
 import '../rpc_api_base.dart';
 
 abstract class RpcSubscribeApi implements RpcApiBase, SubscribeApi {

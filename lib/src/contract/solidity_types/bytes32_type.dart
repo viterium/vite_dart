@@ -1,7 +1,7 @@
 import 'dart:typed_data';
 
-import 'package:vite/utils.dart';
-
+import '../../core/types/hash.dart';
+import '../../utils/utils.dart';
 import 'int_type.dart';
 import 'solidity_type.dart';
 

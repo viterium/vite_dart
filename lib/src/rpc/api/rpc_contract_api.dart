@@ -1,6 +1,5 @@
-import 'package:vite/api.dart';
-import 'package:vite/core.dart';
-
+import '../../api/contract.dart';
+import '../../core/types/basic.dart';
 import '../rpc_api_base.dart';
 import '../rpc_types.dart';
 

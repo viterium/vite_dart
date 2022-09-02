@@ -1,6 +1,5 @@
-import 'package:vite/api.dart';
-import 'package:vite/core.dart';
-
+import '../../api/ledger.dart';
+import '../../core/types/basic.dart';
 import '../rpc_api_base.dart';
 
 abstract class RpcLedgerApi implements RpcApiBase, LedgerApi {

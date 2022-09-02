@@ -1,8 +1,7 @@
 import 'dart:typed_data';
 
-import 'package:vite/core.dart';
-import 'package:vite/utils.dart';
-
+import '../../core/types/address.dart';
+import '../../utils/utils.dart';
 import 'int_type.dart';
 import 'solidity_type.dart';
 import 'solidity_type_keys.dart';

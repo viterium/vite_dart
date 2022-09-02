@@ -1,7 +1,6 @@
 import 'dart:typed_data';
 
-import 'package:vite/utils.dart';
-
+import '../../utils/utils.dart';
 import 'numeric_type.dart';
 import 'solidity_type_keys.dart';
 

@@ -1,9 +1,9 @@
 import 'dart:typed_data';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:vite/src/core/constants.dart';
-import 'package:vite/src/core/types/address.dart';
 
+import '../constants.dart';
+import 'address.dart';
 import 'basic.dart';
 import 'token.dart';
 

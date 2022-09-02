@@ -1,7 +1,13 @@
 import 'dart:async';
 import 'dart:typed_data';
 
-import 'package:vite/vite.dart';
+import '../contract/contracts.dart';
+import '../core/pow_client.dart';
+import '../core/types.dart';
+import '../core/vite_client.dart';
+import '../rpc/rpc_types.dart';
+import '../utils/utils.dart';
+import 'signer_base.dart';
 
 class AccountService {
   final SignerBase signer;
@@ -178,7 +184,7 @@ class AccountService {
     Address? beneficiary,
     required BigInt amount,
   }) async {
-    final quota = Contract.quotaContract;
+    final quota = quotaContract;
     final abi = quota.contractAbi;
     final data = abi.encodeFunction('StakeForQuota', [beneficiary ?? address]);
 
@@ -195,7 +201,7 @@ class AccountService {
     required Address address,
     required RpcHex recordId,
   }) async {
-    final quota = Contract.quotaContract;
+    final quota = quotaContract;
     final abi = quota.contractAbi;
     final data = abi.encodeFunction('CancelQuotaStaking', [recordId]);
 
@@ -208,7 +214,7 @@ class AccountService {
   }
 
   Future<Hash> voteForSbp(Address address, String sbpName) async {
-    final consensus = Contract.consensusContract;
+    final consensus = consensusContract;
     final abi = consensus.contractAbi;
     final data = abi.encodeFunction('VoteForSBP', [sbpName]);
 
@@ -221,7 +227,7 @@ class AccountService {
   }
 
   Future<Hash> cancelSbpVote(Address address) async {
-    final consensus = Contract.consensusContract;
+    final consensus = consensusContract;
     final abi = consensus.contractAbi;
     final data = abi.encodeFunction('CancelSBPVoting', []);
 

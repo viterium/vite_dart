@@ -1,7 +1,6 @@
 import 'dart:typed_data';
 
-import 'package:vite/utils.dart';
-
+import '../../utils/utils.dart';
 import 'solidity_type.dart';
 
 abstract class NumericType extends SolidityType {

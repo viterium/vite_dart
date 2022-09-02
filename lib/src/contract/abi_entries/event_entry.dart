@@ -1,7 +1,6 @@
 import 'dart:typed_data';
 
-import 'package:vite/core.dart';
-
+import '../../core/types/hash.dart';
 import '../contract_abi.dart';
 import '../types.dart';
 import 'abi_entry.dart';

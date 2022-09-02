@@ -1,8 +1,8 @@
 import 'dart:typed_data';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:vite/utils.dart' as utils;
 
+import '../../utils/utils.dart' as utils;
 import '../constants.dart';
 
 part 'hash.freezed.dart';

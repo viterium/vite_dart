@@ -1,5 +1,4 @@
-import 'package:vite/api.dart';
-
+import '../../api/net.dart';
 import '../rpc_api_base.dart';
 
 abstract class RpcNetApi implements RpcApiBase, NetApi {
