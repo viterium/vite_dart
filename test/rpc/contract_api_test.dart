@@ -1,6 +1,6 @@
 import 'package:http/http.dart' as http;
 import 'package:test/test.dart';
-import 'package:vite/rpcapi.dart';
+import 'package:vite/vite.dart';
 
 void main() {
   late RpcApi rpcApi;

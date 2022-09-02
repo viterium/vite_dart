@@ -1,9 +1,7 @@
 import 'dart:typed_data';
 
 import 'package:test/test.dart';
-import 'package:vite/core.dart';
-import 'package:vite/utils.dart';
-import 'package:vite/wallet.dart';
+import 'package:vite/vite.dart';
 
 void main() {
   const kEntropy =

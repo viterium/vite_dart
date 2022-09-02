@@ -1,14 +1,13 @@
 import 'dart:convert';
 
 import 'package:test/test.dart';
-import 'package:vite/utils.dart' as utils;
 import 'package:vite/vite.dart';
 
 void main() {
   test('Constructor encode and decode', () {
     final abi = ContractAbi.fromJsonString(
         '[{ "type" : "constructor", "inputs" : [ { "name" : "owner", "type" : "address" } ] }]');
-    final encodedParams = utils.hexToBytes(
+    final encodedParams = hexToBytes(
         '0000000000000000000000ab24ef68b84e642c0ddca06beec81c9acb1977bb00');
     final address = Address.parse(
         'vite_ab24ef68b84e642c0ddca06beec81c9acb1977bbd7da27a87a');
@@ -22,7 +21,7 @@ void main() {
   test('Function encode and decode', () {
     final abi = ContractAbi.fromJsonString(
         '[{ "type" : "function", "name" : "send", "constant" : false, "inputs" : [ { "name" : "amount", "type" : "uint256" } ] }]');
-    final encodedParams = utils.hexToBytes(
+    final encodedParams = hexToBytes(
         'd6f47d63000000000000000000000000000000000000000000000000000000000000007b');
     final amount = BigInt.parse('123');
     expect(abi.encodeFunction('send', [amount]), equals(encodedParams));
@@ -41,7 +40,7 @@ void main() {
     final toAddress = Address.parse(
         'vite_32f15c00af28d981033016214c2e19ffc058aaf3b36f4980ae');
     final decodedParams = abi.decodeEvent(
-      utils.hexToBytes(
+      hexToBytes(
           '000000000000000000000000000000000000000000000000000000000000007b'),
       [
         Hash.parse(
@@ -62,13 +61,13 @@ void main() {
   test('Offchain encode and decode', () {
     final abi = ContractAbi.fromJsonString(
         '[{ "type" : "offchain", "name" : "getData", "inputs" : [ { "name" : "id", "type" : "tokenId" } ],"outputs": [ { "name" : "amount", "type" : "uint256" } ] }]');
-    final encodedParams = utils.hexToBytes(
+    final encodedParams = hexToBytes(
         'a0a3fe85000000000000000000000000000000000000000000005649544520544f4b454e');
     final token = Token.parse('tti_5649544520544f4b454e6e40');
 
     expect(abi.encodeOffchain('getData', [token]), equals(encodedParams));
 
-    final encodedOutputParams = utils.hexToBytes(
+    final encodedOutputParams = hexToBytes(
         '000000000000000000000000000000000000000000000000000000000000007b');
     final decodedOutputParams =
         abi.decodeOffchainOutput('getData', encodedOutputParams);
@@ -80,7 +79,7 @@ void main() {
   test('Get event id', () {
     final abi = ContractAbi.fromJsonString(
         '[{ "type" : "event", "name" : "Transfer", "anonymous" : false, "inputs" : [ { "indexed" : true, "name" : "from", "type" : "address" }, { "indexed" : true, "name" : "to", "type" : "address" }, { "name" : "value", "type" : "uint256" } ] }]');
-    final expectedId = utils.hexToBytes(
+    final expectedId = hexToBytes(
         'e9a7da5bfc2bcbf4266adfba50ac5d6fa9ba4d52df50d9359a3974c36c131ce1');
     final id = abi.findEventByName('Transfer')?.encodeSignature();
     expect(id, equals(expectedId));
@@ -89,7 +88,7 @@ void main() {
   test('Get function by id', () {
     final abi = ContractAbi.fromJsonString(
         '[{ "type" : "function", "name" : "send", "constant" : false, "inputs" : [ { "name" : "amount", "type" : "uint256" } ] }]');
-    final encodedParams = utils.hexToBytes(
+    final encodedParams = hexToBytes(
         'd6f47d63000000000000000000000000000000000000000000000000000000000000007b');
     final f = abi.findFunctionByData(encodedParams);
     expect(f, isNotNull);

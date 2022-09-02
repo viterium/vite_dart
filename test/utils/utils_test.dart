@@ -1,5 +1,4 @@
 import 'package:test/test.dart';
-import 'package:vite/utils.dart' as utils;
 import 'package:vite/vite.dart';
 
 void main() {
@@ -19,7 +18,7 @@ void main() {
       token: Token.parse(viteTokenId),
     );
 
-    final hash = utils.computeTxHash(tx);
+    final hash = computeTxHash(tx);
 
     expect(hash.hex, equals(expectedHash));
   });
@@ -38,11 +37,11 @@ void main() {
           'vite_0000000000000000000000000000000000000006e82b8ba657'),
       amount: BigInt.parse('4000000000000000000000'),
       token: Token.parse(viteTokenId),
-      data: utils.base64ToBytes('MZ5G3Q=='),
-      nonce: utils.base64ToBytes('7yKLgwe4SeY='),
+      data: base64ToBytes('MZ5G3Q=='),
+      nonce: base64ToBytes('7yKLgwe4SeY='),
     );
 
-    final hash = utils.computeTxHash(tx);
+    final hash = computeTxHash(tx);
 
     expect(hash.hex, equals(expectedHash));
   });
@@ -59,10 +58,10 @@ void main() {
           'd0b284ab631adc4b3e55024e64fd871a14023b558c96830f3f263337a928e69b'),
       sendBlockHash: Hash.parse(
           'b7c910d85644b77f425071fd465448bdaa3a45acf044cf40a7e0b580aae1fbc1'),
-      data: utils.base64ToBytes('k1b8TViwL8gq6rP7301dpRDwMGoZGZHtgVdthVtX6F8A'),
+      data: base64ToBytes('k1b8TViwL8gq6rP7301dpRDwMGoZGZHtgVdthVtX6F8A'),
     );
 
-    final hash = utils.computeTxHash(tx);
+    final hash = computeTxHash(tx);
 
     expect(hash.hex, equals(expectedHash));
   });
