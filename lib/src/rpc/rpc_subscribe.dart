@@ -23,8 +23,8 @@ abstract class RpcSubscribe implements RpcClientBase {
           ViteAddress address) =>
       api.createUnreceivedBlockFilterByAddress(address);
 
-  Future<RpcFilterId> createVmLogFilter(RpcFilterParam param) =>
-      api.createVmLogFilter(param.toJson());
+  Future<RpcFilterId> createVmLogFilter(RpcVmLogFilter filter) =>
+      api.createVmLogFilter(filter.toJson());
 
   Future<bool> uninstallFilter(RpcFilterId filterId) =>
       api.uninstallFilter(filterId);
@@ -78,14 +78,74 @@ abstract class RpcSubscribe implements RpcClientBase {
       );
 
   Future<RpcSubscriptionId> createVmLogSubscription<T>(
-    RpcFilterParam param, {
+    RpcVmLogFilter filter, [
     RpcSubscribeCallback? callback,
-  }) =>
+  ]) =>
       wrapSubscription(
-        () => api.createVmLogSubscription(param.toJson()),
+        () => api.createVmLogSubscription(filter.toJson()),
         callback,
       );
 
   Future<bool> unsubscribe(String subscriptionId) =>
       api.unsubscribe(subscriptionId);
+
+  // New Polling API
+
+  Future<RpcFilterId> newSnapshotBlockFilter() => api.newSnapshotBlockFilter();
+
+  Future<RpcFilterId> newAccountBlockFilter() => api.newAccountBlockFilter();
+
+  Future<RpcFilterId> newAccountBlockForAddressFilter(ViteAddress address) =>
+      api.newAccountBlockByAddressFilter(address);
+
+  Future<RpcFilterId> newUnreceivedBlockByAddressFilter(ViteAddress address) =>
+      api.newUnreceivedBlockByAddressFilter(address);
+
+  Future<RpcFilterId> newVmLogFilter(RpcVmLogFilter filter) =>
+      api.newVmLogFilter(filter.toJson());
+
+  // New Callback API
+
+  Future<RpcSubscriptionId> newSnapshotBlock([
+    RpcSubscribeCallback? callback,
+  ]) =>
+      wrapSubscription(
+        () => api.newSnapshotBlockFilter(),
+        callback,
+      );
+
+  Future<RpcSubscriptionId> newAccountBlock([
+    RpcSubscribeCallback? callback,
+  ]) =>
+      wrapSubscription(
+        () => api.newAccountBlockFilter(),
+        callback,
+      );
+
+  Future<RpcSubscriptionId> newAccountBlockForAddress(
+    ViteAddress address, [
+    RpcSubscribeCallback? callback,
+  ]) =>
+      wrapSubscription(
+        () => api.newAccountBlockByAddressFilter(address),
+        callback,
+      );
+
+  Future<RpcSubscriptionId> newUnreceivedBlockByAddress(
+    ViteAddress address, [
+    RpcSubscribeCallback? callback,
+  ]) =>
+      wrapSubscription(
+        () => api.newUnreceivedBlockByAddressFilter(address),
+        callback,
+      );
+
+  Future<RpcSubscriptionId> newVmLog(
+    RpcVmLogFilter filter, [
+    RpcSubscribeCallback? callback,
+  ]) =>
+      wrapSubscription(
+        () => api.newVmLogFilter(filter.toJson()),
+        callback,
+      );
 }

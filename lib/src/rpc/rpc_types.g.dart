@@ -410,12 +410,22 @@ _$_RpcVmLogFilter _$$_RpcVmLogFilterFromJson(Map json) => _$_RpcVmLogFilter(
         (k, e) => MapEntry(k as String,
             RpcHeightRange.fromJson(Map<String, dynamic>.from(e as Map))),
       ),
+      topics: (json['topics'] as List<dynamic>?)
+              ?.map(
+                  (e) => (e as List<dynamic>).map((e) => e as String).toList())
+              .toList() ??
+          const [],
+      pageIndex: json['pageIndex'] as int? ?? 0,
+      pageSize: json['pageSize'] as int? ?? 100,
     );
 
 Map<String, dynamic> _$$_RpcVmLogFilterToJson(_$_RpcVmLogFilter instance) =>
     <String, dynamic>{
       'addressHeightRange':
           instance.addressHeightRange.map((k, e) => MapEntry(k, e.toJson())),
+      'topics': instance.topics,
+      'pageIndex': instance.pageIndex,
+      'pageSize': instance.pageSize,
     };
 
 _$_RpcHeightRange _$$_RpcHeightRangeFromJson(Map json) => _$_RpcHeightRange(
@@ -874,25 +884,6 @@ Map<String, dynamic> _$$_RpcTokenListInfoToJson(_$_RpcTokenListInfo instance) =>
     <String, dynamic>{
       'totalCount': instance.totalCount,
       'tokenInfoList': instance.tokenInfoList.map((e) => e.toJson()).toList(),
-    };
-
-_$_RpcFilterParam _$$_RpcFilterParamFromJson(Map json) => _$_RpcFilterParam(
-      addressHeightRange: (json['addressHeightRange'] as Map).map(
-        (k, e) => MapEntry(k as String,
-            RpcHeightRange.fromJson(Map<String, dynamic>.from(e as Map))),
-      ),
-      topics: (json['topics'] as List<dynamic>?)
-              ?.map(
-                  (e) => (e as List<dynamic>).map((e) => e as String).toList())
-              .toList() ??
-          const [],
-    );
-
-Map<String, dynamic> _$$_RpcFilterParamToJson(_$_RpcFilterParam instance) =>
-    <String, dynamic>{
-      'addressHeightRange':
-          instance.addressHeightRange.map((k, e) => MapEntry(k, e.toJson())),
-      'topics': instance.topics,
     };
 
 _$_RpcFilterResponse _$$_RpcFilterResponseFromJson(Map json) =>

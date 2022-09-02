@@ -4329,9 +4329,15 @@ class _$RpcVmLogFilterTearOff {
   const _$RpcVmLogFilterTearOff();
 
   _RpcVmLogFilter call(
-      {required Map<String, RpcHeightRange> addressHeightRange}) {
+      {required Map<String, RpcHeightRange> addressHeightRange,
+      List<List<String>> topics = const [],
+      int pageIndex = 0,
+      int pageSize = 100}) {
     return _RpcVmLogFilter(
       addressHeightRange: addressHeightRange,
+      topics: topics,
+      pageIndex: pageIndex,
+      pageSize: pageSize,
     );
   }
 
@@ -4347,6 +4353,9 @@ const $RpcVmLogFilter = _$RpcVmLogFilterTearOff();
 mixin _$RpcVmLogFilter {
   Map<String, RpcHeightRange> get addressHeightRange =>
       throw _privateConstructorUsedError;
+  List<List<String>> get topics => throw _privateConstructorUsedError;
+  int get pageIndex => throw _privateConstructorUsedError;
+  int get pageSize => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -4359,7 +4368,11 @@ abstract class $RpcVmLogFilterCopyWith<$Res> {
   factory $RpcVmLogFilterCopyWith(
           RpcVmLogFilter value, $Res Function(RpcVmLogFilter) then) =
       _$RpcVmLogFilterCopyWithImpl<$Res>;
-  $Res call({Map<String, RpcHeightRange> addressHeightRange});
+  $Res call(
+      {Map<String, RpcHeightRange> addressHeightRange,
+      List<List<String>> topics,
+      int pageIndex,
+      int pageSize});
 }
 
 /// @nodoc
@@ -4374,12 +4387,27 @@ class _$RpcVmLogFilterCopyWithImpl<$Res>
   @override
   $Res call({
     Object? addressHeightRange = freezed,
+    Object? topics = freezed,
+    Object? pageIndex = freezed,
+    Object? pageSize = freezed,
   }) {
     return _then(_value.copyWith(
       addressHeightRange: addressHeightRange == freezed
           ? _value.addressHeightRange
           : addressHeightRange // ignore: cast_nullable_to_non_nullable
               as Map<String, RpcHeightRange>,
+      topics: topics == freezed
+          ? _value.topics
+          : topics // ignore: cast_nullable_to_non_nullable
+              as List<List<String>>,
+      pageIndex: pageIndex == freezed
+          ? _value.pageIndex
+          : pageIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      pageSize: pageSize == freezed
+          ? _value.pageSize
+          : pageSize // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -4391,7 +4419,11 @@ abstract class _$RpcVmLogFilterCopyWith<$Res>
           _RpcVmLogFilter value, $Res Function(_RpcVmLogFilter) then) =
       __$RpcVmLogFilterCopyWithImpl<$Res>;
   @override
-  $Res call({Map<String, RpcHeightRange> addressHeightRange});
+  $Res call(
+      {Map<String, RpcHeightRange> addressHeightRange,
+      List<List<String>> topics,
+      int pageIndex,
+      int pageSize});
 }
 
 /// @nodoc
@@ -4408,12 +4440,27 @@ class __$RpcVmLogFilterCopyWithImpl<$Res>
   @override
   $Res call({
     Object? addressHeightRange = freezed,
+    Object? topics = freezed,
+    Object? pageIndex = freezed,
+    Object? pageSize = freezed,
   }) {
     return _then(_RpcVmLogFilter(
       addressHeightRange: addressHeightRange == freezed
           ? _value.addressHeightRange
           : addressHeightRange // ignore: cast_nullable_to_non_nullable
               as Map<String, RpcHeightRange>,
+      topics: topics == freezed
+          ? _value.topics
+          : topics // ignore: cast_nullable_to_non_nullable
+              as List<List<String>>,
+      pageIndex: pageIndex == freezed
+          ? _value.pageIndex
+          : pageIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      pageSize: pageSize == freezed
+          ? _value.pageSize
+          : pageSize // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -4421,17 +4468,30 @@ class __$RpcVmLogFilterCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_RpcVmLogFilter implements _RpcVmLogFilter {
-  const _$_RpcVmLogFilter({required this.addressHeightRange});
+  const _$_RpcVmLogFilter(
+      {required this.addressHeightRange,
+      this.topics = const [],
+      this.pageIndex = 0,
+      this.pageSize = 100});
 
   factory _$_RpcVmLogFilter.fromJson(Map<String, dynamic> json) =>
       _$$_RpcVmLogFilterFromJson(json);
 
   @override
   final Map<String, RpcHeightRange> addressHeightRange;
+  @JsonKey()
+  @override
+  final List<List<String>> topics;
+  @JsonKey()
+  @override
+  final int pageIndex;
+  @JsonKey()
+  @override
+  final int pageSize;
 
   @override
   String toString() {
-    return 'RpcVmLogFilter(addressHeightRange: $addressHeightRange)';
+    return 'RpcVmLogFilter(addressHeightRange: $addressHeightRange, topics: $topics, pageIndex: $pageIndex, pageSize: $pageSize)';
   }
 
   @override
@@ -4440,12 +4500,19 @@ class _$_RpcVmLogFilter implements _RpcVmLogFilter {
         (other.runtimeType == runtimeType &&
             other is _RpcVmLogFilter &&
             const DeepCollectionEquality()
-                .equals(other.addressHeightRange, addressHeightRange));
+                .equals(other.addressHeightRange, addressHeightRange) &&
+            const DeepCollectionEquality().equals(other.topics, topics) &&
+            const DeepCollectionEquality().equals(other.pageIndex, pageIndex) &&
+            const DeepCollectionEquality().equals(other.pageSize, pageSize));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(addressHeightRange));
+      runtimeType,
+      const DeepCollectionEquality().hash(addressHeightRange),
+      const DeepCollectionEquality().hash(topics),
+      const DeepCollectionEquality().hash(pageIndex),
+      const DeepCollectionEquality().hash(pageSize));
 
   @JsonKey(ignore: true)
   @override
@@ -4460,14 +4527,22 @@ class _$_RpcVmLogFilter implements _RpcVmLogFilter {
 
 abstract class _RpcVmLogFilter implements RpcVmLogFilter {
   const factory _RpcVmLogFilter(
-          {required Map<String, RpcHeightRange> addressHeightRange}) =
-      _$_RpcVmLogFilter;
+      {required Map<String, RpcHeightRange> addressHeightRange,
+      List<List<String>> topics,
+      int pageIndex,
+      int pageSize}) = _$_RpcVmLogFilter;
 
   factory _RpcVmLogFilter.fromJson(Map<String, dynamic> json) =
       _$_RpcVmLogFilter.fromJson;
 
   @override
   Map<String, RpcHeightRange> get addressHeightRange;
+  @override
+  List<List<String>> get topics;
+  @override
+  int get pageIndex;
+  @override
+  int get pageSize;
   @override
   @JsonKey(ignore: true)
   _$RpcVmLogFilterCopyWith<_RpcVmLogFilter> get copyWith =>
@@ -9887,186 +9962,6 @@ abstract class _RpcTokenListInfo implements RpcTokenListInfo {
   @override
   @JsonKey(ignore: true)
   _$RpcTokenListInfoCopyWith<_RpcTokenListInfo> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-RpcFilterParam _$RpcFilterParamFromJson(Map<String, dynamic> json) {
-  return _RpcFilterParam.fromJson(json);
-}
-
-/// @nodoc
-class _$RpcFilterParamTearOff {
-  const _$RpcFilterParamTearOff();
-
-  _RpcFilterParam call(
-      {required Map<String, RpcHeightRange> addressHeightRange,
-      List<List<String>> topics = const []}) {
-    return _RpcFilterParam(
-      addressHeightRange: addressHeightRange,
-      topics: topics,
-    );
-  }
-
-  RpcFilterParam fromJson(Map<String, Object?> json) {
-    return RpcFilterParam.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RpcFilterParam = _$RpcFilterParamTearOff();
-
-/// @nodoc
-mixin _$RpcFilterParam {
-  Map<String, RpcHeightRange> get addressHeightRange =>
-      throw _privateConstructorUsedError;
-  List<List<String>> get topics => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $RpcFilterParamCopyWith<RpcFilterParam> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $RpcFilterParamCopyWith<$Res> {
-  factory $RpcFilterParamCopyWith(
-          RpcFilterParam value, $Res Function(RpcFilterParam) then) =
-      _$RpcFilterParamCopyWithImpl<$Res>;
-  $Res call(
-      {Map<String, RpcHeightRange> addressHeightRange,
-      List<List<String>> topics});
-}
-
-/// @nodoc
-class _$RpcFilterParamCopyWithImpl<$Res>
-    implements $RpcFilterParamCopyWith<$Res> {
-  _$RpcFilterParamCopyWithImpl(this._value, this._then);
-
-  final RpcFilterParam _value;
-  // ignore: unused_field
-  final $Res Function(RpcFilterParam) _then;
-
-  @override
-  $Res call({
-    Object? addressHeightRange = freezed,
-    Object? topics = freezed,
-  }) {
-    return _then(_value.copyWith(
-      addressHeightRange: addressHeightRange == freezed
-          ? _value.addressHeightRange
-          : addressHeightRange // ignore: cast_nullable_to_non_nullable
-              as Map<String, RpcHeightRange>,
-      topics: topics == freezed
-          ? _value.topics
-          : topics // ignore: cast_nullable_to_non_nullable
-              as List<List<String>>,
-    ));
-  }
-}
-
-/// @nodoc
-abstract class _$RpcFilterParamCopyWith<$Res>
-    implements $RpcFilterParamCopyWith<$Res> {
-  factory _$RpcFilterParamCopyWith(
-          _RpcFilterParam value, $Res Function(_RpcFilterParam) then) =
-      __$RpcFilterParamCopyWithImpl<$Res>;
-  @override
-  $Res call(
-      {Map<String, RpcHeightRange> addressHeightRange,
-      List<List<String>> topics});
-}
-
-/// @nodoc
-class __$RpcFilterParamCopyWithImpl<$Res>
-    extends _$RpcFilterParamCopyWithImpl<$Res>
-    implements _$RpcFilterParamCopyWith<$Res> {
-  __$RpcFilterParamCopyWithImpl(
-      _RpcFilterParam _value, $Res Function(_RpcFilterParam) _then)
-      : super(_value, (v) => _then(v as _RpcFilterParam));
-
-  @override
-  _RpcFilterParam get _value => super._value as _RpcFilterParam;
-
-  @override
-  $Res call({
-    Object? addressHeightRange = freezed,
-    Object? topics = freezed,
-  }) {
-    return _then(_RpcFilterParam(
-      addressHeightRange: addressHeightRange == freezed
-          ? _value.addressHeightRange
-          : addressHeightRange // ignore: cast_nullable_to_non_nullable
-              as Map<String, RpcHeightRange>,
-      topics: topics == freezed
-          ? _value.topics
-          : topics // ignore: cast_nullable_to_non_nullable
-              as List<List<String>>,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$_RpcFilterParam implements _RpcFilterParam {
-  const _$_RpcFilterParam(
-      {required this.addressHeightRange, this.topics = const []});
-
-  factory _$_RpcFilterParam.fromJson(Map<String, dynamic> json) =>
-      _$$_RpcFilterParamFromJson(json);
-
-  @override
-  final Map<String, RpcHeightRange> addressHeightRange;
-  @JsonKey()
-  @override
-  final List<List<String>> topics;
-
-  @override
-  String toString() {
-    return 'RpcFilterParam(addressHeightRange: $addressHeightRange, topics: $topics)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _RpcFilterParam &&
-            const DeepCollectionEquality()
-                .equals(other.addressHeightRange, addressHeightRange) &&
-            const DeepCollectionEquality().equals(other.topics, topics));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(addressHeightRange),
-      const DeepCollectionEquality().hash(topics));
-
-  @JsonKey(ignore: true)
-  @override
-  _$RpcFilterParamCopyWith<_RpcFilterParam> get copyWith =>
-      __$RpcFilterParamCopyWithImpl<_RpcFilterParam>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_RpcFilterParamToJson(this);
-  }
-}
-
-abstract class _RpcFilterParam implements RpcFilterParam {
-  const factory _RpcFilterParam(
-      {required Map<String, RpcHeightRange> addressHeightRange,
-      List<List<String>> topics}) = _$_RpcFilterParam;
-
-  factory _RpcFilterParam.fromJson(Map<String, dynamic> json) =
-      _$_RpcFilterParam.fromJson;
-
-  @override
-  Map<String, RpcHeightRange> get addressHeightRange;
-  @override
-  List<List<String>> get topics;
-  @override
-  @JsonKey(ignore: true)
-  _$RpcFilterParamCopyWith<_RpcFilterParam> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

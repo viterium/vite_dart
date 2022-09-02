@@ -60,4 +60,54 @@ abstract class RpcSubscribeApi implements RpcApiBase, SubscribeApi {
   @override
   Future<bool> unsubscribe(String subscriptionId) =>
       makeTypedRpcCall('subscribe_unsubscribe', [subscriptionId]);
+
+  // New Polling API
+
+  @override
+  Future<String> newSnapshotBlockFilter() =>
+      makeTypedRpcCall('subscribe_newSnapshotBlockFilter');
+
+  @override
+  Future<String> newAccountBlockFilter() =>
+      makeTypedRpcCall('subscribe_newAccountBlockFilter');
+
+  @override
+  Future<String> newAccountBlockByAddressFilter(String address) =>
+      makeTypedRpcCall('subscribe_newAccountBlockByAddressFilter', [address]);
+
+  @override
+  Future<String> newUnreceivedBlockByAddressFilter(String address) =>
+      makeTypedRpcCall(
+          'subscribe_newUnreceivedBlockByAddressFilter', [address]);
+
+  @override
+  Future<String> newVmLogFilter(Map<String, dynamic> param) =>
+      makeTypedRpcCall('subscribe_newVmLogFilter', [param]);
+
+  // New Callback API
+
+  @override
+  Future<String> newSnapshotBlock() =>
+      makeTypedRpcCall('subscribe_subscribe', ['newSnapshotBlock']);
+
+  @override
+  Future<String> newAccountBlock() =>
+      makeTypedRpcCall('subscribe_subscribe', ['newAccountBlock']);
+
+  @override
+  Future<String> newAccountBlockByAddress(String address) => makeTypedRpcCall(
+        'subscribe_subscribe',
+        ['newAccountBlockByAddress', address],
+      );
+
+  @override
+  Future<String> newUnreceivedBlockByAddress(String address) =>
+      makeTypedRpcCall(
+        'subscribe_subscribe',
+        ['newUnreceivedBlockByAddress', address],
+      );
+
+  @override
+  Future<String> newVmLog(Map<String, dynamic> param) =>
+      makeTypedRpcCall('subscribe_subscribe', ['newVmLog', param]);
 }

@@ -3,14 +3,12 @@ import 'dart:typed_data';
 import 'package:decimal/decimal.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:json_converter/json_converter.dart';
-import 'package:vite/src/core/json_helper.dart';
-import 'package:vite/src/core/types/token_info.dart';
-import 'package:vite/src/utils/utils.dart';
 
 import 'address.dart';
 import 'block_type.dart';
 import 'hash.dart';
 import 'token.dart';
+import 'token_info.dart';
 
 part 'account_block.freezed.dart';
 part 'account_block.g.dart';
@@ -25,57 +23,10 @@ class BlockTypeConverter implements JsonConverter<BlockType, int> {
   int toJson(BlockType object) => object.rawValue;
 }
 
-class AddressConverter implements JsonConverter<Address, String> {
-  const AddressConverter();
-
-  @override
-  Address fromJson(String json) => Address.parse(json);
-
-  @override
-  String toJson(Address object) => object.viteAddress;
-}
-
-class HashConverter implements JsonConverter<Hash, String> {
-  const HashConverter();
-
-  @override
-  Hash fromJson(String json) => Hash.parse(json);
-
-  @override
-  String toJson(Hash object) => object.hex;
-}
-
-class OptionalHashConverter implements JsonConverter<Hash?, String> {
-  const OptionalHashConverter();
-
-  @override
-  Hash? fromJson(String json) => Hash.parse(json);
-
-  @override
-  String toJson(Hash? object) => object?.hex ?? '';
-}
-
-class TokenConverter implements JsonConverter<Token, String> {
-  const TokenConverter();
-
-  @override
-  Token fromJson(String json) => Token.parse(json);
-
-  @override
-  String toJson(Token object) => object.tokenId;
-}
-
-String? maybeBytesToBase64(Uint8List? bytes) => maybe(bytes, bytesToBase64);
-Uint8List? maybeBase64ToBytes(String? base64) => maybe(base64, base64ToBytes);
-R? maybe<T, R>(T? obj, R Function(T) sure) {
-  if (obj == null) return null;
-  return sure(obj);
-}
-
-Map<dynamic, dynamic> readTokenInfo(Map<dynamic, dynamic> json, String key) =>
+Map<dynamic, dynamic> _readTokenInfo(Map<dynamic, dynamic> json, String key) =>
     json[key] ?? TokenInfo.zero.toJson();
 
-String readAmount(Map<dynamic, dynamic> json, String key) => json[key] ?? '0';
+String _readAmount(Map<dynamic, dynamic> json, String key) => json[key] ?? '0';
 
 /// AccountBlock class represents an on chain Account Block
 @freezed
@@ -92,18 +43,14 @@ class AccountBlock with _$AccountBlock {
     required Hash sendBlockHash,
     required Hash previousHash,
     Hash? firstSnapshotHash,
-    @JsonKey(
-      fromJson: JsonHelper.nullableIntFromString,
-      toJson: JsonHelper.nullableStringFromInt,
-    )
-        int? firstSnapshotHeight,
+    BigInt? firstSnapshotHeight,
     required int timestamp,
     BigInt? confirmations,
     @JsonKey(name: 'tokenId')
         required Token token,
-    @JsonKey(readValue: readTokenInfo)
+    @JsonKey(readValue: _readTokenInfo)
         required TokenInfo tokenInfo,
-    @JsonKey(readValue: readAmount)
+    @JsonKey(readValue: _readAmount)
         required BigInt amount,
     required BigInt height,
     BigInt? fee,

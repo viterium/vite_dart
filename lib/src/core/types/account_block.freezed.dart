@@ -23,8 +23,7 @@ class _$AccountBlockTearOff {
   const _$AccountBlockTearOff();
 
   _AccountBlock call(
-      {@BlockTypeConverter()
-          required BlockType blockType,
+      {@BlockTypeConverter() required BlockType blockType,
       required Address address,
       required Address producer,
       required Address fromAddress,
@@ -33,30 +32,22 @@ class _$AccountBlockTearOff {
       required Hash sendBlockHash,
       required Hash previousHash,
       Hash? firstSnapshotHash,
-      @JsonKey(fromJson: JsonHelper.nullableIntFromString, toJson: JsonHelper.nullableStringFromInt)
-          int? firstSnapshotHeight,
+      BigInt? firstSnapshotHeight,
       required int timestamp,
       BigInt? confirmations,
-      @JsonKey(name: 'tokenId')
-          required Token token,
-      @JsonKey(readValue: readTokenInfo)
-          required TokenInfo tokenInfo,
-      @JsonKey(readValue: readAmount)
-          required BigInt amount,
+      @JsonKey(name: 'tokenId') required Token token,
+      @JsonKey(readValue: _readTokenInfo) required TokenInfo tokenInfo,
+      @JsonKey(readValue: _readAmount) required BigInt amount,
       required BigInt height,
       BigInt? fee,
       BigInt? difficulty,
       required BigInt quotaByStake,
       required BigInt totalQuota,
       Hash? vmLogHash,
-      @NullableUint8ListBase64Converter()
-          Uint8List? data,
-      @NullableUint8ListBase64Converter()
-          Uint8List? nonce,
-      @NullableUint8ListBase64Converter()
-          Uint8List? signature,
-      @NullableUint8ListBase64Converter()
-          Uint8List? publicKey,
+      @NullableUint8ListBase64Converter() Uint8List? data,
+      @NullableUint8ListBase64Converter() Uint8List? nonce,
+      @NullableUint8ListBase64Converter() Uint8List? signature,
+      @NullableUint8ListBase64Converter() Uint8List? publicKey,
       Hash? receiveBlockHash,
       BigInt? receiveBlockHeight,
       List<AccountBlock> triggeredSendBlockList = const []}) {
@@ -112,17 +103,14 @@ mixin _$AccountBlock {
   Hash get sendBlockHash => throw _privateConstructorUsedError;
   Hash get previousHash => throw _privateConstructorUsedError;
   Hash? get firstSnapshotHash => throw _privateConstructorUsedError;
-  @JsonKey(
-      fromJson: JsonHelper.nullableIntFromString,
-      toJson: JsonHelper.nullableStringFromInt)
-  int? get firstSnapshotHeight => throw _privateConstructorUsedError;
+  BigInt? get firstSnapshotHeight => throw _privateConstructorUsedError;
   int get timestamp => throw _privateConstructorUsedError;
   BigInt? get confirmations => throw _privateConstructorUsedError;
   @JsonKey(name: 'tokenId')
   Token get token => throw _privateConstructorUsedError;
-  @JsonKey(readValue: readTokenInfo)
+  @JsonKey(readValue: _readTokenInfo)
   TokenInfo get tokenInfo => throw _privateConstructorUsedError;
-  @JsonKey(readValue: readAmount)
+  @JsonKey(readValue: _readAmount)
   BigInt get amount => throw _privateConstructorUsedError;
   BigInt get height => throw _privateConstructorUsedError;
   BigInt? get fee => throw _privateConstructorUsedError;
@@ -155,8 +143,7 @@ abstract class $AccountBlockCopyWith<$Res> {
           AccountBlock value, $Res Function(AccountBlock) then) =
       _$AccountBlockCopyWithImpl<$Res>;
   $Res call(
-      {@BlockTypeConverter()
-          BlockType blockType,
+      {@BlockTypeConverter() BlockType blockType,
       Address address,
       Address producer,
       Address fromAddress,
@@ -165,30 +152,22 @@ abstract class $AccountBlockCopyWith<$Res> {
       Hash sendBlockHash,
       Hash previousHash,
       Hash? firstSnapshotHash,
-      @JsonKey(fromJson: JsonHelper.nullableIntFromString, toJson: JsonHelper.nullableStringFromInt)
-          int? firstSnapshotHeight,
+      BigInt? firstSnapshotHeight,
       int timestamp,
       BigInt? confirmations,
-      @JsonKey(name: 'tokenId')
-          Token token,
-      @JsonKey(readValue: readTokenInfo)
-          TokenInfo tokenInfo,
-      @JsonKey(readValue: readAmount)
-          BigInt amount,
+      @JsonKey(name: 'tokenId') Token token,
+      @JsonKey(readValue: _readTokenInfo) TokenInfo tokenInfo,
+      @JsonKey(readValue: _readAmount) BigInt amount,
       BigInt height,
       BigInt? fee,
       BigInt? difficulty,
       BigInt quotaByStake,
       BigInt totalQuota,
       Hash? vmLogHash,
-      @NullableUint8ListBase64Converter()
-          Uint8List? data,
-      @NullableUint8ListBase64Converter()
-          Uint8List? nonce,
-      @NullableUint8ListBase64Converter()
-          Uint8List? signature,
-      @NullableUint8ListBase64Converter()
-          Uint8List? publicKey,
+      @NullableUint8ListBase64Converter() Uint8List? data,
+      @NullableUint8ListBase64Converter() Uint8List? nonce,
+      @NullableUint8ListBase64Converter() Uint8List? signature,
+      @NullableUint8ListBase64Converter() Uint8List? publicKey,
       Hash? receiveBlockHash,
       BigInt? receiveBlockHeight,
       List<AccountBlock> triggeredSendBlockList});
@@ -286,7 +265,7 @@ class _$AccountBlockCopyWithImpl<$Res> implements $AccountBlockCopyWith<$Res> {
       firstSnapshotHeight: firstSnapshotHeight == freezed
           ? _value.firstSnapshotHeight
           : firstSnapshotHeight // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as BigInt?,
       timestamp: timestamp == freezed
           ? _value.timestamp
           : timestamp // ignore: cast_nullable_to_non_nullable
@@ -467,8 +446,7 @@ abstract class _$AccountBlockCopyWith<$Res>
       __$AccountBlockCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@BlockTypeConverter()
-          BlockType blockType,
+      {@BlockTypeConverter() BlockType blockType,
       Address address,
       Address producer,
       Address fromAddress,
@@ -477,30 +455,22 @@ abstract class _$AccountBlockCopyWith<$Res>
       Hash sendBlockHash,
       Hash previousHash,
       Hash? firstSnapshotHash,
-      @JsonKey(fromJson: JsonHelper.nullableIntFromString, toJson: JsonHelper.nullableStringFromInt)
-          int? firstSnapshotHeight,
+      BigInt? firstSnapshotHeight,
       int timestamp,
       BigInt? confirmations,
-      @JsonKey(name: 'tokenId')
-          Token token,
-      @JsonKey(readValue: readTokenInfo)
-          TokenInfo tokenInfo,
-      @JsonKey(readValue: readAmount)
-          BigInt amount,
+      @JsonKey(name: 'tokenId') Token token,
+      @JsonKey(readValue: _readTokenInfo) TokenInfo tokenInfo,
+      @JsonKey(readValue: _readAmount) BigInt amount,
       BigInt height,
       BigInt? fee,
       BigInt? difficulty,
       BigInt quotaByStake,
       BigInt totalQuota,
       Hash? vmLogHash,
-      @NullableUint8ListBase64Converter()
-          Uint8List? data,
-      @NullableUint8ListBase64Converter()
-          Uint8List? nonce,
-      @NullableUint8ListBase64Converter()
-          Uint8List? signature,
-      @NullableUint8ListBase64Converter()
-          Uint8List? publicKey,
+      @NullableUint8ListBase64Converter() Uint8List? data,
+      @NullableUint8ListBase64Converter() Uint8List? nonce,
+      @NullableUint8ListBase64Converter() Uint8List? signature,
+      @NullableUint8ListBase64Converter() Uint8List? publicKey,
       Hash? receiveBlockHash,
       BigInt? receiveBlockHeight,
       List<AccountBlock> triggeredSendBlockList});
@@ -612,7 +582,7 @@ class __$AccountBlockCopyWithImpl<$Res> extends _$AccountBlockCopyWithImpl<$Res>
       firstSnapshotHeight: firstSnapshotHeight == freezed
           ? _value.firstSnapshotHeight
           : firstSnapshotHeight // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as BigInt?,
       timestamp: timestamp == freezed
           ? _value.timestamp
           : timestamp // ignore: cast_nullable_to_non_nullable
@@ -693,8 +663,7 @@ class __$AccountBlockCopyWithImpl<$Res> extends _$AccountBlockCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_AccountBlock extends _AccountBlock {
   _$_AccountBlock(
-      {@BlockTypeConverter()
-          required this.blockType,
+      {@BlockTypeConverter() required this.blockType,
       required this.address,
       required this.producer,
       required this.fromAddress,
@@ -703,30 +672,22 @@ class _$_AccountBlock extends _AccountBlock {
       required this.sendBlockHash,
       required this.previousHash,
       this.firstSnapshotHash,
-      @JsonKey(fromJson: JsonHelper.nullableIntFromString, toJson: JsonHelper.nullableStringFromInt)
-          this.firstSnapshotHeight,
+      this.firstSnapshotHeight,
       required this.timestamp,
       this.confirmations,
-      @JsonKey(name: 'tokenId')
-          required this.token,
-      @JsonKey(readValue: readTokenInfo)
-          required this.tokenInfo,
-      @JsonKey(readValue: readAmount)
-          required this.amount,
+      @JsonKey(name: 'tokenId') required this.token,
+      @JsonKey(readValue: _readTokenInfo) required this.tokenInfo,
+      @JsonKey(readValue: _readAmount) required this.amount,
       required this.height,
       this.fee,
       this.difficulty,
       required this.quotaByStake,
       required this.totalQuota,
       this.vmLogHash,
-      @NullableUint8ListBase64Converter()
-          this.data,
-      @NullableUint8ListBase64Converter()
-          this.nonce,
-      @NullableUint8ListBase64Converter()
-          this.signature,
-      @NullableUint8ListBase64Converter()
-          this.publicKey,
+      @NullableUint8ListBase64Converter() this.data,
+      @NullableUint8ListBase64Converter() this.nonce,
+      @NullableUint8ListBase64Converter() this.signature,
+      @NullableUint8ListBase64Converter() this.publicKey,
       this.receiveBlockHash,
       this.receiveBlockHeight,
       this.triggeredSendBlockList = const []})
@@ -755,10 +716,7 @@ class _$_AccountBlock extends _AccountBlock {
   @override
   final Hash? firstSnapshotHash;
   @override
-  @JsonKey(
-      fromJson: JsonHelper.nullableIntFromString,
-      toJson: JsonHelper.nullableStringFromInt)
-  final int? firstSnapshotHeight;
+  final BigInt? firstSnapshotHeight;
   @override
   final int timestamp;
   @override
@@ -767,10 +725,10 @@ class _$_AccountBlock extends _AccountBlock {
   @JsonKey(name: 'tokenId')
   final Token token;
   @override
-  @JsonKey(readValue: readTokenInfo)
+  @JsonKey(readValue: _readTokenInfo)
   final TokenInfo tokenInfo;
   @override
-  @JsonKey(readValue: readAmount)
+  @JsonKey(readValue: _readAmount)
   final BigInt amount;
   @override
   final BigInt height;
@@ -902,8 +860,7 @@ class _$_AccountBlock extends _AccountBlock {
 
 abstract class _AccountBlock extends AccountBlock {
   factory _AccountBlock(
-      {@BlockTypeConverter()
-          required BlockType blockType,
+      {@BlockTypeConverter() required BlockType blockType,
       required Address address,
       required Address producer,
       required Address fromAddress,
@@ -912,30 +869,22 @@ abstract class _AccountBlock extends AccountBlock {
       required Hash sendBlockHash,
       required Hash previousHash,
       Hash? firstSnapshotHash,
-      @JsonKey(fromJson: JsonHelper.nullableIntFromString, toJson: JsonHelper.nullableStringFromInt)
-          int? firstSnapshotHeight,
+      BigInt? firstSnapshotHeight,
       required int timestamp,
       BigInt? confirmations,
-      @JsonKey(name: 'tokenId')
-          required Token token,
-      @JsonKey(readValue: readTokenInfo)
-          required TokenInfo tokenInfo,
-      @JsonKey(readValue: readAmount)
-          required BigInt amount,
+      @JsonKey(name: 'tokenId') required Token token,
+      @JsonKey(readValue: _readTokenInfo) required TokenInfo tokenInfo,
+      @JsonKey(readValue: _readAmount) required BigInt amount,
       required BigInt height,
       BigInt? fee,
       BigInt? difficulty,
       required BigInt quotaByStake,
       required BigInt totalQuota,
       Hash? vmLogHash,
-      @NullableUint8ListBase64Converter()
-          Uint8List? data,
-      @NullableUint8ListBase64Converter()
-          Uint8List? nonce,
-      @NullableUint8ListBase64Converter()
-          Uint8List? signature,
-      @NullableUint8ListBase64Converter()
-          Uint8List? publicKey,
+      @NullableUint8ListBase64Converter() Uint8List? data,
+      @NullableUint8ListBase64Converter() Uint8List? nonce,
+      @NullableUint8ListBase64Converter() Uint8List? signature,
+      @NullableUint8ListBase64Converter() Uint8List? publicKey,
       Hash? receiveBlockHash,
       BigInt? receiveBlockHeight,
       List<AccountBlock> triggeredSendBlockList}) = _$_AccountBlock;
@@ -964,10 +913,7 @@ abstract class _AccountBlock extends AccountBlock {
   @override
   Hash? get firstSnapshotHash;
   @override
-  @JsonKey(
-      fromJson: JsonHelper.nullableIntFromString,
-      toJson: JsonHelper.nullableStringFromInt)
-  int? get firstSnapshotHeight;
+  BigInt? get firstSnapshotHeight;
   @override
   int get timestamp;
   @override
@@ -976,10 +922,10 @@ abstract class _AccountBlock extends AccountBlock {
   @JsonKey(name: 'tokenId')
   Token get token;
   @override
-  @JsonKey(readValue: readTokenInfo)
+  @JsonKey(readValue: _readTokenInfo)
   TokenInfo get tokenInfo;
   @override
-  @JsonKey(readValue: readAmount)
+  @JsonKey(readValue: _readAmount)
   BigInt get amount;
   @override
   BigInt get height;

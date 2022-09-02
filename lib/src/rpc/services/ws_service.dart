@@ -45,9 +45,6 @@ class WsService extends RpcService with CallbackSupport {
       return true;
     }());
 
-    // if (_client.isClosed) {
-    //   connect();
-    // }
     final result = await _client.sendRequest(method, params ?? []);
     return result;
   }

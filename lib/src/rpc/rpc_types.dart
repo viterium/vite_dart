@@ -266,6 +266,9 @@ class RpcVmLog with _$RpcVmLog {
 class RpcVmLogFilter with _$RpcVmLogFilter {
   const factory RpcVmLogFilter({
     required Map<String, RpcHeightRange> addressHeightRange,
+    @Default([]) List<List<RpcHash>> topics,
+    @Default(0) int pageIndex,
+    @Default(100) int pageSize,
   }) = _RpcVmLogFilter;
 
   factory RpcVmLogFilter.fromJson(Map<String, dynamic> json) =>
@@ -582,17 +585,6 @@ class RpcTokenListInfo with _$RpcTokenListInfo {
 
   factory RpcTokenListInfo.fromJson(Map<String, dynamic> json) =>
       _$RpcTokenListInfoFromJson(json);
-}
-
-@freezed
-class RpcFilterParam with _$RpcFilterParam {
-  const factory RpcFilterParam({
-    required Map<ViteAddress, RpcHeightRange> addressHeightRange,
-    @Default([]) List<List<RpcHash>> topics,
-  }) = _RpcFilterParam;
-
-  factory RpcFilterParam.fromJson(Map<String, dynamic> json) =>
-      _$RpcFilterParamFromJson(json);
 }
 
 @freezed

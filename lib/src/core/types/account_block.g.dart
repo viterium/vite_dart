@@ -18,16 +18,17 @@ _$_AccountBlock _$$_AccountBlockFromJson(Map json) => _$_AccountBlock(
       firstSnapshotHash: json['firstSnapshotHash'] == null
           ? null
           : Hash.fromJson(json['firstSnapshotHash'] as String),
-      firstSnapshotHeight: JsonHelper.nullableIntFromString(
-          json['firstSnapshotHeight'] as String?),
+      firstSnapshotHeight: json['firstSnapshotHeight'] == null
+          ? null
+          : BigInt.parse(json['firstSnapshotHeight'] as String),
       timestamp: json['timestamp'] as int,
       confirmations: json['confirmations'] == null
           ? null
           : BigInt.parse(json['confirmations'] as String),
       token: Token.fromJson(json['tokenId'] as String),
       tokenInfo: TokenInfo.fromJson(
-          Map<String, dynamic>.from(readTokenInfo(json, 'tokenInfo') as Map)),
-      amount: BigInt.parse(readAmount(json, 'amount') as String),
+          Map<String, dynamic>.from(_readTokenInfo(json, 'tokenInfo') as Map)),
+      amount: BigInt.parse(_readAmount(json, 'amount') as String),
       height: BigInt.parse(json['height'] as String),
       fee: json['fee'] == null ? null : BigInt.parse(json['fee'] as String),
       difficulty: json['difficulty'] == null
@@ -78,8 +79,7 @@ Map<String, dynamic> _$$_AccountBlockToJson(_$_AccountBlock instance) {
   val['sendBlockHash'] = instance.sendBlockHash.toJson();
   val['previousHash'] = instance.previousHash.toJson();
   writeNotNull('firstSnapshotHash', instance.firstSnapshotHash?.toJson());
-  writeNotNull('firstSnapshotHeight',
-      JsonHelper.nullableStringFromInt(instance.firstSnapshotHeight));
+  writeNotNull('firstSnapshotHeight', instance.firstSnapshotHeight?.toString());
   val['timestamp'] = instance.timestamp;
   writeNotNull('confirmations', instance.confirmations?.toString());
   val['tokenId'] = instance.token.toJson();
