@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.0
+
+* Add new subscription APIs
+* Contract ABI support improvements
+* ViteClient improvements
+
 ## 0.1.3
 
 * Use BigInt instead of Decimal in Amount
