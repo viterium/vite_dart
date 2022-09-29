@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.0
+
+* Update dependencies
+* New RPC methods
+* Fix uint_type
+* Refactor solidity types
+
 ## 0.2.0
 
 * Add new subscription APIs
