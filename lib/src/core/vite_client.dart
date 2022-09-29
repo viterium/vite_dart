@@ -48,6 +48,7 @@ class ViteClient extends RpcClientBase implements PowClient {
     AccountInfo: AccountInfo.fromJson,
     PowDifficultyResult: PowDifficultyResult.fromJson,
     TokenInfo: TokenInfo.fromJson,
+    TokenInfoList: TokenInfoList.fromJson,
     RpcQuotaInfo: RpcQuotaInfo.fromJson,
     RpcVoteInfo: RpcVoteInfo.fromJson,
     VmLogMessage: VmLogMessage.fromJson,
@@ -81,6 +82,15 @@ class ViteClient extends RpcClientBase implements PowClient {
 
   Future<Uint8List> query(QueryParams params) => api.query(params.toJson());
 
+  Future<Map<Hash, Uint8List>> getContractStorage(
+      Address address, HashPrefix prefix) async {
+    final Map<String, dynamic> result =
+        await api.getContractStorage(address.viteAddress, prefix.hex);
+    return result.cast<String, String>().map(
+          (key, value) => MapEntry(Hash.parse(key), hexToBytes(value)),
+        );
+  }
+
   Future<AccountBlock> getLatestAccountBlock(Address address) =>
       api.getLatestAccountBlock(address.viteAddress);
 
@@ -99,6 +109,9 @@ class ViteClient extends RpcClientBase implements PowClient {
   Future<AccountBlock> getAccountBlockByHash(Hash hash) =>
       api.getAccountBlockByHash(hash.hex);
 
+  Future<AccountBlock> getAccountBlockByHeight(Address address, int height) =>
+      api.getAccountBlockByHeight(address.viteAddress, height);
+
   Future<SnapshotBlock> getSnapshotBlockByHeight(int height) =>
       api.getSnapshotBlockByHeight(height);
 
@@ -115,6 +128,17 @@ class ViteClient extends RpcClientBase implements PowClient {
       count: count,
     );
   }
+
+  Future<List<AccountBlock>> getAccountBlocksByAddress(
+    Address address, {
+    required int pageIndex,
+    required int pageSize,
+  }) =>
+      api.getAccountBlocksByAddress(
+        address.viteAddress,
+        pageIndex: pageIndex,
+        pageSize: pageSize,
+      );
 
   Future<AccountInfo> getAccountInfo(Address address) {
     return api.getAccountInfoByAddress(address.viteAddress);
@@ -143,6 +167,10 @@ class ViteClient extends RpcClientBase implements PowClient {
 
   Future<TokenInfo> getTokenInfo(TokenId tokenId) {
     return api.getTokenInfoById(tokenId);
+  }
+
+  Future<TokenInfoList> getTokenInfoList(int pageIndex, int pageSize) {
+    return api.getTokenInfoList(pageIndex, pageSize);
   }
 
   Future<RpcQuotaInfo> getQuotaForAddress(Address address) {
