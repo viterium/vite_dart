@@ -16,7 +16,7 @@ class GidType extends IntType {
     var s = value.toLowerCase().trim();
     if (s.length != 20) throw exception;
 
-    return IntType.encodeBigInt(BigInt.parse(s, radix: 16));
+    return IntType.encodeFromBigInt(BigInt.parse(s, radix: 16));
   }
 
   @override

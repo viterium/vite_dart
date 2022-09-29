@@ -15,18 +15,18 @@ class DynamicArrayType extends ArrayType {
   @override
   Uint8List encodeList(List<Object> list) {
     return Uint8List.fromList(
-        IntType.encodeInt(list.length) + encodeTuple(list));
+        IntType.encodeFromInt(list.length) + encodeTuple(list));
   }
 
   @override
   Object decode(Uint8List encoded, [int offset = 0]) {
-    final length = IntType.decodeBigInt(encoded, offset).toInt();
+    final length = IntType.decodeToBigInt(encoded, offset).toInt();
     offset += 32;
     final origOffset = offset;
     final result = List<Object>.filled(length, 0);
     for (int i = 0; i < length; ++i) {
       if (elementType.isDynamicType) {
-        final deltaOffset = IntType.decodeBigInt(encoded, offset).toInt();
+        final deltaOffset = IntType.decodeToBigInt(encoded, offset).toInt();
         result[i] = elementType.decode(encoded, origOffset + deltaOffset);
       } else {
         result[i] = elementType.decode(encoded, offset);

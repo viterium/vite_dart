@@ -13,30 +13,33 @@ class IntType extends NumericType {
     return super.canonicalName;
   }
 
-  static Uint8List encodeInt(int value) {
-    return encodeBigInt(BigInt.from(value));
-  }
-
-  static Uint8List encodeBigInt(BigInt value) {
+  static Uint8List encodeFromBigInt(BigInt value) {
     final bytes = bigIntToBytes(value);
-
     final result = value.isNegative ? Uint8List(32).complement : Uint8List(32);
     result.setAll(32 - bytes.lengthInBytes, bytes);
     return result;
   }
 
-  static BigInt decodeBigInt(Uint8List encoded, int offset) {
+  static Uint8List encodeFromInt(int value) {
+    return encodeFromBigInt(BigInt.from(value));
+  }
+
+  static BigInt decodeToBigInt(Uint8List encoded, int offset) {
     return bytesToBigInt(encoded.sublist(offset, offset + 32));
   }
 
   @override
   Uint8List encode(Object value) {
     final bigInt = encodeInternal(value);
-    return encodeBigInt(bigInt);
+    return encodeFromBigInt(bigInt);
   }
 
   @override
-  Object decode(Uint8List encoded, [int offset = 0]) {
-    return decodeBigInt(encoded, offset);
-  }
+  Object decode(Uint8List encoded, [int offset = 0]) =>
+      decodeToBigInt(encoded, offset);
+
+  Uint8List encodeBigInt(BigInt value) => encodeFromBigInt(value);
+
+  BigInt decodeBigInt(Uint8List encoded, [int offset = 0]) =>
+      decodeToBigInt(encoded, offset);
 }

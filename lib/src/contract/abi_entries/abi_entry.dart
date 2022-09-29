@@ -90,6 +90,7 @@ abstract class AbiEntry {
   }
 
   Hash get signatureHash => Hash(encodeSignature());
+  Hash get asTopic => signatureHash;
 
   Uint8List encodeSignature() => fingerprintSignature();
 
@@ -115,7 +116,7 @@ abstract class AbiEntry {
       final type = inputs[i].type;
       if (type.isDynamicType) {
         final dynArg = type.encode(args[i]);
-        encodedArgs[i] = IntType.encodeInt(dynamicPtr);
+        encodedArgs[i] = IntType.encodeFromInt(dynamicPtr);
         encodedArgs[args.length + cDynamicCount] = dynArg;
         cDynamicCount++;
         dynamicPtr += dynArg.lengthInBytes;
@@ -156,7 +157,7 @@ abstract class AbiEntry {
     final decoded = type.isDynamicType
         ? type.decode(
             encoded,
-            IntType.decodeBigInt(encoded, offset).toInt(),
+            IntType.decodeToBigInt(encoded, offset).toInt(),
           )
         : type.decode(encoded, offset);
     return decoded;

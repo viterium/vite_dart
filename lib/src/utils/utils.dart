@@ -52,7 +52,12 @@ String bytesUtf8ToString(Uint8List bytes) => utf8.decode(bytes);
 
 BigInt bytesToBigInt(Uint8List bytes) => p_utils.decodeBigInt(bytes);
 
+BigInt bytesToBigIntUnsigned(Uint8List bytes) =>
+    p_utils.decodeBigIntWithSign(1, bytes);
+
 Uint8List bigIntToBytes(BigInt bigInt) => p_utils.encodeBigInt(bigInt);
+Uint8List bigIntToBytesUnsigned(BigInt bigInt) =>
+    p_utils.encodeBigIntAsUnsigned(bigInt);
 
 bool isHex(String hex) => isHexadecimal(hex);
 

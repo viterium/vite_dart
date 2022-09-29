@@ -26,13 +26,13 @@ class BytesType extends SolidityType {
         SolidityType.int32Size);
     ret.setRange(0, bytes.length, bytes);
 
-    final data = Uint8List.fromList(IntType.encodeInt(bytes.length) + ret);
+    final data = Uint8List.fromList(IntType.encodeFromInt(bytes.length) + ret);
     return data;
   }
 
   @override
   Object decode(Uint8List encoded, [int offset = 0]) {
-    final length = IntType.decodeBigInt(encoded, offset).toInt();
+    final length = IntType.decodeToBigInt(encoded, offset).toInt();
     if (length == 0) return Uint8List(0);
     offset += 32;
     return encoded.sublist(offset, offset + length);

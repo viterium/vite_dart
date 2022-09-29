@@ -52,7 +52,7 @@ abstract class ArrayType extends SolidityType {
       final elems = BytesBuilder(copy: false);
       var offset = list.length * SolidityType.int32Size;
       for (int i = 0; i < list.length; ++i) {
-        types.add(IntType.encodeInt(offset));
+        types.add(IntType.encodeFromInt(offset));
         final encoded = elementType.encode(list[i]);
         elems.add(encoded);
         offset += SolidityType.int32Size *
@@ -77,7 +77,7 @@ abstract class ArrayType extends SolidityType {
       if (elementType.isDynamicType) {
         result[i] = elementType.decode(
           encoded,
-          origOffset + IntType.decodeBigInt(encoded, offset).toInt(),
+          origOffset + IntType.decodeToBigInt(encoded, offset).toInt(),
         );
       } else {
         result[i] = elementType.decode(encoded, offset);

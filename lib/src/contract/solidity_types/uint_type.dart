@@ -15,10 +15,10 @@ class UintType extends NumericType {
 
   static Uint8List encodeFromBigInt(BigInt value) {
     if (value.sign == -1) {
-      throw Exception('Wrong value for uint type: $value');
+      throw Exception('UintType can\'t encode negative value $value');
     }
-    final bytes = bigIntToBytes(value);
 
+    final bytes = bigIntToBytesUnsigned(value);
     final result = Uint8List(32);
     result.setAll(32 - bytes.lengthInBytes, bytes);
     return result;
@@ -29,7 +29,7 @@ class UintType extends NumericType {
   }
 
   static BigInt decodeToBigInt(Uint8List encoded, int offset) {
-    return bytesToBigInt(encoded.sublist(offset, offset + 32));
+    return bytesToBigIntUnsigned(encoded.sublist(offset, offset + 32));
   }
 
   @override
@@ -40,7 +40,7 @@ class UintType extends NumericType {
 
   @override
   Object decode(Uint8List encoded, [int offset = 0]) =>
-      decodeBigInt(encoded, offset);
+      decodeToBigInt(encoded, offset);
 
   Uint8List encodeBigInt(BigInt value) => encodeFromBigInt(value);
 

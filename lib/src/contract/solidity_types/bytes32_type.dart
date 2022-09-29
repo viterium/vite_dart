@@ -18,7 +18,7 @@ class Bytes32Type extends SolidityType {
     }
     if (value is num) {
       final bigInt = BigInt.from(value);
-      return IntType.encodeBigInt(bigInt);
+      return IntType.encodeFromBigInt(bigInt);
     }
     if (value is String) {
       var hex = value.toLowerCase().trim();
