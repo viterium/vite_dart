@@ -5,6 +5,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../utils/utils.dart' as utils;
 import '../constants.dart';
 import 'basic.dart';
+import 'hash.dart';
 
 part 'address.freezed.dart';
 
@@ -86,6 +87,8 @@ class Address with _$Address {
   late final ViteAddress viteAddress = '$kViteAddressPrefix$hex$checksum';
 
   Uint8List get original => bytes;
+
+  Hash get asTopic => Hash(utils.leftPadBytes(bytes, 32));
 
   @override
   String toString() => viteAddress;

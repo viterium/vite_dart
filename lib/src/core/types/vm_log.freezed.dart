@@ -12,32 +12,11 @@ part of 'vm_log.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 VmLog _$VmLogFromJson(Map<String, dynamic> json) {
   return _VmLog.fromJson(json);
 }
-
-/// @nodoc
-class _$VmLogTearOff {
-  const _$VmLogTearOff();
-
-  _VmLog call(
-      {List<Hash> topics = const [],
-      @NullableUint8ListBase64Converter() required Uint8List? data}) {
-    return _VmLog(
-      topics: topics,
-      data: data,
-    );
-  }
-
-  VmLog fromJson(Map<String, Object?> json) {
-    return VmLog.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $VmLog = _$VmLogTearOff();
 
 /// @nodoc
 mixin _$VmLog {
@@ -85,31 +64,31 @@ class _$VmLogCopyWithImpl<$Res> implements $VmLogCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$VmLogCopyWith<$Res> implements $VmLogCopyWith<$Res> {
-  factory _$VmLogCopyWith(_VmLog value, $Res Function(_VmLog) then) =
-      __$VmLogCopyWithImpl<$Res>;
+abstract class _$$_VmLogCopyWith<$Res> implements $VmLogCopyWith<$Res> {
+  factory _$$_VmLogCopyWith(_$_VmLog value, $Res Function(_$_VmLog) then) =
+      __$$_VmLogCopyWithImpl<$Res>;
   @override
   $Res call(
       {List<Hash> topics, @NullableUint8ListBase64Converter() Uint8List? data});
 }
 
 /// @nodoc
-class __$VmLogCopyWithImpl<$Res> extends _$VmLogCopyWithImpl<$Res>
-    implements _$VmLogCopyWith<$Res> {
-  __$VmLogCopyWithImpl(_VmLog _value, $Res Function(_VmLog) _then)
-      : super(_value, (v) => _then(v as _VmLog));
+class __$$_VmLogCopyWithImpl<$Res> extends _$VmLogCopyWithImpl<$Res>
+    implements _$$_VmLogCopyWith<$Res> {
+  __$$_VmLogCopyWithImpl(_$_VmLog _value, $Res Function(_$_VmLog) _then)
+      : super(_value, (v) => _then(v as _$_VmLog));
 
   @override
-  _VmLog get _value => super._value as _VmLog;
+  _$_VmLog get _value => super._value as _$_VmLog;
 
   @override
   $Res call({
     Object? topics = freezed,
     Object? data = freezed,
   }) {
-    return _then(_VmLog(
+    return _then(_$_VmLog(
       topics: topics == freezed
-          ? _value.topics
+          ? _value._topics
           : topics // ignore: cast_nullable_to_non_nullable
               as List<Hash>,
       data: data == freezed
@@ -124,15 +103,21 @@ class __$VmLogCopyWithImpl<$Res> extends _$VmLogCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_VmLog implements _VmLog {
   const _$_VmLog(
-      {this.topics = const [],
-      @NullableUint8ListBase64Converter() required this.data});
+      {final List<Hash> topics = const [],
+      @NullableUint8ListBase64Converter() required this.data})
+      : _topics = topics;
 
   factory _$_VmLog.fromJson(Map<String, dynamic> json) =>
       _$$_VmLogFromJson(json);
 
-  @JsonKey()
+  final List<Hash> _topics;
   @override
-  final List<Hash> topics;
+  @JsonKey()
+  List<Hash> get topics {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_topics);
+  }
+
   @override
   @NullableUint8ListBase64Converter()
   final Uint8List? data;
@@ -146,32 +131,36 @@ class _$_VmLog implements _VmLog {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _VmLog &&
-            const DeepCollectionEquality().equals(other.topics, topics) &&
+            other is _$_VmLog &&
+            const DeepCollectionEquality().equals(other._topics, _topics) &&
             const DeepCollectionEquality().equals(other.data, data));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(topics),
+      const DeepCollectionEquality().hash(_topics),
       const DeepCollectionEquality().hash(data));
 
   @JsonKey(ignore: true)
   @override
-  _$VmLogCopyWith<_VmLog> get copyWith =>
-      __$VmLogCopyWithImpl<_VmLog>(this, _$identity);
+  _$$_VmLogCopyWith<_$_VmLog> get copyWith =>
+      __$$_VmLogCopyWithImpl<_$_VmLog>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_VmLogToJson(this);
+    return _$$_VmLogToJson(
+      this,
+    );
   }
 }
 
 abstract class _VmLog implements VmLog {
   const factory _VmLog(
-      {List<Hash> topics,
-      @NullableUint8ListBase64Converter() required Uint8List? data}) = _$_VmLog;
+          {final List<Hash> topics,
+          @NullableUint8ListBase64Converter() required final Uint8List? data}) =
+      _$_VmLog;
 
   factory _VmLog.fromJson(Map<String, dynamic> json) = _$_VmLog.fromJson;
 
@@ -182,5 +171,6 @@ abstract class _VmLog implements VmLog {
   Uint8List? get data;
   @override
   @JsonKey(ignore: true)
-  _$VmLogCopyWith<_VmLog> get copyWith => throw _privateConstructorUsedError;
+  _$$_VmLogCopyWith<_$_VmLog> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -12,34 +12,11 @@ part of 'types.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 AbiEntryParam _$AbiEntryParamFromJson(Map<String, dynamic> json) {
   return _AbiEntryParam.fromJson(json);
 }
-
-/// @nodoc
-class _$AbiEntryParamTearOff {
-  const _$AbiEntryParamTearOff();
-
-  _AbiEntryParam call(
-      {bool indexed = false,
-      required String name,
-      required SolidityType type}) {
-    return _AbiEntryParam(
-      indexed: indexed,
-      name: name,
-      type: type,
-    );
-  }
-
-  AbiEntryParam fromJson(Map<String, Object?> json) {
-    return AbiEntryParam.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $AbiEntryParam = _$AbiEntryParamTearOff();
 
 /// @nodoc
 mixin _$AbiEntryParam {
@@ -94,25 +71,25 @@ class _$AbiEntryParamCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$AbiEntryParamCopyWith<$Res>
+abstract class _$$_AbiEntryParamCopyWith<$Res>
     implements $AbiEntryParamCopyWith<$Res> {
-  factory _$AbiEntryParamCopyWith(
-          _AbiEntryParam value, $Res Function(_AbiEntryParam) then) =
-      __$AbiEntryParamCopyWithImpl<$Res>;
+  factory _$$_AbiEntryParamCopyWith(
+          _$_AbiEntryParam value, $Res Function(_$_AbiEntryParam) then) =
+      __$$_AbiEntryParamCopyWithImpl<$Res>;
   @override
   $Res call({bool indexed, String name, SolidityType type});
 }
 
 /// @nodoc
-class __$AbiEntryParamCopyWithImpl<$Res>
+class __$$_AbiEntryParamCopyWithImpl<$Res>
     extends _$AbiEntryParamCopyWithImpl<$Res>
-    implements _$AbiEntryParamCopyWith<$Res> {
-  __$AbiEntryParamCopyWithImpl(
-      _AbiEntryParam _value, $Res Function(_AbiEntryParam) _then)
-      : super(_value, (v) => _then(v as _AbiEntryParam));
+    implements _$$_AbiEntryParamCopyWith<$Res> {
+  __$$_AbiEntryParamCopyWithImpl(
+      _$_AbiEntryParam _value, $Res Function(_$_AbiEntryParam) _then)
+      : super(_value, (v) => _then(v as _$_AbiEntryParam));
 
   @override
-  _AbiEntryParam get _value => super._value as _AbiEntryParam;
+  _$_AbiEntryParam get _value => super._value as _$_AbiEntryParam;
 
   @override
   $Res call({
@@ -120,7 +97,7 @@ class __$AbiEntryParamCopyWithImpl<$Res>
     Object? name = freezed,
     Object? type = freezed,
   }) {
-    return _then(_AbiEntryParam(
+    return _then(_$_AbiEntryParam(
       indexed: indexed == freezed
           ? _value.indexed
           : indexed // ignore: cast_nullable_to_non_nullable
@@ -146,8 +123,8 @@ class _$_AbiEntryParam implements _AbiEntryParam {
   factory _$_AbiEntryParam.fromJson(Map<String, dynamic> json) =>
       _$$_AbiEntryParamFromJson(json);
 
-  @JsonKey()
   @override
+  @JsonKey()
   final bool indexed;
   @override
   final String name;
@@ -158,12 +135,13 @@ class _$_AbiEntryParam implements _AbiEntryParam {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _AbiEntryParam &&
+            other is _$_AbiEntryParam &&
             const DeepCollectionEquality().equals(other.indexed, indexed) &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.type, type));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -173,20 +151,22 @@ class _$_AbiEntryParam implements _AbiEntryParam {
 
   @JsonKey(ignore: true)
   @override
-  _$AbiEntryParamCopyWith<_AbiEntryParam> get copyWith =>
-      __$AbiEntryParamCopyWithImpl<_AbiEntryParam>(this, _$identity);
+  _$$_AbiEntryParamCopyWith<_$_AbiEntryParam> get copyWith =>
+      __$$_AbiEntryParamCopyWithImpl<_$_AbiEntryParam>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_AbiEntryParamToJson(this);
+    return _$$_AbiEntryParamToJson(
+      this,
+    );
   }
 }
 
 abstract class _AbiEntryParam implements AbiEntryParam {
   const factory _AbiEntryParam(
-      {bool indexed,
-      required String name,
-      required SolidityType type}) = _$_AbiEntryParam;
+      {final bool indexed,
+      required final String name,
+      required final SolidityType type}) = _$_AbiEntryParam;
 
   factory _AbiEntryParam.fromJson(Map<String, dynamic> json) =
       _$_AbiEntryParam.fromJson;
@@ -199,6 +179,6 @@ abstract class _AbiEntryParam implements AbiEntryParam {
   SolidityType get type;
   @override
   @JsonKey(ignore: true)
-  _$AbiEntryParamCopyWith<_AbiEntryParam> get copyWith =>
+  _$$_AbiEntryParamCopyWith<_$_AbiEntryParam> get copyWith =>
       throw _privateConstructorUsedError;
 }

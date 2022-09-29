@@ -12,65 +12,11 @@ part of 'transaction.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 RawTransaction _$RawTransactionFromJson(Map<String, dynamic> json) {
   return _RawTransaction.fromJson(json);
 }
-
-/// @nodoc
-class _$RawTransactionTearOff {
-  const _$RawTransactionTearOff();
-
-  _RawTransaction call(
-      {@JsonKey(name: 'blockType')
-      @BlockTypeConverter()
-          required BlockType type,
-      Address? address,
-      Address? toAddress,
-      BigInt? fee,
-      @NullableUint8ListBase64Converter()
-          Uint8List? data,
-      Hash? sendBlockHash,
-      Hash? previousHash,
-      @JsonKey(name: 'tokenId')
-          Token? token,
-      BigInt? amount,
-      BigInt? height,
-      BigInt? difficulty,
-      @NullableUint8ListBase64Converter()
-          Uint8List? nonce,
-      Hash? hash,
-      @NullableUint8ListBase64Converter()
-          Uint8List? signature,
-      @NullableUint8ListBase64Converter()
-          Uint8List? publicKey}) {
-    return _RawTransaction(
-      type: type,
-      address: address,
-      toAddress: toAddress,
-      fee: fee,
-      data: data,
-      sendBlockHash: sendBlockHash,
-      previousHash: previousHash,
-      token: token,
-      amount: amount,
-      height: height,
-      difficulty: difficulty,
-      nonce: nonce,
-      hash: hash,
-      signature: signature,
-      publicKey: publicKey,
-    );
-  }
-
-  RawTransaction fromJson(Map<String, Object?> json) {
-    return RawTransaction.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RawTransaction = _$RawTransactionTearOff();
 
 /// @nodoc
 mixin _$RawTransaction {
@@ -292,11 +238,11 @@ class _$RawTransactionCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$RawTransactionCopyWith<$Res>
+abstract class _$$_RawTransactionCopyWith<$Res>
     implements $RawTransactionCopyWith<$Res> {
-  factory _$RawTransactionCopyWith(
-          _RawTransaction value, $Res Function(_RawTransaction) then) =
-      __$RawTransactionCopyWithImpl<$Res>;
+  factory _$$_RawTransactionCopyWith(
+          _$_RawTransaction value, $Res Function(_$_RawTransaction) then) =
+      __$$_RawTransactionCopyWithImpl<$Res>;
   @override
   $Res call(
       {@JsonKey(name: 'blockType') @BlockTypeConverter() BlockType type,
@@ -330,15 +276,15 @@ abstract class _$RawTransactionCopyWith<$Res>
 }
 
 /// @nodoc
-class __$RawTransactionCopyWithImpl<$Res>
+class __$$_RawTransactionCopyWithImpl<$Res>
     extends _$RawTransactionCopyWithImpl<$Res>
-    implements _$RawTransactionCopyWith<$Res> {
-  __$RawTransactionCopyWithImpl(
-      _RawTransaction _value, $Res Function(_RawTransaction) _then)
-      : super(_value, (v) => _then(v as _RawTransaction));
+    implements _$$_RawTransactionCopyWith<$Res> {
+  __$$_RawTransactionCopyWithImpl(
+      _$_RawTransaction _value, $Res Function(_$_RawTransaction) _then)
+      : super(_value, (v) => _then(v as _$_RawTransaction));
 
   @override
-  _RawTransaction get _value => super._value as _RawTransaction;
+  _$_RawTransaction get _value => super._value as _$_RawTransaction;
 
   @override
   $Res call({
@@ -358,7 +304,7 @@ class __$RawTransactionCopyWithImpl<$Res>
     Object? signature = freezed,
     Object? publicKey = freezed,
   }) {
-    return _then(_RawTransaction(
+    return _then(_$_RawTransaction(
       type: type == freezed
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -493,7 +439,7 @@ class _$_RawTransaction implements _RawTransaction {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RawTransaction &&
+            other is _$_RawTransaction &&
             const DeepCollectionEquality().equals(other.type, type) &&
             const DeepCollectionEquality().equals(other.address, address) &&
             const DeepCollectionEquality().equals(other.toAddress, toAddress) &&
@@ -514,6 +460,7 @@ class _$_RawTransaction implements _RawTransaction {
             const DeepCollectionEquality().equals(other.publicKey, publicKey));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -535,12 +482,14 @@ class _$_RawTransaction implements _RawTransaction {
 
   @JsonKey(ignore: true)
   @override
-  _$RawTransactionCopyWith<_RawTransaction> get copyWith =>
-      __$RawTransactionCopyWithImpl<_RawTransaction>(this, _$identity);
+  _$$_RawTransactionCopyWith<_$_RawTransaction> get copyWith =>
+      __$$_RawTransactionCopyWithImpl<_$_RawTransaction>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RawTransactionToJson(this);
+    return _$$_RawTransactionToJson(
+      this,
+    );
   }
 }
 
@@ -548,26 +497,26 @@ abstract class _RawTransaction implements RawTransaction {
   factory _RawTransaction(
       {@JsonKey(name: 'blockType')
       @BlockTypeConverter()
-          required BlockType type,
-      Address? address,
-      Address? toAddress,
-      BigInt? fee,
+          required final BlockType type,
+      final Address? address,
+      final Address? toAddress,
+      final BigInt? fee,
       @NullableUint8ListBase64Converter()
-          Uint8List? data,
-      Hash? sendBlockHash,
-      Hash? previousHash,
+          final Uint8List? data,
+      final Hash? sendBlockHash,
+      final Hash? previousHash,
       @JsonKey(name: 'tokenId')
-          Token? token,
-      BigInt? amount,
-      BigInt? height,
-      BigInt? difficulty,
+          final Token? token,
+      final BigInt? amount,
+      final BigInt? height,
+      final BigInt? difficulty,
       @NullableUint8ListBase64Converter()
-          Uint8List? nonce,
-      Hash? hash,
+          final Uint8List? nonce,
+      final Hash? hash,
       @NullableUint8ListBase64Converter()
-          Uint8List? signature,
+          final Uint8List? signature,
       @NullableUint8ListBase64Converter()
-          Uint8List? publicKey}) = _$_RawTransaction;
+          final Uint8List? publicKey}) = _$_RawTransaction;
 
   factory _RawTransaction.fromJson(Map<String, dynamic> json) =
       _$_RawTransaction.fromJson;
@@ -611,6 +560,6 @@ abstract class _RawTransaction implements RawTransaction {
   Uint8List? get publicKey;
   @override
   @JsonKey(ignore: true)
-  _$RawTransactionCopyWith<_RawTransaction> get copyWith =>
+  _$$_RawTransactionCopyWith<_$_RawTransaction> get copyWith =>
       throw _privateConstructorUsedError;
 }

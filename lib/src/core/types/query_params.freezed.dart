@@ -12,36 +12,11 @@ part of 'query_params.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 QueryParams _$QueryParamsFromJson(Map<String, dynamic> json) {
   return _QueryParams.fromJson(json);
 }
-
-/// @nodoc
-class _$QueryParamsTearOff {
-  const _$QueryParamsTearOff();
-
-  _QueryParams call(
-      {required Address address,
-      @Uint8ListBase64Converter() required Uint8List data,
-      int? height,
-      Hash? snapshotHash}) {
-    return _QueryParams(
-      address: address,
-      data: data,
-      height: height,
-      snapshotHash: snapshotHash,
-    );
-  }
-
-  QueryParams fromJson(Map<String, Object?> json) {
-    return QueryParams.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $QueryParams = _$QueryParamsTearOff();
 
 /// @nodoc
 mixin _$QueryParams {
@@ -127,11 +102,11 @@ class _$QueryParamsCopyWithImpl<$Res> implements $QueryParamsCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$QueryParamsCopyWith<$Res>
+abstract class _$$_QueryParamsCopyWith<$Res>
     implements $QueryParamsCopyWith<$Res> {
-  factory _$QueryParamsCopyWith(
-          _QueryParams value, $Res Function(_QueryParams) then) =
-      __$QueryParamsCopyWithImpl<$Res>;
+  factory _$$_QueryParamsCopyWith(
+          _$_QueryParams value, $Res Function(_$_QueryParams) then) =
+      __$$_QueryParamsCopyWithImpl<$Res>;
   @override
   $Res call(
       {Address address,
@@ -146,14 +121,14 @@ abstract class _$QueryParamsCopyWith<$Res>
 }
 
 /// @nodoc
-class __$QueryParamsCopyWithImpl<$Res> extends _$QueryParamsCopyWithImpl<$Res>
-    implements _$QueryParamsCopyWith<$Res> {
-  __$QueryParamsCopyWithImpl(
-      _QueryParams _value, $Res Function(_QueryParams) _then)
-      : super(_value, (v) => _then(v as _QueryParams));
+class __$$_QueryParamsCopyWithImpl<$Res> extends _$QueryParamsCopyWithImpl<$Res>
+    implements _$$_QueryParamsCopyWith<$Res> {
+  __$$_QueryParamsCopyWithImpl(
+      _$_QueryParams _value, $Res Function(_$_QueryParams) _then)
+      : super(_value, (v) => _then(v as _$_QueryParams));
 
   @override
-  _QueryParams get _value => super._value as _QueryParams;
+  _$_QueryParams get _value => super._value as _$_QueryParams;
 
   @override
   $Res call({
@@ -162,7 +137,7 @@ class __$QueryParamsCopyWithImpl<$Res> extends _$QueryParamsCopyWithImpl<$Res>
     Object? height = freezed,
     Object? snapshotHash = freezed,
   }) {
-    return _then(_QueryParams(
+    return _then(_$_QueryParams(
       address: address == freezed
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
@@ -214,7 +189,7 @@ class _$_QueryParams implements _QueryParams {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _QueryParams &&
+            other is _$_QueryParams &&
             const DeepCollectionEquality().equals(other.address, address) &&
             const DeepCollectionEquality().equals(other.data, data) &&
             const DeepCollectionEquality().equals(other.height, height) &&
@@ -222,6 +197,7 @@ class _$_QueryParams implements _QueryParams {
                 .equals(other.snapshotHash, snapshotHash));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -232,21 +208,23 @@ class _$_QueryParams implements _QueryParams {
 
   @JsonKey(ignore: true)
   @override
-  _$QueryParamsCopyWith<_QueryParams> get copyWith =>
-      __$QueryParamsCopyWithImpl<_QueryParams>(this, _$identity);
+  _$$_QueryParamsCopyWith<_$_QueryParams> get copyWith =>
+      __$$_QueryParamsCopyWithImpl<_$_QueryParams>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_QueryParamsToJson(this);
+    return _$$_QueryParamsToJson(
+      this,
+    );
   }
 }
 
 abstract class _QueryParams implements QueryParams {
   const factory _QueryParams(
-      {required Address address,
-      @Uint8ListBase64Converter() required Uint8List data,
-      int? height,
-      Hash? snapshotHash}) = _$_QueryParams;
+      {required final Address address,
+      @Uint8ListBase64Converter() required final Uint8List data,
+      final int? height,
+      final Hash? snapshotHash}) = _$_QueryParams;
 
   factory _QueryParams.fromJson(Map<String, dynamic> json) =
       _$_QueryParams.fromJson;
@@ -262,6 +240,6 @@ abstract class _QueryParams implements QueryParams {
   Hash? get snapshotHash;
   @override
   @JsonKey(ignore: true)
-  _$QueryParamsCopyWith<_QueryParams> get copyWith =>
+  _$$_QueryParamsCopyWith<_$_QueryParams> get copyWith =>
       throw _privateConstructorUsedError;
 }

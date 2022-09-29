@@ -12,38 +12,11 @@ part of 'pow_difficulty_params.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 PowDifficultyParams _$PowDifficultyParamsFromJson(Map<String, dynamic> json) {
   return _PowDifficultyParams.fromJson(json);
 }
-
-/// @nodoc
-class _$PowDifficultyParamsTearOff {
-  const _$PowDifficultyParamsTearOff();
-
-  _PowDifficultyParams call(
-      {required Address address,
-      required Hash previousHash,
-      @BlockTypeConverter() required BlockType blockType,
-      Address? toAddress,
-      @NullableUint8ListBase64Converter() Uint8List? data}) {
-    return _PowDifficultyParams(
-      address: address,
-      previousHash: previousHash,
-      blockType: blockType,
-      toAddress: toAddress,
-      data: data,
-    );
-  }
-
-  PowDifficultyParams fromJson(Map<String, Object?> json) {
-    return PowDifficultyParams.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $PowDifficultyParams = _$PowDifficultyParamsTearOff();
 
 /// @nodoc
 mixin _$PowDifficultyParams {
@@ -146,11 +119,11 @@ class _$PowDifficultyParamsCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$PowDifficultyParamsCopyWith<$Res>
+abstract class _$$_PowDifficultyParamsCopyWith<$Res>
     implements $PowDifficultyParamsCopyWith<$Res> {
-  factory _$PowDifficultyParamsCopyWith(_PowDifficultyParams value,
-          $Res Function(_PowDifficultyParams) then) =
-      __$PowDifficultyParamsCopyWithImpl<$Res>;
+  factory _$$_PowDifficultyParamsCopyWith(_$_PowDifficultyParams value,
+          $Res Function(_$_PowDifficultyParams) then) =
+      __$$_PowDifficultyParamsCopyWithImpl<$Res>;
   @override
   $Res call(
       {Address address,
@@ -168,15 +141,15 @@ abstract class _$PowDifficultyParamsCopyWith<$Res>
 }
 
 /// @nodoc
-class __$PowDifficultyParamsCopyWithImpl<$Res>
+class __$$_PowDifficultyParamsCopyWithImpl<$Res>
     extends _$PowDifficultyParamsCopyWithImpl<$Res>
-    implements _$PowDifficultyParamsCopyWith<$Res> {
-  __$PowDifficultyParamsCopyWithImpl(
-      _PowDifficultyParams _value, $Res Function(_PowDifficultyParams) _then)
-      : super(_value, (v) => _then(v as _PowDifficultyParams));
+    implements _$$_PowDifficultyParamsCopyWith<$Res> {
+  __$$_PowDifficultyParamsCopyWithImpl(_$_PowDifficultyParams _value,
+      $Res Function(_$_PowDifficultyParams) _then)
+      : super(_value, (v) => _then(v as _$_PowDifficultyParams));
 
   @override
-  _PowDifficultyParams get _value => super._value as _PowDifficultyParams;
+  _$_PowDifficultyParams get _value => super._value as _$_PowDifficultyParams;
 
   @override
   $Res call({
@@ -186,7 +159,7 @@ class __$PowDifficultyParamsCopyWithImpl<$Res>
     Object? toAddress = freezed,
     Object? data = freezed,
   }) {
-    return _then(_PowDifficultyParams(
+    return _then(_$_PowDifficultyParams(
       address: address == freezed
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
@@ -246,7 +219,7 @@ class _$_PowDifficultyParams implements _PowDifficultyParams {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _PowDifficultyParams &&
+            other is _$_PowDifficultyParams &&
             const DeepCollectionEquality().equals(other.address, address) &&
             const DeepCollectionEquality()
                 .equals(other.previousHash, previousHash) &&
@@ -255,6 +228,7 @@ class _$_PowDifficultyParams implements _PowDifficultyParams {
             const DeepCollectionEquality().equals(other.data, data));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -266,23 +240,25 @@ class _$_PowDifficultyParams implements _PowDifficultyParams {
 
   @JsonKey(ignore: true)
   @override
-  _$PowDifficultyParamsCopyWith<_PowDifficultyParams> get copyWith =>
-      __$PowDifficultyParamsCopyWithImpl<_PowDifficultyParams>(
+  _$$_PowDifficultyParamsCopyWith<_$_PowDifficultyParams> get copyWith =>
+      __$$_PowDifficultyParamsCopyWithImpl<_$_PowDifficultyParams>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PowDifficultyParamsToJson(this);
+    return _$$_PowDifficultyParamsToJson(
+      this,
+    );
   }
 }
 
 abstract class _PowDifficultyParams implements PowDifficultyParams {
   const factory _PowDifficultyParams(
-          {required Address address,
-          required Hash previousHash,
-          @BlockTypeConverter() required BlockType blockType,
-          Address? toAddress,
-          @NullableUint8ListBase64Converter() Uint8List? data}) =
+          {required final Address address,
+          required final Hash previousHash,
+          @BlockTypeConverter() required final BlockType blockType,
+          final Address? toAddress,
+          @NullableUint8ListBase64Converter() final Uint8List? data}) =
       _$_PowDifficultyParams;
 
   factory _PowDifficultyParams.fromJson(Map<String, dynamic> json) =
@@ -302,6 +278,6 @@ abstract class _PowDifficultyParams implements PowDifficultyParams {
   Uint8List? get data;
   @override
   @JsonKey(ignore: true)
-  _$PowDifficultyParamsCopyWith<_PowDifficultyParams> get copyWith =>
+  _$$_PowDifficultyParamsCopyWith<_$_PowDifficultyParams> get copyWith =>
       throw _privateConstructorUsedError;
 }

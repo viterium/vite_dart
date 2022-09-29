@@ -12,34 +12,11 @@ part of 'contract_call_params.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 ContractCallParams _$ContractCallParamsFromJson(Map<String, dynamic> json) {
   return _ContractCallParams.fromJson(json);
 }
-
-/// @nodoc
-class _$ContractCallParamsTearOff {
-  const _$ContractCallParamsTearOff();
-
-  _ContractCallParams call(
-      {required Address address,
-      @Uint8ListBase64Converter() required Uint8List code,
-      @Uint8ListBase64Converter() required Uint8List data}) {
-    return _ContractCallParams(
-      address: address,
-      code: code,
-      data: data,
-    );
-  }
-
-  ContractCallParams fromJson(Map<String, Object?> json) {
-    return ContractCallParams.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $ContractCallParams = _$ContractCallParamsTearOff();
 
 /// @nodoc
 mixin _$ContractCallParams {
@@ -108,11 +85,11 @@ class _$ContractCallParamsCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$ContractCallParamsCopyWith<$Res>
+abstract class _$$_ContractCallParamsCopyWith<$Res>
     implements $ContractCallParamsCopyWith<$Res> {
-  factory _$ContractCallParamsCopyWith(
-          _ContractCallParams value, $Res Function(_ContractCallParams) then) =
-      __$ContractCallParamsCopyWithImpl<$Res>;
+  factory _$$_ContractCallParamsCopyWith(_$_ContractCallParams value,
+          $Res Function(_$_ContractCallParams) then) =
+      __$$_ContractCallParamsCopyWithImpl<$Res>;
   @override
   $Res call(
       {Address address,
@@ -124,15 +101,15 @@ abstract class _$ContractCallParamsCopyWith<$Res>
 }
 
 /// @nodoc
-class __$ContractCallParamsCopyWithImpl<$Res>
+class __$$_ContractCallParamsCopyWithImpl<$Res>
     extends _$ContractCallParamsCopyWithImpl<$Res>
-    implements _$ContractCallParamsCopyWith<$Res> {
-  __$ContractCallParamsCopyWithImpl(
-      _ContractCallParams _value, $Res Function(_ContractCallParams) _then)
-      : super(_value, (v) => _then(v as _ContractCallParams));
+    implements _$$_ContractCallParamsCopyWith<$Res> {
+  __$$_ContractCallParamsCopyWithImpl(
+      _$_ContractCallParams _value, $Res Function(_$_ContractCallParams) _then)
+      : super(_value, (v) => _then(v as _$_ContractCallParams));
 
   @override
-  _ContractCallParams get _value => super._value as _ContractCallParams;
+  _$_ContractCallParams get _value => super._value as _$_ContractCallParams;
 
   @override
   $Res call({
@@ -140,7 +117,7 @@ class __$ContractCallParamsCopyWithImpl<$Res>
     Object? code = freezed,
     Object? data = freezed,
   }) {
-    return _then(_ContractCallParams(
+    return _then(_$_ContractCallParams(
       address: address == freezed
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
@@ -186,12 +163,13 @@ class _$_ContractCallParams implements _ContractCallParams {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ContractCallParams &&
+            other is _$_ContractCallParams &&
             const DeepCollectionEquality().equals(other.address, address) &&
             const DeepCollectionEquality().equals(other.code, code) &&
             const DeepCollectionEquality().equals(other.data, data));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -201,20 +179,23 @@ class _$_ContractCallParams implements _ContractCallParams {
 
   @JsonKey(ignore: true)
   @override
-  _$ContractCallParamsCopyWith<_ContractCallParams> get copyWith =>
-      __$ContractCallParamsCopyWithImpl<_ContractCallParams>(this, _$identity);
+  _$$_ContractCallParamsCopyWith<_$_ContractCallParams> get copyWith =>
+      __$$_ContractCallParamsCopyWithImpl<_$_ContractCallParams>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ContractCallParamsToJson(this);
+    return _$$_ContractCallParamsToJson(
+      this,
+    );
   }
 }
 
 abstract class _ContractCallParams implements ContractCallParams {
   const factory _ContractCallParams(
-          {required Address address,
-          @Uint8ListBase64Converter() required Uint8List code,
-          @Uint8ListBase64Converter() required Uint8List data}) =
+          {required final Address address,
+          @Uint8ListBase64Converter() required final Uint8List code,
+          @Uint8ListBase64Converter() required final Uint8List data}) =
       _$_ContractCallParams;
 
   factory _ContractCallParams.fromJson(Map<String, dynamic> json) =
@@ -230,6 +211,6 @@ abstract class _ContractCallParams implements ContractCallParams {
   Uint8List get data;
   @override
   @JsonKey(ignore: true)
-  _$ContractCallParamsCopyWith<_ContractCallParams> get copyWith =>
+  _$$_ContractCallParamsCopyWith<_$_ContractCallParams> get copyWith =>
       throw _privateConstructorUsedError;
 }

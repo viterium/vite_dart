@@ -1,9 +1,11 @@
+import 'dart:math';
 import 'dart:typed_data';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../utils/utils.dart' as utils;
 import '../constants.dart';
+import 'hash_prefix.dart';
 
 part 'hash.freezed.dart';
 
@@ -16,7 +18,7 @@ class Hash with _$Hash {
 
   static Hash parse(String hex) {
     if (hex.length != kHashHexLength) {
-      throw Exception('Invalid hash lenght');
+      throw Exception('Invalid hash length');
     }
     if (!utils.isHex(hex)) {
       throw Exception('Invalid hex');
@@ -41,6 +43,9 @@ class Hash with _$Hash {
   }
 
   String get hex => bytes.hex;
+
+  HashPrefix prefix([int size = kHashSize]) =>
+      HashPrefix(bytes.sublist(0, min(size, kHashSize)));
 
   @override
   String toString() => hex;

@@ -5,6 +5,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../../utils.dart' as utils;
 import '../constants.dart';
 import 'basic.dart';
+import 'hash.dart';
 
 part 'token.freezed.dart';
 
@@ -51,6 +52,8 @@ class Token with _$Token {
   );
 
   late final TokenId tokenId = '$kTokenIdPrefix${core.hex}${checksum.hex}';
+
+  Hash get asTopic => Hash(utils.leftPadBytes(core, 32));
 
   @override
   String toString() => tokenId;

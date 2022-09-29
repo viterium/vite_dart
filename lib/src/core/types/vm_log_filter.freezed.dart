@@ -12,30 +12,11 @@ part of 'vm_log_filter.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 HeightRange _$HeightRangeFromJson(Map<String, dynamic> json) {
   return _HeightRange.fromJson(json);
 }
-
-/// @nodoc
-class _$HeightRangeTearOff {
-  const _$HeightRangeTearOff();
-
-  _HeightRange call({required BigInt fromHeight, required BigInt toHeight}) {
-    return _HeightRange(
-      fromHeight: fromHeight,
-      toHeight: toHeight,
-    );
-  }
-
-  HeightRange fromJson(Map<String, Object?> json) {
-    return HeightRange.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $HeightRange = _$HeightRangeTearOff();
 
 /// @nodoc
 mixin _$HeightRange {
@@ -83,31 +64,31 @@ class _$HeightRangeCopyWithImpl<$Res> implements $HeightRangeCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$HeightRangeCopyWith<$Res>
+abstract class _$$_HeightRangeCopyWith<$Res>
     implements $HeightRangeCopyWith<$Res> {
-  factory _$HeightRangeCopyWith(
-          _HeightRange value, $Res Function(_HeightRange) then) =
-      __$HeightRangeCopyWithImpl<$Res>;
+  factory _$$_HeightRangeCopyWith(
+          _$_HeightRange value, $Res Function(_$_HeightRange) then) =
+      __$$_HeightRangeCopyWithImpl<$Res>;
   @override
   $Res call({BigInt fromHeight, BigInt toHeight});
 }
 
 /// @nodoc
-class __$HeightRangeCopyWithImpl<$Res> extends _$HeightRangeCopyWithImpl<$Res>
-    implements _$HeightRangeCopyWith<$Res> {
-  __$HeightRangeCopyWithImpl(
-      _HeightRange _value, $Res Function(_HeightRange) _then)
-      : super(_value, (v) => _then(v as _HeightRange));
+class __$$_HeightRangeCopyWithImpl<$Res> extends _$HeightRangeCopyWithImpl<$Res>
+    implements _$$_HeightRangeCopyWith<$Res> {
+  __$$_HeightRangeCopyWithImpl(
+      _$_HeightRange _value, $Res Function(_$_HeightRange) _then)
+      : super(_value, (v) => _then(v as _$_HeightRange));
 
   @override
-  _HeightRange get _value => super._value as _HeightRange;
+  _$_HeightRange get _value => super._value as _$_HeightRange;
 
   @override
   $Res call({
     Object? fromHeight = freezed,
     Object? toHeight = freezed,
   }) {
-    return _then(_HeightRange(
+    return _then(_$_HeightRange(
       fromHeight: fromHeight == freezed
           ? _value.fromHeight
           : fromHeight // ignore: cast_nullable_to_non_nullable
@@ -143,12 +124,13 @@ class _$_HeightRange extends _HeightRange {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _HeightRange &&
+            other is _$_HeightRange &&
             const DeepCollectionEquality()
                 .equals(other.fromHeight, fromHeight) &&
             const DeepCollectionEquality().equals(other.toHeight, toHeight));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -157,18 +139,21 @@ class _$_HeightRange extends _HeightRange {
 
   @JsonKey(ignore: true)
   @override
-  _$HeightRangeCopyWith<_HeightRange> get copyWith =>
-      __$HeightRangeCopyWithImpl<_HeightRange>(this, _$identity);
+  _$$_HeightRangeCopyWith<_$_HeightRange> get copyWith =>
+      __$$_HeightRangeCopyWithImpl<_$_HeightRange>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_HeightRangeToJson(this);
+    return _$$_HeightRangeToJson(
+      this,
+    );
   }
 }
 
 abstract class _HeightRange extends HeightRange {
   const factory _HeightRange(
-      {required BigInt fromHeight, required BigInt toHeight}) = _$_HeightRange;
+      {required final BigInt fromHeight,
+      required final BigInt toHeight}) = _$_HeightRange;
   const _HeightRange._() : super._();
 
   factory _HeightRange.fromJson(Map<String, dynamic> json) =
@@ -180,38 +165,13 @@ abstract class _HeightRange extends HeightRange {
   BigInt get toHeight;
   @override
   @JsonKey(ignore: true)
-  _$HeightRangeCopyWith<_HeightRange> get copyWith =>
+  _$$_HeightRangeCopyWith<_$_HeightRange> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 VmLogFilter _$VmLogFilterFromJson(Map<String, dynamic> json) {
   return _VmLogFilter.fromJson(json);
 }
-
-/// @nodoc
-class _$VmLogFilterTearOff {
-  const _$VmLogFilterTearOff();
-
-  _VmLogFilter call(
-      {required Map<String, HeightRange> addressHeightRange,
-      List<List<Hash>> topics = const [],
-      int pageIndex = 0,
-      int pageSize = 100}) {
-    return _VmLogFilter(
-      addressHeightRange: addressHeightRange,
-      topics: topics,
-      pageIndex: pageIndex,
-      pageSize: pageSize,
-    );
-  }
-
-  VmLogFilter fromJson(Map<String, Object?> json) {
-    return VmLogFilter.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $VmLogFilter = _$VmLogFilterTearOff();
 
 /// @nodoc
 mixin _$VmLogFilter {
@@ -276,11 +236,11 @@ class _$VmLogFilterCopyWithImpl<$Res> implements $VmLogFilterCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$VmLogFilterCopyWith<$Res>
+abstract class _$$_VmLogFilterCopyWith<$Res>
     implements $VmLogFilterCopyWith<$Res> {
-  factory _$VmLogFilterCopyWith(
-          _VmLogFilter value, $Res Function(_VmLogFilter) then) =
-      __$VmLogFilterCopyWithImpl<$Res>;
+  factory _$$_VmLogFilterCopyWith(
+          _$_VmLogFilter value, $Res Function(_$_VmLogFilter) then) =
+      __$$_VmLogFilterCopyWithImpl<$Res>;
   @override
   $Res call(
       {Map<String, HeightRange> addressHeightRange,
@@ -290,14 +250,14 @@ abstract class _$VmLogFilterCopyWith<$Res>
 }
 
 /// @nodoc
-class __$VmLogFilterCopyWithImpl<$Res> extends _$VmLogFilterCopyWithImpl<$Res>
-    implements _$VmLogFilterCopyWith<$Res> {
-  __$VmLogFilterCopyWithImpl(
-      _VmLogFilter _value, $Res Function(_VmLogFilter) _then)
-      : super(_value, (v) => _then(v as _VmLogFilter));
+class __$$_VmLogFilterCopyWithImpl<$Res> extends _$VmLogFilterCopyWithImpl<$Res>
+    implements _$$_VmLogFilterCopyWith<$Res> {
+  __$$_VmLogFilterCopyWithImpl(
+      _$_VmLogFilter _value, $Res Function(_$_VmLogFilter) _then)
+      : super(_value, (v) => _then(v as _$_VmLogFilter));
 
   @override
-  _VmLogFilter get _value => super._value as _VmLogFilter;
+  _$_VmLogFilter get _value => super._value as _$_VmLogFilter;
 
   @override
   $Res call({
@@ -306,13 +266,13 @@ class __$VmLogFilterCopyWithImpl<$Res> extends _$VmLogFilterCopyWithImpl<$Res>
     Object? pageIndex = freezed,
     Object? pageSize = freezed,
   }) {
-    return _then(_VmLogFilter(
+    return _then(_$_VmLogFilter(
       addressHeightRange: addressHeightRange == freezed
-          ? _value.addressHeightRange
+          ? _value._addressHeightRange
           : addressHeightRange // ignore: cast_nullable_to_non_nullable
               as Map<String, HeightRange>,
       topics: topics == freezed
-          ? _value.topics
+          ? _value._topics
           : topics // ignore: cast_nullable_to_non_nullable
               as List<List<Hash>>,
       pageIndex: pageIndex == freezed
@@ -331,24 +291,36 @@ class __$VmLogFilterCopyWithImpl<$Res> extends _$VmLogFilterCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_VmLogFilter implements _VmLogFilter {
   const _$_VmLogFilter(
-      {required this.addressHeightRange,
-      this.topics = const [],
+      {required final Map<String, HeightRange> addressHeightRange,
+      final List<List<Hash>> topics = const [],
       this.pageIndex = 0,
-      this.pageSize = 100});
+      this.pageSize = 100})
+      : _addressHeightRange = addressHeightRange,
+        _topics = topics;
 
   factory _$_VmLogFilter.fromJson(Map<String, dynamic> json) =>
       _$$_VmLogFilterFromJson(json);
 
+  final Map<String, HeightRange> _addressHeightRange;
   @override
-  final Map<String, HeightRange> addressHeightRange;
+  Map<String, HeightRange> get addressHeightRange {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_addressHeightRange);
+  }
+
+  final List<List<Hash>> _topics;
+  @override
   @JsonKey()
+  List<List<Hash>> get topics {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_topics);
+  }
+
   @override
-  final List<List<Hash>> topics;
   @JsonKey()
-  @override
   final int pageIndex;
-  @JsonKey()
   @override
+  @JsonKey()
   final int pageSize;
 
   @override
@@ -360,39 +332,42 @@ class _$_VmLogFilter implements _VmLogFilter {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _VmLogFilter &&
+            other is _$_VmLogFilter &&
             const DeepCollectionEquality()
-                .equals(other.addressHeightRange, addressHeightRange) &&
-            const DeepCollectionEquality().equals(other.topics, topics) &&
+                .equals(other._addressHeightRange, _addressHeightRange) &&
+            const DeepCollectionEquality().equals(other._topics, _topics) &&
             const DeepCollectionEquality().equals(other.pageIndex, pageIndex) &&
             const DeepCollectionEquality().equals(other.pageSize, pageSize));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(addressHeightRange),
-      const DeepCollectionEquality().hash(topics),
+      const DeepCollectionEquality().hash(_addressHeightRange),
+      const DeepCollectionEquality().hash(_topics),
       const DeepCollectionEquality().hash(pageIndex),
       const DeepCollectionEquality().hash(pageSize));
 
   @JsonKey(ignore: true)
   @override
-  _$VmLogFilterCopyWith<_VmLogFilter> get copyWith =>
-      __$VmLogFilterCopyWithImpl<_VmLogFilter>(this, _$identity);
+  _$$_VmLogFilterCopyWith<_$_VmLogFilter> get copyWith =>
+      __$$_VmLogFilterCopyWithImpl<_$_VmLogFilter>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_VmLogFilterToJson(this);
+    return _$$_VmLogFilterToJson(
+      this,
+    );
   }
 }
 
 abstract class _VmLogFilter implements VmLogFilter {
   const factory _VmLogFilter(
-      {required Map<String, HeightRange> addressHeightRange,
-      List<List<Hash>> topics,
-      int pageIndex,
-      int pageSize}) = _$_VmLogFilter;
+      {required final Map<String, HeightRange> addressHeightRange,
+      final List<List<Hash>> topics,
+      final int pageIndex,
+      final int pageSize}) = _$_VmLogFilter;
 
   factory _VmLogFilter.fromJson(Map<String, dynamic> json) =
       _$_VmLogFilter.fromJson;
@@ -407,6 +382,6 @@ abstract class _VmLogFilter implements VmLogFilter {
   int get pageSize;
   @override
   @JsonKey(ignore: true)
-  _$VmLogFilterCopyWith<_VmLogFilter> get copyWith =>
+  _$$_VmLogFilterCopyWith<_$_VmLogFilter> get copyWith =>
       throw _privateConstructorUsedError;
 }

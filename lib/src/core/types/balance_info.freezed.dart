@@ -12,35 +12,11 @@ part of 'balance_info.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 BalanceInfo _$BalanceInfoFromJson(Map<String, dynamic> json) {
   return _BalanceInfo.fromJson(json);
 }
-
-/// @nodoc
-class _$BalanceInfoTearOff {
-  const _$BalanceInfoTearOff();
-
-  _BalanceInfo call(
-      {required TokenInfo tokenInfo,
-      required BigInt balance,
-      @JsonKey(fromJson: JsonHelper.intFromString, toJson: JsonHelper.stringFromInt)
-          int transactionCount = 0}) {
-    return _BalanceInfo(
-      tokenInfo: tokenInfo,
-      balance: balance,
-      transactionCount: transactionCount,
-    );
-  }
-
-  BalanceInfo fromJson(Map<String, Object?> json) {
-    return BalanceInfo.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $BalanceInfo = _$BalanceInfoTearOff();
 
 /// @nodoc
 mixin _$BalanceInfo {
@@ -108,11 +84,11 @@ class _$BalanceInfoCopyWithImpl<$Res> implements $BalanceInfoCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$BalanceInfoCopyWith<$Res>
+abstract class _$$_BalanceInfoCopyWith<$Res>
     implements $BalanceInfoCopyWith<$Res> {
-  factory _$BalanceInfoCopyWith(
-          _BalanceInfo value, $Res Function(_BalanceInfo) then) =
-      __$BalanceInfoCopyWithImpl<$Res>;
+  factory _$$_BalanceInfoCopyWith(
+          _$_BalanceInfo value, $Res Function(_$_BalanceInfo) then) =
+      __$$_BalanceInfoCopyWithImpl<$Res>;
   @override
   $Res call(
       {TokenInfo tokenInfo,
@@ -125,14 +101,14 @@ abstract class _$BalanceInfoCopyWith<$Res>
 }
 
 /// @nodoc
-class __$BalanceInfoCopyWithImpl<$Res> extends _$BalanceInfoCopyWithImpl<$Res>
-    implements _$BalanceInfoCopyWith<$Res> {
-  __$BalanceInfoCopyWithImpl(
-      _BalanceInfo _value, $Res Function(_BalanceInfo) _then)
-      : super(_value, (v) => _then(v as _BalanceInfo));
+class __$$_BalanceInfoCopyWithImpl<$Res> extends _$BalanceInfoCopyWithImpl<$Res>
+    implements _$$_BalanceInfoCopyWith<$Res> {
+  __$$_BalanceInfoCopyWithImpl(
+      _$_BalanceInfo _value, $Res Function(_$_BalanceInfo) _then)
+      : super(_value, (v) => _then(v as _$_BalanceInfo));
 
   @override
-  _BalanceInfo get _value => super._value as _BalanceInfo;
+  _$_BalanceInfo get _value => super._value as _$_BalanceInfo;
 
   @override
   $Res call({
@@ -140,7 +116,7 @@ class __$BalanceInfoCopyWithImpl<$Res> extends _$BalanceInfoCopyWithImpl<$Res>
     Object? balance = freezed,
     Object? transactionCount = freezed,
   }) {
-    return _then(_BalanceInfo(
+    return _then(_$_BalanceInfo(
       tokenInfo: tokenInfo == freezed
           ? _value.tokenInfo
           : tokenInfo // ignore: cast_nullable_to_non_nullable
@@ -187,13 +163,14 @@ class _$_BalanceInfo extends _BalanceInfo {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _BalanceInfo &&
+            other is _$_BalanceInfo &&
             const DeepCollectionEquality().equals(other.tokenInfo, tokenInfo) &&
             const DeepCollectionEquality().equals(other.balance, balance) &&
             const DeepCollectionEquality()
                 .equals(other.transactionCount, transactionCount));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -203,21 +180,23 @@ class _$_BalanceInfo extends _BalanceInfo {
 
   @JsonKey(ignore: true)
   @override
-  _$BalanceInfoCopyWith<_BalanceInfo> get copyWith =>
-      __$BalanceInfoCopyWithImpl<_BalanceInfo>(this, _$identity);
+  _$$_BalanceInfoCopyWith<_$_BalanceInfo> get copyWith =>
+      __$$_BalanceInfoCopyWithImpl<_$_BalanceInfo>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_BalanceInfoToJson(this);
+    return _$$_BalanceInfoToJson(
+      this,
+    );
   }
 }
 
 abstract class _BalanceInfo extends BalanceInfo {
   factory _BalanceInfo(
-      {required TokenInfo tokenInfo,
-      required BigInt balance,
+      {required final TokenInfo tokenInfo,
+      required final BigInt balance,
       @JsonKey(fromJson: JsonHelper.intFromString, toJson: JsonHelper.stringFromInt)
-          int transactionCount}) = _$_BalanceInfo;
+          final int transactionCount}) = _$_BalanceInfo;
   _BalanceInfo._() : super._();
 
   factory _BalanceInfo.fromJson(Map<String, dynamic> json) =
@@ -232,6 +211,6 @@ abstract class _BalanceInfo extends BalanceInfo {
   int get transactionCount;
   @override
   @JsonKey(ignore: true)
-  _$BalanceInfoCopyWith<_BalanceInfo> get copyWith =>
+  _$$_BalanceInfoCopyWith<_$_BalanceInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }

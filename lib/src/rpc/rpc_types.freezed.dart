@@ -12,36 +12,11 @@ part of 'rpc_types.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 RpcPeerInfo _$RpcPeerInfoFromJson(Map<String, dynamic> json) {
   return _RpcPeerInfo.fromJson(json);
 }
-
-/// @nodoc
-class _$RpcPeerInfoTearOff {
-  const _$RpcPeerInfoTearOff();
-
-  _RpcPeerInfo call(
-      {required String name,
-      required int height,
-      required String address,
-      String? createdAt}) {
-    return _RpcPeerInfo(
-      name: name,
-      height: height,
-      address: address,
-      createdAt: createdAt,
-    );
-  }
-
-  RpcPeerInfo fromJson(Map<String, Object?> json) {
-    return RpcPeerInfo.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RpcPeerInfo = _$RpcPeerInfoTearOff();
 
 /// @nodoc
 mixin _$RpcPeerInfo {
@@ -101,24 +76,24 @@ class _$RpcPeerInfoCopyWithImpl<$Res> implements $RpcPeerInfoCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$RpcPeerInfoCopyWith<$Res>
+abstract class _$$_RpcPeerInfoCopyWith<$Res>
     implements $RpcPeerInfoCopyWith<$Res> {
-  factory _$RpcPeerInfoCopyWith(
-          _RpcPeerInfo value, $Res Function(_RpcPeerInfo) then) =
-      __$RpcPeerInfoCopyWithImpl<$Res>;
+  factory _$$_RpcPeerInfoCopyWith(
+          _$_RpcPeerInfo value, $Res Function(_$_RpcPeerInfo) then) =
+      __$$_RpcPeerInfoCopyWithImpl<$Res>;
   @override
   $Res call({String name, int height, String address, String? createdAt});
 }
 
 /// @nodoc
-class __$RpcPeerInfoCopyWithImpl<$Res> extends _$RpcPeerInfoCopyWithImpl<$Res>
-    implements _$RpcPeerInfoCopyWith<$Res> {
-  __$RpcPeerInfoCopyWithImpl(
-      _RpcPeerInfo _value, $Res Function(_RpcPeerInfo) _then)
-      : super(_value, (v) => _then(v as _RpcPeerInfo));
+class __$$_RpcPeerInfoCopyWithImpl<$Res> extends _$RpcPeerInfoCopyWithImpl<$Res>
+    implements _$$_RpcPeerInfoCopyWith<$Res> {
+  __$$_RpcPeerInfoCopyWithImpl(
+      _$_RpcPeerInfo _value, $Res Function(_$_RpcPeerInfo) _then)
+      : super(_value, (v) => _then(v as _$_RpcPeerInfo));
 
   @override
-  _RpcPeerInfo get _value => super._value as _RpcPeerInfo;
+  _$_RpcPeerInfo get _value => super._value as _$_RpcPeerInfo;
 
   @override
   $Res call({
@@ -127,7 +102,7 @@ class __$RpcPeerInfoCopyWithImpl<$Res> extends _$RpcPeerInfoCopyWithImpl<$Res>
     Object? address = freezed,
     Object? createdAt = freezed,
   }) {
-    return _then(_RpcPeerInfo(
+    return _then(_$_RpcPeerInfo(
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -178,13 +153,14 @@ class _$_RpcPeerInfo implements _RpcPeerInfo {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RpcPeerInfo &&
+            other is _$_RpcPeerInfo &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.height, height) &&
             const DeepCollectionEquality().equals(other.address, address) &&
             const DeepCollectionEquality().equals(other.createdAt, createdAt));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -195,21 +171,23 @@ class _$_RpcPeerInfo implements _RpcPeerInfo {
 
   @JsonKey(ignore: true)
   @override
-  _$RpcPeerInfoCopyWith<_RpcPeerInfo> get copyWith =>
-      __$RpcPeerInfoCopyWithImpl<_RpcPeerInfo>(this, _$identity);
+  _$$_RpcPeerInfoCopyWith<_$_RpcPeerInfo> get copyWith =>
+      __$$_RpcPeerInfoCopyWithImpl<_$_RpcPeerInfo>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RpcPeerInfoToJson(this);
+    return _$$_RpcPeerInfoToJson(
+      this,
+    );
   }
 }
 
 abstract class _RpcPeerInfo implements RpcPeerInfo {
   const factory _RpcPeerInfo(
-      {required String name,
-      required int height,
-      required String address,
-      String? createdAt}) = _$_RpcPeerInfo;
+      {required final String name,
+      required final int height,
+      required final String address,
+      final String? createdAt}) = _$_RpcPeerInfo;
 
   factory _RpcPeerInfo.fromJson(Map<String, dynamic> json) =
       _$_RpcPeerInfo.fromJson;
@@ -224,40 +202,13 @@ abstract class _RpcPeerInfo implements RpcPeerInfo {
   String? get createdAt;
   @override
   @JsonKey(ignore: true)
-  _$RpcPeerInfoCopyWith<_RpcPeerInfo> get copyWith =>
+  _$$_RpcPeerInfoCopyWith<_$_RpcPeerInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 RpcNodeInfo _$RpcNodeInfoFromJson(Map<String, dynamic> json) {
   return _RpcNodeInfo.fromJson(json);
 }
-
-/// @nodoc
-class _$RpcNodeInfoTearOff {
-  const _$RpcNodeInfoTearOff();
-
-  _RpcNodeInfo call(
-      {required String name,
-      required int netId,
-      required String address,
-      int peerCount = 0,
-      List<RpcPeerInfo> peers = const []}) {
-    return _RpcNodeInfo(
-      name: name,
-      netId: netId,
-      address: address,
-      peerCount: peerCount,
-      peers: peers,
-    );
-  }
-
-  RpcNodeInfo fromJson(Map<String, Object?> json) {
-    return RpcNodeInfo.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RpcNodeInfo = _$RpcNodeInfoTearOff();
 
 /// @nodoc
 mixin _$RpcNodeInfo {
@@ -328,11 +279,11 @@ class _$RpcNodeInfoCopyWithImpl<$Res> implements $RpcNodeInfoCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$RpcNodeInfoCopyWith<$Res>
+abstract class _$$_RpcNodeInfoCopyWith<$Res>
     implements $RpcNodeInfoCopyWith<$Res> {
-  factory _$RpcNodeInfoCopyWith(
-          _RpcNodeInfo value, $Res Function(_RpcNodeInfo) then) =
-      __$RpcNodeInfoCopyWithImpl<$Res>;
+  factory _$$_RpcNodeInfoCopyWith(
+          _$_RpcNodeInfo value, $Res Function(_$_RpcNodeInfo) then) =
+      __$$_RpcNodeInfoCopyWithImpl<$Res>;
   @override
   $Res call(
       {String name,
@@ -343,14 +294,14 @@ abstract class _$RpcNodeInfoCopyWith<$Res>
 }
 
 /// @nodoc
-class __$RpcNodeInfoCopyWithImpl<$Res> extends _$RpcNodeInfoCopyWithImpl<$Res>
-    implements _$RpcNodeInfoCopyWith<$Res> {
-  __$RpcNodeInfoCopyWithImpl(
-      _RpcNodeInfo _value, $Res Function(_RpcNodeInfo) _then)
-      : super(_value, (v) => _then(v as _RpcNodeInfo));
+class __$$_RpcNodeInfoCopyWithImpl<$Res> extends _$RpcNodeInfoCopyWithImpl<$Res>
+    implements _$$_RpcNodeInfoCopyWith<$Res> {
+  __$$_RpcNodeInfoCopyWithImpl(
+      _$_RpcNodeInfo _value, $Res Function(_$_RpcNodeInfo) _then)
+      : super(_value, (v) => _then(v as _$_RpcNodeInfo));
 
   @override
-  _RpcNodeInfo get _value => super._value as _RpcNodeInfo;
+  _$_RpcNodeInfo get _value => super._value as _$_RpcNodeInfo;
 
   @override
   $Res call({
@@ -360,7 +311,7 @@ class __$RpcNodeInfoCopyWithImpl<$Res> extends _$RpcNodeInfoCopyWithImpl<$Res>
     Object? peerCount = freezed,
     Object? peers = freezed,
   }) {
-    return _then(_RpcNodeInfo(
+    return _then(_$_RpcNodeInfo(
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -378,7 +329,7 @@ class __$RpcNodeInfoCopyWithImpl<$Res> extends _$RpcNodeInfoCopyWithImpl<$Res>
           : peerCount // ignore: cast_nullable_to_non_nullable
               as int,
       peers: peers == freezed
-          ? _value.peers
+          ? _value._peers
           : peers // ignore: cast_nullable_to_non_nullable
               as List<RpcPeerInfo>,
     ));
@@ -393,7 +344,8 @@ class _$_RpcNodeInfo implements _RpcNodeInfo {
       required this.netId,
       required this.address,
       this.peerCount = 0,
-      this.peers = const []});
+      final List<RpcPeerInfo> peers = const []})
+      : _peers = peers;
 
   factory _$_RpcNodeInfo.fromJson(Map<String, dynamic> json) =>
       _$$_RpcNodeInfoFromJson(json);
@@ -404,12 +356,16 @@ class _$_RpcNodeInfo implements _RpcNodeInfo {
   final int netId;
   @override
   final String address;
-  @JsonKey()
   @override
+  @JsonKey()
   final int peerCount;
-  @JsonKey()
+  final List<RpcPeerInfo> _peers;
   @override
-  final List<RpcPeerInfo> peers;
+  @JsonKey()
+  List<RpcPeerInfo> get peers {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_peers);
+  }
 
   @override
   String toString() {
@@ -420,14 +376,15 @@ class _$_RpcNodeInfo implements _RpcNodeInfo {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RpcNodeInfo &&
+            other is _$_RpcNodeInfo &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.netId, netId) &&
             const DeepCollectionEquality().equals(other.address, address) &&
             const DeepCollectionEquality().equals(other.peerCount, peerCount) &&
-            const DeepCollectionEquality().equals(other.peers, peers));
+            const DeepCollectionEquality().equals(other._peers, _peers));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -435,26 +392,28 @@ class _$_RpcNodeInfo implements _RpcNodeInfo {
       const DeepCollectionEquality().hash(netId),
       const DeepCollectionEquality().hash(address),
       const DeepCollectionEquality().hash(peerCount),
-      const DeepCollectionEquality().hash(peers));
+      const DeepCollectionEquality().hash(_peers));
 
   @JsonKey(ignore: true)
   @override
-  _$RpcNodeInfoCopyWith<_RpcNodeInfo> get copyWith =>
-      __$RpcNodeInfoCopyWithImpl<_RpcNodeInfo>(this, _$identity);
+  _$$_RpcNodeInfoCopyWith<_$_RpcNodeInfo> get copyWith =>
+      __$$_RpcNodeInfoCopyWithImpl<_$_RpcNodeInfo>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RpcNodeInfoToJson(this);
+    return _$$_RpcNodeInfoToJson(
+      this,
+    );
   }
 }
 
 abstract class _RpcNodeInfo implements RpcNodeInfo {
   const factory _RpcNodeInfo(
-      {required String name,
-      required int netId,
-      required String address,
-      int peerCount,
-      List<RpcPeerInfo> peers}) = _$_RpcNodeInfo;
+      {required final String name,
+      required final int netId,
+      required final String address,
+      final int peerCount,
+      final List<RpcPeerInfo> peers}) = _$_RpcNodeInfo;
 
   factory _RpcNodeInfo.fromJson(Map<String, dynamic> json) =
       _$_RpcNodeInfo.fromJson;
@@ -471,40 +430,13 @@ abstract class _RpcNodeInfo implements RpcNodeInfo {
   List<RpcPeerInfo> get peers;
   @override
   @JsonKey(ignore: true)
-  _$RpcNodeInfoCopyWith<_RpcNodeInfo> get copyWith =>
+  _$$_RpcNodeInfoCopyWith<_$_RpcNodeInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 RpcSyncInfo _$RpcSyncInfoFromJson(Map<String, dynamic> json) {
   return _RpcSyncInfo.fromJson(json);
 }
-
-/// @nodoc
-class _$RpcSyncInfoTearOff {
-  const _$RpcSyncInfoTearOff();
-
-  _RpcSyncInfo call(
-      {required String from,
-      required String to,
-      required String current,
-      required int state,
-      required String status}) {
-    return _RpcSyncInfo(
-      from: from,
-      to: to,
-      current: current,
-      state: state,
-      status: status,
-    );
-  }
-
-  RpcSyncInfo fromJson(Map<String, Object?> json) {
-    return RpcSyncInfo.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RpcSyncInfo = _$RpcSyncInfoTearOff();
 
 /// @nodoc
 mixin _$RpcSyncInfo {
@@ -570,24 +502,24 @@ class _$RpcSyncInfoCopyWithImpl<$Res> implements $RpcSyncInfoCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$RpcSyncInfoCopyWith<$Res>
+abstract class _$$_RpcSyncInfoCopyWith<$Res>
     implements $RpcSyncInfoCopyWith<$Res> {
-  factory _$RpcSyncInfoCopyWith(
-          _RpcSyncInfo value, $Res Function(_RpcSyncInfo) then) =
-      __$RpcSyncInfoCopyWithImpl<$Res>;
+  factory _$$_RpcSyncInfoCopyWith(
+          _$_RpcSyncInfo value, $Res Function(_$_RpcSyncInfo) then) =
+      __$$_RpcSyncInfoCopyWithImpl<$Res>;
   @override
   $Res call({String from, String to, String current, int state, String status});
 }
 
 /// @nodoc
-class __$RpcSyncInfoCopyWithImpl<$Res> extends _$RpcSyncInfoCopyWithImpl<$Res>
-    implements _$RpcSyncInfoCopyWith<$Res> {
-  __$RpcSyncInfoCopyWithImpl(
-      _RpcSyncInfo _value, $Res Function(_RpcSyncInfo) _then)
-      : super(_value, (v) => _then(v as _RpcSyncInfo));
+class __$$_RpcSyncInfoCopyWithImpl<$Res> extends _$RpcSyncInfoCopyWithImpl<$Res>
+    implements _$$_RpcSyncInfoCopyWith<$Res> {
+  __$$_RpcSyncInfoCopyWithImpl(
+      _$_RpcSyncInfo _value, $Res Function(_$_RpcSyncInfo) _then)
+      : super(_value, (v) => _then(v as _$_RpcSyncInfo));
 
   @override
-  _RpcSyncInfo get _value => super._value as _RpcSyncInfo;
+  _$_RpcSyncInfo get _value => super._value as _$_RpcSyncInfo;
 
   @override
   $Res call({
@@ -597,7 +529,7 @@ class __$RpcSyncInfoCopyWithImpl<$Res> extends _$RpcSyncInfoCopyWithImpl<$Res>
     Object? state = freezed,
     Object? status = freezed,
   }) {
-    return _then(_RpcSyncInfo(
+    return _then(_$_RpcSyncInfo(
       from: from == freezed
           ? _value.from
           : from // ignore: cast_nullable_to_non_nullable
@@ -655,7 +587,7 @@ class _$_RpcSyncInfo implements _RpcSyncInfo {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RpcSyncInfo &&
+            other is _$_RpcSyncInfo &&
             const DeepCollectionEquality().equals(other.from, from) &&
             const DeepCollectionEquality().equals(other.to, to) &&
             const DeepCollectionEquality().equals(other.current, current) &&
@@ -663,6 +595,7 @@ class _$_RpcSyncInfo implements _RpcSyncInfo {
             const DeepCollectionEquality().equals(other.status, status));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -674,22 +607,24 @@ class _$_RpcSyncInfo implements _RpcSyncInfo {
 
   @JsonKey(ignore: true)
   @override
-  _$RpcSyncInfoCopyWith<_RpcSyncInfo> get copyWith =>
-      __$RpcSyncInfoCopyWithImpl<_RpcSyncInfo>(this, _$identity);
+  _$$_RpcSyncInfoCopyWith<_$_RpcSyncInfo> get copyWith =>
+      __$$_RpcSyncInfoCopyWithImpl<_$_RpcSyncInfo>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RpcSyncInfoToJson(this);
+    return _$$_RpcSyncInfoToJson(
+      this,
+    );
   }
 }
 
 abstract class _RpcSyncInfo implements RpcSyncInfo {
   const factory _RpcSyncInfo(
-      {required String from,
-      required String to,
-      required String current,
-      required int state,
-      required String status}) = _$_RpcSyncInfo;
+      {required final String from,
+      required final String to,
+      required final String current,
+      required final int state,
+      required final String status}) = _$_RpcSyncInfo;
 
   factory _RpcSyncInfo.fromJson(Map<String, dynamic> json) =
       _$_RpcSyncInfo.fromJson;
@@ -706,32 +641,13 @@ abstract class _RpcSyncInfo implements RpcSyncInfo {
   String get status;
   @override
   @JsonKey(ignore: true)
-  _$RpcSyncInfoCopyWith<_RpcSyncInfo> get copyWith =>
+  _$$_RpcSyncInfoCopyWith<_$_RpcSyncInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 RpcSyncConnection _$RpcSyncConnectionFromJson(Map<String, dynamic> json) {
   return _RpcSyncConnection.fromJson(json);
 }
-
-/// @nodoc
-class _$RpcSyncConnectionTearOff {
-  const _$RpcSyncConnectionTearOff();
-
-  _RpcSyncConnection call({required String address, required String speed}) {
-    return _RpcSyncConnection(
-      address: address,
-      speed: speed,
-    );
-  }
-
-  RpcSyncConnection fromJson(Map<String, Object?> json) {
-    return RpcSyncConnection.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RpcSyncConnection = _$RpcSyncConnectionTearOff();
 
 /// @nodoc
 mixin _$RpcSyncConnection {
@@ -780,32 +696,32 @@ class _$RpcSyncConnectionCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$RpcSyncConnectionCopyWith<$Res>
+abstract class _$$_RpcSyncConnectionCopyWith<$Res>
     implements $RpcSyncConnectionCopyWith<$Res> {
-  factory _$RpcSyncConnectionCopyWith(
-          _RpcSyncConnection value, $Res Function(_RpcSyncConnection) then) =
-      __$RpcSyncConnectionCopyWithImpl<$Res>;
+  factory _$$_RpcSyncConnectionCopyWith(_$_RpcSyncConnection value,
+          $Res Function(_$_RpcSyncConnection) then) =
+      __$$_RpcSyncConnectionCopyWithImpl<$Res>;
   @override
   $Res call({String address, String speed});
 }
 
 /// @nodoc
-class __$RpcSyncConnectionCopyWithImpl<$Res>
+class __$$_RpcSyncConnectionCopyWithImpl<$Res>
     extends _$RpcSyncConnectionCopyWithImpl<$Res>
-    implements _$RpcSyncConnectionCopyWith<$Res> {
-  __$RpcSyncConnectionCopyWithImpl(
-      _RpcSyncConnection _value, $Res Function(_RpcSyncConnection) _then)
-      : super(_value, (v) => _then(v as _RpcSyncConnection));
+    implements _$$_RpcSyncConnectionCopyWith<$Res> {
+  __$$_RpcSyncConnectionCopyWithImpl(
+      _$_RpcSyncConnection _value, $Res Function(_$_RpcSyncConnection) _then)
+      : super(_value, (v) => _then(v as _$_RpcSyncConnection));
 
   @override
-  _RpcSyncConnection get _value => super._value as _RpcSyncConnection;
+  _$_RpcSyncConnection get _value => super._value as _$_RpcSyncConnection;
 
   @override
   $Res call({
     Object? address = freezed,
     Object? speed = freezed,
   }) {
-    return _then(_RpcSyncConnection(
+    return _then(_$_RpcSyncConnection(
       address: address == freezed
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
@@ -840,11 +756,12 @@ class _$_RpcSyncConnection implements _RpcSyncConnection {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RpcSyncConnection &&
+            other is _$_RpcSyncConnection &&
             const DeepCollectionEquality().equals(other.address, address) &&
             const DeepCollectionEquality().equals(other.speed, speed));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -853,18 +770,22 @@ class _$_RpcSyncConnection implements _RpcSyncConnection {
 
   @JsonKey(ignore: true)
   @override
-  _$RpcSyncConnectionCopyWith<_RpcSyncConnection> get copyWith =>
-      __$RpcSyncConnectionCopyWithImpl<_RpcSyncConnection>(this, _$identity);
+  _$$_RpcSyncConnectionCopyWith<_$_RpcSyncConnection> get copyWith =>
+      __$$_RpcSyncConnectionCopyWithImpl<_$_RpcSyncConnection>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RpcSyncConnectionToJson(this);
+    return _$$_RpcSyncConnectionToJson(
+      this,
+    );
   }
 }
 
 abstract class _RpcSyncConnection implements RpcSyncConnection {
   const factory _RpcSyncConnection(
-      {required String address, required String speed}) = _$_RpcSyncConnection;
+      {required final String address,
+      required final String speed}) = _$_RpcSyncConnection;
 
   factory _RpcSyncConnection.fromJson(Map<String, dynamic> json) =
       _$_RpcSyncConnection.fromJson;
@@ -875,32 +796,13 @@ abstract class _RpcSyncConnection implements RpcSyncConnection {
   String get speed;
   @override
   @JsonKey(ignore: true)
-  _$RpcSyncConnectionCopyWith<_RpcSyncConnection> get copyWith =>
+  _$$_RpcSyncConnectionCopyWith<_$_RpcSyncConnection> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 RpcSyncChunk _$RpcSyncChunkFromJson(Map<String, dynamic> json) {
   return _RpcSyncChunk.fromJson(json);
 }
-
-/// @nodoc
-class _$RpcSyncChunkTearOff {
-  const _$RpcSyncChunkTearOff();
-
-  _RpcSyncChunk call({required int height, required String hash}) {
-    return _RpcSyncChunk(
-      height: height,
-      hash: hash,
-    );
-  }
-
-  RpcSyncChunk fromJson(Map<String, Object?> json) {
-    return RpcSyncChunk.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RpcSyncChunk = _$RpcSyncChunkTearOff();
 
 /// @nodoc
 mixin _$RpcSyncChunk {
@@ -948,31 +850,32 @@ class _$RpcSyncChunkCopyWithImpl<$Res> implements $RpcSyncChunkCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$RpcSyncChunkCopyWith<$Res>
+abstract class _$$_RpcSyncChunkCopyWith<$Res>
     implements $RpcSyncChunkCopyWith<$Res> {
-  factory _$RpcSyncChunkCopyWith(
-          _RpcSyncChunk value, $Res Function(_RpcSyncChunk) then) =
-      __$RpcSyncChunkCopyWithImpl<$Res>;
+  factory _$$_RpcSyncChunkCopyWith(
+          _$_RpcSyncChunk value, $Res Function(_$_RpcSyncChunk) then) =
+      __$$_RpcSyncChunkCopyWithImpl<$Res>;
   @override
   $Res call({int height, String hash});
 }
 
 /// @nodoc
-class __$RpcSyncChunkCopyWithImpl<$Res> extends _$RpcSyncChunkCopyWithImpl<$Res>
-    implements _$RpcSyncChunkCopyWith<$Res> {
-  __$RpcSyncChunkCopyWithImpl(
-      _RpcSyncChunk _value, $Res Function(_RpcSyncChunk) _then)
-      : super(_value, (v) => _then(v as _RpcSyncChunk));
+class __$$_RpcSyncChunkCopyWithImpl<$Res>
+    extends _$RpcSyncChunkCopyWithImpl<$Res>
+    implements _$$_RpcSyncChunkCopyWith<$Res> {
+  __$$_RpcSyncChunkCopyWithImpl(
+      _$_RpcSyncChunk _value, $Res Function(_$_RpcSyncChunk) _then)
+      : super(_value, (v) => _then(v as _$_RpcSyncChunk));
 
   @override
-  _RpcSyncChunk get _value => super._value as _RpcSyncChunk;
+  _$_RpcSyncChunk get _value => super._value as _$_RpcSyncChunk;
 
   @override
   $Res call({
     Object? height = freezed,
     Object? hash = freezed,
   }) {
-    return _then(_RpcSyncChunk(
+    return _then(_$_RpcSyncChunk(
       height: height == freezed
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
@@ -1007,11 +910,12 @@ class _$_RpcSyncChunk implements _RpcSyncChunk {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RpcSyncChunk &&
+            other is _$_RpcSyncChunk &&
             const DeepCollectionEquality().equals(other.height, height) &&
             const DeepCollectionEquality().equals(other.hash, hash));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -1020,18 +924,21 @@ class _$_RpcSyncChunk implements _RpcSyncChunk {
 
   @JsonKey(ignore: true)
   @override
-  _$RpcSyncChunkCopyWith<_RpcSyncChunk> get copyWith =>
-      __$RpcSyncChunkCopyWithImpl<_RpcSyncChunk>(this, _$identity);
+  _$$_RpcSyncChunkCopyWith<_$_RpcSyncChunk> get copyWith =>
+      __$$_RpcSyncChunkCopyWithImpl<_$_RpcSyncChunk>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RpcSyncChunkToJson(this);
+    return _$$_RpcSyncChunkToJson(
+      this,
+    );
   }
 }
 
 abstract class _RpcSyncChunk implements RpcSyncChunk {
-  const factory _RpcSyncChunk({required int height, required String hash}) =
-      _$_RpcSyncChunk;
+  const factory _RpcSyncChunk(
+      {required final int height,
+      required final String hash}) = _$_RpcSyncChunk;
 
   factory _RpcSyncChunk.fromJson(Map<String, dynamic> json) =
       _$_RpcSyncChunk.fromJson;
@@ -1042,36 +949,13 @@ abstract class _RpcSyncChunk implements RpcSyncChunk {
   String get hash;
   @override
   @JsonKey(ignore: true)
-  _$RpcSyncChunkCopyWith<_RpcSyncChunk> get copyWith =>
+  _$$_RpcSyncChunkCopyWith<_$_RpcSyncChunk> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 RpcSyncCache _$RpcSyncCacheFromJson(Map<String, dynamic> json) {
   return _RpcSyncCache.fromJson(json);
 }
-
-/// @nodoc
-class _$RpcSyncCacheTearOff {
-  const _$RpcSyncCacheTearOff();
-
-  _RpcSyncCache call(
-      {List<int> bound = const [],
-      @JsonKey(name: 'Hash') required String hash,
-      @JsonKey(name: 'PrevHash') required String prevHash}) {
-    return _RpcSyncCache(
-      bound: bound,
-      hash: hash,
-      prevHash: prevHash,
-    );
-  }
-
-  RpcSyncCache fromJson(Map<String, Object?> json) {
-    return RpcSyncCache.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RpcSyncCache = _$RpcSyncCacheTearOff();
 
 /// @nodoc
 mixin _$RpcSyncCache {
@@ -1130,11 +1014,11 @@ class _$RpcSyncCacheCopyWithImpl<$Res> implements $RpcSyncCacheCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$RpcSyncCacheCopyWith<$Res>
+abstract class _$$_RpcSyncCacheCopyWith<$Res>
     implements $RpcSyncCacheCopyWith<$Res> {
-  factory _$RpcSyncCacheCopyWith(
-          _RpcSyncCache value, $Res Function(_RpcSyncCache) then) =
-      __$RpcSyncCacheCopyWithImpl<$Res>;
+  factory _$$_RpcSyncCacheCopyWith(
+          _$_RpcSyncCache value, $Res Function(_$_RpcSyncCache) then) =
+      __$$_RpcSyncCacheCopyWithImpl<$Res>;
   @override
   $Res call(
       {List<int> bound,
@@ -1143,14 +1027,15 @@ abstract class _$RpcSyncCacheCopyWith<$Res>
 }
 
 /// @nodoc
-class __$RpcSyncCacheCopyWithImpl<$Res> extends _$RpcSyncCacheCopyWithImpl<$Res>
-    implements _$RpcSyncCacheCopyWith<$Res> {
-  __$RpcSyncCacheCopyWithImpl(
-      _RpcSyncCache _value, $Res Function(_RpcSyncCache) _then)
-      : super(_value, (v) => _then(v as _RpcSyncCache));
+class __$$_RpcSyncCacheCopyWithImpl<$Res>
+    extends _$RpcSyncCacheCopyWithImpl<$Res>
+    implements _$$_RpcSyncCacheCopyWith<$Res> {
+  __$$_RpcSyncCacheCopyWithImpl(
+      _$_RpcSyncCache _value, $Res Function(_$_RpcSyncCache) _then)
+      : super(_value, (v) => _then(v as _$_RpcSyncCache));
 
   @override
-  _RpcSyncCache get _value => super._value as _RpcSyncCache;
+  _$_RpcSyncCache get _value => super._value as _$_RpcSyncCache;
 
   @override
   $Res call({
@@ -1158,9 +1043,9 @@ class __$RpcSyncCacheCopyWithImpl<$Res> extends _$RpcSyncCacheCopyWithImpl<$Res>
     Object? hash = freezed,
     Object? prevHash = freezed,
   }) {
-    return _then(_RpcSyncCache(
+    return _then(_$_RpcSyncCache(
       bound: bound == freezed
-          ? _value.bound
+          ? _value._bound
           : bound // ignore: cast_nullable_to_non_nullable
               as List<int>,
       hash: hash == freezed
@@ -1179,16 +1064,22 @@ class __$RpcSyncCacheCopyWithImpl<$Res> extends _$RpcSyncCacheCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_RpcSyncCache implements _RpcSyncCache {
   const _$_RpcSyncCache(
-      {this.bound = const [],
+      {final List<int> bound = const [],
       @JsonKey(name: 'Hash') required this.hash,
-      @JsonKey(name: 'PrevHash') required this.prevHash});
+      @JsonKey(name: 'PrevHash') required this.prevHash})
+      : _bound = bound;
 
   factory _$_RpcSyncCache.fromJson(Map<String, dynamic> json) =>
       _$$_RpcSyncCacheFromJson(json);
 
-  @JsonKey()
+  final List<int> _bound;
   @override
-  final List<int> bound;
+  @JsonKey()
+  List<int> get bound {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_bound);
+  }
+
   @override
   @JsonKey(name: 'Hash')
   final String hash;
@@ -1205,35 +1096,39 @@ class _$_RpcSyncCache implements _RpcSyncCache {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RpcSyncCache &&
-            const DeepCollectionEquality().equals(other.bound, bound) &&
+            other is _$_RpcSyncCache &&
+            const DeepCollectionEquality().equals(other._bound, _bound) &&
             const DeepCollectionEquality().equals(other.hash, hash) &&
             const DeepCollectionEquality().equals(other.prevHash, prevHash));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(bound),
+      const DeepCollectionEquality().hash(_bound),
       const DeepCollectionEquality().hash(hash),
       const DeepCollectionEquality().hash(prevHash));
 
   @JsonKey(ignore: true)
   @override
-  _$RpcSyncCacheCopyWith<_RpcSyncCache> get copyWith =>
-      __$RpcSyncCacheCopyWithImpl<_RpcSyncCache>(this, _$identity);
+  _$$_RpcSyncCacheCopyWith<_$_RpcSyncCache> get copyWith =>
+      __$$_RpcSyncCacheCopyWithImpl<_$_RpcSyncCache>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RpcSyncCacheToJson(this);
+    return _$$_RpcSyncCacheToJson(
+      this,
+    );
   }
 }
 
 abstract class _RpcSyncCache implements RpcSyncCache {
   const factory _RpcSyncCache(
-      {List<int> bound,
-      @JsonKey(name: 'Hash') required String hash,
-      @JsonKey(name: 'PrevHash') required String prevHash}) = _$_RpcSyncCache;
+          {final List<int> bound,
+          @JsonKey(name: 'Hash') required final String hash,
+          @JsonKey(name: 'PrevHash') required final String prevHash}) =
+      _$_RpcSyncCache;
 
   factory _RpcSyncCache.fromJson(Map<String, dynamic> json) =
       _$_RpcSyncCache.fromJson;
@@ -1248,46 +1143,13 @@ abstract class _RpcSyncCache implements RpcSyncCache {
   String get prevHash;
   @override
   @JsonKey(ignore: true)
-  _$RpcSyncCacheCopyWith<_RpcSyncCache> get copyWith =>
+  _$$_RpcSyncCacheCopyWith<_$_RpcSyncCache> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 RpcSyncDetail _$RpcSyncDetailFromJson(Map<String, dynamic> json) {
   return _RpcSyncDetail.fromJson(json);
 }
-
-/// @nodoc
-class _$RpcSyncDetailTearOff {
-  const _$RpcSyncDetailTearOff();
-
-  _RpcSyncDetail call(
-      {required int from,
-      required int to,
-      required int current,
-      required String status,
-      List<String> tasks = const [],
-      List<RpcSyncConnection> connections = const [],
-      List<RpcSyncChunk> chunks = const [],
-      List<RpcSyncCache> caches = const []}) {
-    return _RpcSyncDetail(
-      from: from,
-      to: to,
-      current: current,
-      status: status,
-      tasks: tasks,
-      connections: connections,
-      chunks: chunks,
-      caches: caches,
-    );
-  }
-
-  RpcSyncDetail fromJson(Map<String, Object?> json) {
-    return RpcSyncDetail.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RpcSyncDetail = _$RpcSyncDetailTearOff();
 
 /// @nodoc
 mixin _$RpcSyncDetail {
@@ -1380,11 +1242,11 @@ class _$RpcSyncDetailCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$RpcSyncDetailCopyWith<$Res>
+abstract class _$$_RpcSyncDetailCopyWith<$Res>
     implements $RpcSyncDetailCopyWith<$Res> {
-  factory _$RpcSyncDetailCopyWith(
-          _RpcSyncDetail value, $Res Function(_RpcSyncDetail) then) =
-      __$RpcSyncDetailCopyWithImpl<$Res>;
+  factory _$$_RpcSyncDetailCopyWith(
+          _$_RpcSyncDetail value, $Res Function(_$_RpcSyncDetail) then) =
+      __$$_RpcSyncDetailCopyWithImpl<$Res>;
   @override
   $Res call(
       {int from,
@@ -1398,15 +1260,15 @@ abstract class _$RpcSyncDetailCopyWith<$Res>
 }
 
 /// @nodoc
-class __$RpcSyncDetailCopyWithImpl<$Res>
+class __$$_RpcSyncDetailCopyWithImpl<$Res>
     extends _$RpcSyncDetailCopyWithImpl<$Res>
-    implements _$RpcSyncDetailCopyWith<$Res> {
-  __$RpcSyncDetailCopyWithImpl(
-      _RpcSyncDetail _value, $Res Function(_RpcSyncDetail) _then)
-      : super(_value, (v) => _then(v as _RpcSyncDetail));
+    implements _$$_RpcSyncDetailCopyWith<$Res> {
+  __$$_RpcSyncDetailCopyWithImpl(
+      _$_RpcSyncDetail _value, $Res Function(_$_RpcSyncDetail) _then)
+      : super(_value, (v) => _then(v as _$_RpcSyncDetail));
 
   @override
-  _RpcSyncDetail get _value => super._value as _RpcSyncDetail;
+  _$_RpcSyncDetail get _value => super._value as _$_RpcSyncDetail;
 
   @override
   $Res call({
@@ -1419,7 +1281,7 @@ class __$RpcSyncDetailCopyWithImpl<$Res>
     Object? chunks = freezed,
     Object? caches = freezed,
   }) {
-    return _then(_RpcSyncDetail(
+    return _then(_$_RpcSyncDetail(
       from: from == freezed
           ? _value.from
           : from // ignore: cast_nullable_to_non_nullable
@@ -1437,19 +1299,19 @@ class __$RpcSyncDetailCopyWithImpl<$Res>
           : status // ignore: cast_nullable_to_non_nullable
               as String,
       tasks: tasks == freezed
-          ? _value.tasks
+          ? _value._tasks
           : tasks // ignore: cast_nullable_to_non_nullable
               as List<String>,
       connections: connections == freezed
-          ? _value.connections
+          ? _value._connections
           : connections // ignore: cast_nullable_to_non_nullable
               as List<RpcSyncConnection>,
       chunks: chunks == freezed
-          ? _value.chunks
+          ? _value._chunks
           : chunks // ignore: cast_nullable_to_non_nullable
               as List<RpcSyncChunk>,
       caches: caches == freezed
-          ? _value.caches
+          ? _value._caches
           : caches // ignore: cast_nullable_to_non_nullable
               as List<RpcSyncCache>,
     ));
@@ -1464,10 +1326,14 @@ class _$_RpcSyncDetail implements _RpcSyncDetail {
       required this.to,
       required this.current,
       required this.status,
-      this.tasks = const [],
-      this.connections = const [],
-      this.chunks = const [],
-      this.caches = const []});
+      final List<String> tasks = const [],
+      final List<RpcSyncConnection> connections = const [],
+      final List<RpcSyncChunk> chunks = const [],
+      final List<RpcSyncCache> caches = const []})
+      : _tasks = tasks,
+        _connections = connections,
+        _chunks = chunks,
+        _caches = caches;
 
   factory _$_RpcSyncDetail.fromJson(Map<String, dynamic> json) =>
       _$$_RpcSyncDetailFromJson(json);
@@ -1480,18 +1346,37 @@ class _$_RpcSyncDetail implements _RpcSyncDetail {
   final int current;
   @override
   final String status;
-  @JsonKey()
+  final List<String> _tasks;
   @override
-  final List<String> tasks;
   @JsonKey()
+  List<String> get tasks {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_tasks);
+  }
+
+  final List<RpcSyncConnection> _connections;
   @override
-  final List<RpcSyncConnection> connections;
   @JsonKey()
+  List<RpcSyncConnection> get connections {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_connections);
+  }
+
+  final List<RpcSyncChunk> _chunks;
   @override
-  final List<RpcSyncChunk> chunks;
   @JsonKey()
+  List<RpcSyncChunk> get chunks {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_chunks);
+  }
+
+  final List<RpcSyncCache> _caches;
   @override
-  final List<RpcSyncCache> caches;
+  @JsonKey()
+  List<RpcSyncCache> get caches {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_caches);
+  }
 
   @override
   String toString() {
@@ -1502,18 +1387,19 @@ class _$_RpcSyncDetail implements _RpcSyncDetail {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RpcSyncDetail &&
+            other is _$_RpcSyncDetail &&
             const DeepCollectionEquality().equals(other.from, from) &&
             const DeepCollectionEquality().equals(other.to, to) &&
             const DeepCollectionEquality().equals(other.current, current) &&
             const DeepCollectionEquality().equals(other.status, status) &&
-            const DeepCollectionEquality().equals(other.tasks, tasks) &&
+            const DeepCollectionEquality().equals(other._tasks, _tasks) &&
             const DeepCollectionEquality()
-                .equals(other.connections, connections) &&
-            const DeepCollectionEquality().equals(other.chunks, chunks) &&
-            const DeepCollectionEquality().equals(other.caches, caches));
+                .equals(other._connections, _connections) &&
+            const DeepCollectionEquality().equals(other._chunks, _chunks) &&
+            const DeepCollectionEquality().equals(other._caches, _caches));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -1521,32 +1407,34 @@ class _$_RpcSyncDetail implements _RpcSyncDetail {
       const DeepCollectionEquality().hash(to),
       const DeepCollectionEquality().hash(current),
       const DeepCollectionEquality().hash(status),
-      const DeepCollectionEquality().hash(tasks),
-      const DeepCollectionEquality().hash(connections),
-      const DeepCollectionEquality().hash(chunks),
-      const DeepCollectionEquality().hash(caches));
+      const DeepCollectionEquality().hash(_tasks),
+      const DeepCollectionEquality().hash(_connections),
+      const DeepCollectionEquality().hash(_chunks),
+      const DeepCollectionEquality().hash(_caches));
 
   @JsonKey(ignore: true)
   @override
-  _$RpcSyncDetailCopyWith<_RpcSyncDetail> get copyWith =>
-      __$RpcSyncDetailCopyWithImpl<_RpcSyncDetail>(this, _$identity);
+  _$$_RpcSyncDetailCopyWith<_$_RpcSyncDetail> get copyWith =>
+      __$$_RpcSyncDetailCopyWithImpl<_$_RpcSyncDetail>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RpcSyncDetailToJson(this);
+    return _$$_RpcSyncDetailToJson(
+      this,
+    );
   }
 }
 
 abstract class _RpcSyncDetail implements RpcSyncDetail {
   const factory _RpcSyncDetail(
-      {required int from,
-      required int to,
-      required int current,
-      required String status,
-      List<String> tasks,
-      List<RpcSyncConnection> connections,
-      List<RpcSyncChunk> chunks,
-      List<RpcSyncCache> caches}) = _$_RpcSyncDetail;
+      {required final int from,
+      required final int to,
+      required final int current,
+      required final String status,
+      final List<String> tasks,
+      final List<RpcSyncConnection> connections,
+      final List<RpcSyncChunk> chunks,
+      final List<RpcSyncCache> caches}) = _$_RpcSyncDetail;
 
   factory _RpcSyncDetail.fromJson(Map<String, dynamic> json) =
       _$_RpcSyncDetail.fromJson;
@@ -1569,32 +1457,13 @@ abstract class _RpcSyncDetail implements RpcSyncDetail {
   List<RpcSyncCache> get caches;
   @override
   @JsonKey(ignore: true)
-  _$RpcSyncDetailCopyWith<_RpcSyncDetail> get copyWith =>
+  _$$_RpcSyncDetailCopyWith<_$_RpcSyncDetail> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 RpcHashHeight _$RpcHashHeightFromJson(Map<String, dynamic> json) {
   return _RpcHashHeight.fromJson(json);
 }
-
-/// @nodoc
-class _$RpcHashHeightTearOff {
-  const _$RpcHashHeightTearOff();
-
-  _RpcHashHeight call({required int height, required String hash}) {
-    return _RpcHashHeight(
-      height: height,
-      hash: hash,
-    );
-  }
-
-  RpcHashHeight fromJson(Map<String, Object?> json) {
-    return RpcHashHeight.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RpcHashHeight = _$RpcHashHeightTearOff();
 
 /// @nodoc
 mixin _$RpcHashHeight {
@@ -1643,32 +1512,32 @@ class _$RpcHashHeightCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$RpcHashHeightCopyWith<$Res>
+abstract class _$$_RpcHashHeightCopyWith<$Res>
     implements $RpcHashHeightCopyWith<$Res> {
-  factory _$RpcHashHeightCopyWith(
-          _RpcHashHeight value, $Res Function(_RpcHashHeight) then) =
-      __$RpcHashHeightCopyWithImpl<$Res>;
+  factory _$$_RpcHashHeightCopyWith(
+          _$_RpcHashHeight value, $Res Function(_$_RpcHashHeight) then) =
+      __$$_RpcHashHeightCopyWithImpl<$Res>;
   @override
   $Res call({int height, String hash});
 }
 
 /// @nodoc
-class __$RpcHashHeightCopyWithImpl<$Res>
+class __$$_RpcHashHeightCopyWithImpl<$Res>
     extends _$RpcHashHeightCopyWithImpl<$Res>
-    implements _$RpcHashHeightCopyWith<$Res> {
-  __$RpcHashHeightCopyWithImpl(
-      _RpcHashHeight _value, $Res Function(_RpcHashHeight) _then)
-      : super(_value, (v) => _then(v as _RpcHashHeight));
+    implements _$$_RpcHashHeightCopyWith<$Res> {
+  __$$_RpcHashHeightCopyWithImpl(
+      _$_RpcHashHeight _value, $Res Function(_$_RpcHashHeight) _then)
+      : super(_value, (v) => _then(v as _$_RpcHashHeight));
 
   @override
-  _RpcHashHeight get _value => super._value as _RpcHashHeight;
+  _$_RpcHashHeight get _value => super._value as _$_RpcHashHeight;
 
   @override
   $Res call({
     Object? height = freezed,
     Object? hash = freezed,
   }) {
-    return _then(_RpcHashHeight(
+    return _then(_$_RpcHashHeight(
       height: height == freezed
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
@@ -1703,11 +1572,12 @@ class _$_RpcHashHeight implements _RpcHashHeight {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RpcHashHeight &&
+            other is _$_RpcHashHeight &&
             const DeepCollectionEquality().equals(other.height, height) &&
             const DeepCollectionEquality().equals(other.hash, hash));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -1716,18 +1586,21 @@ class _$_RpcHashHeight implements _RpcHashHeight {
 
   @JsonKey(ignore: true)
   @override
-  _$RpcHashHeightCopyWith<_RpcHashHeight> get copyWith =>
-      __$RpcHashHeightCopyWithImpl<_RpcHashHeight>(this, _$identity);
+  _$$_RpcHashHeightCopyWith<_$_RpcHashHeight> get copyWith =>
+      __$$_RpcHashHeightCopyWithImpl<_$_RpcHashHeight>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RpcHashHeightToJson(this);
+    return _$$_RpcHashHeightToJson(
+      this,
+    );
   }
 }
 
 abstract class _RpcHashHeight implements RpcHashHeight {
-  const factory _RpcHashHeight({required int height, required String hash}) =
-      _$_RpcHashHeight;
+  const factory _RpcHashHeight(
+      {required final int height,
+      required final String hash}) = _$_RpcHashHeight;
 
   factory _RpcHashHeight.fromJson(Map<String, dynamic> json) =
       _$_RpcHashHeight.fromJson;
@@ -1738,50 +1611,13 @@ abstract class _RpcHashHeight implements RpcHashHeight {
   String get hash;
   @override
   @JsonKey(ignore: true)
-  _$RpcHashHeightCopyWith<_RpcHashHeight> get copyWith =>
+  _$$_RpcHashHeightCopyWith<_$_RpcHashHeight> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 RpcSnapshotBlock _$RpcSnapshotBlockFromJson(Map<String, dynamic> json) {
   return _RpcSnapshotBlock.fromJson(json);
 }
-
-/// @nodoc
-class _$RpcSnapshotBlockTearOff {
-  const _$RpcSnapshotBlockTearOff();
-
-  _RpcSnapshotBlock call(
-      {required String producer,
-      required String hash,
-      required String previousHash,
-      required int height,
-      String? publicKey,
-      String? signature,
-      required double seed,
-      String? nextSeedHash,
-      Map<String, RpcHashHeight> snapshotData = const {},
-      required int timestamp}) {
-    return _RpcSnapshotBlock(
-      producer: producer,
-      hash: hash,
-      previousHash: previousHash,
-      height: height,
-      publicKey: publicKey,
-      signature: signature,
-      seed: seed,
-      nextSeedHash: nextSeedHash,
-      snapshotData: snapshotData,
-      timestamp: timestamp,
-    );
-  }
-
-  RpcSnapshotBlock fromJson(Map<String, Object?> json) {
-    return RpcSnapshotBlock.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RpcSnapshotBlock = _$RpcSnapshotBlockTearOff();
 
 /// @nodoc
 mixin _$RpcSnapshotBlock {
@@ -1889,11 +1725,11 @@ class _$RpcSnapshotBlockCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$RpcSnapshotBlockCopyWith<$Res>
+abstract class _$$_RpcSnapshotBlockCopyWith<$Res>
     implements $RpcSnapshotBlockCopyWith<$Res> {
-  factory _$RpcSnapshotBlockCopyWith(
-          _RpcSnapshotBlock value, $Res Function(_RpcSnapshotBlock) then) =
-      __$RpcSnapshotBlockCopyWithImpl<$Res>;
+  factory _$$_RpcSnapshotBlockCopyWith(
+          _$_RpcSnapshotBlock value, $Res Function(_$_RpcSnapshotBlock) then) =
+      __$$_RpcSnapshotBlockCopyWithImpl<$Res>;
   @override
   $Res call(
       {String producer,
@@ -1909,15 +1745,15 @@ abstract class _$RpcSnapshotBlockCopyWith<$Res>
 }
 
 /// @nodoc
-class __$RpcSnapshotBlockCopyWithImpl<$Res>
+class __$$_RpcSnapshotBlockCopyWithImpl<$Res>
     extends _$RpcSnapshotBlockCopyWithImpl<$Res>
-    implements _$RpcSnapshotBlockCopyWith<$Res> {
-  __$RpcSnapshotBlockCopyWithImpl(
-      _RpcSnapshotBlock _value, $Res Function(_RpcSnapshotBlock) _then)
-      : super(_value, (v) => _then(v as _RpcSnapshotBlock));
+    implements _$$_RpcSnapshotBlockCopyWith<$Res> {
+  __$$_RpcSnapshotBlockCopyWithImpl(
+      _$_RpcSnapshotBlock _value, $Res Function(_$_RpcSnapshotBlock) _then)
+      : super(_value, (v) => _then(v as _$_RpcSnapshotBlock));
 
   @override
-  _RpcSnapshotBlock get _value => super._value as _RpcSnapshotBlock;
+  _$_RpcSnapshotBlock get _value => super._value as _$_RpcSnapshotBlock;
 
   @override
   $Res call({
@@ -1932,7 +1768,7 @@ class __$RpcSnapshotBlockCopyWithImpl<$Res>
     Object? snapshotData = freezed,
     Object? timestamp = freezed,
   }) {
-    return _then(_RpcSnapshotBlock(
+    return _then(_$_RpcSnapshotBlock(
       producer: producer == freezed
           ? _value.producer
           : producer // ignore: cast_nullable_to_non_nullable
@@ -1966,7 +1802,7 @@ class __$RpcSnapshotBlockCopyWithImpl<$Res>
           : nextSeedHash // ignore: cast_nullable_to_non_nullable
               as String?,
       snapshotData: snapshotData == freezed
-          ? _value.snapshotData
+          ? _value._snapshotData
           : snapshotData // ignore: cast_nullable_to_non_nullable
               as Map<String, RpcHashHeight>,
       timestamp: timestamp == freezed
@@ -1989,8 +1825,9 @@ class _$_RpcSnapshotBlock implements _RpcSnapshotBlock {
       this.signature,
       required this.seed,
       this.nextSeedHash,
-      this.snapshotData = const {},
-      required this.timestamp});
+      final Map<String, RpcHashHeight> snapshotData = const {},
+      required this.timestamp})
+      : _snapshotData = snapshotData;
 
   factory _$_RpcSnapshotBlock.fromJson(Map<String, dynamic> json) =>
       _$$_RpcSnapshotBlockFromJson(json);
@@ -2011,9 +1848,14 @@ class _$_RpcSnapshotBlock implements _RpcSnapshotBlock {
   final double seed;
   @override
   final String? nextSeedHash;
-  @JsonKey()
+  final Map<String, RpcHashHeight> _snapshotData;
   @override
-  final Map<String, RpcHashHeight> snapshotData;
+  @JsonKey()
+  Map<String, RpcHashHeight> get snapshotData {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_snapshotData);
+  }
+
   @override
   final int timestamp;
 
@@ -2026,7 +1868,7 @@ class _$_RpcSnapshotBlock implements _RpcSnapshotBlock {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RpcSnapshotBlock &&
+            other is _$_RpcSnapshotBlock &&
             const DeepCollectionEquality().equals(other.producer, producer) &&
             const DeepCollectionEquality().equals(other.hash, hash) &&
             const DeepCollectionEquality()
@@ -2038,10 +1880,11 @@ class _$_RpcSnapshotBlock implements _RpcSnapshotBlock {
             const DeepCollectionEquality()
                 .equals(other.nextSeedHash, nextSeedHash) &&
             const DeepCollectionEquality()
-                .equals(other.snapshotData, snapshotData) &&
+                .equals(other._snapshotData, _snapshotData) &&
             const DeepCollectionEquality().equals(other.timestamp, timestamp));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -2053,32 +1896,34 @@ class _$_RpcSnapshotBlock implements _RpcSnapshotBlock {
       const DeepCollectionEquality().hash(signature),
       const DeepCollectionEquality().hash(seed),
       const DeepCollectionEquality().hash(nextSeedHash),
-      const DeepCollectionEquality().hash(snapshotData),
+      const DeepCollectionEquality().hash(_snapshotData),
       const DeepCollectionEquality().hash(timestamp));
 
   @JsonKey(ignore: true)
   @override
-  _$RpcSnapshotBlockCopyWith<_RpcSnapshotBlock> get copyWith =>
-      __$RpcSnapshotBlockCopyWithImpl<_RpcSnapshotBlock>(this, _$identity);
+  _$$_RpcSnapshotBlockCopyWith<_$_RpcSnapshotBlock> get copyWith =>
+      __$$_RpcSnapshotBlockCopyWithImpl<_$_RpcSnapshotBlock>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RpcSnapshotBlockToJson(this);
+    return _$$_RpcSnapshotBlockToJson(
+      this,
+    );
   }
 }
 
 abstract class _RpcSnapshotBlock implements RpcSnapshotBlock {
   const factory _RpcSnapshotBlock(
-      {required String producer,
-      required String hash,
-      required String previousHash,
-      required int height,
-      String? publicKey,
-      String? signature,
-      required double seed,
-      String? nextSeedHash,
-      Map<String, RpcHashHeight> snapshotData,
-      required int timestamp}) = _$_RpcSnapshotBlock;
+      {required final String producer,
+      required final String hash,
+      required final String previousHash,
+      required final int height,
+      final String? publicKey,
+      final String? signature,
+      required final double seed,
+      final String? nextSeedHash,
+      final Map<String, RpcHashHeight> snapshotData,
+      required final int timestamp}) = _$_RpcSnapshotBlock;
 
   factory _RpcSnapshotBlock.fromJson(Map<String, dynamic> json) =
       _$_RpcSnapshotBlock.fromJson;
@@ -2105,34 +1950,13 @@ abstract class _RpcSnapshotBlock implements RpcSnapshotBlock {
   int get timestamp;
   @override
   @JsonKey(ignore: true)
-  _$RpcSnapshotBlockCopyWith<_RpcSnapshotBlock> get copyWith =>
+  _$$_RpcSnapshotBlockCopyWith<_$_RpcSnapshotBlock> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 RpcLedgerChunk _$RpcLedgerChunkFromJson(Map<String, dynamic> json) {
   return _RpcLedgerChunk.fromJson(json);
 }
-
-/// @nodoc
-class _$RpcLedgerChunkTearOff {
-  const _$RpcLedgerChunkTearOff();
-
-  _RpcLedgerChunk call(
-      {List<RpcAccountBlock> accountBlocks = const [],
-      required RpcSnapshotBlock snapshotBlock}) {
-    return _RpcLedgerChunk(
-      accountBlocks: accountBlocks,
-      snapshotBlock: snapshotBlock,
-    );
-  }
-
-  RpcLedgerChunk fromJson(Map<String, Object?> json) {
-    return RpcLedgerChunk.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RpcLedgerChunk = _$RpcLedgerChunkTearOff();
 
 /// @nodoc
 mixin _$RpcLedgerChunk {
@@ -2191,11 +2015,11 @@ class _$RpcLedgerChunkCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$RpcLedgerChunkCopyWith<$Res>
+abstract class _$$_RpcLedgerChunkCopyWith<$Res>
     implements $RpcLedgerChunkCopyWith<$Res> {
-  factory _$RpcLedgerChunkCopyWith(
-          _RpcLedgerChunk value, $Res Function(_RpcLedgerChunk) then) =
-      __$RpcLedgerChunkCopyWithImpl<$Res>;
+  factory _$$_RpcLedgerChunkCopyWith(
+          _$_RpcLedgerChunk value, $Res Function(_$_RpcLedgerChunk) then) =
+      __$$_RpcLedgerChunkCopyWithImpl<$Res>;
   @override
   $Res call(
       {List<RpcAccountBlock> accountBlocks, RpcSnapshotBlock snapshotBlock});
@@ -2205,24 +2029,24 @@ abstract class _$RpcLedgerChunkCopyWith<$Res>
 }
 
 /// @nodoc
-class __$RpcLedgerChunkCopyWithImpl<$Res>
+class __$$_RpcLedgerChunkCopyWithImpl<$Res>
     extends _$RpcLedgerChunkCopyWithImpl<$Res>
-    implements _$RpcLedgerChunkCopyWith<$Res> {
-  __$RpcLedgerChunkCopyWithImpl(
-      _RpcLedgerChunk _value, $Res Function(_RpcLedgerChunk) _then)
-      : super(_value, (v) => _then(v as _RpcLedgerChunk));
+    implements _$$_RpcLedgerChunkCopyWith<$Res> {
+  __$$_RpcLedgerChunkCopyWithImpl(
+      _$_RpcLedgerChunk _value, $Res Function(_$_RpcLedgerChunk) _then)
+      : super(_value, (v) => _then(v as _$_RpcLedgerChunk));
 
   @override
-  _RpcLedgerChunk get _value => super._value as _RpcLedgerChunk;
+  _$_RpcLedgerChunk get _value => super._value as _$_RpcLedgerChunk;
 
   @override
   $Res call({
     Object? accountBlocks = freezed,
     Object? snapshotBlock = freezed,
   }) {
-    return _then(_RpcLedgerChunk(
+    return _then(_$_RpcLedgerChunk(
       accountBlocks: accountBlocks == freezed
-          ? _value.accountBlocks
+          ? _value._accountBlocks
           : accountBlocks // ignore: cast_nullable_to_non_nullable
               as List<RpcAccountBlock>,
       snapshotBlock: snapshotBlock == freezed
@@ -2237,14 +2061,21 @@ class __$RpcLedgerChunkCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_RpcLedgerChunk implements _RpcLedgerChunk {
   const _$_RpcLedgerChunk(
-      {this.accountBlocks = const [], required this.snapshotBlock});
+      {final List<RpcAccountBlock> accountBlocks = const [],
+      required this.snapshotBlock})
+      : _accountBlocks = accountBlocks;
 
   factory _$_RpcLedgerChunk.fromJson(Map<String, dynamic> json) =>
       _$$_RpcLedgerChunkFromJson(json);
 
-  @JsonKey()
+  final List<RpcAccountBlock> _accountBlocks;
   @override
-  final List<RpcAccountBlock> accountBlocks;
+  @JsonKey()
+  List<RpcAccountBlock> get accountBlocks {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_accountBlocks);
+  }
+
   @override
   final RpcSnapshotBlock snapshotBlock;
 
@@ -2257,34 +2088,37 @@ class _$_RpcLedgerChunk implements _RpcLedgerChunk {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RpcLedgerChunk &&
+            other is _$_RpcLedgerChunk &&
             const DeepCollectionEquality()
-                .equals(other.accountBlocks, accountBlocks) &&
+                .equals(other._accountBlocks, _accountBlocks) &&
             const DeepCollectionEquality()
                 .equals(other.snapshotBlock, snapshotBlock));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(accountBlocks),
+      const DeepCollectionEquality().hash(_accountBlocks),
       const DeepCollectionEquality().hash(snapshotBlock));
 
   @JsonKey(ignore: true)
   @override
-  _$RpcLedgerChunkCopyWith<_RpcLedgerChunk> get copyWith =>
-      __$RpcLedgerChunkCopyWithImpl<_RpcLedgerChunk>(this, _$identity);
+  _$$_RpcLedgerChunkCopyWith<_$_RpcLedgerChunk> get copyWith =>
+      __$$_RpcLedgerChunkCopyWithImpl<_$_RpcLedgerChunk>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RpcLedgerChunkToJson(this);
+    return _$$_RpcLedgerChunkToJson(
+      this,
+    );
   }
 }
 
 abstract class _RpcLedgerChunk implements RpcLedgerChunk {
   const factory _RpcLedgerChunk(
-      {List<RpcAccountBlock> accountBlocks,
-      required RpcSnapshotBlock snapshotBlock}) = _$_RpcLedgerChunk;
+      {final List<RpcAccountBlock> accountBlocks,
+      required final RpcSnapshotBlock snapshotBlock}) = _$_RpcLedgerChunk;
 
   factory _RpcLedgerChunk.fromJson(Map<String, dynamic> json) =
       _$_RpcLedgerChunk.fromJson;
@@ -2295,84 +2129,13 @@ abstract class _RpcLedgerChunk implements RpcLedgerChunk {
   RpcSnapshotBlock get snapshotBlock;
   @override
   @JsonKey(ignore: true)
-  _$RpcLedgerChunkCopyWith<_RpcLedgerChunk> get copyWith =>
+  _$$_RpcLedgerChunkCopyWith<_$_RpcLedgerChunk> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 RpcAccountBlock _$RpcAccountBlockFromJson(Map<String, dynamic> json) {
   return _RpcAccountBlock.fromJson(json);
 }
-
-/// @nodoc
-class _$RpcAccountBlockTearOff {
-  const _$RpcAccountBlockTearOff();
-
-  _RpcAccountBlock call(
-      {required int blockType,
-      required String height,
-      required String hash,
-      required String previousHash,
-      required String address,
-      required String producer,
-      required String fromAddress,
-      required String toAddress,
-      required String sendBlockHash,
-      required String tokenId,
-      required String amount,
-      RpcTokenInfo? tokenInfo,
-      required String fee,
-      String? data,
-      String? difficulty,
-      String? nonce,
-      String? publicKey,
-      String? signature,
-      required String quotaByStake,
-      required String totalQuota,
-      String? vmLogHash,
-      List<RpcAccountBlock> triggeredSendBlockList = const [],
-      required String? confirmations,
-      required String? firstSnapshotHash,
-      required int timestamp,
-      String? receiveBlockHeight,
-      String? receiveBlockHash}) {
-    return _RpcAccountBlock(
-      blockType: blockType,
-      height: height,
-      hash: hash,
-      previousHash: previousHash,
-      address: address,
-      producer: producer,
-      fromAddress: fromAddress,
-      toAddress: toAddress,
-      sendBlockHash: sendBlockHash,
-      tokenId: tokenId,
-      amount: amount,
-      tokenInfo: tokenInfo,
-      fee: fee,
-      data: data,
-      difficulty: difficulty,
-      nonce: nonce,
-      publicKey: publicKey,
-      signature: signature,
-      quotaByStake: quotaByStake,
-      totalQuota: totalQuota,
-      vmLogHash: vmLogHash,
-      triggeredSendBlockList: triggeredSendBlockList,
-      confirmations: confirmations,
-      firstSnapshotHash: firstSnapshotHash,
-      timestamp: timestamp,
-      receiveBlockHeight: receiveBlockHeight,
-      receiveBlockHash: receiveBlockHash,
-    );
-  }
-
-  RpcAccountBlock fromJson(Map<String, Object?> json) {
-    return RpcAccountBlock.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RpcAccountBlock = _$RpcAccountBlockTearOff();
 
 /// @nodoc
 mixin _$RpcAccountBlock {
@@ -2612,11 +2375,11 @@ class _$RpcAccountBlockCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$RpcAccountBlockCopyWith<$Res>
+abstract class _$$_RpcAccountBlockCopyWith<$Res>
     implements $RpcAccountBlockCopyWith<$Res> {
-  factory _$RpcAccountBlockCopyWith(
-          _RpcAccountBlock value, $Res Function(_RpcAccountBlock) then) =
-      __$RpcAccountBlockCopyWithImpl<$Res>;
+  factory _$$_RpcAccountBlockCopyWith(
+          _$_RpcAccountBlock value, $Res Function(_$_RpcAccountBlock) then) =
+      __$$_RpcAccountBlockCopyWithImpl<$Res>;
   @override
   $Res call(
       {int blockType,
@@ -2652,15 +2415,15 @@ abstract class _$RpcAccountBlockCopyWith<$Res>
 }
 
 /// @nodoc
-class __$RpcAccountBlockCopyWithImpl<$Res>
+class __$$_RpcAccountBlockCopyWithImpl<$Res>
     extends _$RpcAccountBlockCopyWithImpl<$Res>
-    implements _$RpcAccountBlockCopyWith<$Res> {
-  __$RpcAccountBlockCopyWithImpl(
-      _RpcAccountBlock _value, $Res Function(_RpcAccountBlock) _then)
-      : super(_value, (v) => _then(v as _RpcAccountBlock));
+    implements _$$_RpcAccountBlockCopyWith<$Res> {
+  __$$_RpcAccountBlockCopyWithImpl(
+      _$_RpcAccountBlock _value, $Res Function(_$_RpcAccountBlock) _then)
+      : super(_value, (v) => _then(v as _$_RpcAccountBlock));
 
   @override
-  _RpcAccountBlock get _value => super._value as _RpcAccountBlock;
+  _$_RpcAccountBlock get _value => super._value as _$_RpcAccountBlock;
 
   @override
   $Res call({
@@ -2692,7 +2455,7 @@ class __$RpcAccountBlockCopyWithImpl<$Res>
     Object? receiveBlockHeight = freezed,
     Object? receiveBlockHash = freezed,
   }) {
-    return _then(_RpcAccountBlock(
+    return _then(_$_RpcAccountBlock(
       blockType: blockType == freezed
           ? _value.blockType
           : blockType // ignore: cast_nullable_to_non_nullable
@@ -2778,7 +2541,7 @@ class __$RpcAccountBlockCopyWithImpl<$Res>
           : vmLogHash // ignore: cast_nullable_to_non_nullable
               as String?,
       triggeredSendBlockList: triggeredSendBlockList == freezed
-          ? _value.triggeredSendBlockList
+          ? _value._triggeredSendBlockList
           : triggeredSendBlockList // ignore: cast_nullable_to_non_nullable
               as List<RpcAccountBlock>,
       confirmations: confirmations == freezed
@@ -2830,12 +2593,13 @@ class _$_RpcAccountBlock implements _RpcAccountBlock {
       required this.quotaByStake,
       required this.totalQuota,
       this.vmLogHash,
-      this.triggeredSendBlockList = const [],
+      final List<RpcAccountBlock> triggeredSendBlockList = const [],
       required this.confirmations,
       required this.firstSnapshotHash,
       required this.timestamp,
       this.receiveBlockHeight,
-      this.receiveBlockHash});
+      this.receiveBlockHash})
+      : _triggeredSendBlockList = triggeredSendBlockList;
 
   factory _$_RpcAccountBlock.fromJson(Map<String, dynamic> json) =>
       _$$_RpcAccountBlockFromJson(json);
@@ -2882,9 +2646,14 @@ class _$_RpcAccountBlock implements _RpcAccountBlock {
   final String totalQuota;
   @override
   final String? vmLogHash;
-  @JsonKey()
+  final List<RpcAccountBlock> _triggeredSendBlockList;
   @override
-  final List<RpcAccountBlock> triggeredSendBlockList;
+  @JsonKey()
+  List<RpcAccountBlock> get triggeredSendBlockList {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_triggeredSendBlockList);
+  }
+
   @override
   final String? confirmations;
   @override
@@ -2905,7 +2674,7 @@ class _$_RpcAccountBlock implements _RpcAccountBlock {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RpcAccountBlock &&
+            other is _$_RpcAccountBlock &&
             const DeepCollectionEquality().equals(other.blockType, blockType) &&
             const DeepCollectionEquality().equals(other.height, height) &&
             const DeepCollectionEquality().equals(other.hash, hash) &&
@@ -2933,8 +2702,8 @@ class _$_RpcAccountBlock implements _RpcAccountBlock {
             const DeepCollectionEquality()
                 .equals(other.totalQuota, totalQuota) &&
             const DeepCollectionEquality().equals(other.vmLogHash, vmLogHash) &&
-            const DeepCollectionEquality()
-                .equals(other.triggeredSendBlockList, triggeredSendBlockList) &&
+            const DeepCollectionEquality().equals(
+                other._triggeredSendBlockList, _triggeredSendBlockList) &&
             const DeepCollectionEquality()
                 .equals(other.confirmations, confirmations) &&
             const DeepCollectionEquality()
@@ -2946,6 +2715,7 @@ class _$_RpcAccountBlock implements _RpcAccountBlock {
                 .equals(other.receiveBlockHash, receiveBlockHash));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -2970,7 +2740,7 @@ class _$_RpcAccountBlock implements _RpcAccountBlock {
         const DeepCollectionEquality().hash(quotaByStake),
         const DeepCollectionEquality().hash(totalQuota),
         const DeepCollectionEquality().hash(vmLogHash),
-        const DeepCollectionEquality().hash(triggeredSendBlockList),
+        const DeepCollectionEquality().hash(_triggeredSendBlockList),
         const DeepCollectionEquality().hash(confirmations),
         const DeepCollectionEquality().hash(firstSnapshotHash),
         const DeepCollectionEquality().hash(timestamp),
@@ -2980,44 +2750,46 @@ class _$_RpcAccountBlock implements _RpcAccountBlock {
 
   @JsonKey(ignore: true)
   @override
-  _$RpcAccountBlockCopyWith<_RpcAccountBlock> get copyWith =>
-      __$RpcAccountBlockCopyWithImpl<_RpcAccountBlock>(this, _$identity);
+  _$$_RpcAccountBlockCopyWith<_$_RpcAccountBlock> get copyWith =>
+      __$$_RpcAccountBlockCopyWithImpl<_$_RpcAccountBlock>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RpcAccountBlockToJson(this);
+    return _$$_RpcAccountBlockToJson(
+      this,
+    );
   }
 }
 
 abstract class _RpcAccountBlock implements RpcAccountBlock {
   factory _RpcAccountBlock(
-      {required int blockType,
-      required String height,
-      required String hash,
-      required String previousHash,
-      required String address,
-      required String producer,
-      required String fromAddress,
-      required String toAddress,
-      required String sendBlockHash,
-      required String tokenId,
-      required String amount,
-      RpcTokenInfo? tokenInfo,
-      required String fee,
-      String? data,
-      String? difficulty,
-      String? nonce,
-      String? publicKey,
-      String? signature,
-      required String quotaByStake,
-      required String totalQuota,
-      String? vmLogHash,
-      List<RpcAccountBlock> triggeredSendBlockList,
-      required String? confirmations,
-      required String? firstSnapshotHash,
-      required int timestamp,
-      String? receiveBlockHeight,
-      String? receiveBlockHash}) = _$_RpcAccountBlock;
+      {required final int blockType,
+      required final String height,
+      required final String hash,
+      required final String previousHash,
+      required final String address,
+      required final String producer,
+      required final String fromAddress,
+      required final String toAddress,
+      required final String sendBlockHash,
+      required final String tokenId,
+      required final String amount,
+      final RpcTokenInfo? tokenInfo,
+      required final String fee,
+      final String? data,
+      final String? difficulty,
+      final String? nonce,
+      final String? publicKey,
+      final String? signature,
+      required final String quotaByStake,
+      required final String totalQuota,
+      final String? vmLogHash,
+      final List<RpcAccountBlock> triggeredSendBlockList,
+      required final String? confirmations,
+      required final String? firstSnapshotHash,
+      required final int timestamp,
+      final String? receiveBlockHeight,
+      final String? receiveBlockHash}) = _$_RpcAccountBlock;
 
   factory _RpcAccountBlock.fromJson(Map<String, dynamic> json) =
       _$_RpcAccountBlock.fromJson;
@@ -3078,36 +2850,13 @@ abstract class _RpcAccountBlock implements RpcAccountBlock {
   String? get receiveBlockHash;
   @override
   @JsonKey(ignore: true)
-  _$RpcAccountBlockCopyWith<_RpcAccountBlock> get copyWith =>
+  _$$_RpcAccountBlockCopyWith<_$_RpcAccountBlock> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 RpcAccountInfo _$RpcAccountInfoFromJson(Map<String, dynamic> json) {
   return _RpcAccountInfo.fromJson(json);
 }
-
-/// @nodoc
-class _$RpcAccountInfoTearOff {
-  const _$RpcAccountInfoTearOff();
-
-  _RpcAccountInfo call(
-      {required String address,
-      required String blockCount,
-      required Map<String, RpcBalanceInfo> balanceInfoMap}) {
-    return _RpcAccountInfo(
-      address: address,
-      blockCount: blockCount,
-      balanceInfoMap: balanceInfoMap,
-    );
-  }
-
-  RpcAccountInfo fromJson(Map<String, Object?> json) {
-    return RpcAccountInfo.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RpcAccountInfo = _$RpcAccountInfoTearOff();
 
 /// @nodoc
 mixin _$RpcAccountInfo {
@@ -3166,11 +2915,11 @@ class _$RpcAccountInfoCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$RpcAccountInfoCopyWith<$Res>
+abstract class _$$_RpcAccountInfoCopyWith<$Res>
     implements $RpcAccountInfoCopyWith<$Res> {
-  factory _$RpcAccountInfoCopyWith(
-          _RpcAccountInfo value, $Res Function(_RpcAccountInfo) then) =
-      __$RpcAccountInfoCopyWithImpl<$Res>;
+  factory _$$_RpcAccountInfoCopyWith(
+          _$_RpcAccountInfo value, $Res Function(_$_RpcAccountInfo) then) =
+      __$$_RpcAccountInfoCopyWithImpl<$Res>;
   @override
   $Res call(
       {String address,
@@ -3179,15 +2928,15 @@ abstract class _$RpcAccountInfoCopyWith<$Res>
 }
 
 /// @nodoc
-class __$RpcAccountInfoCopyWithImpl<$Res>
+class __$$_RpcAccountInfoCopyWithImpl<$Res>
     extends _$RpcAccountInfoCopyWithImpl<$Res>
-    implements _$RpcAccountInfoCopyWith<$Res> {
-  __$RpcAccountInfoCopyWithImpl(
-      _RpcAccountInfo _value, $Res Function(_RpcAccountInfo) _then)
-      : super(_value, (v) => _then(v as _RpcAccountInfo));
+    implements _$$_RpcAccountInfoCopyWith<$Res> {
+  __$$_RpcAccountInfoCopyWithImpl(
+      _$_RpcAccountInfo _value, $Res Function(_$_RpcAccountInfo) _then)
+      : super(_value, (v) => _then(v as _$_RpcAccountInfo));
 
   @override
-  _RpcAccountInfo get _value => super._value as _RpcAccountInfo;
+  _$_RpcAccountInfo get _value => super._value as _$_RpcAccountInfo;
 
   @override
   $Res call({
@@ -3195,7 +2944,7 @@ class __$RpcAccountInfoCopyWithImpl<$Res>
     Object? blockCount = freezed,
     Object? balanceInfoMap = freezed,
   }) {
-    return _then(_RpcAccountInfo(
+    return _then(_$_RpcAccountInfo(
       address: address == freezed
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
@@ -3205,7 +2954,7 @@ class __$RpcAccountInfoCopyWithImpl<$Res>
           : blockCount // ignore: cast_nullable_to_non_nullable
               as String,
       balanceInfoMap: balanceInfoMap == freezed
-          ? _value.balanceInfoMap
+          ? _value._balanceInfoMap
           : balanceInfoMap // ignore: cast_nullable_to_non_nullable
               as Map<String, RpcBalanceInfo>,
     ));
@@ -3218,7 +2967,8 @@ class _$_RpcAccountInfo implements _RpcAccountInfo {
   _$_RpcAccountInfo(
       {required this.address,
       required this.blockCount,
-      required this.balanceInfoMap});
+      required final Map<String, RpcBalanceInfo> balanceInfoMap})
+      : _balanceInfoMap = balanceInfoMap;
 
   factory _$_RpcAccountInfo.fromJson(Map<String, dynamic> json) =>
       _$$_RpcAccountInfoFromJson(json);
@@ -3227,8 +2977,12 @@ class _$_RpcAccountInfo implements _RpcAccountInfo {
   final String address;
   @override
   final String blockCount;
+  final Map<String, RpcBalanceInfo> _balanceInfoMap;
   @override
-  final Map<String, RpcBalanceInfo> balanceInfoMap;
+  Map<String, RpcBalanceInfo> get balanceInfoMap {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_balanceInfoMap);
+  }
 
   @override
   String toString() {
@@ -3239,37 +2993,41 @@ class _$_RpcAccountInfo implements _RpcAccountInfo {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RpcAccountInfo &&
+            other is _$_RpcAccountInfo &&
             const DeepCollectionEquality().equals(other.address, address) &&
             const DeepCollectionEquality()
                 .equals(other.blockCount, blockCount) &&
             const DeepCollectionEquality()
-                .equals(other.balanceInfoMap, balanceInfoMap));
+                .equals(other._balanceInfoMap, _balanceInfoMap));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(address),
       const DeepCollectionEquality().hash(blockCount),
-      const DeepCollectionEquality().hash(balanceInfoMap));
+      const DeepCollectionEquality().hash(_balanceInfoMap));
 
   @JsonKey(ignore: true)
   @override
-  _$RpcAccountInfoCopyWith<_RpcAccountInfo> get copyWith =>
-      __$RpcAccountInfoCopyWithImpl<_RpcAccountInfo>(this, _$identity);
+  _$$_RpcAccountInfoCopyWith<_$_RpcAccountInfo> get copyWith =>
+      __$$_RpcAccountInfoCopyWithImpl<_$_RpcAccountInfo>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RpcAccountInfoToJson(this);
+    return _$$_RpcAccountInfoToJson(
+      this,
+    );
   }
 }
 
 abstract class _RpcAccountInfo implements RpcAccountInfo {
   factory _RpcAccountInfo(
-      {required String address,
-      required String blockCount,
-      required Map<String, RpcBalanceInfo> balanceInfoMap}) = _$_RpcAccountInfo;
+          {required final String address,
+          required final String blockCount,
+          required final Map<String, RpcBalanceInfo> balanceInfoMap}) =
+      _$_RpcAccountInfo;
 
   factory _RpcAccountInfo.fromJson(Map<String, dynamic> json) =
       _$_RpcAccountInfo.fromJson;
@@ -3282,33 +3040,13 @@ abstract class _RpcAccountInfo implements RpcAccountInfo {
   Map<String, RpcBalanceInfo> get balanceInfoMap;
   @override
   @JsonKey(ignore: true)
-  _$RpcAccountInfoCopyWith<_RpcAccountInfo> get copyWith =>
+  _$$_RpcAccountInfoCopyWith<_$_RpcAccountInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 RpcBalanceInfo _$RpcBalanceInfoFromJson(Map<String, dynamic> json) {
   return _RpcBalanceInfo.fromJson(json);
 }
-
-/// @nodoc
-class _$RpcBalanceInfoTearOff {
-  const _$RpcBalanceInfoTearOff();
-
-  _RpcBalanceInfo call(
-      {required RpcTokenInfo tokenInfo, required String balance}) {
-    return _RpcBalanceInfo(
-      tokenInfo: tokenInfo,
-      balance: balance,
-    );
-  }
-
-  RpcBalanceInfo fromJson(Map<String, Object?> json) {
-    return RpcBalanceInfo.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RpcBalanceInfo = _$RpcBalanceInfoTearOff();
 
 /// @nodoc
 mixin _$RpcBalanceInfo {
@@ -3366,11 +3104,11 @@ class _$RpcBalanceInfoCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$RpcBalanceInfoCopyWith<$Res>
+abstract class _$$_RpcBalanceInfoCopyWith<$Res>
     implements $RpcBalanceInfoCopyWith<$Res> {
-  factory _$RpcBalanceInfoCopyWith(
-          _RpcBalanceInfo value, $Res Function(_RpcBalanceInfo) then) =
-      __$RpcBalanceInfoCopyWithImpl<$Res>;
+  factory _$$_RpcBalanceInfoCopyWith(
+          _$_RpcBalanceInfo value, $Res Function(_$_RpcBalanceInfo) then) =
+      __$$_RpcBalanceInfoCopyWithImpl<$Res>;
   @override
   $Res call({RpcTokenInfo tokenInfo, String balance});
 
@@ -3379,22 +3117,22 @@ abstract class _$RpcBalanceInfoCopyWith<$Res>
 }
 
 /// @nodoc
-class __$RpcBalanceInfoCopyWithImpl<$Res>
+class __$$_RpcBalanceInfoCopyWithImpl<$Res>
     extends _$RpcBalanceInfoCopyWithImpl<$Res>
-    implements _$RpcBalanceInfoCopyWith<$Res> {
-  __$RpcBalanceInfoCopyWithImpl(
-      _RpcBalanceInfo _value, $Res Function(_RpcBalanceInfo) _then)
-      : super(_value, (v) => _then(v as _RpcBalanceInfo));
+    implements _$$_RpcBalanceInfoCopyWith<$Res> {
+  __$$_RpcBalanceInfoCopyWithImpl(
+      _$_RpcBalanceInfo _value, $Res Function(_$_RpcBalanceInfo) _then)
+      : super(_value, (v) => _then(v as _$_RpcBalanceInfo));
 
   @override
-  _RpcBalanceInfo get _value => super._value as _RpcBalanceInfo;
+  _$_RpcBalanceInfo get _value => super._value as _$_RpcBalanceInfo;
 
   @override
   $Res call({
     Object? tokenInfo = freezed,
     Object? balance = freezed,
   }) {
-    return _then(_RpcBalanceInfo(
+    return _then(_$_RpcBalanceInfo(
       tokenInfo: tokenInfo == freezed
           ? _value.tokenInfo
           : tokenInfo // ignore: cast_nullable_to_non_nullable
@@ -3429,11 +3167,12 @@ class _$_RpcBalanceInfo implements _RpcBalanceInfo {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RpcBalanceInfo &&
+            other is _$_RpcBalanceInfo &&
             const DeepCollectionEquality().equals(other.tokenInfo, tokenInfo) &&
             const DeepCollectionEquality().equals(other.balance, balance));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -3442,19 +3181,21 @@ class _$_RpcBalanceInfo implements _RpcBalanceInfo {
 
   @JsonKey(ignore: true)
   @override
-  _$RpcBalanceInfoCopyWith<_RpcBalanceInfo> get copyWith =>
-      __$RpcBalanceInfoCopyWithImpl<_RpcBalanceInfo>(this, _$identity);
+  _$$_RpcBalanceInfoCopyWith<_$_RpcBalanceInfo> get copyWith =>
+      __$$_RpcBalanceInfoCopyWithImpl<_$_RpcBalanceInfo>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RpcBalanceInfoToJson(this);
+    return _$$_RpcBalanceInfoToJson(
+      this,
+    );
   }
 }
 
 abstract class _RpcBalanceInfo implements RpcBalanceInfo {
   factory _RpcBalanceInfo(
-      {required RpcTokenInfo tokenInfo,
-      required String balance}) = _$_RpcBalanceInfo;
+      {required final RpcTokenInfo tokenInfo,
+      required final String balance}) = _$_RpcBalanceInfo;
 
   factory _RpcBalanceInfo.fromJson(Map<String, dynamic> json) =
       _$_RpcBalanceInfo.fromJson;
@@ -3465,60 +3206,13 @@ abstract class _RpcBalanceInfo implements RpcBalanceInfo {
   String get balance;
   @override
   @JsonKey(ignore: true)
-  _$RpcBalanceInfoCopyWith<_RpcBalanceInfo> get copyWith =>
+  _$$_RpcBalanceInfoCopyWith<_$_RpcBalanceInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 RpcRawTransaction _$RpcRawTransactionFromJson(Map<String, dynamic> json) {
   return _RpcRawTransaction.fromJson(json);
 }
-
-/// @nodoc
-class _$RpcRawTransactionTearOff {
-  const _$RpcRawTransactionTearOff();
-
-  _RpcRawTransaction call(
-      {required int blockType,
-      required String height,
-      required String hash,
-      required String previousHash,
-      required String address,
-      required String publicKey,
-      required String signature,
-      String? difficulty,
-      String? nonce,
-      String? sendBlockHash,
-      String? toAddress,
-      String? tokenId,
-      String? amount,
-      String fee = '0',
-      String? data}) {
-    return _RpcRawTransaction(
-      blockType: blockType,
-      height: height,
-      hash: hash,
-      previousHash: previousHash,
-      address: address,
-      publicKey: publicKey,
-      signature: signature,
-      difficulty: difficulty,
-      nonce: nonce,
-      sendBlockHash: sendBlockHash,
-      toAddress: toAddress,
-      tokenId: tokenId,
-      amount: amount,
-      fee: fee,
-      data: data,
-    );
-  }
-
-  RpcRawTransaction fromJson(Map<String, Object?> json) {
-    return RpcRawTransaction.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RpcRawTransaction = _$RpcRawTransactionTearOff();
 
 /// @nodoc
 mixin _$RpcRawTransaction {
@@ -3660,11 +3354,11 @@ class _$RpcRawTransactionCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$RpcRawTransactionCopyWith<$Res>
+abstract class _$$_RpcRawTransactionCopyWith<$Res>
     implements $RpcRawTransactionCopyWith<$Res> {
-  factory _$RpcRawTransactionCopyWith(
-          _RpcRawTransaction value, $Res Function(_RpcRawTransaction) then) =
-      __$RpcRawTransactionCopyWithImpl<$Res>;
+  factory _$$_RpcRawTransactionCopyWith(_$_RpcRawTransaction value,
+          $Res Function(_$_RpcRawTransaction) then) =
+      __$$_RpcRawTransactionCopyWithImpl<$Res>;
   @override
   $Res call(
       {int blockType,
@@ -3685,15 +3379,15 @@ abstract class _$RpcRawTransactionCopyWith<$Res>
 }
 
 /// @nodoc
-class __$RpcRawTransactionCopyWithImpl<$Res>
+class __$$_RpcRawTransactionCopyWithImpl<$Res>
     extends _$RpcRawTransactionCopyWithImpl<$Res>
-    implements _$RpcRawTransactionCopyWith<$Res> {
-  __$RpcRawTransactionCopyWithImpl(
-      _RpcRawTransaction _value, $Res Function(_RpcRawTransaction) _then)
-      : super(_value, (v) => _then(v as _RpcRawTransaction));
+    implements _$$_RpcRawTransactionCopyWith<$Res> {
+  __$$_RpcRawTransactionCopyWithImpl(
+      _$_RpcRawTransaction _value, $Res Function(_$_RpcRawTransaction) _then)
+      : super(_value, (v) => _then(v as _$_RpcRawTransaction));
 
   @override
-  _RpcRawTransaction get _value => super._value as _RpcRawTransaction;
+  _$_RpcRawTransaction get _value => super._value as _$_RpcRawTransaction;
 
   @override
   $Res call({
@@ -3713,7 +3407,7 @@ class __$RpcRawTransactionCopyWithImpl<$Res>
     Object? fee = freezed,
     Object? data = freezed,
   }) {
-    return _then(_RpcRawTransaction(
+    return _then(_$_RpcRawTransaction(
       blockType: blockType == freezed
           ? _value.blockType
           : blockType // ignore: cast_nullable_to_non_nullable
@@ -3827,8 +3521,8 @@ class _$_RpcRawTransaction implements _RpcRawTransaction {
   final String? tokenId;
   @override
   final String? amount;
-  @JsonKey()
   @override
+  @JsonKey()
   final String fee;
   @override
   final String? data;
@@ -3842,7 +3536,7 @@ class _$_RpcRawTransaction implements _RpcRawTransaction {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RpcRawTransaction &&
+            other is _$_RpcRawTransaction &&
             const DeepCollectionEquality().equals(other.blockType, blockType) &&
             const DeepCollectionEquality().equals(other.height, height) &&
             const DeepCollectionEquality().equals(other.hash, hash) &&
@@ -3863,6 +3557,7 @@ class _$_RpcRawTransaction implements _RpcRawTransaction {
             const DeepCollectionEquality().equals(other.data, data));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -3884,32 +3579,35 @@ class _$_RpcRawTransaction implements _RpcRawTransaction {
 
   @JsonKey(ignore: true)
   @override
-  _$RpcRawTransactionCopyWith<_RpcRawTransaction> get copyWith =>
-      __$RpcRawTransactionCopyWithImpl<_RpcRawTransaction>(this, _$identity);
+  _$$_RpcRawTransactionCopyWith<_$_RpcRawTransaction> get copyWith =>
+      __$$_RpcRawTransactionCopyWithImpl<_$_RpcRawTransaction>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RpcRawTransactionToJson(this);
+    return _$$_RpcRawTransactionToJson(
+      this,
+    );
   }
 }
 
 abstract class _RpcRawTransaction implements RpcRawTransaction {
   const factory _RpcRawTransaction(
-      {required int blockType,
-      required String height,
-      required String hash,
-      required String previousHash,
-      required String address,
-      required String publicKey,
-      required String signature,
-      String? difficulty,
-      String? nonce,
-      String? sendBlockHash,
-      String? toAddress,
-      String? tokenId,
-      String? amount,
-      String fee,
-      String? data}) = _$_RpcRawTransaction;
+      {required final int blockType,
+      required final String height,
+      required final String hash,
+      required final String previousHash,
+      required final String address,
+      required final String publicKey,
+      required final String signature,
+      final String? difficulty,
+      final String? nonce,
+      final String? sendBlockHash,
+      final String? toAddress,
+      final String? tokenId,
+      final String? amount,
+      final String fee,
+      final String? data}) = _$_RpcRawTransaction;
 
   factory _RpcRawTransaction.fromJson(Map<String, dynamic> json) =
       _$_RpcRawTransaction.fromJson;
@@ -3946,36 +3644,13 @@ abstract class _RpcRawTransaction implements RpcRawTransaction {
   String? get data;
   @override
   @JsonKey(ignore: true)
-  _$RpcRawTransactionCopyWith<_RpcRawTransaction> get copyWith =>
+  _$$_RpcRawTransactionCopyWith<_$_RpcRawTransaction> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 RpcAccountBlockRange _$RpcAccountBlockRangeFromJson(Map<String, dynamic> json) {
   return _RpcAccountBlockRange.fromJson(json);
 }
-
-/// @nodoc
-class _$RpcAccountBlockRangeTearOff {
-  const _$RpcAccountBlockRangeTearOff();
-
-  _RpcAccountBlockRange call(
-      {required String address,
-      @JsonKey(name: 'pageNumber') int pageIndex = 0,
-      @JsonKey(name: 'pageCount') int pageSize = 10}) {
-    return _RpcAccountBlockRange(
-      address: address,
-      pageIndex: pageIndex,
-      pageSize: pageSize,
-    );
-  }
-
-  RpcAccountBlockRange fromJson(Map<String, Object?> json) {
-    return RpcAccountBlockRange.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RpcAccountBlockRange = _$RpcAccountBlockRangeTearOff();
 
 /// @nodoc
 mixin _$RpcAccountBlockRange {
@@ -4035,11 +3710,11 @@ class _$RpcAccountBlockRangeCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$RpcAccountBlockRangeCopyWith<$Res>
+abstract class _$$_RpcAccountBlockRangeCopyWith<$Res>
     implements $RpcAccountBlockRangeCopyWith<$Res> {
-  factory _$RpcAccountBlockRangeCopyWith(_RpcAccountBlockRange value,
-          $Res Function(_RpcAccountBlockRange) then) =
-      __$RpcAccountBlockRangeCopyWithImpl<$Res>;
+  factory _$$_RpcAccountBlockRangeCopyWith(_$_RpcAccountBlockRange value,
+          $Res Function(_$_RpcAccountBlockRange) then) =
+      __$$_RpcAccountBlockRangeCopyWithImpl<$Res>;
   @override
   $Res call(
       {String address,
@@ -4048,15 +3723,15 @@ abstract class _$RpcAccountBlockRangeCopyWith<$Res>
 }
 
 /// @nodoc
-class __$RpcAccountBlockRangeCopyWithImpl<$Res>
+class __$$_RpcAccountBlockRangeCopyWithImpl<$Res>
     extends _$RpcAccountBlockRangeCopyWithImpl<$Res>
-    implements _$RpcAccountBlockRangeCopyWith<$Res> {
-  __$RpcAccountBlockRangeCopyWithImpl(
-      _RpcAccountBlockRange _value, $Res Function(_RpcAccountBlockRange) _then)
-      : super(_value, (v) => _then(v as _RpcAccountBlockRange));
+    implements _$$_RpcAccountBlockRangeCopyWith<$Res> {
+  __$$_RpcAccountBlockRangeCopyWithImpl(_$_RpcAccountBlockRange _value,
+      $Res Function(_$_RpcAccountBlockRange) _then)
+      : super(_value, (v) => _then(v as _$_RpcAccountBlockRange));
 
   @override
-  _RpcAccountBlockRange get _value => super._value as _RpcAccountBlockRange;
+  _$_RpcAccountBlockRange get _value => super._value as _$_RpcAccountBlockRange;
 
   @override
   $Res call({
@@ -4064,7 +3739,7 @@ class __$RpcAccountBlockRangeCopyWithImpl<$Res>
     Object? pageIndex = freezed,
     Object? pageSize = freezed,
   }) {
-    return _then(_RpcAccountBlockRange(
+    return _then(_$_RpcAccountBlockRange(
       address: address == freezed
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
@@ -4110,12 +3785,13 @@ class _$_RpcAccountBlockRange implements _RpcAccountBlockRange {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RpcAccountBlockRange &&
+            other is _$_RpcAccountBlockRange &&
             const DeepCollectionEquality().equals(other.address, address) &&
             const DeepCollectionEquality().equals(other.pageIndex, pageIndex) &&
             const DeepCollectionEquality().equals(other.pageSize, pageSize));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -4125,21 +3801,24 @@ class _$_RpcAccountBlockRange implements _RpcAccountBlockRange {
 
   @JsonKey(ignore: true)
   @override
-  _$RpcAccountBlockRangeCopyWith<_RpcAccountBlockRange> get copyWith =>
-      __$RpcAccountBlockRangeCopyWithImpl<_RpcAccountBlockRange>(
+  _$$_RpcAccountBlockRangeCopyWith<_$_RpcAccountBlockRange> get copyWith =>
+      __$$_RpcAccountBlockRangeCopyWithImpl<_$_RpcAccountBlockRange>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RpcAccountBlockRangeToJson(this);
+    return _$$_RpcAccountBlockRangeToJson(
+      this,
+    );
   }
 }
 
 abstract class _RpcAccountBlockRange implements RpcAccountBlockRange {
   const factory _RpcAccountBlockRange(
-      {required String address,
-      @JsonKey(name: 'pageNumber') int pageIndex,
-      @JsonKey(name: 'pageCount') int pageSize}) = _$_RpcAccountBlockRange;
+          {required final String address,
+          @JsonKey(name: 'pageNumber') final int pageIndex,
+          @JsonKey(name: 'pageCount') final int pageSize}) =
+      _$_RpcAccountBlockRange;
 
   factory _RpcAccountBlockRange.fromJson(Map<String, dynamic> json) =
       _$_RpcAccountBlockRange.fromJson;
@@ -4154,32 +3833,13 @@ abstract class _RpcAccountBlockRange implements RpcAccountBlockRange {
   int get pageSize;
   @override
   @JsonKey(ignore: true)
-  _$RpcAccountBlockRangeCopyWith<_RpcAccountBlockRange> get copyWith =>
+  _$$_RpcAccountBlockRangeCopyWith<_$_RpcAccountBlockRange> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 RpcVmLog _$RpcVmLogFromJson(Map<String, dynamic> json) {
   return _RpcVmLog.fromJson(json);
 }
-
-/// @nodoc
-class _$RpcVmLogTearOff {
-  const _$RpcVmLogTearOff();
-
-  _RpcVmLog call({List<String> topics = const [], String? data}) {
-    return _RpcVmLog(
-      topics: topics,
-      data: data,
-    );
-  }
-
-  RpcVmLog fromJson(Map<String, Object?> json) {
-    return RpcVmLog.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RpcVmLog = _$RpcVmLogTearOff();
 
 /// @nodoc
 mixin _$RpcVmLog {
@@ -4226,30 +3886,32 @@ class _$RpcVmLogCopyWithImpl<$Res> implements $RpcVmLogCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$RpcVmLogCopyWith<$Res> implements $RpcVmLogCopyWith<$Res> {
-  factory _$RpcVmLogCopyWith(_RpcVmLog value, $Res Function(_RpcVmLog) then) =
-      __$RpcVmLogCopyWithImpl<$Res>;
+abstract class _$$_RpcVmLogCopyWith<$Res> implements $RpcVmLogCopyWith<$Res> {
+  factory _$$_RpcVmLogCopyWith(
+          _$_RpcVmLog value, $Res Function(_$_RpcVmLog) then) =
+      __$$_RpcVmLogCopyWithImpl<$Res>;
   @override
   $Res call({List<String> topics, String? data});
 }
 
 /// @nodoc
-class __$RpcVmLogCopyWithImpl<$Res> extends _$RpcVmLogCopyWithImpl<$Res>
-    implements _$RpcVmLogCopyWith<$Res> {
-  __$RpcVmLogCopyWithImpl(_RpcVmLog _value, $Res Function(_RpcVmLog) _then)
-      : super(_value, (v) => _then(v as _RpcVmLog));
+class __$$_RpcVmLogCopyWithImpl<$Res> extends _$RpcVmLogCopyWithImpl<$Res>
+    implements _$$_RpcVmLogCopyWith<$Res> {
+  __$$_RpcVmLogCopyWithImpl(
+      _$_RpcVmLog _value, $Res Function(_$_RpcVmLog) _then)
+      : super(_value, (v) => _then(v as _$_RpcVmLog));
 
   @override
-  _RpcVmLog get _value => super._value as _RpcVmLog;
+  _$_RpcVmLog get _value => super._value as _$_RpcVmLog;
 
   @override
   $Res call({
     Object? topics = freezed,
     Object? data = freezed,
   }) {
-    return _then(_RpcVmLog(
+    return _then(_$_RpcVmLog(
       topics: topics == freezed
-          ? _value.topics
+          ? _value._topics
           : topics // ignore: cast_nullable_to_non_nullable
               as List<String>,
       data: data == freezed
@@ -4263,14 +3925,20 @@ class __$RpcVmLogCopyWithImpl<$Res> extends _$RpcVmLogCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_RpcVmLog implements _RpcVmLog {
-  const _$_RpcVmLog({this.topics = const [], this.data});
+  const _$_RpcVmLog({final List<String> topics = const [], this.data})
+      : _topics = topics;
 
   factory _$_RpcVmLog.fromJson(Map<String, dynamic> json) =>
       _$$_RpcVmLogFromJson(json);
 
-  @JsonKey()
+  final List<String> _topics;
   @override
-  final List<String> topics;
+  @JsonKey()
+  List<String> get topics {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_topics);
+  }
+
   @override
   final String? data;
 
@@ -4283,30 +3951,34 @@ class _$_RpcVmLog implements _RpcVmLog {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RpcVmLog &&
-            const DeepCollectionEquality().equals(other.topics, topics) &&
+            other is _$_RpcVmLog &&
+            const DeepCollectionEquality().equals(other._topics, _topics) &&
             const DeepCollectionEquality().equals(other.data, data));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(topics),
+      const DeepCollectionEquality().hash(_topics),
       const DeepCollectionEquality().hash(data));
 
   @JsonKey(ignore: true)
   @override
-  _$RpcVmLogCopyWith<_RpcVmLog> get copyWith =>
-      __$RpcVmLogCopyWithImpl<_RpcVmLog>(this, _$identity);
+  _$$_RpcVmLogCopyWith<_$_RpcVmLog> get copyWith =>
+      __$$_RpcVmLogCopyWithImpl<_$_RpcVmLog>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RpcVmLogToJson(this);
+    return _$$_RpcVmLogToJson(
+      this,
+    );
   }
 }
 
 abstract class _RpcVmLog implements RpcVmLog {
-  const factory _RpcVmLog({List<String> topics, String? data}) = _$_RpcVmLog;
+  const factory _RpcVmLog({final List<String> topics, final String? data}) =
+      _$_RpcVmLog;
 
   factory _RpcVmLog.fromJson(Map<String, dynamic> json) = _$_RpcVmLog.fromJson;
 
@@ -4316,38 +3988,13 @@ abstract class _RpcVmLog implements RpcVmLog {
   String? get data;
   @override
   @JsonKey(ignore: true)
-  _$RpcVmLogCopyWith<_RpcVmLog> get copyWith =>
+  _$$_RpcVmLogCopyWith<_$_RpcVmLog> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 RpcVmLogFilter _$RpcVmLogFilterFromJson(Map<String, dynamic> json) {
   return _RpcVmLogFilter.fromJson(json);
 }
-
-/// @nodoc
-class _$RpcVmLogFilterTearOff {
-  const _$RpcVmLogFilterTearOff();
-
-  _RpcVmLogFilter call(
-      {required Map<String, RpcHeightRange> addressHeightRange,
-      List<List<String>> topics = const [],
-      int pageIndex = 0,
-      int pageSize = 100}) {
-    return _RpcVmLogFilter(
-      addressHeightRange: addressHeightRange,
-      topics: topics,
-      pageIndex: pageIndex,
-      pageSize: pageSize,
-    );
-  }
-
-  RpcVmLogFilter fromJson(Map<String, Object?> json) {
-    return RpcVmLogFilter.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RpcVmLogFilter = _$RpcVmLogFilterTearOff();
 
 /// @nodoc
 mixin _$RpcVmLogFilter {
@@ -4413,11 +4060,11 @@ class _$RpcVmLogFilterCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$RpcVmLogFilterCopyWith<$Res>
+abstract class _$$_RpcVmLogFilterCopyWith<$Res>
     implements $RpcVmLogFilterCopyWith<$Res> {
-  factory _$RpcVmLogFilterCopyWith(
-          _RpcVmLogFilter value, $Res Function(_RpcVmLogFilter) then) =
-      __$RpcVmLogFilterCopyWithImpl<$Res>;
+  factory _$$_RpcVmLogFilterCopyWith(
+          _$_RpcVmLogFilter value, $Res Function(_$_RpcVmLogFilter) then) =
+      __$$_RpcVmLogFilterCopyWithImpl<$Res>;
   @override
   $Res call(
       {Map<String, RpcHeightRange> addressHeightRange,
@@ -4427,15 +4074,15 @@ abstract class _$RpcVmLogFilterCopyWith<$Res>
 }
 
 /// @nodoc
-class __$RpcVmLogFilterCopyWithImpl<$Res>
+class __$$_RpcVmLogFilterCopyWithImpl<$Res>
     extends _$RpcVmLogFilterCopyWithImpl<$Res>
-    implements _$RpcVmLogFilterCopyWith<$Res> {
-  __$RpcVmLogFilterCopyWithImpl(
-      _RpcVmLogFilter _value, $Res Function(_RpcVmLogFilter) _then)
-      : super(_value, (v) => _then(v as _RpcVmLogFilter));
+    implements _$$_RpcVmLogFilterCopyWith<$Res> {
+  __$$_RpcVmLogFilterCopyWithImpl(
+      _$_RpcVmLogFilter _value, $Res Function(_$_RpcVmLogFilter) _then)
+      : super(_value, (v) => _then(v as _$_RpcVmLogFilter));
 
   @override
-  _RpcVmLogFilter get _value => super._value as _RpcVmLogFilter;
+  _$_RpcVmLogFilter get _value => super._value as _$_RpcVmLogFilter;
 
   @override
   $Res call({
@@ -4444,13 +4091,13 @@ class __$RpcVmLogFilterCopyWithImpl<$Res>
     Object? pageIndex = freezed,
     Object? pageSize = freezed,
   }) {
-    return _then(_RpcVmLogFilter(
+    return _then(_$_RpcVmLogFilter(
       addressHeightRange: addressHeightRange == freezed
-          ? _value.addressHeightRange
+          ? _value._addressHeightRange
           : addressHeightRange // ignore: cast_nullable_to_non_nullable
               as Map<String, RpcHeightRange>,
       topics: topics == freezed
-          ? _value.topics
+          ? _value._topics
           : topics // ignore: cast_nullable_to_non_nullable
               as List<List<String>>,
       pageIndex: pageIndex == freezed
@@ -4469,24 +4116,36 @@ class __$RpcVmLogFilterCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_RpcVmLogFilter implements _RpcVmLogFilter {
   const _$_RpcVmLogFilter(
-      {required this.addressHeightRange,
-      this.topics = const [],
+      {required final Map<String, RpcHeightRange> addressHeightRange,
+      final List<List<String>> topics = const [],
       this.pageIndex = 0,
-      this.pageSize = 100});
+      this.pageSize = 100})
+      : _addressHeightRange = addressHeightRange,
+        _topics = topics;
 
   factory _$_RpcVmLogFilter.fromJson(Map<String, dynamic> json) =>
       _$$_RpcVmLogFilterFromJson(json);
 
+  final Map<String, RpcHeightRange> _addressHeightRange;
   @override
-  final Map<String, RpcHeightRange> addressHeightRange;
+  Map<String, RpcHeightRange> get addressHeightRange {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_addressHeightRange);
+  }
+
+  final List<List<String>> _topics;
+  @override
   @JsonKey()
+  List<List<String>> get topics {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_topics);
+  }
+
   @override
-  final List<List<String>> topics;
   @JsonKey()
-  @override
   final int pageIndex;
-  @JsonKey()
   @override
+  @JsonKey()
   final int pageSize;
 
   @override
@@ -4498,39 +4157,42 @@ class _$_RpcVmLogFilter implements _RpcVmLogFilter {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RpcVmLogFilter &&
+            other is _$_RpcVmLogFilter &&
             const DeepCollectionEquality()
-                .equals(other.addressHeightRange, addressHeightRange) &&
-            const DeepCollectionEquality().equals(other.topics, topics) &&
+                .equals(other._addressHeightRange, _addressHeightRange) &&
+            const DeepCollectionEquality().equals(other._topics, _topics) &&
             const DeepCollectionEquality().equals(other.pageIndex, pageIndex) &&
             const DeepCollectionEquality().equals(other.pageSize, pageSize));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(addressHeightRange),
-      const DeepCollectionEquality().hash(topics),
+      const DeepCollectionEquality().hash(_addressHeightRange),
+      const DeepCollectionEquality().hash(_topics),
       const DeepCollectionEquality().hash(pageIndex),
       const DeepCollectionEquality().hash(pageSize));
 
   @JsonKey(ignore: true)
   @override
-  _$RpcVmLogFilterCopyWith<_RpcVmLogFilter> get copyWith =>
-      __$RpcVmLogFilterCopyWithImpl<_RpcVmLogFilter>(this, _$identity);
+  _$$_RpcVmLogFilterCopyWith<_$_RpcVmLogFilter> get copyWith =>
+      __$$_RpcVmLogFilterCopyWithImpl<_$_RpcVmLogFilter>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RpcVmLogFilterToJson(this);
+    return _$$_RpcVmLogFilterToJson(
+      this,
+    );
   }
 }
 
 abstract class _RpcVmLogFilter implements RpcVmLogFilter {
   const factory _RpcVmLogFilter(
-      {required Map<String, RpcHeightRange> addressHeightRange,
-      List<List<String>> topics,
-      int pageIndex,
-      int pageSize}) = _$_RpcVmLogFilter;
+      {required final Map<String, RpcHeightRange> addressHeightRange,
+      final List<List<String>> topics,
+      final int pageIndex,
+      final int pageSize}) = _$_RpcVmLogFilter;
 
   factory _RpcVmLogFilter.fromJson(Map<String, dynamic> json) =
       _$_RpcVmLogFilter.fromJson;
@@ -4545,32 +4207,13 @@ abstract class _RpcVmLogFilter implements RpcVmLogFilter {
   int get pageSize;
   @override
   @JsonKey(ignore: true)
-  _$RpcVmLogFilterCopyWith<_RpcVmLogFilter> get copyWith =>
+  _$$_RpcVmLogFilterCopyWith<_$_RpcVmLogFilter> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 RpcHeightRange _$RpcHeightRangeFromJson(Map<String, dynamic> json) {
   return _RpcHeightRange.fromJson(json);
 }
-
-/// @nodoc
-class _$RpcHeightRangeTearOff {
-  const _$RpcHeightRangeTearOff();
-
-  _RpcHeightRange call({String fromHeight = '0', String toHeight = '0'}) {
-    return _RpcHeightRange(
-      fromHeight: fromHeight,
-      toHeight: toHeight,
-    );
-  }
-
-  RpcHeightRange fromJson(Map<String, Object?> json) {
-    return RpcHeightRange.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RpcHeightRange = _$RpcHeightRangeTearOff();
 
 /// @nodoc
 mixin _$RpcHeightRange {
@@ -4619,32 +4262,32 @@ class _$RpcHeightRangeCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$RpcHeightRangeCopyWith<$Res>
+abstract class _$$_RpcHeightRangeCopyWith<$Res>
     implements $RpcHeightRangeCopyWith<$Res> {
-  factory _$RpcHeightRangeCopyWith(
-          _RpcHeightRange value, $Res Function(_RpcHeightRange) then) =
-      __$RpcHeightRangeCopyWithImpl<$Res>;
+  factory _$$_RpcHeightRangeCopyWith(
+          _$_RpcHeightRange value, $Res Function(_$_RpcHeightRange) then) =
+      __$$_RpcHeightRangeCopyWithImpl<$Res>;
   @override
   $Res call({String fromHeight, String toHeight});
 }
 
 /// @nodoc
-class __$RpcHeightRangeCopyWithImpl<$Res>
+class __$$_RpcHeightRangeCopyWithImpl<$Res>
     extends _$RpcHeightRangeCopyWithImpl<$Res>
-    implements _$RpcHeightRangeCopyWith<$Res> {
-  __$RpcHeightRangeCopyWithImpl(
-      _RpcHeightRange _value, $Res Function(_RpcHeightRange) _then)
-      : super(_value, (v) => _then(v as _RpcHeightRange));
+    implements _$$_RpcHeightRangeCopyWith<$Res> {
+  __$$_RpcHeightRangeCopyWithImpl(
+      _$_RpcHeightRange _value, $Res Function(_$_RpcHeightRange) _then)
+      : super(_value, (v) => _then(v as _$_RpcHeightRange));
 
   @override
-  _RpcHeightRange get _value => super._value as _RpcHeightRange;
+  _$_RpcHeightRange get _value => super._value as _$_RpcHeightRange;
 
   @override
   $Res call({
     Object? fromHeight = freezed,
     Object? toHeight = freezed,
   }) {
-    return _then(_RpcHeightRange(
+    return _then(_$_RpcHeightRange(
       fromHeight: fromHeight == freezed
           ? _value.fromHeight
           : fromHeight // ignore: cast_nullable_to_non_nullable
@@ -4665,11 +4308,11 @@ class _$_RpcHeightRange implements _RpcHeightRange {
   factory _$_RpcHeightRange.fromJson(Map<String, dynamic> json) =>
       _$$_RpcHeightRangeFromJson(json);
 
-  @JsonKey()
   @override
+  @JsonKey()
   final String fromHeight;
-  @JsonKey()
   @override
+  @JsonKey()
   final String toHeight;
 
   @override
@@ -4681,12 +4324,13 @@ class _$_RpcHeightRange implements _RpcHeightRange {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RpcHeightRange &&
+            other is _$_RpcHeightRange &&
             const DeepCollectionEquality()
                 .equals(other.fromHeight, fromHeight) &&
             const DeepCollectionEquality().equals(other.toHeight, toHeight));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -4695,18 +4339,20 @@ class _$_RpcHeightRange implements _RpcHeightRange {
 
   @JsonKey(ignore: true)
   @override
-  _$RpcHeightRangeCopyWith<_RpcHeightRange> get copyWith =>
-      __$RpcHeightRangeCopyWithImpl<_RpcHeightRange>(this, _$identity);
+  _$$_RpcHeightRangeCopyWith<_$_RpcHeightRange> get copyWith =>
+      __$$_RpcHeightRangeCopyWithImpl<_$_RpcHeightRange>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RpcHeightRangeToJson(this);
+    return _$$_RpcHeightRangeToJson(
+      this,
+    );
   }
 }
 
 abstract class _RpcHeightRange implements RpcHeightRange {
-  const factory _RpcHeightRange({String fromHeight, String toHeight}) =
-      _$_RpcHeightRange;
+  const factory _RpcHeightRange(
+      {final String fromHeight, final String toHeight}) = _$_RpcHeightRange;
 
   factory _RpcHeightRange.fromJson(Map<String, dynamic> json) =
       _$_RpcHeightRange.fromJson;
@@ -4717,40 +4363,13 @@ abstract class _RpcHeightRange implements RpcHeightRange {
   String get toHeight;
   @override
   @JsonKey(ignore: true)
-  _$RpcHeightRangeCopyWith<_RpcHeightRange> get copyWith =>
+  _$$_RpcHeightRangeCopyWith<_$_RpcHeightRange> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 RpcFilteredVmLog _$RpcFilteredVmLogFromJson(Map<String, dynamic> json) {
   return _RpcFilteredVmLog.fromJson(json);
 }
-
-/// @nodoc
-class _$RpcFilteredVmLogTearOff {
-  const _$RpcFilteredVmLogTearOff();
-
-  _RpcFilteredVmLog call(
-      {required RpcVmLog vmlog,
-      required String accountBlockHash,
-      required String accountBlockHeight,
-      required String address,
-      bool removed = false}) {
-    return _RpcFilteredVmLog(
-      vmlog: vmlog,
-      accountBlockHash: accountBlockHash,
-      accountBlockHeight: accountBlockHeight,
-      address: address,
-      removed: removed,
-    );
-  }
-
-  RpcFilteredVmLog fromJson(Map<String, Object?> json) {
-    return RpcFilteredVmLog.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RpcFilteredVmLog = _$RpcFilteredVmLogTearOff();
 
 /// @nodoc
 mixin _$RpcFilteredVmLog {
@@ -4831,11 +4450,11 @@ class _$RpcFilteredVmLogCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$RpcFilteredVmLogCopyWith<$Res>
+abstract class _$$_RpcFilteredVmLogCopyWith<$Res>
     implements $RpcFilteredVmLogCopyWith<$Res> {
-  factory _$RpcFilteredVmLogCopyWith(
-          _RpcFilteredVmLog value, $Res Function(_RpcFilteredVmLog) then) =
-      __$RpcFilteredVmLogCopyWithImpl<$Res>;
+  factory _$$_RpcFilteredVmLogCopyWith(
+          _$_RpcFilteredVmLog value, $Res Function(_$_RpcFilteredVmLog) then) =
+      __$$_RpcFilteredVmLogCopyWithImpl<$Res>;
   @override
   $Res call(
       {RpcVmLog vmlog,
@@ -4849,15 +4468,15 @@ abstract class _$RpcFilteredVmLogCopyWith<$Res>
 }
 
 /// @nodoc
-class __$RpcFilteredVmLogCopyWithImpl<$Res>
+class __$$_RpcFilteredVmLogCopyWithImpl<$Res>
     extends _$RpcFilteredVmLogCopyWithImpl<$Res>
-    implements _$RpcFilteredVmLogCopyWith<$Res> {
-  __$RpcFilteredVmLogCopyWithImpl(
-      _RpcFilteredVmLog _value, $Res Function(_RpcFilteredVmLog) _then)
-      : super(_value, (v) => _then(v as _RpcFilteredVmLog));
+    implements _$$_RpcFilteredVmLogCopyWith<$Res> {
+  __$$_RpcFilteredVmLogCopyWithImpl(
+      _$_RpcFilteredVmLog _value, $Res Function(_$_RpcFilteredVmLog) _then)
+      : super(_value, (v) => _then(v as _$_RpcFilteredVmLog));
 
   @override
-  _RpcFilteredVmLog get _value => super._value as _RpcFilteredVmLog;
+  _$_RpcFilteredVmLog get _value => super._value as _$_RpcFilteredVmLog;
 
   @override
   $Res call({
@@ -4867,7 +4486,7 @@ class __$RpcFilteredVmLogCopyWithImpl<$Res>
     Object? address = freezed,
     Object? removed = freezed,
   }) {
-    return _then(_RpcFilteredVmLog(
+    return _then(_$_RpcFilteredVmLog(
       vmlog: vmlog == freezed
           ? _value.vmlog
           : vmlog // ignore: cast_nullable_to_non_nullable
@@ -4913,8 +4532,8 @@ class _$_RpcFilteredVmLog implements _RpcFilteredVmLog {
   final String accountBlockHeight;
   @override
   final String address;
-  @JsonKey()
   @override
+  @JsonKey()
   final bool removed;
 
   @override
@@ -4926,7 +4545,7 @@ class _$_RpcFilteredVmLog implements _RpcFilteredVmLog {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RpcFilteredVmLog &&
+            other is _$_RpcFilteredVmLog &&
             const DeepCollectionEquality().equals(other.vmlog, vmlog) &&
             const DeepCollectionEquality()
                 .equals(other.accountBlockHash, accountBlockHash) &&
@@ -4936,6 +4555,7 @@ class _$_RpcFilteredVmLog implements _RpcFilteredVmLog {
             const DeepCollectionEquality().equals(other.removed, removed));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -4947,22 +4567,24 @@ class _$_RpcFilteredVmLog implements _RpcFilteredVmLog {
 
   @JsonKey(ignore: true)
   @override
-  _$RpcFilteredVmLogCopyWith<_RpcFilteredVmLog> get copyWith =>
-      __$RpcFilteredVmLogCopyWithImpl<_RpcFilteredVmLog>(this, _$identity);
+  _$$_RpcFilteredVmLogCopyWith<_$_RpcFilteredVmLog> get copyWith =>
+      __$$_RpcFilteredVmLogCopyWithImpl<_$_RpcFilteredVmLog>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RpcFilteredVmLogToJson(this);
+    return _$$_RpcFilteredVmLogToJson(
+      this,
+    );
   }
 }
 
 abstract class _RpcFilteredVmLog implements RpcFilteredVmLog {
   const factory _RpcFilteredVmLog(
-      {required RpcVmLog vmlog,
-      required String accountBlockHash,
-      required String accountBlockHeight,
-      required String address,
-      bool removed}) = _$_RpcFilteredVmLog;
+      {required final RpcVmLog vmlog,
+      required final String accountBlockHash,
+      required final String accountBlockHeight,
+      required final String address,
+      final bool removed}) = _$_RpcFilteredVmLog;
 
   factory _RpcFilteredVmLog.fromJson(Map<String, dynamic> json) =
       _$_RpcFilteredVmLog.fromJson;
@@ -4979,7 +4601,7 @@ abstract class _RpcFilteredVmLog implements RpcFilteredVmLog {
   bool get removed;
   @override
   @JsonKey(ignore: true)
-  _$RpcFilteredVmLogCopyWith<_RpcFilteredVmLog> get copyWith =>
+  _$$_RpcFilteredVmLogCopyWith<_$_RpcFilteredVmLog> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -4987,33 +4609,6 @@ RpcPowDifficultyParams _$RpcPowDifficultyParamsFromJson(
     Map<String, dynamic> json) {
   return _RpcDifficultyParams.fromJson(json);
 }
-
-/// @nodoc
-class _$RpcPowDifficultyParamsTearOff {
-  const _$RpcPowDifficultyParamsTearOff();
-
-  _RpcDifficultyParams call(
-      {required String address,
-      required String previousHash,
-      required int blockType,
-      String? toAddress,
-      String? data}) {
-    return _RpcDifficultyParams(
-      address: address,
-      previousHash: previousHash,
-      blockType: blockType,
-      toAddress: toAddress,
-      data: data,
-    );
-  }
-
-  RpcPowDifficultyParams fromJson(Map<String, Object?> json) {
-    return RpcPowDifficultyParams.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RpcPowDifficultyParams = _$RpcPowDifficultyParamsTearOff();
 
 /// @nodoc
 mixin _$RpcPowDifficultyParams {
@@ -5085,11 +4680,11 @@ class _$RpcPowDifficultyParamsCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$RpcDifficultyParamsCopyWith<$Res>
+abstract class _$$_RpcDifficultyParamsCopyWith<$Res>
     implements $RpcPowDifficultyParamsCopyWith<$Res> {
-  factory _$RpcDifficultyParamsCopyWith(_RpcDifficultyParams value,
-          $Res Function(_RpcDifficultyParams) then) =
-      __$RpcDifficultyParamsCopyWithImpl<$Res>;
+  factory _$$_RpcDifficultyParamsCopyWith(_$_RpcDifficultyParams value,
+          $Res Function(_$_RpcDifficultyParams) then) =
+      __$$_RpcDifficultyParamsCopyWithImpl<$Res>;
   @override
   $Res call(
       {String address,
@@ -5100,15 +4695,15 @@ abstract class _$RpcDifficultyParamsCopyWith<$Res>
 }
 
 /// @nodoc
-class __$RpcDifficultyParamsCopyWithImpl<$Res>
+class __$$_RpcDifficultyParamsCopyWithImpl<$Res>
     extends _$RpcPowDifficultyParamsCopyWithImpl<$Res>
-    implements _$RpcDifficultyParamsCopyWith<$Res> {
-  __$RpcDifficultyParamsCopyWithImpl(
-      _RpcDifficultyParams _value, $Res Function(_RpcDifficultyParams) _then)
-      : super(_value, (v) => _then(v as _RpcDifficultyParams));
+    implements _$$_RpcDifficultyParamsCopyWith<$Res> {
+  __$$_RpcDifficultyParamsCopyWithImpl(_$_RpcDifficultyParams _value,
+      $Res Function(_$_RpcDifficultyParams) _then)
+      : super(_value, (v) => _then(v as _$_RpcDifficultyParams));
 
   @override
-  _RpcDifficultyParams get _value => super._value as _RpcDifficultyParams;
+  _$_RpcDifficultyParams get _value => super._value as _$_RpcDifficultyParams;
 
   @override
   $Res call({
@@ -5118,7 +4713,7 @@ class __$RpcDifficultyParamsCopyWithImpl<$Res>
     Object? toAddress = freezed,
     Object? data = freezed,
   }) {
-    return _then(_RpcDifficultyParams(
+    return _then(_$_RpcDifficultyParams(
       address: address == freezed
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
@@ -5176,7 +4771,7 @@ class _$_RpcDifficultyParams implements _RpcDifficultyParams {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RpcDifficultyParams &&
+            other is _$_RpcDifficultyParams &&
             const DeepCollectionEquality().equals(other.address, address) &&
             const DeepCollectionEquality()
                 .equals(other.previousHash, previousHash) &&
@@ -5185,6 +4780,7 @@ class _$_RpcDifficultyParams implements _RpcDifficultyParams {
             const DeepCollectionEquality().equals(other.data, data));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -5196,23 +4792,25 @@ class _$_RpcDifficultyParams implements _RpcDifficultyParams {
 
   @JsonKey(ignore: true)
   @override
-  _$RpcDifficultyParamsCopyWith<_RpcDifficultyParams> get copyWith =>
-      __$RpcDifficultyParamsCopyWithImpl<_RpcDifficultyParams>(
+  _$$_RpcDifficultyParamsCopyWith<_$_RpcDifficultyParams> get copyWith =>
+      __$$_RpcDifficultyParamsCopyWithImpl<_$_RpcDifficultyParams>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RpcDifficultyParamsToJson(this);
+    return _$$_RpcDifficultyParamsToJson(
+      this,
+    );
   }
 }
 
 abstract class _RpcDifficultyParams implements RpcPowDifficultyParams {
   const factory _RpcDifficultyParams(
-      {required String address,
-      required String previousHash,
-      required int blockType,
-      String? toAddress,
-      String? data}) = _$_RpcDifficultyParams;
+      {required final String address,
+      required final String previousHash,
+      required final int blockType,
+      final String? toAddress,
+      final String? data}) = _$_RpcDifficultyParams;
 
   factory _RpcDifficultyParams.fromJson(Map<String, dynamic> json) =
       _$_RpcDifficultyParams.fromJson;
@@ -5229,7 +4827,7 @@ abstract class _RpcDifficultyParams implements RpcPowDifficultyParams {
   String? get data;
   @override
   @JsonKey(ignore: true)
-  _$RpcDifficultyParamsCopyWith<_RpcDifficultyParams> get copyWith =>
+  _$$_RpcDifficultyParamsCopyWith<_$_RpcDifficultyParams> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -5237,31 +4835,6 @@ RpcPowDifficultyResult _$RpcPowDifficultyResultFromJson(
     Map<String, dynamic> json) {
   return _RpcPowDifficultyResult.fromJson(json);
 }
-
-/// @nodoc
-class _$RpcPowDifficultyResultTearOff {
-  const _$RpcPowDifficultyResultTearOff();
-
-  _RpcPowDifficultyResult call(
-      {required String requiredQuota,
-      String? difficulty,
-      required String qc,
-      required bool isCongestion}) {
-    return _RpcPowDifficultyResult(
-      requiredQuota: requiredQuota,
-      difficulty: difficulty,
-      qc: qc,
-      isCongestion: isCongestion,
-    );
-  }
-
-  RpcPowDifficultyResult fromJson(Map<String, Object?> json) {
-    return RpcPowDifficultyResult.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RpcPowDifficultyResult = _$RpcPowDifficultyResultTearOff();
 
 /// @nodoc
 mixin _$RpcPowDifficultyResult {
@@ -5323,26 +4896,27 @@ class _$RpcPowDifficultyResultCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$RpcPowDifficultyResultCopyWith<$Res>
+abstract class _$$_RpcPowDifficultyResultCopyWith<$Res>
     implements $RpcPowDifficultyResultCopyWith<$Res> {
-  factory _$RpcPowDifficultyResultCopyWith(_RpcPowDifficultyResult value,
-          $Res Function(_RpcPowDifficultyResult) then) =
-      __$RpcPowDifficultyResultCopyWithImpl<$Res>;
+  factory _$$_RpcPowDifficultyResultCopyWith(_$_RpcPowDifficultyResult value,
+          $Res Function(_$_RpcPowDifficultyResult) then) =
+      __$$_RpcPowDifficultyResultCopyWithImpl<$Res>;
   @override
   $Res call(
       {String requiredQuota, String? difficulty, String qc, bool isCongestion});
 }
 
 /// @nodoc
-class __$RpcPowDifficultyResultCopyWithImpl<$Res>
+class __$$_RpcPowDifficultyResultCopyWithImpl<$Res>
     extends _$RpcPowDifficultyResultCopyWithImpl<$Res>
-    implements _$RpcPowDifficultyResultCopyWith<$Res> {
-  __$RpcPowDifficultyResultCopyWithImpl(_RpcPowDifficultyResult _value,
-      $Res Function(_RpcPowDifficultyResult) _then)
-      : super(_value, (v) => _then(v as _RpcPowDifficultyResult));
+    implements _$$_RpcPowDifficultyResultCopyWith<$Res> {
+  __$$_RpcPowDifficultyResultCopyWithImpl(_$_RpcPowDifficultyResult _value,
+      $Res Function(_$_RpcPowDifficultyResult) _then)
+      : super(_value, (v) => _then(v as _$_RpcPowDifficultyResult));
 
   @override
-  _RpcPowDifficultyResult get _value => super._value as _RpcPowDifficultyResult;
+  _$_RpcPowDifficultyResult get _value =>
+      super._value as _$_RpcPowDifficultyResult;
 
   @override
   $Res call({
@@ -5351,7 +4925,7 @@ class __$RpcPowDifficultyResultCopyWithImpl<$Res>
     Object? qc = freezed,
     Object? isCongestion = freezed,
   }) {
-    return _then(_RpcPowDifficultyResult(
+    return _then(_$_RpcPowDifficultyResult(
       requiredQuota: requiredQuota == freezed
           ? _value.requiredQuota
           : requiredQuota // ignore: cast_nullable_to_non_nullable
@@ -5402,7 +4976,7 @@ class _$_RpcPowDifficultyResult implements _RpcPowDifficultyResult {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RpcPowDifficultyResult &&
+            other is _$_RpcPowDifficultyResult &&
             const DeepCollectionEquality()
                 .equals(other.requiredQuota, requiredQuota) &&
             const DeepCollectionEquality()
@@ -5412,6 +4986,7 @@ class _$_RpcPowDifficultyResult implements _RpcPowDifficultyResult {
                 .equals(other.isCongestion, isCongestion));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -5422,22 +4997,24 @@ class _$_RpcPowDifficultyResult implements _RpcPowDifficultyResult {
 
   @JsonKey(ignore: true)
   @override
-  _$RpcPowDifficultyResultCopyWith<_RpcPowDifficultyResult> get copyWith =>
-      __$RpcPowDifficultyResultCopyWithImpl<_RpcPowDifficultyResult>(
+  _$$_RpcPowDifficultyResultCopyWith<_$_RpcPowDifficultyResult> get copyWith =>
+      __$$_RpcPowDifficultyResultCopyWithImpl<_$_RpcPowDifficultyResult>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RpcPowDifficultyResultToJson(this);
+    return _$$_RpcPowDifficultyResultToJson(
+      this,
+    );
   }
 }
 
 abstract class _RpcPowDifficultyResult implements RpcPowDifficultyResult {
   const factory _RpcPowDifficultyResult(
-      {required String requiredQuota,
-      String? difficulty,
-      required String qc,
-      required bool isCongestion}) = _$_RpcPowDifficultyResult;
+      {required final String requiredQuota,
+      final String? difficulty,
+      required final String qc,
+      required final bool isCongestion}) = _$_RpcPowDifficultyResult;
 
   factory _RpcPowDifficultyResult.fromJson(Map<String, dynamic> json) =
       _$_RpcPowDifficultyResult.fromJson;
@@ -5452,36 +5029,13 @@ abstract class _RpcPowDifficultyResult implements RpcPowDifficultyResult {
   bool get isCongestion;
   @override
   @JsonKey(ignore: true)
-  _$RpcPowDifficultyResultCopyWith<_RpcPowDifficultyResult> get copyWith =>
+  _$$_RpcPowDifficultyResultCopyWith<_$_RpcPowDifficultyResult> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 RpcEntropyFile _$RpcEntropyFileFromJson(Map<String, dynamic> json) {
   return _RpcEntropyFile.fromJson(json);
 }
-
-/// @nodoc
-class _$RpcEntropyFileTearOff {
-  const _$RpcEntropyFileTearOff();
-
-  _RpcEntropyFile call(
-      {required String mnemonics,
-      required String firstAddress,
-      required String filePath}) {
-    return _RpcEntropyFile(
-      mnemonics: mnemonics,
-      firstAddress: firstAddress,
-      filePath: filePath,
-    );
-  }
-
-  RpcEntropyFile fromJson(Map<String, Object?> json) {
-    return RpcEntropyFile.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RpcEntropyFile = _$RpcEntropyFileTearOff();
 
 /// @nodoc
 mixin _$RpcEntropyFile {
@@ -5536,25 +5090,25 @@ class _$RpcEntropyFileCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$RpcEntropyFileCopyWith<$Res>
+abstract class _$$_RpcEntropyFileCopyWith<$Res>
     implements $RpcEntropyFileCopyWith<$Res> {
-  factory _$RpcEntropyFileCopyWith(
-          _RpcEntropyFile value, $Res Function(_RpcEntropyFile) then) =
-      __$RpcEntropyFileCopyWithImpl<$Res>;
+  factory _$$_RpcEntropyFileCopyWith(
+          _$_RpcEntropyFile value, $Res Function(_$_RpcEntropyFile) then) =
+      __$$_RpcEntropyFileCopyWithImpl<$Res>;
   @override
   $Res call({String mnemonics, String firstAddress, String filePath});
 }
 
 /// @nodoc
-class __$RpcEntropyFileCopyWithImpl<$Res>
+class __$$_RpcEntropyFileCopyWithImpl<$Res>
     extends _$RpcEntropyFileCopyWithImpl<$Res>
-    implements _$RpcEntropyFileCopyWith<$Res> {
-  __$RpcEntropyFileCopyWithImpl(
-      _RpcEntropyFile _value, $Res Function(_RpcEntropyFile) _then)
-      : super(_value, (v) => _then(v as _RpcEntropyFile));
+    implements _$$_RpcEntropyFileCopyWith<$Res> {
+  __$$_RpcEntropyFileCopyWithImpl(
+      _$_RpcEntropyFile _value, $Res Function(_$_RpcEntropyFile) _then)
+      : super(_value, (v) => _then(v as _$_RpcEntropyFile));
 
   @override
-  _RpcEntropyFile get _value => super._value as _RpcEntropyFile;
+  _$_RpcEntropyFile get _value => super._value as _$_RpcEntropyFile;
 
   @override
   $Res call({
@@ -5562,7 +5116,7 @@ class __$RpcEntropyFileCopyWithImpl<$Res>
     Object? firstAddress = freezed,
     Object? filePath = freezed,
   }) {
-    return _then(_RpcEntropyFile(
+    return _then(_$_RpcEntropyFile(
       mnemonics: mnemonics == freezed
           ? _value.mnemonics
           : mnemonics // ignore: cast_nullable_to_non_nullable
@@ -5606,13 +5160,14 @@ class _$_RpcEntropyFile implements _RpcEntropyFile {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RpcEntropyFile &&
+            other is _$_RpcEntropyFile &&
             const DeepCollectionEquality().equals(other.mnemonics, mnemonics) &&
             const DeepCollectionEquality()
                 .equals(other.firstAddress, firstAddress) &&
             const DeepCollectionEquality().equals(other.filePath, filePath));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -5622,20 +5177,22 @@ class _$_RpcEntropyFile implements _RpcEntropyFile {
 
   @JsonKey(ignore: true)
   @override
-  _$RpcEntropyFileCopyWith<_RpcEntropyFile> get copyWith =>
-      __$RpcEntropyFileCopyWithImpl<_RpcEntropyFile>(this, _$identity);
+  _$$_RpcEntropyFileCopyWith<_$_RpcEntropyFile> get copyWith =>
+      __$$_RpcEntropyFileCopyWithImpl<_$_RpcEntropyFile>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RpcEntropyFileToJson(this);
+    return _$$_RpcEntropyFileToJson(
+      this,
+    );
   }
 }
 
 abstract class _RpcEntropyFile implements RpcEntropyFile {
   const factory _RpcEntropyFile(
-      {required String mnemonics,
-      required String firstAddress,
-      required String filePath}) = _$_RpcEntropyFile;
+      {required final String mnemonics,
+      required final String firstAddress,
+      required final String filePath}) = _$_RpcEntropyFile;
 
   factory _RpcEntropyFile.fromJson(Map<String, dynamic> json) =
       _$_RpcEntropyFile.fromJson;
@@ -5648,36 +5205,13 @@ abstract class _RpcEntropyFile implements RpcEntropyFile {
   String get filePath;
   @override
   @JsonKey(ignore: true)
-  _$RpcEntropyFileCopyWith<_RpcEntropyFile> get copyWith =>
+  _$$_RpcEntropyFileCopyWith<_$_RpcEntropyFile> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 RpcDerivedAddress _$RpcDerivedAddressFromJson(Map<String, dynamic> json) {
   return _RpcDerivedAddress.fromJson(json);
 }
-
-/// @nodoc
-class _$RpcDerivedAddressTearOff {
-  const _$RpcDerivedAddressTearOff();
-
-  _RpcDerivedAddress call(
-      {required String bip44Path,
-      required String address,
-      required String privateKey}) {
-    return _RpcDerivedAddress(
-      bip44Path: bip44Path,
-      address: address,
-      privateKey: privateKey,
-    );
-  }
-
-  RpcDerivedAddress fromJson(Map<String, Object?> json) {
-    return RpcDerivedAddress.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RpcDerivedAddress = _$RpcDerivedAddressTearOff();
 
 /// @nodoc
 mixin _$RpcDerivedAddress {
@@ -5732,25 +5266,25 @@ class _$RpcDerivedAddressCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$RpcDerivedAddressCopyWith<$Res>
+abstract class _$$_RpcDerivedAddressCopyWith<$Res>
     implements $RpcDerivedAddressCopyWith<$Res> {
-  factory _$RpcDerivedAddressCopyWith(
-          _RpcDerivedAddress value, $Res Function(_RpcDerivedAddress) then) =
-      __$RpcDerivedAddressCopyWithImpl<$Res>;
+  factory _$$_RpcDerivedAddressCopyWith(_$_RpcDerivedAddress value,
+          $Res Function(_$_RpcDerivedAddress) then) =
+      __$$_RpcDerivedAddressCopyWithImpl<$Res>;
   @override
   $Res call({String bip44Path, String address, String privateKey});
 }
 
 /// @nodoc
-class __$RpcDerivedAddressCopyWithImpl<$Res>
+class __$$_RpcDerivedAddressCopyWithImpl<$Res>
     extends _$RpcDerivedAddressCopyWithImpl<$Res>
-    implements _$RpcDerivedAddressCopyWith<$Res> {
-  __$RpcDerivedAddressCopyWithImpl(
-      _RpcDerivedAddress _value, $Res Function(_RpcDerivedAddress) _then)
-      : super(_value, (v) => _then(v as _RpcDerivedAddress));
+    implements _$$_RpcDerivedAddressCopyWith<$Res> {
+  __$$_RpcDerivedAddressCopyWithImpl(
+      _$_RpcDerivedAddress _value, $Res Function(_$_RpcDerivedAddress) _then)
+      : super(_value, (v) => _then(v as _$_RpcDerivedAddress));
 
   @override
-  _RpcDerivedAddress get _value => super._value as _RpcDerivedAddress;
+  _$_RpcDerivedAddress get _value => super._value as _$_RpcDerivedAddress;
 
   @override
   $Res call({
@@ -5758,7 +5292,7 @@ class __$RpcDerivedAddressCopyWithImpl<$Res>
     Object? address = freezed,
     Object? privateKey = freezed,
   }) {
-    return _then(_RpcDerivedAddress(
+    return _then(_$_RpcDerivedAddress(
       bip44Path: bip44Path == freezed
           ? _value.bip44Path
           : bip44Path // ignore: cast_nullable_to_non_nullable
@@ -5802,13 +5336,14 @@ class _$_RpcDerivedAddress implements _RpcDerivedAddress {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RpcDerivedAddress &&
+            other is _$_RpcDerivedAddress &&
             const DeepCollectionEquality().equals(other.bip44Path, bip44Path) &&
             const DeepCollectionEquality().equals(other.address, address) &&
             const DeepCollectionEquality()
                 .equals(other.privateKey, privateKey));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -5818,20 +5353,23 @@ class _$_RpcDerivedAddress implements _RpcDerivedAddress {
 
   @JsonKey(ignore: true)
   @override
-  _$RpcDerivedAddressCopyWith<_RpcDerivedAddress> get copyWith =>
-      __$RpcDerivedAddressCopyWithImpl<_RpcDerivedAddress>(this, _$identity);
+  _$$_RpcDerivedAddressCopyWith<_$_RpcDerivedAddress> get copyWith =>
+      __$$_RpcDerivedAddressCopyWithImpl<_$_RpcDerivedAddress>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RpcDerivedAddressToJson(this);
+    return _$$_RpcDerivedAddressToJson(
+      this,
+    );
   }
 }
 
 abstract class _RpcDerivedAddress implements RpcDerivedAddress {
   const factory _RpcDerivedAddress(
-      {required String bip44Path,
-      required String address,
-      required String privateKey}) = _$_RpcDerivedAddress;
+      {required final String bip44Path,
+      required final String address,
+      required final String privateKey}) = _$_RpcDerivedAddress;
 
   factory _RpcDerivedAddress.fromJson(Map<String, dynamic> json) =
       _$_RpcDerivedAddress.fromJson;
@@ -5844,33 +5382,13 @@ abstract class _RpcDerivedAddress implements RpcDerivedAddress {
   String get privateKey;
   @override
   @JsonKey(ignore: true)
-  _$RpcDerivedAddressCopyWith<_RpcDerivedAddress> get copyWith =>
+  _$$_RpcDerivedAddressCopyWith<_$_RpcDerivedAddress> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 RpcAddressLocation _$RpcAddressLocationFromJson(Map<String, dynamic> json) {
   return _RpcAddressLocation.fromJson(json);
 }
-
-/// @nodoc
-class _$RpcAddressLocationTearOff {
-  const _$RpcAddressLocationTearOff();
-
-  _RpcAddressLocation call(
-      {required String entropyFileStore, required int index}) {
-    return _RpcAddressLocation(
-      entropyFileStore: entropyFileStore,
-      index: index,
-    );
-  }
-
-  RpcAddressLocation fromJson(Map<String, Object?> json) {
-    return RpcAddressLocation.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RpcAddressLocation = _$RpcAddressLocationTearOff();
 
 /// @nodoc
 mixin _$RpcAddressLocation {
@@ -5919,32 +5437,32 @@ class _$RpcAddressLocationCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$RpcAddressLocationCopyWith<$Res>
+abstract class _$$_RpcAddressLocationCopyWith<$Res>
     implements $RpcAddressLocationCopyWith<$Res> {
-  factory _$RpcAddressLocationCopyWith(
-          _RpcAddressLocation value, $Res Function(_RpcAddressLocation) then) =
-      __$RpcAddressLocationCopyWithImpl<$Res>;
+  factory _$$_RpcAddressLocationCopyWith(_$_RpcAddressLocation value,
+          $Res Function(_$_RpcAddressLocation) then) =
+      __$$_RpcAddressLocationCopyWithImpl<$Res>;
   @override
   $Res call({String entropyFileStore, int index});
 }
 
 /// @nodoc
-class __$RpcAddressLocationCopyWithImpl<$Res>
+class __$$_RpcAddressLocationCopyWithImpl<$Res>
     extends _$RpcAddressLocationCopyWithImpl<$Res>
-    implements _$RpcAddressLocationCopyWith<$Res> {
-  __$RpcAddressLocationCopyWithImpl(
-      _RpcAddressLocation _value, $Res Function(_RpcAddressLocation) _then)
-      : super(_value, (v) => _then(v as _RpcAddressLocation));
+    implements _$$_RpcAddressLocationCopyWith<$Res> {
+  __$$_RpcAddressLocationCopyWithImpl(
+      _$_RpcAddressLocation _value, $Res Function(_$_RpcAddressLocation) _then)
+      : super(_value, (v) => _then(v as _$_RpcAddressLocation));
 
   @override
-  _RpcAddressLocation get _value => super._value as _RpcAddressLocation;
+  _$_RpcAddressLocation get _value => super._value as _$_RpcAddressLocation;
 
   @override
   $Res call({
     Object? entropyFileStore = freezed,
     Object? index = freezed,
   }) {
-    return _then(_RpcAddressLocation(
+    return _then(_$_RpcAddressLocation(
       entropyFileStore: entropyFileStore == freezed
           ? _value.entropyFileStore
           : entropyFileStore // ignore: cast_nullable_to_non_nullable
@@ -5980,12 +5498,13 @@ class _$_RpcAddressLocation implements _RpcAddressLocation {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RpcAddressLocation &&
+            other is _$_RpcAddressLocation &&
             const DeepCollectionEquality()
                 .equals(other.entropyFileStore, entropyFileStore) &&
             const DeepCollectionEquality().equals(other.index, index));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -5994,19 +5513,22 @@ class _$_RpcAddressLocation implements _RpcAddressLocation {
 
   @JsonKey(ignore: true)
   @override
-  _$RpcAddressLocationCopyWith<_RpcAddressLocation> get copyWith =>
-      __$RpcAddressLocationCopyWithImpl<_RpcAddressLocation>(this, _$identity);
+  _$$_RpcAddressLocationCopyWith<_$_RpcAddressLocation> get copyWith =>
+      __$$_RpcAddressLocationCopyWithImpl<_$_RpcAddressLocation>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RpcAddressLocationToJson(this);
+    return _$$_RpcAddressLocationToJson(
+      this,
+    );
   }
 }
 
 abstract class _RpcAddressLocation implements RpcAddressLocation {
   const factory _RpcAddressLocation(
-      {required String entropyFileStore,
-      required int index}) = _$_RpcAddressLocation;
+      {required final String entropyFileStore,
+      required final int index}) = _$_RpcAddressLocation;
 
   factory _RpcAddressLocation.fromJson(Map<String, dynamic> json) =
       _$_RpcAddressLocation.fromJson;
@@ -6017,46 +5539,13 @@ abstract class _RpcAddressLocation implements RpcAddressLocation {
   int get index;
   @override
   @JsonKey(ignore: true)
-  _$RpcAddressLocationCopyWith<_RpcAddressLocation> get copyWith =>
+  _$$_RpcAddressLocationCopyWith<_$_RpcAddressLocation> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 RpcTxWithPassphrase _$RpcTxWithPassphraseFromJson(Map<String, dynamic> json) {
   return _RpcTxWithPassphrase.fromJson(json);
 }
-
-/// @nodoc
-class _$RpcTxWithPassphraseTearOff {
-  const _$RpcTxWithPassphraseTearOff();
-
-  _RpcTxWithPassphrase call(
-      {String? entropystoreFile,
-      @JsonKey(name: 'selfAddr') required String address,
-      @JsonKey(name: 'toAddr') required String toAddress,
-      required String tokenTypeId,
-      required String passphrase,
-      required String amount,
-      String? data,
-      String? difficulty}) {
-    return _RpcTxWithPassphrase(
-      entropystoreFile: entropystoreFile,
-      address: address,
-      toAddress: toAddress,
-      tokenTypeId: tokenTypeId,
-      passphrase: passphrase,
-      amount: amount,
-      data: data,
-      difficulty: difficulty,
-    );
-  }
-
-  RpcTxWithPassphrase fromJson(Map<String, Object?> json) {
-    return RpcTxWithPassphrase.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RpcTxWithPassphrase = _$RpcTxWithPassphraseTearOff();
 
 /// @nodoc
 mixin _$RpcTxWithPassphrase {
@@ -6151,11 +5640,11 @@ class _$RpcTxWithPassphraseCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$RpcTxWithPassphraseCopyWith<$Res>
+abstract class _$$_RpcTxWithPassphraseCopyWith<$Res>
     implements $RpcTxWithPassphraseCopyWith<$Res> {
-  factory _$RpcTxWithPassphraseCopyWith(_RpcTxWithPassphrase value,
-          $Res Function(_RpcTxWithPassphrase) then) =
-      __$RpcTxWithPassphraseCopyWithImpl<$Res>;
+  factory _$$_RpcTxWithPassphraseCopyWith(_$_RpcTxWithPassphrase value,
+          $Res Function(_$_RpcTxWithPassphrase) then) =
+      __$$_RpcTxWithPassphraseCopyWithImpl<$Res>;
   @override
   $Res call(
       {String? entropystoreFile,
@@ -6169,15 +5658,15 @@ abstract class _$RpcTxWithPassphraseCopyWith<$Res>
 }
 
 /// @nodoc
-class __$RpcTxWithPassphraseCopyWithImpl<$Res>
+class __$$_RpcTxWithPassphraseCopyWithImpl<$Res>
     extends _$RpcTxWithPassphraseCopyWithImpl<$Res>
-    implements _$RpcTxWithPassphraseCopyWith<$Res> {
-  __$RpcTxWithPassphraseCopyWithImpl(
-      _RpcTxWithPassphrase _value, $Res Function(_RpcTxWithPassphrase) _then)
-      : super(_value, (v) => _then(v as _RpcTxWithPassphrase));
+    implements _$$_RpcTxWithPassphraseCopyWith<$Res> {
+  __$$_RpcTxWithPassphraseCopyWithImpl(_$_RpcTxWithPassphrase _value,
+      $Res Function(_$_RpcTxWithPassphrase) _then)
+      : super(_value, (v) => _then(v as _$_RpcTxWithPassphrase));
 
   @override
-  _RpcTxWithPassphrase get _value => super._value as _RpcTxWithPassphrase;
+  _$_RpcTxWithPassphrase get _value => super._value as _$_RpcTxWithPassphrase;
 
   @override
   $Res call({
@@ -6190,7 +5679,7 @@ class __$RpcTxWithPassphraseCopyWithImpl<$Res>
     Object? data = freezed,
     Object? difficulty = freezed,
   }) {
-    return _then(_RpcTxWithPassphrase(
+    return _then(_$_RpcTxWithPassphrase(
       entropystoreFile: entropystoreFile == freezed
           ? _value.entropystoreFile
           : entropystoreFile // ignore: cast_nullable_to_non_nullable
@@ -6271,7 +5760,7 @@ class _$_RpcTxWithPassphrase implements _RpcTxWithPassphrase {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RpcTxWithPassphrase &&
+            other is _$_RpcTxWithPassphrase &&
             const DeepCollectionEquality()
                 .equals(other.entropystoreFile, entropystoreFile) &&
             const DeepCollectionEquality().equals(other.address, address) &&
@@ -6286,6 +5775,7 @@ class _$_RpcTxWithPassphrase implements _RpcTxWithPassphrase {
                 .equals(other.difficulty, difficulty));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -6300,26 +5790,28 @@ class _$_RpcTxWithPassphrase implements _RpcTxWithPassphrase {
 
   @JsonKey(ignore: true)
   @override
-  _$RpcTxWithPassphraseCopyWith<_RpcTxWithPassphrase> get copyWith =>
-      __$RpcTxWithPassphraseCopyWithImpl<_RpcTxWithPassphrase>(
+  _$$_RpcTxWithPassphraseCopyWith<_$_RpcTxWithPassphrase> get copyWith =>
+      __$$_RpcTxWithPassphraseCopyWithImpl<_$_RpcTxWithPassphrase>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RpcTxWithPassphraseToJson(this);
+    return _$$_RpcTxWithPassphraseToJson(
+      this,
+    );
   }
 }
 
 abstract class _RpcTxWithPassphrase implements RpcTxWithPassphrase {
   const factory _RpcTxWithPassphrase(
-      {String? entropystoreFile,
-      @JsonKey(name: 'selfAddr') required String address,
-      @JsonKey(name: 'toAddr') required String toAddress,
-      required String tokenTypeId,
-      required String passphrase,
-      required String amount,
-      String? data,
-      String? difficulty}) = _$_RpcTxWithPassphrase;
+      {final String? entropystoreFile,
+      @JsonKey(name: 'selfAddr') required final String address,
+      @JsonKey(name: 'toAddr') required final String toAddress,
+      required final String tokenTypeId,
+      required final String passphrase,
+      required final String amount,
+      final String? data,
+      final String? difficulty}) = _$_RpcTxWithPassphrase;
 
   factory _RpcTxWithPassphrase.fromJson(Map<String, dynamic> json) =
       _$_RpcTxWithPassphrase.fromJson;
@@ -6344,40 +5836,13 @@ abstract class _RpcTxWithPassphrase implements RpcTxWithPassphrase {
   String? get difficulty;
   @override
   @JsonKey(ignore: true)
-  _$RpcTxWithPassphraseCopyWith<_RpcTxWithPassphrase> get copyWith =>
+  _$$_RpcTxWithPassphraseCopyWith<_$_RpcTxWithPassphrase> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 RpcContractInfo _$RpcContractInfoFromJson(Map<String, dynamic> json) {
   return _RpcContractInfo.fromJson(json);
 }
-
-/// @nodoc
-class _$RpcContractInfoTearOff {
-  const _$RpcContractInfoTearOff();
-
-  _RpcContractInfo call(
-      {String? code,
-      required String gid,
-      required int responseLatency,
-      required int randomDegree,
-      required int quotaMultiplier}) {
-    return _RpcContractInfo(
-      code: code,
-      gid: gid,
-      responseLatency: responseLatency,
-      randomDegree: randomDegree,
-      quotaMultiplier: quotaMultiplier,
-    );
-  }
-
-  RpcContractInfo fromJson(Map<String, Object?> json) {
-    return RpcContractInfo.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RpcContractInfo = _$RpcContractInfoTearOff();
 
 /// @nodoc
 mixin _$RpcContractInfo {
@@ -6449,11 +5914,11 @@ class _$RpcContractInfoCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$RpcContractInfoCopyWith<$Res>
+abstract class _$$_RpcContractInfoCopyWith<$Res>
     implements $RpcContractInfoCopyWith<$Res> {
-  factory _$RpcContractInfoCopyWith(
-          _RpcContractInfo value, $Res Function(_RpcContractInfo) then) =
-      __$RpcContractInfoCopyWithImpl<$Res>;
+  factory _$$_RpcContractInfoCopyWith(
+          _$_RpcContractInfo value, $Res Function(_$_RpcContractInfo) then) =
+      __$$_RpcContractInfoCopyWithImpl<$Res>;
   @override
   $Res call(
       {String? code,
@@ -6464,15 +5929,15 @@ abstract class _$RpcContractInfoCopyWith<$Res>
 }
 
 /// @nodoc
-class __$RpcContractInfoCopyWithImpl<$Res>
+class __$$_RpcContractInfoCopyWithImpl<$Res>
     extends _$RpcContractInfoCopyWithImpl<$Res>
-    implements _$RpcContractInfoCopyWith<$Res> {
-  __$RpcContractInfoCopyWithImpl(
-      _RpcContractInfo _value, $Res Function(_RpcContractInfo) _then)
-      : super(_value, (v) => _then(v as _RpcContractInfo));
+    implements _$$_RpcContractInfoCopyWith<$Res> {
+  __$$_RpcContractInfoCopyWithImpl(
+      _$_RpcContractInfo _value, $Res Function(_$_RpcContractInfo) _then)
+      : super(_value, (v) => _then(v as _$_RpcContractInfo));
 
   @override
-  _RpcContractInfo get _value => super._value as _RpcContractInfo;
+  _$_RpcContractInfo get _value => super._value as _$_RpcContractInfo;
 
   @override
   $Res call({
@@ -6482,7 +5947,7 @@ class __$RpcContractInfoCopyWithImpl<$Res>
     Object? randomDegree = freezed,
     Object? quotaMultiplier = freezed,
   }) {
-    return _then(_RpcContractInfo(
+    return _then(_$_RpcContractInfo(
       code: code == freezed
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
@@ -6540,7 +6005,7 @@ class _$_RpcContractInfo implements _RpcContractInfo {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RpcContractInfo &&
+            other is _$_RpcContractInfo &&
             const DeepCollectionEquality().equals(other.code, code) &&
             const DeepCollectionEquality().equals(other.gid, gid) &&
             const DeepCollectionEquality()
@@ -6551,6 +6016,7 @@ class _$_RpcContractInfo implements _RpcContractInfo {
                 .equals(other.quotaMultiplier, quotaMultiplier));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -6562,22 +6028,24 @@ class _$_RpcContractInfo implements _RpcContractInfo {
 
   @JsonKey(ignore: true)
   @override
-  _$RpcContractInfoCopyWith<_RpcContractInfo> get copyWith =>
-      __$RpcContractInfoCopyWithImpl<_RpcContractInfo>(this, _$identity);
+  _$$_RpcContractInfoCopyWith<_$_RpcContractInfo> get copyWith =>
+      __$$_RpcContractInfoCopyWithImpl<_$_RpcContractInfo>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RpcContractInfoToJson(this);
+    return _$$_RpcContractInfoToJson(
+      this,
+    );
   }
 }
 
 abstract class _RpcContractInfo implements RpcContractInfo {
   const factory _RpcContractInfo(
-      {String? code,
-      required String gid,
-      required int responseLatency,
-      required int randomDegree,
-      required int quotaMultiplier}) = _$_RpcContractInfo;
+      {final String? code,
+      required final String gid,
+      required final int responseLatency,
+      required final int randomDegree,
+      required final int quotaMultiplier}) = _$_RpcContractInfo;
 
   factory _RpcContractInfo.fromJson(Map<String, dynamic> json) =
       _$_RpcContractInfo.fromJson;
@@ -6594,7 +6062,7 @@ abstract class _RpcContractInfo implements RpcContractInfo {
   int get quotaMultiplier;
   @override
   @JsonKey(ignore: true)
-  _$RpcContractInfoCopyWith<_RpcContractInfo> get copyWith =>
+  _$$_RpcContractInfoCopyWith<_$_RpcContractInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -6602,27 +6070,6 @@ RpcContractCallParams _$RpcContractCallParamsFromJson(
     Map<String, dynamic> json) {
   return _RpcContractCallParams.fromJson(json);
 }
-
-/// @nodoc
-class _$RpcContractCallParamsTearOff {
-  const _$RpcContractCallParamsTearOff();
-
-  _RpcContractCallParams call(
-      {required String address, required String code, required String data}) {
-    return _RpcContractCallParams(
-      address: address,
-      code: code,
-      data: data,
-    );
-  }
-
-  RpcContractCallParams fromJson(Map<String, Object?> json) {
-    return RpcContractCallParams.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RpcContractCallParams = _$RpcContractCallParamsTearOff();
 
 /// @nodoc
 mixin _$RpcContractCallParams {
@@ -6677,25 +6124,26 @@ class _$RpcContractCallParamsCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$RpcContractCallParamsCopyWith<$Res>
+abstract class _$$_RpcContractCallParamsCopyWith<$Res>
     implements $RpcContractCallParamsCopyWith<$Res> {
-  factory _$RpcContractCallParamsCopyWith(_RpcContractCallParams value,
-          $Res Function(_RpcContractCallParams) then) =
-      __$RpcContractCallParamsCopyWithImpl<$Res>;
+  factory _$$_RpcContractCallParamsCopyWith(_$_RpcContractCallParams value,
+          $Res Function(_$_RpcContractCallParams) then) =
+      __$$_RpcContractCallParamsCopyWithImpl<$Res>;
   @override
   $Res call({String address, String code, String data});
 }
 
 /// @nodoc
-class __$RpcContractCallParamsCopyWithImpl<$Res>
+class __$$_RpcContractCallParamsCopyWithImpl<$Res>
     extends _$RpcContractCallParamsCopyWithImpl<$Res>
-    implements _$RpcContractCallParamsCopyWith<$Res> {
-  __$RpcContractCallParamsCopyWithImpl(_RpcContractCallParams _value,
-      $Res Function(_RpcContractCallParams) _then)
-      : super(_value, (v) => _then(v as _RpcContractCallParams));
+    implements _$$_RpcContractCallParamsCopyWith<$Res> {
+  __$$_RpcContractCallParamsCopyWithImpl(_$_RpcContractCallParams _value,
+      $Res Function(_$_RpcContractCallParams) _then)
+      : super(_value, (v) => _then(v as _$_RpcContractCallParams));
 
   @override
-  _RpcContractCallParams get _value => super._value as _RpcContractCallParams;
+  _$_RpcContractCallParams get _value =>
+      super._value as _$_RpcContractCallParams;
 
   @override
   $Res call({
@@ -6703,7 +6151,7 @@ class __$RpcContractCallParamsCopyWithImpl<$Res>
     Object? code = freezed,
     Object? data = freezed,
   }) {
-    return _then(_RpcContractCallParams(
+    return _then(_$_RpcContractCallParams(
       address: address == freezed
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
@@ -6745,12 +6193,13 @@ class _$_RpcContractCallParams implements _RpcContractCallParams {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RpcContractCallParams &&
+            other is _$_RpcContractCallParams &&
             const DeepCollectionEquality().equals(other.address, address) &&
             const DeepCollectionEquality().equals(other.code, code) &&
             const DeepCollectionEquality().equals(other.data, data));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -6760,21 +6209,23 @@ class _$_RpcContractCallParams implements _RpcContractCallParams {
 
   @JsonKey(ignore: true)
   @override
-  _$RpcContractCallParamsCopyWith<_RpcContractCallParams> get copyWith =>
-      __$RpcContractCallParamsCopyWithImpl<_RpcContractCallParams>(
+  _$$_RpcContractCallParamsCopyWith<_$_RpcContractCallParams> get copyWith =>
+      __$$_RpcContractCallParamsCopyWithImpl<_$_RpcContractCallParams>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RpcContractCallParamsToJson(this);
+    return _$$_RpcContractCallParamsToJson(
+      this,
+    );
   }
 }
 
 abstract class _RpcContractCallParams implements RpcContractCallParams {
   const factory _RpcContractCallParams(
-      {required String address,
-      required String code,
-      required String data}) = _$_RpcContractCallParams;
+      {required final String address,
+      required final String code,
+      required final String data}) = _$_RpcContractCallParams;
 
   factory _RpcContractCallParams.fromJson(Map<String, dynamic> json) =
       _$_RpcContractCallParams.fromJson;
@@ -6787,38 +6238,13 @@ abstract class _RpcContractCallParams implements RpcContractCallParams {
   String get data;
   @override
   @JsonKey(ignore: true)
-  _$RpcContractCallParamsCopyWith<_RpcContractCallParams> get copyWith =>
+  _$$_RpcContractCallParamsCopyWith<_$_RpcContractCallParams> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 RpcQueryParams _$RpcQueryParamsFromJson(Map<String, dynamic> json) {
   return _RpcQueryParams.fromJson(json);
 }
-
-/// @nodoc
-class _$RpcQueryParamsTearOff {
-  const _$RpcQueryParamsTearOff();
-
-  _RpcQueryParams call(
-      {required String address,
-      required String data,
-      int? height,
-      String? snapshotHash}) {
-    return _RpcQueryParams(
-      address: address,
-      data: data,
-      height: height,
-      snapshotHash: snapshotHash,
-    );
-  }
-
-  RpcQueryParams fromJson(Map<String, Object?> json) {
-    return RpcQueryParams.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RpcQueryParams = _$RpcQueryParamsTearOff();
 
 /// @nodoc
 mixin _$RpcQueryParams {
@@ -6879,25 +6305,25 @@ class _$RpcQueryParamsCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$RpcQueryParamsCopyWith<$Res>
+abstract class _$$_RpcQueryParamsCopyWith<$Res>
     implements $RpcQueryParamsCopyWith<$Res> {
-  factory _$RpcQueryParamsCopyWith(
-          _RpcQueryParams value, $Res Function(_RpcQueryParams) then) =
-      __$RpcQueryParamsCopyWithImpl<$Res>;
+  factory _$$_RpcQueryParamsCopyWith(
+          _$_RpcQueryParams value, $Res Function(_$_RpcQueryParams) then) =
+      __$$_RpcQueryParamsCopyWithImpl<$Res>;
   @override
   $Res call({String address, String data, int? height, String? snapshotHash});
 }
 
 /// @nodoc
-class __$RpcQueryParamsCopyWithImpl<$Res>
+class __$$_RpcQueryParamsCopyWithImpl<$Res>
     extends _$RpcQueryParamsCopyWithImpl<$Res>
-    implements _$RpcQueryParamsCopyWith<$Res> {
-  __$RpcQueryParamsCopyWithImpl(
-      _RpcQueryParams _value, $Res Function(_RpcQueryParams) _then)
-      : super(_value, (v) => _then(v as _RpcQueryParams));
+    implements _$$_RpcQueryParamsCopyWith<$Res> {
+  __$$_RpcQueryParamsCopyWithImpl(
+      _$_RpcQueryParams _value, $Res Function(_$_RpcQueryParams) _then)
+      : super(_value, (v) => _then(v as _$_RpcQueryParams));
 
   @override
-  _RpcQueryParams get _value => super._value as _RpcQueryParams;
+  _$_RpcQueryParams get _value => super._value as _$_RpcQueryParams;
 
   @override
   $Res call({
@@ -6906,7 +6332,7 @@ class __$RpcQueryParamsCopyWithImpl<$Res>
     Object? height = freezed,
     Object? snapshotHash = freezed,
   }) {
-    return _then(_RpcQueryParams(
+    return _then(_$_RpcQueryParams(
       address: address == freezed
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
@@ -6957,7 +6383,7 @@ class _$_RpcQueryParams implements _RpcQueryParams {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RpcQueryParams &&
+            other is _$_RpcQueryParams &&
             const DeepCollectionEquality().equals(other.address, address) &&
             const DeepCollectionEquality().equals(other.data, data) &&
             const DeepCollectionEquality().equals(other.height, height) &&
@@ -6965,6 +6391,7 @@ class _$_RpcQueryParams implements _RpcQueryParams {
                 .equals(other.snapshotHash, snapshotHash));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -6975,21 +6402,23 @@ class _$_RpcQueryParams implements _RpcQueryParams {
 
   @JsonKey(ignore: true)
   @override
-  _$RpcQueryParamsCopyWith<_RpcQueryParams> get copyWith =>
-      __$RpcQueryParamsCopyWithImpl<_RpcQueryParams>(this, _$identity);
+  _$$_RpcQueryParamsCopyWith<_$_RpcQueryParams> get copyWith =>
+      __$$_RpcQueryParamsCopyWithImpl<_$_RpcQueryParams>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RpcQueryParamsToJson(this);
+    return _$$_RpcQueryParamsToJson(
+      this,
+    );
   }
 }
 
 abstract class _RpcQueryParams implements RpcQueryParams {
   const factory _RpcQueryParams(
-      {required String address,
-      required String data,
-      int? height,
-      String? snapshotHash}) = _$_RpcQueryParams;
+      {required final String address,
+      required final String data,
+      final int? height,
+      final String? snapshotHash}) = _$_RpcQueryParams;
 
   factory _RpcQueryParams.fromJson(Map<String, dynamic> json) =
       _$_RpcQueryParams.fromJson;
@@ -7004,36 +6433,13 @@ abstract class _RpcQueryParams implements RpcQueryParams {
   String? get snapshotHash;
   @override
   @JsonKey(ignore: true)
-  _$RpcQueryParamsCopyWith<_RpcQueryParams> get copyWith =>
+  _$$_RpcQueryParamsCopyWith<_$_RpcQueryParams> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 RpcQuotaInfo _$RpcQuotaInfoFromJson(Map<String, dynamic> json) {
   return _RpcQuotaInfo.fromJson(json);
 }
-
-/// @nodoc
-class _$RpcQuotaInfoTearOff {
-  const _$RpcQuotaInfoTearOff();
-
-  _RpcQuotaInfo call(
-      {required String currentQuota,
-      required String maxQuota,
-      required String stakeAmount}) {
-    return _RpcQuotaInfo(
-      currentQuota: currentQuota,
-      maxQuota: maxQuota,
-      stakeAmount: stakeAmount,
-    );
-  }
-
-  RpcQuotaInfo fromJson(Map<String, Object?> json) {
-    return RpcQuotaInfo.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RpcQuotaInfo = _$RpcQuotaInfoTearOff();
 
 /// @nodoc
 mixin _$RpcQuotaInfo {
@@ -7087,24 +6493,25 @@ class _$RpcQuotaInfoCopyWithImpl<$Res> implements $RpcQuotaInfoCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$RpcQuotaInfoCopyWith<$Res>
+abstract class _$$_RpcQuotaInfoCopyWith<$Res>
     implements $RpcQuotaInfoCopyWith<$Res> {
-  factory _$RpcQuotaInfoCopyWith(
-          _RpcQuotaInfo value, $Res Function(_RpcQuotaInfo) then) =
-      __$RpcQuotaInfoCopyWithImpl<$Res>;
+  factory _$$_RpcQuotaInfoCopyWith(
+          _$_RpcQuotaInfo value, $Res Function(_$_RpcQuotaInfo) then) =
+      __$$_RpcQuotaInfoCopyWithImpl<$Res>;
   @override
   $Res call({String currentQuota, String maxQuota, String stakeAmount});
 }
 
 /// @nodoc
-class __$RpcQuotaInfoCopyWithImpl<$Res> extends _$RpcQuotaInfoCopyWithImpl<$Res>
-    implements _$RpcQuotaInfoCopyWith<$Res> {
-  __$RpcQuotaInfoCopyWithImpl(
-      _RpcQuotaInfo _value, $Res Function(_RpcQuotaInfo) _then)
-      : super(_value, (v) => _then(v as _RpcQuotaInfo));
+class __$$_RpcQuotaInfoCopyWithImpl<$Res>
+    extends _$RpcQuotaInfoCopyWithImpl<$Res>
+    implements _$$_RpcQuotaInfoCopyWith<$Res> {
+  __$$_RpcQuotaInfoCopyWithImpl(
+      _$_RpcQuotaInfo _value, $Res Function(_$_RpcQuotaInfo) _then)
+      : super(_value, (v) => _then(v as _$_RpcQuotaInfo));
 
   @override
-  _RpcQuotaInfo get _value => super._value as _RpcQuotaInfo;
+  _$_RpcQuotaInfo get _value => super._value as _$_RpcQuotaInfo;
 
   @override
   $Res call({
@@ -7112,7 +6519,7 @@ class __$RpcQuotaInfoCopyWithImpl<$Res> extends _$RpcQuotaInfoCopyWithImpl<$Res>
     Object? maxQuota = freezed,
     Object? stakeAmount = freezed,
   }) {
-    return _then(_RpcQuotaInfo(
+    return _then(_$_RpcQuotaInfo(
       currentQuota: currentQuota == freezed
           ? _value.currentQuota
           : currentQuota // ignore: cast_nullable_to_non_nullable
@@ -7156,7 +6563,7 @@ class _$_RpcQuotaInfo implements _RpcQuotaInfo {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RpcQuotaInfo &&
+            other is _$_RpcQuotaInfo &&
             const DeepCollectionEquality()
                 .equals(other.currentQuota, currentQuota) &&
             const DeepCollectionEquality().equals(other.maxQuota, maxQuota) &&
@@ -7164,6 +6571,7 @@ class _$_RpcQuotaInfo implements _RpcQuotaInfo {
                 .equals(other.stakeAmount, stakeAmount));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -7173,20 +6581,22 @@ class _$_RpcQuotaInfo implements _RpcQuotaInfo {
 
   @JsonKey(ignore: true)
   @override
-  _$RpcQuotaInfoCopyWith<_RpcQuotaInfo> get copyWith =>
-      __$RpcQuotaInfoCopyWithImpl<_RpcQuotaInfo>(this, _$identity);
+  _$$_RpcQuotaInfoCopyWith<_$_RpcQuotaInfo> get copyWith =>
+      __$$_RpcQuotaInfoCopyWithImpl<_$_RpcQuotaInfo>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RpcQuotaInfoToJson(this);
+    return _$$_RpcQuotaInfoToJson(
+      this,
+    );
   }
 }
 
 abstract class _RpcQuotaInfo implements RpcQuotaInfo {
   const factory _RpcQuotaInfo(
-      {required String currentQuota,
-      required String maxQuota,
-      required String stakeAmount}) = _$_RpcQuotaInfo;
+      {required final String currentQuota,
+      required final String maxQuota,
+      required final String stakeAmount}) = _$_RpcQuotaInfo;
 
   factory _RpcQuotaInfo.fromJson(Map<String, dynamic> json) =
       _$_RpcQuotaInfo.fromJson;
@@ -7199,48 +6609,13 @@ abstract class _RpcQuotaInfo implements RpcQuotaInfo {
   String get stakeAmount;
   @override
   @JsonKey(ignore: true)
-  _$RpcQuotaInfoCopyWith<_RpcQuotaInfo> get copyWith =>
+  _$$_RpcQuotaInfoCopyWith<_$_RpcQuotaInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 RpcStakeInfo _$RpcStakeInfoFromJson(Map<String, dynamic> json) {
   return _RpcStakeInfo.fromJson(json);
 }
-
-/// @nodoc
-class _$RpcStakeInfoTearOff {
-  const _$RpcStakeInfoTearOff();
-
-  _RpcStakeInfo call(
-      {required String stakeAddress,
-      required String stakeAmount,
-      required String expirationHeight,
-      required String beneficiary,
-      required int expirationTime,
-      required bool isDelegated,
-      String? delegateAddress,
-      int bid = 0,
-      String? id}) {
-    return _RpcStakeInfo(
-      stakeAddress: stakeAddress,
-      stakeAmount: stakeAmount,
-      expirationHeight: expirationHeight,
-      beneficiary: beneficiary,
-      expirationTime: expirationTime,
-      isDelegated: isDelegated,
-      delegateAddress: delegateAddress,
-      bid: bid,
-      id: id,
-    );
-  }
-
-  RpcStakeInfo fromJson(Map<String, Object?> json) {
-    return RpcStakeInfo.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RpcStakeInfo = _$RpcStakeInfoTearOff();
 
 /// @nodoc
 mixin _$RpcStakeInfo {
@@ -7339,11 +6714,11 @@ class _$RpcStakeInfoCopyWithImpl<$Res> implements $RpcStakeInfoCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$RpcStakeInfoCopyWith<$Res>
+abstract class _$$_RpcStakeInfoCopyWith<$Res>
     implements $RpcStakeInfoCopyWith<$Res> {
-  factory _$RpcStakeInfoCopyWith(
-          _RpcStakeInfo value, $Res Function(_RpcStakeInfo) then) =
-      __$RpcStakeInfoCopyWithImpl<$Res>;
+  factory _$$_RpcStakeInfoCopyWith(
+          _$_RpcStakeInfo value, $Res Function(_$_RpcStakeInfo) then) =
+      __$$_RpcStakeInfoCopyWithImpl<$Res>;
   @override
   $Res call(
       {String stakeAddress,
@@ -7358,14 +6733,15 @@ abstract class _$RpcStakeInfoCopyWith<$Res>
 }
 
 /// @nodoc
-class __$RpcStakeInfoCopyWithImpl<$Res> extends _$RpcStakeInfoCopyWithImpl<$Res>
-    implements _$RpcStakeInfoCopyWith<$Res> {
-  __$RpcStakeInfoCopyWithImpl(
-      _RpcStakeInfo _value, $Res Function(_RpcStakeInfo) _then)
-      : super(_value, (v) => _then(v as _RpcStakeInfo));
+class __$$_RpcStakeInfoCopyWithImpl<$Res>
+    extends _$RpcStakeInfoCopyWithImpl<$Res>
+    implements _$$_RpcStakeInfoCopyWith<$Res> {
+  __$$_RpcStakeInfoCopyWithImpl(
+      _$_RpcStakeInfo _value, $Res Function(_$_RpcStakeInfo) _then)
+      : super(_value, (v) => _then(v as _$_RpcStakeInfo));
 
   @override
-  _RpcStakeInfo get _value => super._value as _RpcStakeInfo;
+  _$_RpcStakeInfo get _value => super._value as _$_RpcStakeInfo;
 
   @override
   $Res call({
@@ -7379,7 +6755,7 @@ class __$RpcStakeInfoCopyWithImpl<$Res> extends _$RpcStakeInfoCopyWithImpl<$Res>
     Object? bid = freezed,
     Object? id = freezed,
   }) {
-    return _then(_RpcStakeInfo(
+    return _then(_$_RpcStakeInfo(
       stakeAddress: stakeAddress == freezed
           ? _value.stakeAddress
           : stakeAddress // ignore: cast_nullable_to_non_nullable
@@ -7451,8 +6827,8 @@ class _$_RpcStakeInfo implements _RpcStakeInfo {
   final bool isDelegated;
   @override
   final String? delegateAddress;
-  @JsonKey()
   @override
+  @JsonKey()
   final int bid;
   @override
   final String? id;
@@ -7466,7 +6842,7 @@ class _$_RpcStakeInfo implements _RpcStakeInfo {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RpcStakeInfo &&
+            other is _$_RpcStakeInfo &&
             const DeepCollectionEquality()
                 .equals(other.stakeAddress, stakeAddress) &&
             const DeepCollectionEquality()
@@ -7485,6 +6861,7 @@ class _$_RpcStakeInfo implements _RpcStakeInfo {
             const DeepCollectionEquality().equals(other.id, id));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -7500,26 +6877,28 @@ class _$_RpcStakeInfo implements _RpcStakeInfo {
 
   @JsonKey(ignore: true)
   @override
-  _$RpcStakeInfoCopyWith<_RpcStakeInfo> get copyWith =>
-      __$RpcStakeInfoCopyWithImpl<_RpcStakeInfo>(this, _$identity);
+  _$$_RpcStakeInfoCopyWith<_$_RpcStakeInfo> get copyWith =>
+      __$$_RpcStakeInfoCopyWithImpl<_$_RpcStakeInfo>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RpcStakeInfoToJson(this);
+    return _$$_RpcStakeInfoToJson(
+      this,
+    );
   }
 }
 
 abstract class _RpcStakeInfo implements RpcStakeInfo {
   const factory _RpcStakeInfo(
-      {required String stakeAddress,
-      required String stakeAmount,
-      required String expirationHeight,
-      required String beneficiary,
-      required int expirationTime,
-      required bool isDelegated,
-      String? delegateAddress,
-      int bid,
-      String? id}) = _$_RpcStakeInfo;
+      {required final String stakeAddress,
+      required final String stakeAmount,
+      required final String expirationHeight,
+      required final String beneficiary,
+      required final int expirationTime,
+      required final bool isDelegated,
+      final String? delegateAddress,
+      final int bid,
+      final String? id}) = _$_RpcStakeInfo;
 
   factory _RpcStakeInfo.fromJson(Map<String, dynamic> json) =
       _$_RpcStakeInfo.fromJson;
@@ -7544,36 +6923,13 @@ abstract class _RpcStakeInfo implements RpcStakeInfo {
   String? get id;
   @override
   @JsonKey(ignore: true)
-  _$RpcStakeInfoCopyWith<_RpcStakeInfo> get copyWith =>
+  _$$_RpcStakeInfoCopyWith<_$_RpcStakeInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 RpcStakeListInfo _$RpcStakeListInfoFromJson(Map<String, dynamic> json) {
   return _RpcStakeListInfo.fromJson(json);
 }
-
-/// @nodoc
-class _$RpcStakeListInfoTearOff {
-  const _$RpcStakeListInfoTearOff();
-
-  _RpcStakeListInfo call(
-      {required String totalStakeAmount,
-      required int totalStakeCount,
-      List<RpcStakeInfo> stakeList = const []}) {
-    return _RpcStakeListInfo(
-      totalStakeAmount: totalStakeAmount,
-      totalStakeCount: totalStakeCount,
-      stakeList: stakeList,
-    );
-  }
-
-  RpcStakeListInfo fromJson(Map<String, Object?> json) {
-    return RpcStakeListInfo.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RpcStakeListInfo = _$RpcStakeListInfoTearOff();
 
 /// @nodoc
 mixin _$RpcStakeListInfo {
@@ -7631,11 +6987,11 @@ class _$RpcStakeListInfoCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$RpcStakeListInfoCopyWith<$Res>
+abstract class _$$_RpcStakeListInfoCopyWith<$Res>
     implements $RpcStakeListInfoCopyWith<$Res> {
-  factory _$RpcStakeListInfoCopyWith(
-          _RpcStakeListInfo value, $Res Function(_RpcStakeListInfo) then) =
-      __$RpcStakeListInfoCopyWithImpl<$Res>;
+  factory _$$_RpcStakeListInfoCopyWith(
+          _$_RpcStakeListInfo value, $Res Function(_$_RpcStakeListInfo) then) =
+      __$$_RpcStakeListInfoCopyWithImpl<$Res>;
   @override
   $Res call(
       {String totalStakeAmount,
@@ -7644,15 +7000,15 @@ abstract class _$RpcStakeListInfoCopyWith<$Res>
 }
 
 /// @nodoc
-class __$RpcStakeListInfoCopyWithImpl<$Res>
+class __$$_RpcStakeListInfoCopyWithImpl<$Res>
     extends _$RpcStakeListInfoCopyWithImpl<$Res>
-    implements _$RpcStakeListInfoCopyWith<$Res> {
-  __$RpcStakeListInfoCopyWithImpl(
-      _RpcStakeListInfo _value, $Res Function(_RpcStakeListInfo) _then)
-      : super(_value, (v) => _then(v as _RpcStakeListInfo));
+    implements _$$_RpcStakeListInfoCopyWith<$Res> {
+  __$$_RpcStakeListInfoCopyWithImpl(
+      _$_RpcStakeListInfo _value, $Res Function(_$_RpcStakeListInfo) _then)
+      : super(_value, (v) => _then(v as _$_RpcStakeListInfo));
 
   @override
-  _RpcStakeListInfo get _value => super._value as _RpcStakeListInfo;
+  _$_RpcStakeListInfo get _value => super._value as _$_RpcStakeListInfo;
 
   @override
   $Res call({
@@ -7660,7 +7016,7 @@ class __$RpcStakeListInfoCopyWithImpl<$Res>
     Object? totalStakeCount = freezed,
     Object? stakeList = freezed,
   }) {
-    return _then(_RpcStakeListInfo(
+    return _then(_$_RpcStakeListInfo(
       totalStakeAmount: totalStakeAmount == freezed
           ? _value.totalStakeAmount
           : totalStakeAmount // ignore: cast_nullable_to_non_nullable
@@ -7670,7 +7026,7 @@ class __$RpcStakeListInfoCopyWithImpl<$Res>
           : totalStakeCount // ignore: cast_nullable_to_non_nullable
               as int,
       stakeList: stakeList == freezed
-          ? _value.stakeList
+          ? _value._stakeList
           : stakeList // ignore: cast_nullable_to_non_nullable
               as List<RpcStakeInfo>,
     ));
@@ -7683,7 +7039,8 @@ class _$_RpcStakeListInfo implements _RpcStakeListInfo {
   const _$_RpcStakeListInfo(
       {required this.totalStakeAmount,
       required this.totalStakeCount,
-      this.stakeList = const []});
+      final List<RpcStakeInfo> stakeList = const []})
+      : _stakeList = stakeList;
 
   factory _$_RpcStakeListInfo.fromJson(Map<String, dynamic> json) =>
       _$$_RpcStakeListInfoFromJson(json);
@@ -7692,9 +7049,13 @@ class _$_RpcStakeListInfo implements _RpcStakeListInfo {
   final String totalStakeAmount;
   @override
   final int totalStakeCount;
-  @JsonKey()
+  final List<RpcStakeInfo> _stakeList;
   @override
-  final List<RpcStakeInfo> stakeList;
+  @JsonKey()
+  List<RpcStakeInfo> get stakeList {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_stakeList);
+  }
 
   @override
   String toString() {
@@ -7705,37 +7066,41 @@ class _$_RpcStakeListInfo implements _RpcStakeListInfo {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RpcStakeListInfo &&
+            other is _$_RpcStakeListInfo &&
             const DeepCollectionEquality()
                 .equals(other.totalStakeAmount, totalStakeAmount) &&
             const DeepCollectionEquality()
                 .equals(other.totalStakeCount, totalStakeCount) &&
-            const DeepCollectionEquality().equals(other.stakeList, stakeList));
+            const DeepCollectionEquality()
+                .equals(other._stakeList, _stakeList));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(totalStakeAmount),
       const DeepCollectionEquality().hash(totalStakeCount),
-      const DeepCollectionEquality().hash(stakeList));
+      const DeepCollectionEquality().hash(_stakeList));
 
   @JsonKey(ignore: true)
   @override
-  _$RpcStakeListInfoCopyWith<_RpcStakeListInfo> get copyWith =>
-      __$RpcStakeListInfoCopyWithImpl<_RpcStakeListInfo>(this, _$identity);
+  _$$_RpcStakeListInfoCopyWith<_$_RpcStakeListInfo> get copyWith =>
+      __$$_RpcStakeListInfoCopyWithImpl<_$_RpcStakeListInfo>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RpcStakeListInfoToJson(this);
+    return _$$_RpcStakeListInfoToJson(
+      this,
+    );
   }
 }
 
 abstract class _RpcStakeListInfo implements RpcStakeListInfo {
   const factory _RpcStakeListInfo(
-      {required String totalStakeAmount,
-      required int totalStakeCount,
-      List<RpcStakeInfo> stakeList}) = _$_RpcStakeListInfo;
+      {required final String totalStakeAmount,
+      required final int totalStakeCount,
+      final List<RpcStakeInfo> stakeList}) = _$_RpcStakeListInfo;
 
   factory _RpcStakeListInfo.fromJson(Map<String, dynamic> json) =
       _$_RpcStakeListInfo.fromJson;
@@ -7748,38 +7113,13 @@ abstract class _RpcStakeListInfo implements RpcStakeListInfo {
   List<RpcStakeInfo> get stakeList;
   @override
   @JsonKey(ignore: true)
-  _$RpcStakeListInfoCopyWith<_RpcStakeListInfo> get copyWith =>
+  _$$_RpcStakeListInfoCopyWith<_$_RpcStakeListInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 RpcStakeInfoRequest _$RpcStakeInfoRequestFromJson(Map<String, dynamic> json) {
   return _RpcStakeInfoRequest.fromJson(json);
 }
-
-/// @nodoc
-class _$RpcStakeInfoRequestTearOff {
-  const _$RpcStakeInfoRequestTearOff();
-
-  _RpcStakeInfoRequest call(
-      {required String stakeAddress,
-      required String delegateAddress,
-      required String beneficiary,
-      required int bid}) {
-    return _RpcStakeInfoRequest(
-      stakeAddress: stakeAddress,
-      delegateAddress: delegateAddress,
-      beneficiary: beneficiary,
-      bid: bid,
-    );
-  }
-
-  RpcStakeInfoRequest fromJson(Map<String, Object?> json) {
-    return RpcStakeInfoRequest.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RpcStakeInfoRequest = _$RpcStakeInfoRequestTearOff();
 
 /// @nodoc
 mixin _$RpcStakeInfoRequest {
@@ -7844,11 +7184,11 @@ class _$RpcStakeInfoRequestCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$RpcStakeInfoRequestCopyWith<$Res>
+abstract class _$$_RpcStakeInfoRequestCopyWith<$Res>
     implements $RpcStakeInfoRequestCopyWith<$Res> {
-  factory _$RpcStakeInfoRequestCopyWith(_RpcStakeInfoRequest value,
-          $Res Function(_RpcStakeInfoRequest) then) =
-      __$RpcStakeInfoRequestCopyWithImpl<$Res>;
+  factory _$$_RpcStakeInfoRequestCopyWith(_$_RpcStakeInfoRequest value,
+          $Res Function(_$_RpcStakeInfoRequest) then) =
+      __$$_RpcStakeInfoRequestCopyWithImpl<$Res>;
   @override
   $Res call(
       {String stakeAddress,
@@ -7858,15 +7198,15 @@ abstract class _$RpcStakeInfoRequestCopyWith<$Res>
 }
 
 /// @nodoc
-class __$RpcStakeInfoRequestCopyWithImpl<$Res>
+class __$$_RpcStakeInfoRequestCopyWithImpl<$Res>
     extends _$RpcStakeInfoRequestCopyWithImpl<$Res>
-    implements _$RpcStakeInfoRequestCopyWith<$Res> {
-  __$RpcStakeInfoRequestCopyWithImpl(
-      _RpcStakeInfoRequest _value, $Res Function(_RpcStakeInfoRequest) _then)
-      : super(_value, (v) => _then(v as _RpcStakeInfoRequest));
+    implements _$$_RpcStakeInfoRequestCopyWith<$Res> {
+  __$$_RpcStakeInfoRequestCopyWithImpl(_$_RpcStakeInfoRequest _value,
+      $Res Function(_$_RpcStakeInfoRequest) _then)
+      : super(_value, (v) => _then(v as _$_RpcStakeInfoRequest));
 
   @override
-  _RpcStakeInfoRequest get _value => super._value as _RpcStakeInfoRequest;
+  _$_RpcStakeInfoRequest get _value => super._value as _$_RpcStakeInfoRequest;
 
   @override
   $Res call({
@@ -7875,7 +7215,7 @@ class __$RpcStakeInfoRequestCopyWithImpl<$Res>
     Object? beneficiary = freezed,
     Object? bid = freezed,
   }) {
-    return _then(_RpcStakeInfoRequest(
+    return _then(_$_RpcStakeInfoRequest(
       stakeAddress: stakeAddress == freezed
           ? _value.stakeAddress
           : stakeAddress // ignore: cast_nullable_to_non_nullable
@@ -7926,7 +7266,7 @@ class _$_RpcStakeInfoRequest implements _RpcStakeInfoRequest {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RpcStakeInfoRequest &&
+            other is _$_RpcStakeInfoRequest &&
             const DeepCollectionEquality()
                 .equals(other.stakeAddress, stakeAddress) &&
             const DeepCollectionEquality()
@@ -7936,6 +7276,7 @@ class _$_RpcStakeInfoRequest implements _RpcStakeInfoRequest {
             const DeepCollectionEquality().equals(other.bid, bid));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -7946,22 +7287,24 @@ class _$_RpcStakeInfoRequest implements _RpcStakeInfoRequest {
 
   @JsonKey(ignore: true)
   @override
-  _$RpcStakeInfoRequestCopyWith<_RpcStakeInfoRequest> get copyWith =>
-      __$RpcStakeInfoRequestCopyWithImpl<_RpcStakeInfoRequest>(
+  _$$_RpcStakeInfoRequestCopyWith<_$_RpcStakeInfoRequest> get copyWith =>
+      __$$_RpcStakeInfoRequestCopyWithImpl<_$_RpcStakeInfoRequest>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RpcStakeInfoRequestToJson(this);
+    return _$$_RpcStakeInfoRequestToJson(
+      this,
+    );
   }
 }
 
 abstract class _RpcStakeInfoRequest implements RpcStakeInfoRequest {
   const factory _RpcStakeInfoRequest(
-      {required String stakeAddress,
-      required String delegateAddress,
-      required String beneficiary,
-      required int bid}) = _$_RpcStakeInfoRequest;
+      {required final String stakeAddress,
+      required final String delegateAddress,
+      required final String beneficiary,
+      required final int bid}) = _$_RpcStakeInfoRequest;
 
   factory _RpcStakeInfoRequest.fromJson(Map<String, dynamic> json) =
       _$_RpcStakeInfoRequest.fromJson;
@@ -7976,44 +7319,13 @@ abstract class _RpcStakeInfoRequest implements RpcStakeInfoRequest {
   int get bid;
   @override
   @JsonKey(ignore: true)
-  _$RpcStakeInfoRequestCopyWith<_RpcStakeInfoRequest> get copyWith =>
+  _$$_RpcStakeInfoRequestCopyWith<_$_RpcStakeInfoRequest> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 RpcSbpInfo _$RpcSbpInfoFromJson(Map<String, dynamic> json) {
   return _RpcSbpInfo.fromJson(json);
 }
-
-/// @nodoc
-class _$RpcSbpInfoTearOff {
-  const _$RpcSbpInfoTearOff();
-
-  _RpcSbpInfo call(
-      {required String name,
-      required String blockProducingAddress,
-      required String stakeAddress,
-      required String stakeAmount,
-      required String expirationHeight,
-      required int expirationTime,
-      required int revokeTime}) {
-    return _RpcSbpInfo(
-      name: name,
-      blockProducingAddress: blockProducingAddress,
-      stakeAddress: stakeAddress,
-      stakeAmount: stakeAmount,
-      expirationHeight: expirationHeight,
-      expirationTime: expirationTime,
-      revokeTime: revokeTime,
-    );
-  }
-
-  RpcSbpInfo fromJson(Map<String, Object?> json) {
-    return RpcSbpInfo.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RpcSbpInfo = _$RpcSbpInfoTearOff();
 
 /// @nodoc
 mixin _$RpcSbpInfo {
@@ -8098,10 +7410,11 @@ class _$RpcSbpInfoCopyWithImpl<$Res> implements $RpcSbpInfoCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$RpcSbpInfoCopyWith<$Res> implements $RpcSbpInfoCopyWith<$Res> {
-  factory _$RpcSbpInfoCopyWith(
-          _RpcSbpInfo value, $Res Function(_RpcSbpInfo) then) =
-      __$RpcSbpInfoCopyWithImpl<$Res>;
+abstract class _$$_RpcSbpInfoCopyWith<$Res>
+    implements $RpcSbpInfoCopyWith<$Res> {
+  factory _$$_RpcSbpInfoCopyWith(
+          _$_RpcSbpInfo value, $Res Function(_$_RpcSbpInfo) then) =
+      __$$_RpcSbpInfoCopyWithImpl<$Res>;
   @override
   $Res call(
       {String name,
@@ -8114,14 +7427,14 @@ abstract class _$RpcSbpInfoCopyWith<$Res> implements $RpcSbpInfoCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$RpcSbpInfoCopyWithImpl<$Res> extends _$RpcSbpInfoCopyWithImpl<$Res>
-    implements _$RpcSbpInfoCopyWith<$Res> {
-  __$RpcSbpInfoCopyWithImpl(
-      _RpcSbpInfo _value, $Res Function(_RpcSbpInfo) _then)
-      : super(_value, (v) => _then(v as _RpcSbpInfo));
+class __$$_RpcSbpInfoCopyWithImpl<$Res> extends _$RpcSbpInfoCopyWithImpl<$Res>
+    implements _$$_RpcSbpInfoCopyWith<$Res> {
+  __$$_RpcSbpInfoCopyWithImpl(
+      _$_RpcSbpInfo _value, $Res Function(_$_RpcSbpInfo) _then)
+      : super(_value, (v) => _then(v as _$_RpcSbpInfo));
 
   @override
-  _RpcSbpInfo get _value => super._value as _RpcSbpInfo;
+  _$_RpcSbpInfo get _value => super._value as _$_RpcSbpInfo;
 
   @override
   $Res call({
@@ -8133,7 +7446,7 @@ class __$RpcSbpInfoCopyWithImpl<$Res> extends _$RpcSbpInfoCopyWithImpl<$Res>
     Object? expirationTime = freezed,
     Object? revokeTime = freezed,
   }) {
-    return _then(_RpcSbpInfo(
+    return _then(_$_RpcSbpInfo(
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -8205,7 +7518,7 @@ class _$_RpcSbpInfo implements _RpcSbpInfo {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RpcSbpInfo &&
+            other is _$_RpcSbpInfo &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality()
                 .equals(other.blockProducingAddress, blockProducingAddress) &&
@@ -8221,6 +7534,7 @@ class _$_RpcSbpInfo implements _RpcSbpInfo {
                 .equals(other.revokeTime, revokeTime));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -8234,24 +7548,26 @@ class _$_RpcSbpInfo implements _RpcSbpInfo {
 
   @JsonKey(ignore: true)
   @override
-  _$RpcSbpInfoCopyWith<_RpcSbpInfo> get copyWith =>
-      __$RpcSbpInfoCopyWithImpl<_RpcSbpInfo>(this, _$identity);
+  _$$_RpcSbpInfoCopyWith<_$_RpcSbpInfo> get copyWith =>
+      __$$_RpcSbpInfoCopyWithImpl<_$_RpcSbpInfo>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RpcSbpInfoToJson(this);
+    return _$$_RpcSbpInfoToJson(
+      this,
+    );
   }
 }
 
 abstract class _RpcSbpInfo implements RpcSbpInfo {
   const factory _RpcSbpInfo(
-      {required String name,
-      required String blockProducingAddress,
-      required String stakeAddress,
-      required String stakeAmount,
-      required String expirationHeight,
-      required int expirationTime,
-      required int revokeTime}) = _$_RpcSbpInfo;
+      {required final String name,
+      required final String blockProducingAddress,
+      required final String stakeAddress,
+      required final String stakeAmount,
+      required final String expirationHeight,
+      required final int expirationTime,
+      required final int revokeTime}) = _$_RpcSbpInfo;
 
   factory _RpcSbpInfo.fromJson(Map<String, dynamic> json) =
       _$_RpcSbpInfo.fromJson;
@@ -8272,42 +7588,13 @@ abstract class _RpcSbpInfo implements RpcSbpInfo {
   int get revokeTime;
   @override
   @JsonKey(ignore: true)
-  _$RpcSbpInfoCopyWith<_RpcSbpInfo> get copyWith =>
+  _$$_RpcSbpInfoCopyWith<_$_RpcSbpInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 RpcRewardInfo _$RpcRewardInfoFromJson(Map<String, dynamic> json) {
   return _RpcRewardInfo.fromJson(json);
 }
-
-/// @nodoc
-class _$RpcRewardInfoTearOff {
-  const _$RpcRewardInfoTearOff();
-
-  _RpcRewardInfo call(
-      {required String totalReward,
-      required String blockProducingReward,
-      required String votingReward,
-      String producedBlocks = '0',
-      String targetBlocks = '0',
-      bool allRewardsWithdrawed = false}) {
-    return _RpcRewardInfo(
-      totalReward: totalReward,
-      blockProducingReward: blockProducingReward,
-      votingReward: votingReward,
-      producedBlocks: producedBlocks,
-      targetBlocks: targetBlocks,
-      allRewardsWithdrawed: allRewardsWithdrawed,
-    );
-  }
-
-  RpcRewardInfo fromJson(Map<String, Object?> json) {
-    return RpcRewardInfo.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RpcRewardInfo = _$RpcRewardInfoTearOff();
 
 /// @nodoc
 mixin _$RpcRewardInfo {
@@ -8386,11 +7673,11 @@ class _$RpcRewardInfoCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$RpcRewardInfoCopyWith<$Res>
+abstract class _$$_RpcRewardInfoCopyWith<$Res>
     implements $RpcRewardInfoCopyWith<$Res> {
-  factory _$RpcRewardInfoCopyWith(
-          _RpcRewardInfo value, $Res Function(_RpcRewardInfo) then) =
-      __$RpcRewardInfoCopyWithImpl<$Res>;
+  factory _$$_RpcRewardInfoCopyWith(
+          _$_RpcRewardInfo value, $Res Function(_$_RpcRewardInfo) then) =
+      __$$_RpcRewardInfoCopyWithImpl<$Res>;
   @override
   $Res call(
       {String totalReward,
@@ -8402,15 +7689,15 @@ abstract class _$RpcRewardInfoCopyWith<$Res>
 }
 
 /// @nodoc
-class __$RpcRewardInfoCopyWithImpl<$Res>
+class __$$_RpcRewardInfoCopyWithImpl<$Res>
     extends _$RpcRewardInfoCopyWithImpl<$Res>
-    implements _$RpcRewardInfoCopyWith<$Res> {
-  __$RpcRewardInfoCopyWithImpl(
-      _RpcRewardInfo _value, $Res Function(_RpcRewardInfo) _then)
-      : super(_value, (v) => _then(v as _RpcRewardInfo));
+    implements _$$_RpcRewardInfoCopyWith<$Res> {
+  __$$_RpcRewardInfoCopyWithImpl(
+      _$_RpcRewardInfo _value, $Res Function(_$_RpcRewardInfo) _then)
+      : super(_value, (v) => _then(v as _$_RpcRewardInfo));
 
   @override
-  _RpcRewardInfo get _value => super._value as _RpcRewardInfo;
+  _$_RpcRewardInfo get _value => super._value as _$_RpcRewardInfo;
 
   @override
   $Res call({
@@ -8421,7 +7708,7 @@ class __$RpcRewardInfoCopyWithImpl<$Res>
     Object? targetBlocks = freezed,
     Object? allRewardsWithdrawed = freezed,
   }) {
-    return _then(_RpcRewardInfo(
+    return _then(_$_RpcRewardInfo(
       totalReward: totalReward == freezed
           ? _value.totalReward
           : totalReward // ignore: cast_nullable_to_non_nullable
@@ -8470,14 +7757,14 @@ class _$_RpcRewardInfo implements _RpcRewardInfo {
   final String blockProducingReward;
   @override
   final String votingReward;
-  @JsonKey()
   @override
+  @JsonKey()
   final String producedBlocks;
-  @JsonKey()
   @override
+  @JsonKey()
   final String targetBlocks;
-  @JsonKey()
   @override
+  @JsonKey()
   final bool allRewardsWithdrawed;
 
   @override
@@ -8489,7 +7776,7 @@ class _$_RpcRewardInfo implements _RpcRewardInfo {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RpcRewardInfo &&
+            other is _$_RpcRewardInfo &&
             const DeepCollectionEquality()
                 .equals(other.totalReward, totalReward) &&
             const DeepCollectionEquality()
@@ -8504,6 +7791,7 @@ class _$_RpcRewardInfo implements _RpcRewardInfo {
                 .equals(other.allRewardsWithdrawed, allRewardsWithdrawed));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -8516,23 +7804,25 @@ class _$_RpcRewardInfo implements _RpcRewardInfo {
 
   @JsonKey(ignore: true)
   @override
-  _$RpcRewardInfoCopyWith<_RpcRewardInfo> get copyWith =>
-      __$RpcRewardInfoCopyWithImpl<_RpcRewardInfo>(this, _$identity);
+  _$$_RpcRewardInfoCopyWith<_$_RpcRewardInfo> get copyWith =>
+      __$$_RpcRewardInfoCopyWithImpl<_$_RpcRewardInfo>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RpcRewardInfoToJson(this);
+    return _$$_RpcRewardInfoToJson(
+      this,
+    );
   }
 }
 
 abstract class _RpcRewardInfo implements RpcRewardInfo {
   const factory _RpcRewardInfo(
-      {required String totalReward,
-      required String blockProducingReward,
-      required String votingReward,
-      String producedBlocks,
-      String targetBlocks,
-      bool allRewardsWithdrawed}) = _$_RpcRewardInfo;
+      {required final String totalReward,
+      required final String blockProducingReward,
+      required final String votingReward,
+      final String producedBlocks,
+      final String targetBlocks,
+      final bool allRewardsWithdrawed}) = _$_RpcRewardInfo;
 
   factory _RpcRewardInfo.fromJson(Map<String, dynamic> json) =
       _$_RpcRewardInfo.fromJson;
@@ -8551,38 +7841,13 @@ abstract class _RpcRewardInfo implements RpcRewardInfo {
   bool get allRewardsWithdrawed;
   @override
   @JsonKey(ignore: true)
-  _$RpcRewardInfoCopyWith<_RpcRewardInfo> get copyWith =>
+  _$$_RpcRewardInfoCopyWith<_$_RpcRewardInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 RpcRewardByDayInfo _$RpcRewardByDayInfoFromJson(Map<String, dynamic> json) {
   return _RpcRewardByDayInfo.fromJson(json);
 }
-
-/// @nodoc
-class _$RpcRewardByDayInfoTearOff {
-  const _$RpcRewardByDayInfoTearOff();
-
-  _RpcRewardByDayInfo call(
-      {Map<String, RpcRewardInfo> rewardMap = const {},
-      required int startTime,
-      required int endTime,
-      required String cycle}) {
-    return _RpcRewardByDayInfo(
-      rewardMap: rewardMap,
-      startTime: startTime,
-      endTime: endTime,
-      cycle: cycle,
-    );
-  }
-
-  RpcRewardByDayInfo fromJson(Map<String, Object?> json) {
-    return RpcRewardByDayInfo.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RpcRewardByDayInfo = _$RpcRewardByDayInfoTearOff();
 
 /// @nodoc
 mixin _$RpcRewardByDayInfo {
@@ -8648,11 +7913,11 @@ class _$RpcRewardByDayInfoCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$RpcRewardByDayInfoCopyWith<$Res>
+abstract class _$$_RpcRewardByDayInfoCopyWith<$Res>
     implements $RpcRewardByDayInfoCopyWith<$Res> {
-  factory _$RpcRewardByDayInfoCopyWith(
-          _RpcRewardByDayInfo value, $Res Function(_RpcRewardByDayInfo) then) =
-      __$RpcRewardByDayInfoCopyWithImpl<$Res>;
+  factory _$$_RpcRewardByDayInfoCopyWith(_$_RpcRewardByDayInfo value,
+          $Res Function(_$_RpcRewardByDayInfo) then) =
+      __$$_RpcRewardByDayInfoCopyWithImpl<$Res>;
   @override
   $Res call(
       {Map<String, RpcRewardInfo> rewardMap,
@@ -8662,15 +7927,15 @@ abstract class _$RpcRewardByDayInfoCopyWith<$Res>
 }
 
 /// @nodoc
-class __$RpcRewardByDayInfoCopyWithImpl<$Res>
+class __$$_RpcRewardByDayInfoCopyWithImpl<$Res>
     extends _$RpcRewardByDayInfoCopyWithImpl<$Res>
-    implements _$RpcRewardByDayInfoCopyWith<$Res> {
-  __$RpcRewardByDayInfoCopyWithImpl(
-      _RpcRewardByDayInfo _value, $Res Function(_RpcRewardByDayInfo) _then)
-      : super(_value, (v) => _then(v as _RpcRewardByDayInfo));
+    implements _$$_RpcRewardByDayInfoCopyWith<$Res> {
+  __$$_RpcRewardByDayInfoCopyWithImpl(
+      _$_RpcRewardByDayInfo _value, $Res Function(_$_RpcRewardByDayInfo) _then)
+      : super(_value, (v) => _then(v as _$_RpcRewardByDayInfo));
 
   @override
-  _RpcRewardByDayInfo get _value => super._value as _RpcRewardByDayInfo;
+  _$_RpcRewardByDayInfo get _value => super._value as _$_RpcRewardByDayInfo;
 
   @override
   $Res call({
@@ -8679,9 +7944,9 @@ class __$RpcRewardByDayInfoCopyWithImpl<$Res>
     Object? endTime = freezed,
     Object? cycle = freezed,
   }) {
-    return _then(_RpcRewardByDayInfo(
+    return _then(_$_RpcRewardByDayInfo(
       rewardMap: rewardMap == freezed
-          ? _value.rewardMap
+          ? _value._rewardMap
           : rewardMap // ignore: cast_nullable_to_non_nullable
               as Map<String, RpcRewardInfo>,
       startTime: startTime == freezed
@@ -8704,17 +7969,23 @@ class __$RpcRewardByDayInfoCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_RpcRewardByDayInfo implements _RpcRewardByDayInfo {
   const _$_RpcRewardByDayInfo(
-      {this.rewardMap = const {},
+      {final Map<String, RpcRewardInfo> rewardMap = const {},
       required this.startTime,
       required this.endTime,
-      required this.cycle});
+      required this.cycle})
+      : _rewardMap = rewardMap;
 
   factory _$_RpcRewardByDayInfo.fromJson(Map<String, dynamic> json) =>
       _$$_RpcRewardByDayInfoFromJson(json);
 
-  @JsonKey()
+  final Map<String, RpcRewardInfo> _rewardMap;
   @override
-  final Map<String, RpcRewardInfo> rewardMap;
+  @JsonKey()
+  Map<String, RpcRewardInfo> get rewardMap {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_rewardMap);
+  }
+
   @override
   final int startTime;
   @override
@@ -8731,38 +8002,43 @@ class _$_RpcRewardByDayInfo implements _RpcRewardByDayInfo {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RpcRewardByDayInfo &&
-            const DeepCollectionEquality().equals(other.rewardMap, rewardMap) &&
+            other is _$_RpcRewardByDayInfo &&
+            const DeepCollectionEquality()
+                .equals(other._rewardMap, _rewardMap) &&
             const DeepCollectionEquality().equals(other.startTime, startTime) &&
             const DeepCollectionEquality().equals(other.endTime, endTime) &&
             const DeepCollectionEquality().equals(other.cycle, cycle));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(rewardMap),
+      const DeepCollectionEquality().hash(_rewardMap),
       const DeepCollectionEquality().hash(startTime),
       const DeepCollectionEquality().hash(endTime),
       const DeepCollectionEquality().hash(cycle));
 
   @JsonKey(ignore: true)
   @override
-  _$RpcRewardByDayInfoCopyWith<_RpcRewardByDayInfo> get copyWith =>
-      __$RpcRewardByDayInfoCopyWithImpl<_RpcRewardByDayInfo>(this, _$identity);
+  _$$_RpcRewardByDayInfoCopyWith<_$_RpcRewardByDayInfo> get copyWith =>
+      __$$_RpcRewardByDayInfoCopyWithImpl<_$_RpcRewardByDayInfo>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RpcRewardByDayInfoToJson(this);
+    return _$$_RpcRewardByDayInfoToJson(
+      this,
+    );
   }
 }
 
 abstract class _RpcRewardByDayInfo implements RpcRewardByDayInfo {
   const factory _RpcRewardByDayInfo(
-      {Map<String, RpcRewardInfo> rewardMap,
-      required int startTime,
-      required int endTime,
-      required String cycle}) = _$_RpcRewardByDayInfo;
+      {final Map<String, RpcRewardInfo> rewardMap,
+      required final int startTime,
+      required final int endTime,
+      required final String cycle}) = _$_RpcRewardByDayInfo;
 
   factory _RpcRewardByDayInfo.fromJson(Map<String, dynamic> json) =
       _$_RpcRewardByDayInfo.fromJson;
@@ -8777,36 +8053,13 @@ abstract class _RpcRewardByDayInfo implements RpcRewardByDayInfo {
   String get cycle;
   @override
   @JsonKey(ignore: true)
-  _$RpcRewardByDayInfoCopyWith<_RpcRewardByDayInfo> get copyWith =>
+  _$$_RpcRewardByDayInfoCopyWith<_$_RpcRewardByDayInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 RpcSbpVoteInfo _$RpcSbpVoteInfoFromJson(Map<String, dynamic> json) {
   return _RpcSbpVoteInfo.fromJson(json);
 }
-
-/// @nodoc
-class _$RpcSbpVoteInfoTearOff {
-  const _$RpcSbpVoteInfoTearOff();
-
-  _RpcSbpVoteInfo call(
-      {required String sbpName,
-      required String blockProducingAddress,
-      required String votes}) {
-    return _RpcSbpVoteInfo(
-      sbpName: sbpName,
-      blockProducingAddress: blockProducingAddress,
-      votes: votes,
-    );
-  }
-
-  RpcSbpVoteInfo fromJson(Map<String, Object?> json) {
-    return RpcSbpVoteInfo.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RpcSbpVoteInfo = _$RpcSbpVoteInfoTearOff();
 
 /// @nodoc
 mixin _$RpcSbpVoteInfo {
@@ -8861,25 +8114,25 @@ class _$RpcSbpVoteInfoCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$RpcSbpVoteInfoCopyWith<$Res>
+abstract class _$$_RpcSbpVoteInfoCopyWith<$Res>
     implements $RpcSbpVoteInfoCopyWith<$Res> {
-  factory _$RpcSbpVoteInfoCopyWith(
-          _RpcSbpVoteInfo value, $Res Function(_RpcSbpVoteInfo) then) =
-      __$RpcSbpVoteInfoCopyWithImpl<$Res>;
+  factory _$$_RpcSbpVoteInfoCopyWith(
+          _$_RpcSbpVoteInfo value, $Res Function(_$_RpcSbpVoteInfo) then) =
+      __$$_RpcSbpVoteInfoCopyWithImpl<$Res>;
   @override
   $Res call({String sbpName, String blockProducingAddress, String votes});
 }
 
 /// @nodoc
-class __$RpcSbpVoteInfoCopyWithImpl<$Res>
+class __$$_RpcSbpVoteInfoCopyWithImpl<$Res>
     extends _$RpcSbpVoteInfoCopyWithImpl<$Res>
-    implements _$RpcSbpVoteInfoCopyWith<$Res> {
-  __$RpcSbpVoteInfoCopyWithImpl(
-      _RpcSbpVoteInfo _value, $Res Function(_RpcSbpVoteInfo) _then)
-      : super(_value, (v) => _then(v as _RpcSbpVoteInfo));
+    implements _$$_RpcSbpVoteInfoCopyWith<$Res> {
+  __$$_RpcSbpVoteInfoCopyWithImpl(
+      _$_RpcSbpVoteInfo _value, $Res Function(_$_RpcSbpVoteInfo) _then)
+      : super(_value, (v) => _then(v as _$_RpcSbpVoteInfo));
 
   @override
-  _RpcSbpVoteInfo get _value => super._value as _RpcSbpVoteInfo;
+  _$_RpcSbpVoteInfo get _value => super._value as _$_RpcSbpVoteInfo;
 
   @override
   $Res call({
@@ -8887,7 +8140,7 @@ class __$RpcSbpVoteInfoCopyWithImpl<$Res>
     Object? blockProducingAddress = freezed,
     Object? votes = freezed,
   }) {
-    return _then(_RpcSbpVoteInfo(
+    return _then(_$_RpcSbpVoteInfo(
       sbpName: sbpName == freezed
           ? _value.sbpName
           : sbpName // ignore: cast_nullable_to_non_nullable
@@ -8931,13 +8184,14 @@ class _$_RpcSbpVoteInfo implements _RpcSbpVoteInfo {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RpcSbpVoteInfo &&
+            other is _$_RpcSbpVoteInfo &&
             const DeepCollectionEquality().equals(other.sbpName, sbpName) &&
             const DeepCollectionEquality()
                 .equals(other.blockProducingAddress, blockProducingAddress) &&
             const DeepCollectionEquality().equals(other.votes, votes));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -8947,20 +8201,22 @@ class _$_RpcSbpVoteInfo implements _RpcSbpVoteInfo {
 
   @JsonKey(ignore: true)
   @override
-  _$RpcSbpVoteInfoCopyWith<_RpcSbpVoteInfo> get copyWith =>
-      __$RpcSbpVoteInfoCopyWithImpl<_RpcSbpVoteInfo>(this, _$identity);
+  _$$_RpcSbpVoteInfoCopyWith<_$_RpcSbpVoteInfo> get copyWith =>
+      __$$_RpcSbpVoteInfoCopyWithImpl<_$_RpcSbpVoteInfo>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RpcSbpVoteInfoToJson(this);
+    return _$$_RpcSbpVoteInfoToJson(
+      this,
+    );
   }
 }
 
 abstract class _RpcSbpVoteInfo implements RpcSbpVoteInfo {
   const factory _RpcSbpVoteInfo(
-      {required String sbpName,
-      required String blockProducingAddress,
-      required String votes}) = _$_RpcSbpVoteInfo;
+      {required final String sbpName,
+      required final String blockProducingAddress,
+      required final String votes}) = _$_RpcSbpVoteInfo;
 
   factory _RpcSbpVoteInfo.fromJson(Map<String, dynamic> json) =
       _$_RpcSbpVoteInfo.fromJson;
@@ -8973,36 +8229,13 @@ abstract class _RpcSbpVoteInfo implements RpcSbpVoteInfo {
   String get votes;
   @override
   @JsonKey(ignore: true)
-  _$RpcSbpVoteInfoCopyWith<_RpcSbpVoteInfo> get copyWith =>
+  _$$_RpcSbpVoteInfoCopyWith<_$_RpcSbpVoteInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 RpcVoteInfo _$RpcVoteInfoFromJson(Map<String, dynamic> json) {
   return _RpcVoteInfo.fromJson(json);
 }
-
-/// @nodoc
-class _$RpcVoteInfoTearOff {
-  const _$RpcVoteInfoTearOff();
-
-  _RpcVoteInfo call(
-      {required String blockProducerName,
-      required int status,
-      required String votes}) {
-    return _RpcVoteInfo(
-      blockProducerName: blockProducerName,
-      status: status,
-      votes: votes,
-    );
-  }
-
-  RpcVoteInfo fromJson(Map<String, Object?> json) {
-    return RpcVoteInfo.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RpcVoteInfo = _$RpcVoteInfoTearOff();
 
 /// @nodoc
 mixin _$RpcVoteInfo {
@@ -9056,24 +8289,24 @@ class _$RpcVoteInfoCopyWithImpl<$Res> implements $RpcVoteInfoCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$RpcVoteInfoCopyWith<$Res>
+abstract class _$$_RpcVoteInfoCopyWith<$Res>
     implements $RpcVoteInfoCopyWith<$Res> {
-  factory _$RpcVoteInfoCopyWith(
-          _RpcVoteInfo value, $Res Function(_RpcVoteInfo) then) =
-      __$RpcVoteInfoCopyWithImpl<$Res>;
+  factory _$$_RpcVoteInfoCopyWith(
+          _$_RpcVoteInfo value, $Res Function(_$_RpcVoteInfo) then) =
+      __$$_RpcVoteInfoCopyWithImpl<$Res>;
   @override
   $Res call({String blockProducerName, int status, String votes});
 }
 
 /// @nodoc
-class __$RpcVoteInfoCopyWithImpl<$Res> extends _$RpcVoteInfoCopyWithImpl<$Res>
-    implements _$RpcVoteInfoCopyWith<$Res> {
-  __$RpcVoteInfoCopyWithImpl(
-      _RpcVoteInfo _value, $Res Function(_RpcVoteInfo) _then)
-      : super(_value, (v) => _then(v as _RpcVoteInfo));
+class __$$_RpcVoteInfoCopyWithImpl<$Res> extends _$RpcVoteInfoCopyWithImpl<$Res>
+    implements _$$_RpcVoteInfoCopyWith<$Res> {
+  __$$_RpcVoteInfoCopyWithImpl(
+      _$_RpcVoteInfo _value, $Res Function(_$_RpcVoteInfo) _then)
+      : super(_value, (v) => _then(v as _$_RpcVoteInfo));
 
   @override
-  _RpcVoteInfo get _value => super._value as _RpcVoteInfo;
+  _$_RpcVoteInfo get _value => super._value as _$_RpcVoteInfo;
 
   @override
   $Res call({
@@ -9081,7 +8314,7 @@ class __$RpcVoteInfoCopyWithImpl<$Res> extends _$RpcVoteInfoCopyWithImpl<$Res>
     Object? status = freezed,
     Object? votes = freezed,
   }) {
-    return _then(_RpcVoteInfo(
+    return _then(_$_RpcVoteInfo(
       blockProducerName: blockProducerName == freezed
           ? _value.blockProducerName
           : blockProducerName // ignore: cast_nullable_to_non_nullable
@@ -9125,13 +8358,14 @@ class _$_RpcVoteInfo implements _RpcVoteInfo {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RpcVoteInfo &&
+            other is _$_RpcVoteInfo &&
             const DeepCollectionEquality()
                 .equals(other.blockProducerName, blockProducerName) &&
             const DeepCollectionEquality().equals(other.status, status) &&
             const DeepCollectionEquality().equals(other.votes, votes));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -9141,20 +8375,22 @@ class _$_RpcVoteInfo implements _RpcVoteInfo {
 
   @JsonKey(ignore: true)
   @override
-  _$RpcVoteInfoCopyWith<_RpcVoteInfo> get copyWith =>
-      __$RpcVoteInfoCopyWithImpl<_RpcVoteInfo>(this, _$identity);
+  _$$_RpcVoteInfoCopyWith<_$_RpcVoteInfo> get copyWith =>
+      __$$_RpcVoteInfoCopyWithImpl<_$_RpcVoteInfo>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RpcVoteInfoToJson(this);
+    return _$$_RpcVoteInfoToJson(
+      this,
+    );
   }
 }
 
 abstract class _RpcVoteInfo implements RpcVoteInfo {
   const factory _RpcVoteInfo(
-      {required String blockProducerName,
-      required int status,
-      required String votes}) = _$_RpcVoteInfo;
+      {required final String blockProducerName,
+      required final int status,
+      required final String votes}) = _$_RpcVoteInfo;
 
   factory _RpcVoteInfo.fromJson(Map<String, dynamic> json) =
       _$_RpcVoteInfo.fromJson;
@@ -9167,40 +8403,13 @@ abstract class _RpcVoteInfo implements RpcVoteInfo {
   String get votes;
   @override
   @JsonKey(ignore: true)
-  _$RpcVoteInfoCopyWith<_RpcVoteInfo> get copyWith =>
+  _$$_RpcVoteInfoCopyWith<_$_RpcVoteInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 RpcSbpVoteDetail _$RpcSbpVoteDetailFromJson(Map<String, dynamic> json) {
   return _RpcSbpVoteDetail.fromJson(json);
 }
-
-/// @nodoc
-class _$RpcSbpVoteDetailTearOff {
-  const _$RpcSbpVoteDetailTearOff();
-
-  _RpcSbpVoteDetail call(
-      {required String blockProducerName,
-      required String totalVotes,
-      required String blockProducingAddress,
-      List<String> historyProducingAddresses = const [],
-      Map<String, String> addressVoteMap = const {}}) {
-    return _RpcSbpVoteDetail(
-      blockProducerName: blockProducerName,
-      totalVotes: totalVotes,
-      blockProducingAddress: blockProducingAddress,
-      historyProducingAddresses: historyProducingAddresses,
-      addressVoteMap: addressVoteMap,
-    );
-  }
-
-  RpcSbpVoteDetail fromJson(Map<String, Object?> json) {
-    return RpcSbpVoteDetail.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RpcSbpVoteDetail = _$RpcSbpVoteDetailTearOff();
 
 /// @nodoc
 mixin _$RpcSbpVoteDetail {
@@ -9273,11 +8482,11 @@ class _$RpcSbpVoteDetailCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$RpcSbpVoteDetailCopyWith<$Res>
+abstract class _$$_RpcSbpVoteDetailCopyWith<$Res>
     implements $RpcSbpVoteDetailCopyWith<$Res> {
-  factory _$RpcSbpVoteDetailCopyWith(
-          _RpcSbpVoteDetail value, $Res Function(_RpcSbpVoteDetail) then) =
-      __$RpcSbpVoteDetailCopyWithImpl<$Res>;
+  factory _$$_RpcSbpVoteDetailCopyWith(
+          _$_RpcSbpVoteDetail value, $Res Function(_$_RpcSbpVoteDetail) then) =
+      __$$_RpcSbpVoteDetailCopyWithImpl<$Res>;
   @override
   $Res call(
       {String blockProducerName,
@@ -9288,15 +8497,15 @@ abstract class _$RpcSbpVoteDetailCopyWith<$Res>
 }
 
 /// @nodoc
-class __$RpcSbpVoteDetailCopyWithImpl<$Res>
+class __$$_RpcSbpVoteDetailCopyWithImpl<$Res>
     extends _$RpcSbpVoteDetailCopyWithImpl<$Res>
-    implements _$RpcSbpVoteDetailCopyWith<$Res> {
-  __$RpcSbpVoteDetailCopyWithImpl(
-      _RpcSbpVoteDetail _value, $Res Function(_RpcSbpVoteDetail) _then)
-      : super(_value, (v) => _then(v as _RpcSbpVoteDetail));
+    implements _$$_RpcSbpVoteDetailCopyWith<$Res> {
+  __$$_RpcSbpVoteDetailCopyWithImpl(
+      _$_RpcSbpVoteDetail _value, $Res Function(_$_RpcSbpVoteDetail) _then)
+      : super(_value, (v) => _then(v as _$_RpcSbpVoteDetail));
 
   @override
-  _RpcSbpVoteDetail get _value => super._value as _RpcSbpVoteDetail;
+  _$_RpcSbpVoteDetail get _value => super._value as _$_RpcSbpVoteDetail;
 
   @override
   $Res call({
@@ -9306,7 +8515,7 @@ class __$RpcSbpVoteDetailCopyWithImpl<$Res>
     Object? historyProducingAddresses = freezed,
     Object? addressVoteMap = freezed,
   }) {
-    return _then(_RpcSbpVoteDetail(
+    return _then(_$_RpcSbpVoteDetail(
       blockProducerName: blockProducerName == freezed
           ? _value.blockProducerName
           : blockProducerName // ignore: cast_nullable_to_non_nullable
@@ -9320,11 +8529,11 @@ class __$RpcSbpVoteDetailCopyWithImpl<$Res>
           : blockProducingAddress // ignore: cast_nullable_to_non_nullable
               as String,
       historyProducingAddresses: historyProducingAddresses == freezed
-          ? _value.historyProducingAddresses
+          ? _value._historyProducingAddresses
           : historyProducingAddresses // ignore: cast_nullable_to_non_nullable
               as List<String>,
       addressVoteMap: addressVoteMap == freezed
-          ? _value.addressVoteMap
+          ? _value._addressVoteMap
           : addressVoteMap // ignore: cast_nullable_to_non_nullable
               as Map<String, String>,
     ));
@@ -9338,8 +8547,10 @@ class _$_RpcSbpVoteDetail implements _RpcSbpVoteDetail {
       {required this.blockProducerName,
       required this.totalVotes,
       required this.blockProducingAddress,
-      this.historyProducingAddresses = const [],
-      this.addressVoteMap = const {}});
+      final List<String> historyProducingAddresses = const [],
+      final Map<String, String> addressVoteMap = const {}})
+      : _historyProducingAddresses = historyProducingAddresses,
+        _addressVoteMap = addressVoteMap;
 
   factory _$_RpcSbpVoteDetail.fromJson(Map<String, dynamic> json) =>
       _$$_RpcSbpVoteDetailFromJson(json);
@@ -9350,12 +8561,21 @@ class _$_RpcSbpVoteDetail implements _RpcSbpVoteDetail {
   final String totalVotes;
   @override
   final String blockProducingAddress;
-  @JsonKey()
+  final List<String> _historyProducingAddresses;
   @override
-  final List<String> historyProducingAddresses;
   @JsonKey()
+  List<String> get historyProducingAddresses {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_historyProducingAddresses);
+  }
+
+  final Map<String, String> _addressVoteMap;
   @override
-  final Map<String, String> addressVoteMap;
+  @JsonKey()
+  Map<String, String> get addressVoteMap {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_addressVoteMap);
+  }
 
   @override
   String toString() {
@@ -9366,7 +8586,7 @@ class _$_RpcSbpVoteDetail implements _RpcSbpVoteDetail {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RpcSbpVoteDetail &&
+            other is _$_RpcSbpVoteDetail &&
             const DeepCollectionEquality()
                 .equals(other.blockProducerName, blockProducerName) &&
             const DeepCollectionEquality()
@@ -9374,38 +8594,41 @@ class _$_RpcSbpVoteDetail implements _RpcSbpVoteDetail {
             const DeepCollectionEquality()
                 .equals(other.blockProducingAddress, blockProducingAddress) &&
             const DeepCollectionEquality().equals(
-                other.historyProducingAddresses, historyProducingAddresses) &&
+                other._historyProducingAddresses, _historyProducingAddresses) &&
             const DeepCollectionEquality()
-                .equals(other.addressVoteMap, addressVoteMap));
+                .equals(other._addressVoteMap, _addressVoteMap));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(blockProducerName),
       const DeepCollectionEquality().hash(totalVotes),
       const DeepCollectionEquality().hash(blockProducingAddress),
-      const DeepCollectionEquality().hash(historyProducingAddresses),
-      const DeepCollectionEquality().hash(addressVoteMap));
+      const DeepCollectionEquality().hash(_historyProducingAddresses),
+      const DeepCollectionEquality().hash(_addressVoteMap));
 
   @JsonKey(ignore: true)
   @override
-  _$RpcSbpVoteDetailCopyWith<_RpcSbpVoteDetail> get copyWith =>
-      __$RpcSbpVoteDetailCopyWithImpl<_RpcSbpVoteDetail>(this, _$identity);
+  _$$_RpcSbpVoteDetailCopyWith<_$_RpcSbpVoteDetail> get copyWith =>
+      __$$_RpcSbpVoteDetailCopyWithImpl<_$_RpcSbpVoteDetail>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RpcSbpVoteDetailToJson(this);
+    return _$$_RpcSbpVoteDetailToJson(
+      this,
+    );
   }
 }
 
 abstract class _RpcSbpVoteDetail implements RpcSbpVoteDetail {
   const factory _RpcSbpVoteDetail(
-      {required String blockProducerName,
-      required String totalVotes,
-      required String blockProducingAddress,
-      List<String> historyProducingAddresses,
-      Map<String, String> addressVoteMap}) = _$_RpcSbpVoteDetail;
+      {required final String blockProducerName,
+      required final String totalVotes,
+      required final String blockProducingAddress,
+      final List<String> historyProducingAddresses,
+      final Map<String, String> addressVoteMap}) = _$_RpcSbpVoteDetail;
 
   factory _RpcSbpVoteDetail.fromJson(Map<String, dynamic> json) =
       _$_RpcSbpVoteDetail.fromJson;
@@ -9422,50 +8645,13 @@ abstract class _RpcSbpVoteDetail implements RpcSbpVoteDetail {
   Map<String, String> get addressVoteMap;
   @override
   @JsonKey(ignore: true)
-  _$RpcSbpVoteDetailCopyWith<_RpcSbpVoteDetail> get copyWith =>
+  _$$_RpcSbpVoteDetailCopyWith<_$_RpcSbpVoteDetail> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 RpcTokenInfo _$RpcTokenInfoFromJson(Map<String, dynamic> json) {
   return _RpcTokenInfo.fromJson(json);
 }
-
-/// @nodoc
-class _$RpcTokenInfoTearOff {
-  const _$RpcTokenInfoTearOff();
-
-  _RpcTokenInfo call(
-      {required String tokenName,
-      required String tokenSymbol,
-      required String totalSupply,
-      required int decimals,
-      required String owner,
-      required String tokenId,
-      required bool isReIssuable,
-      required String maxSupply,
-      required bool isOwnerBurnOnly,
-      required int index}) {
-    return _RpcTokenInfo(
-      tokenName: tokenName,
-      tokenSymbol: tokenSymbol,
-      totalSupply: totalSupply,
-      decimals: decimals,
-      owner: owner,
-      tokenId: tokenId,
-      isReIssuable: isReIssuable,
-      maxSupply: maxSupply,
-      isOwnerBurnOnly: isOwnerBurnOnly,
-      index: index,
-    );
-  }
-
-  RpcTokenInfo fromJson(Map<String, Object?> json) {
-    return RpcTokenInfo.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RpcTokenInfo = _$RpcTokenInfoTearOff();
 
 /// @nodoc
 mixin _$RpcTokenInfo {
@@ -9571,11 +8757,11 @@ class _$RpcTokenInfoCopyWithImpl<$Res> implements $RpcTokenInfoCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$RpcTokenInfoCopyWith<$Res>
+abstract class _$$_RpcTokenInfoCopyWith<$Res>
     implements $RpcTokenInfoCopyWith<$Res> {
-  factory _$RpcTokenInfoCopyWith(
-          _RpcTokenInfo value, $Res Function(_RpcTokenInfo) then) =
-      __$RpcTokenInfoCopyWithImpl<$Res>;
+  factory _$$_RpcTokenInfoCopyWith(
+          _$_RpcTokenInfo value, $Res Function(_$_RpcTokenInfo) then) =
+      __$$_RpcTokenInfoCopyWithImpl<$Res>;
   @override
   $Res call(
       {String tokenName,
@@ -9591,14 +8777,15 @@ abstract class _$RpcTokenInfoCopyWith<$Res>
 }
 
 /// @nodoc
-class __$RpcTokenInfoCopyWithImpl<$Res> extends _$RpcTokenInfoCopyWithImpl<$Res>
-    implements _$RpcTokenInfoCopyWith<$Res> {
-  __$RpcTokenInfoCopyWithImpl(
-      _RpcTokenInfo _value, $Res Function(_RpcTokenInfo) _then)
-      : super(_value, (v) => _then(v as _RpcTokenInfo));
+class __$$_RpcTokenInfoCopyWithImpl<$Res>
+    extends _$RpcTokenInfoCopyWithImpl<$Res>
+    implements _$$_RpcTokenInfoCopyWith<$Res> {
+  __$$_RpcTokenInfoCopyWithImpl(
+      _$_RpcTokenInfo _value, $Res Function(_$_RpcTokenInfo) _then)
+      : super(_value, (v) => _then(v as _$_RpcTokenInfo));
 
   @override
-  _RpcTokenInfo get _value => super._value as _RpcTokenInfo;
+  _$_RpcTokenInfo get _value => super._value as _$_RpcTokenInfo;
 
   @override
   $Res call({
@@ -9613,7 +8800,7 @@ class __$RpcTokenInfoCopyWithImpl<$Res> extends _$RpcTokenInfoCopyWithImpl<$Res>
     Object? isOwnerBurnOnly = freezed,
     Object? index = freezed,
   }) {
-    return _then(_RpcTokenInfo(
+    return _then(_$_RpcTokenInfo(
       tokenName: tokenName == freezed
           ? _value.tokenName
           : tokenName // ignore: cast_nullable_to_non_nullable
@@ -9706,7 +8893,7 @@ class _$_RpcTokenInfo implements _RpcTokenInfo {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RpcTokenInfo &&
+            other is _$_RpcTokenInfo &&
             const DeepCollectionEquality().equals(other.tokenName, tokenName) &&
             const DeepCollectionEquality()
                 .equals(other.tokenSymbol, tokenSymbol) &&
@@ -9723,6 +8910,7 @@ class _$_RpcTokenInfo implements _RpcTokenInfo {
             const DeepCollectionEquality().equals(other.index, index));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -9739,27 +8927,29 @@ class _$_RpcTokenInfo implements _RpcTokenInfo {
 
   @JsonKey(ignore: true)
   @override
-  _$RpcTokenInfoCopyWith<_RpcTokenInfo> get copyWith =>
-      __$RpcTokenInfoCopyWithImpl<_RpcTokenInfo>(this, _$identity);
+  _$$_RpcTokenInfoCopyWith<_$_RpcTokenInfo> get copyWith =>
+      __$$_RpcTokenInfoCopyWithImpl<_$_RpcTokenInfo>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RpcTokenInfoToJson(this);
+    return _$$_RpcTokenInfoToJson(
+      this,
+    );
   }
 }
 
 abstract class _RpcTokenInfo implements RpcTokenInfo {
   const factory _RpcTokenInfo(
-      {required String tokenName,
-      required String tokenSymbol,
-      required String totalSupply,
-      required int decimals,
-      required String owner,
-      required String tokenId,
-      required bool isReIssuable,
-      required String maxSupply,
-      required bool isOwnerBurnOnly,
-      required int index}) = _$_RpcTokenInfo;
+      {required final String tokenName,
+      required final String tokenSymbol,
+      required final String totalSupply,
+      required final int decimals,
+      required final String owner,
+      required final String tokenId,
+      required final bool isReIssuable,
+      required final String maxSupply,
+      required final bool isOwnerBurnOnly,
+      required final int index}) = _$_RpcTokenInfo;
 
   factory _RpcTokenInfo.fromJson(Map<String, dynamic> json) =
       _$_RpcTokenInfo.fromJson;
@@ -9786,33 +8976,13 @@ abstract class _RpcTokenInfo implements RpcTokenInfo {
   int get index;
   @override
   @JsonKey(ignore: true)
-  _$RpcTokenInfoCopyWith<_RpcTokenInfo> get copyWith =>
+  _$$_RpcTokenInfoCopyWith<_$_RpcTokenInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 RpcTokenListInfo _$RpcTokenListInfoFromJson(Map<String, dynamic> json) {
   return _RpcTokenListInfo.fromJson(json);
 }
-
-/// @nodoc
-class _$RpcTokenListInfoTearOff {
-  const _$RpcTokenListInfoTearOff();
-
-  _RpcTokenListInfo call(
-      {required int totalCount, List<RpcTokenInfo> tokenInfoList = const []}) {
-    return _RpcTokenListInfo(
-      totalCount: totalCount,
-      tokenInfoList: tokenInfoList,
-    );
-  }
-
-  RpcTokenListInfo fromJson(Map<String, Object?> json) {
-    return RpcTokenListInfo.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RpcTokenListInfo = _$RpcTokenListInfoTearOff();
 
 /// @nodoc
 mixin _$RpcTokenListInfo {
@@ -9861,38 +9031,38 @@ class _$RpcTokenListInfoCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$RpcTokenListInfoCopyWith<$Res>
+abstract class _$$_RpcTokenListInfoCopyWith<$Res>
     implements $RpcTokenListInfoCopyWith<$Res> {
-  factory _$RpcTokenListInfoCopyWith(
-          _RpcTokenListInfo value, $Res Function(_RpcTokenListInfo) then) =
-      __$RpcTokenListInfoCopyWithImpl<$Res>;
+  factory _$$_RpcTokenListInfoCopyWith(
+          _$_RpcTokenListInfo value, $Res Function(_$_RpcTokenListInfo) then) =
+      __$$_RpcTokenListInfoCopyWithImpl<$Res>;
   @override
   $Res call({int totalCount, List<RpcTokenInfo> tokenInfoList});
 }
 
 /// @nodoc
-class __$RpcTokenListInfoCopyWithImpl<$Res>
+class __$$_RpcTokenListInfoCopyWithImpl<$Res>
     extends _$RpcTokenListInfoCopyWithImpl<$Res>
-    implements _$RpcTokenListInfoCopyWith<$Res> {
-  __$RpcTokenListInfoCopyWithImpl(
-      _RpcTokenListInfo _value, $Res Function(_RpcTokenListInfo) _then)
-      : super(_value, (v) => _then(v as _RpcTokenListInfo));
+    implements _$$_RpcTokenListInfoCopyWith<$Res> {
+  __$$_RpcTokenListInfoCopyWithImpl(
+      _$_RpcTokenListInfo _value, $Res Function(_$_RpcTokenListInfo) _then)
+      : super(_value, (v) => _then(v as _$_RpcTokenListInfo));
 
   @override
-  _RpcTokenListInfo get _value => super._value as _RpcTokenListInfo;
+  _$_RpcTokenListInfo get _value => super._value as _$_RpcTokenListInfo;
 
   @override
   $Res call({
     Object? totalCount = freezed,
     Object? tokenInfoList = freezed,
   }) {
-    return _then(_RpcTokenListInfo(
+    return _then(_$_RpcTokenListInfo(
       totalCount: totalCount == freezed
           ? _value.totalCount
           : totalCount // ignore: cast_nullable_to_non_nullable
               as int,
       tokenInfoList: tokenInfoList == freezed
-          ? _value.tokenInfoList
+          ? _value._tokenInfoList
           : tokenInfoList // ignore: cast_nullable_to_non_nullable
               as List<RpcTokenInfo>,
     ));
@@ -9903,16 +9073,22 @@ class __$RpcTokenListInfoCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_RpcTokenListInfo implements _RpcTokenListInfo {
   const _$_RpcTokenListInfo(
-      {required this.totalCount, this.tokenInfoList = const []});
+      {required this.totalCount,
+      final List<RpcTokenInfo> tokenInfoList = const []})
+      : _tokenInfoList = tokenInfoList;
 
   factory _$_RpcTokenListInfo.fromJson(Map<String, dynamic> json) =>
       _$$_RpcTokenListInfoFromJson(json);
 
   @override
   final int totalCount;
-  @JsonKey()
+  final List<RpcTokenInfo> _tokenInfoList;
   @override
-  final List<RpcTokenInfo> tokenInfoList;
+  @JsonKey()
+  List<RpcTokenInfo> get tokenInfoList {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_tokenInfoList);
+  }
 
   @override
   String toString() {
@@ -9923,34 +9099,37 @@ class _$_RpcTokenListInfo implements _RpcTokenListInfo {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RpcTokenListInfo &&
+            other is _$_RpcTokenListInfo &&
             const DeepCollectionEquality()
                 .equals(other.totalCount, totalCount) &&
             const DeepCollectionEquality()
-                .equals(other.tokenInfoList, tokenInfoList));
+                .equals(other._tokenInfoList, _tokenInfoList));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(totalCount),
-      const DeepCollectionEquality().hash(tokenInfoList));
+      const DeepCollectionEquality().hash(_tokenInfoList));
 
   @JsonKey(ignore: true)
   @override
-  _$RpcTokenListInfoCopyWith<_RpcTokenListInfo> get copyWith =>
-      __$RpcTokenListInfoCopyWithImpl<_RpcTokenListInfo>(this, _$identity);
+  _$$_RpcTokenListInfoCopyWith<_$_RpcTokenListInfo> get copyWith =>
+      __$$_RpcTokenListInfoCopyWithImpl<_$_RpcTokenListInfo>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RpcTokenListInfoToJson(this);
+    return _$$_RpcTokenListInfoToJson(
+      this,
+    );
   }
 }
 
 abstract class _RpcTokenListInfo implements RpcTokenListInfo {
   const factory _RpcTokenListInfo(
-      {required int totalCount,
-      List<RpcTokenInfo> tokenInfoList}) = _$_RpcTokenListInfo;
+      {required final int totalCount,
+      final List<RpcTokenInfo> tokenInfoList}) = _$_RpcTokenListInfo;
 
   factory _RpcTokenListInfo.fromJson(Map<String, dynamic> json) =
       _$_RpcTokenListInfo.fromJson;
@@ -9961,34 +9140,13 @@ abstract class _RpcTokenListInfo implements RpcTokenListInfo {
   List<RpcTokenInfo> get tokenInfoList;
   @override
   @JsonKey(ignore: true)
-  _$RpcTokenListInfoCopyWith<_RpcTokenListInfo> get copyWith =>
+  _$$_RpcTokenListInfoCopyWith<_$_RpcTokenListInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 RpcFilterResponse _$RpcFilterResponseFromJson(Map<String, dynamic> json) {
   return _RpcFilterResponse.fromJson(json);
 }
-
-/// @nodoc
-class _$RpcFilterResponseTearOff {
-  const _$RpcFilterResponseTearOff();
-
-  _RpcFilterResponse call(
-      {required String subscription,
-      @JsonKey(name: 'result') List<dynamic> messages = const []}) {
-    return _RpcFilterResponse(
-      subscription: subscription,
-      messages: messages,
-    );
-  }
-
-  RpcFilterResponse fromJson(Map<String, Object?> json) {
-    return RpcFilterResponse.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RpcFilterResponse = _$RpcFilterResponseTearOff();
 
 /// @nodoc
 mixin _$RpcFilterResponse {
@@ -10039,39 +9197,39 @@ class _$RpcFilterResponseCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$RpcFilterResponseCopyWith<$Res>
+abstract class _$$_RpcFilterResponseCopyWith<$Res>
     implements $RpcFilterResponseCopyWith<$Res> {
-  factory _$RpcFilterResponseCopyWith(
-          _RpcFilterResponse value, $Res Function(_RpcFilterResponse) then) =
-      __$RpcFilterResponseCopyWithImpl<$Res>;
+  factory _$$_RpcFilterResponseCopyWith(_$_RpcFilterResponse value,
+          $Res Function(_$_RpcFilterResponse) then) =
+      __$$_RpcFilterResponseCopyWithImpl<$Res>;
   @override
   $Res call(
       {String subscription, @JsonKey(name: 'result') List<dynamic> messages});
 }
 
 /// @nodoc
-class __$RpcFilterResponseCopyWithImpl<$Res>
+class __$$_RpcFilterResponseCopyWithImpl<$Res>
     extends _$RpcFilterResponseCopyWithImpl<$Res>
-    implements _$RpcFilterResponseCopyWith<$Res> {
-  __$RpcFilterResponseCopyWithImpl(
-      _RpcFilterResponse _value, $Res Function(_RpcFilterResponse) _then)
-      : super(_value, (v) => _then(v as _RpcFilterResponse));
+    implements _$$_RpcFilterResponseCopyWith<$Res> {
+  __$$_RpcFilterResponseCopyWithImpl(
+      _$_RpcFilterResponse _value, $Res Function(_$_RpcFilterResponse) _then)
+      : super(_value, (v) => _then(v as _$_RpcFilterResponse));
 
   @override
-  _RpcFilterResponse get _value => super._value as _RpcFilterResponse;
+  _$_RpcFilterResponse get _value => super._value as _$_RpcFilterResponse;
 
   @override
   $Res call({
     Object? subscription = freezed,
     Object? messages = freezed,
   }) {
-    return _then(_RpcFilterResponse(
+    return _then(_$_RpcFilterResponse(
       subscription: subscription == freezed
           ? _value.subscription
           : subscription // ignore: cast_nullable_to_non_nullable
               as String,
       messages: messages == freezed
-          ? _value.messages
+          ? _value._messages
           : messages // ignore: cast_nullable_to_non_nullable
               as List<dynamic>,
     ));
@@ -10083,17 +9241,22 @@ class __$RpcFilterResponseCopyWithImpl<$Res>
 class _$_RpcFilterResponse extends _RpcFilterResponse {
   const _$_RpcFilterResponse(
       {required this.subscription,
-      @JsonKey(name: 'result') this.messages = const []})
-      : super._();
+      @JsonKey(name: 'result') final List<dynamic> messages = const []})
+      : _messages = messages,
+        super._();
 
   factory _$_RpcFilterResponse.fromJson(Map<String, dynamic> json) =>
       _$$_RpcFilterResponseFromJson(json);
 
   @override
   final String subscription;
+  final List<dynamic> _messages;
   @override
   @JsonKey(name: 'result')
-  final List<dynamic> messages;
+  List<dynamic> get messages {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_messages);
+  }
 
   @override
   String toString() {
@@ -10104,33 +9267,38 @@ class _$_RpcFilterResponse extends _RpcFilterResponse {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RpcFilterResponse &&
+            other is _$_RpcFilterResponse &&
             const DeepCollectionEquality()
                 .equals(other.subscription, subscription) &&
-            const DeepCollectionEquality().equals(other.messages, messages));
+            const DeepCollectionEquality().equals(other._messages, _messages));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(subscription),
-      const DeepCollectionEquality().hash(messages));
+      const DeepCollectionEquality().hash(_messages));
 
   @JsonKey(ignore: true)
   @override
-  _$RpcFilterResponseCopyWith<_RpcFilterResponse> get copyWith =>
-      __$RpcFilterResponseCopyWithImpl<_RpcFilterResponse>(this, _$identity);
+  _$$_RpcFilterResponseCopyWith<_$_RpcFilterResponse> get copyWith =>
+      __$$_RpcFilterResponseCopyWithImpl<_$_RpcFilterResponse>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RpcFilterResponseToJson(this);
+    return _$$_RpcFilterResponseToJson(
+      this,
+    );
   }
 }
 
 abstract class _RpcFilterResponse extends RpcFilterResponse {
   const factory _RpcFilterResponse(
-      {required String subscription,
-      @JsonKey(name: 'result') List<dynamic> messages}) = _$_RpcFilterResponse;
+          {required final String subscription,
+          @JsonKey(name: 'result') final List<dynamic> messages}) =
+      _$_RpcFilterResponse;
   const _RpcFilterResponse._() : super._();
 
   factory _RpcFilterResponse.fromJson(Map<String, dynamic> json) =
@@ -10143,7 +9311,7 @@ abstract class _RpcFilterResponse extends RpcFilterResponse {
   List<dynamic> get messages;
   @override
   @JsonKey(ignore: true)
-  _$RpcFilterResponseCopyWith<_RpcFilterResponse> get copyWith =>
+  _$$_RpcFilterResponseCopyWith<_$_RpcFilterResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -10151,27 +9319,6 @@ RpcSnapshotBlockMessage _$RpcSnapshotBlockMessageFromJson(
     Map<String, dynamic> json) {
   return _RpcSnapshotBlockMessage.fromJson(json);
 }
-
-/// @nodoc
-class _$RpcSnapshotBlockMessageTearOff {
-  const _$RpcSnapshotBlockMessageTearOff();
-
-  _RpcSnapshotBlockMessage call(
-      {required String hash, required String height, required bool removed}) {
-    return _RpcSnapshotBlockMessage(
-      hash: hash,
-      height: height,
-      removed: removed,
-    );
-  }
-
-  RpcSnapshotBlockMessage fromJson(Map<String, Object?> json) {
-    return RpcSnapshotBlockMessage.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RpcSnapshotBlockMessage = _$RpcSnapshotBlockMessageTearOff();
 
 /// @nodoc
 mixin _$RpcSnapshotBlockMessage {
@@ -10226,26 +9373,26 @@ class _$RpcSnapshotBlockMessageCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$RpcSnapshotBlockMessageCopyWith<$Res>
+abstract class _$$_RpcSnapshotBlockMessageCopyWith<$Res>
     implements $RpcSnapshotBlockMessageCopyWith<$Res> {
-  factory _$RpcSnapshotBlockMessageCopyWith(_RpcSnapshotBlockMessage value,
-          $Res Function(_RpcSnapshotBlockMessage) then) =
-      __$RpcSnapshotBlockMessageCopyWithImpl<$Res>;
+  factory _$$_RpcSnapshotBlockMessageCopyWith(_$_RpcSnapshotBlockMessage value,
+          $Res Function(_$_RpcSnapshotBlockMessage) then) =
+      __$$_RpcSnapshotBlockMessageCopyWithImpl<$Res>;
   @override
   $Res call({String hash, String height, bool removed});
 }
 
 /// @nodoc
-class __$RpcSnapshotBlockMessageCopyWithImpl<$Res>
+class __$$_RpcSnapshotBlockMessageCopyWithImpl<$Res>
     extends _$RpcSnapshotBlockMessageCopyWithImpl<$Res>
-    implements _$RpcSnapshotBlockMessageCopyWith<$Res> {
-  __$RpcSnapshotBlockMessageCopyWithImpl(_RpcSnapshotBlockMessage _value,
-      $Res Function(_RpcSnapshotBlockMessage) _then)
-      : super(_value, (v) => _then(v as _RpcSnapshotBlockMessage));
+    implements _$$_RpcSnapshotBlockMessageCopyWith<$Res> {
+  __$$_RpcSnapshotBlockMessageCopyWithImpl(_$_RpcSnapshotBlockMessage _value,
+      $Res Function(_$_RpcSnapshotBlockMessage) _then)
+      : super(_value, (v) => _then(v as _$_RpcSnapshotBlockMessage));
 
   @override
-  _RpcSnapshotBlockMessage get _value =>
-      super._value as _RpcSnapshotBlockMessage;
+  _$_RpcSnapshotBlockMessage get _value =>
+      super._value as _$_RpcSnapshotBlockMessage;
 
   @override
   $Res call({
@@ -10253,7 +9400,7 @@ class __$RpcSnapshotBlockMessageCopyWithImpl<$Res>
     Object? height = freezed,
     Object? removed = freezed,
   }) {
-    return _then(_RpcSnapshotBlockMessage(
+    return _then(_$_RpcSnapshotBlockMessage(
       hash: hash == freezed
           ? _value.hash
           : hash // ignore: cast_nullable_to_non_nullable
@@ -10295,12 +9442,13 @@ class _$_RpcSnapshotBlockMessage implements _RpcSnapshotBlockMessage {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RpcSnapshotBlockMessage &&
+            other is _$_RpcSnapshotBlockMessage &&
             const DeepCollectionEquality().equals(other.hash, hash) &&
             const DeepCollectionEquality().equals(other.height, height) &&
             const DeepCollectionEquality().equals(other.removed, removed));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -10310,21 +9458,24 @@ class _$_RpcSnapshotBlockMessage implements _RpcSnapshotBlockMessage {
 
   @JsonKey(ignore: true)
   @override
-  _$RpcSnapshotBlockMessageCopyWith<_RpcSnapshotBlockMessage> get copyWith =>
-      __$RpcSnapshotBlockMessageCopyWithImpl<_RpcSnapshotBlockMessage>(
-          this, _$identity);
+  _$$_RpcSnapshotBlockMessageCopyWith<_$_RpcSnapshotBlockMessage>
+      get copyWith =>
+          __$$_RpcSnapshotBlockMessageCopyWithImpl<_$_RpcSnapshotBlockMessage>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RpcSnapshotBlockMessageToJson(this);
+    return _$$_RpcSnapshotBlockMessageToJson(
+      this,
+    );
   }
 }
 
 abstract class _RpcSnapshotBlockMessage implements RpcSnapshotBlockMessage {
   const factory _RpcSnapshotBlockMessage(
-      {required String hash,
-      required String height,
-      required bool removed}) = _$_RpcSnapshotBlockMessage;
+      {required final String hash,
+      required final String height,
+      required final bool removed}) = _$_RpcSnapshotBlockMessage;
 
   factory _RpcSnapshotBlockMessage.fromJson(Map<String, dynamic> json) =
       _$_RpcSnapshotBlockMessage.fromJson;
@@ -10337,33 +9488,14 @@ abstract class _RpcSnapshotBlockMessage implements RpcSnapshotBlockMessage {
   bool get removed;
   @override
   @JsonKey(ignore: true)
-  _$RpcSnapshotBlockMessageCopyWith<_RpcSnapshotBlockMessage> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_RpcSnapshotBlockMessageCopyWith<_$_RpcSnapshotBlockMessage>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 RpcAccountBlockMessage _$RpcAccountBlockMessageFromJson(
     Map<String, dynamic> json) {
   return _RpcAccountBlockMessage.fromJson(json);
 }
-
-/// @nodoc
-class _$RpcAccountBlockMessageTearOff {
-  const _$RpcAccountBlockMessageTearOff();
-
-  _RpcAccountBlockMessage call({required String hash, required bool removed}) {
-    return _RpcAccountBlockMessage(
-      hash: hash,
-      removed: removed,
-    );
-  }
-
-  RpcAccountBlockMessage fromJson(Map<String, Object?> json) {
-    return RpcAccountBlockMessage.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RpcAccountBlockMessage = _$RpcAccountBlockMessageTearOff();
 
 /// @nodoc
 mixin _$RpcAccountBlockMessage {
@@ -10412,32 +9544,33 @@ class _$RpcAccountBlockMessageCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$RpcAccountBlockMessageCopyWith<$Res>
+abstract class _$$_RpcAccountBlockMessageCopyWith<$Res>
     implements $RpcAccountBlockMessageCopyWith<$Res> {
-  factory _$RpcAccountBlockMessageCopyWith(_RpcAccountBlockMessage value,
-          $Res Function(_RpcAccountBlockMessage) then) =
-      __$RpcAccountBlockMessageCopyWithImpl<$Res>;
+  factory _$$_RpcAccountBlockMessageCopyWith(_$_RpcAccountBlockMessage value,
+          $Res Function(_$_RpcAccountBlockMessage) then) =
+      __$$_RpcAccountBlockMessageCopyWithImpl<$Res>;
   @override
   $Res call({String hash, bool removed});
 }
 
 /// @nodoc
-class __$RpcAccountBlockMessageCopyWithImpl<$Res>
+class __$$_RpcAccountBlockMessageCopyWithImpl<$Res>
     extends _$RpcAccountBlockMessageCopyWithImpl<$Res>
-    implements _$RpcAccountBlockMessageCopyWith<$Res> {
-  __$RpcAccountBlockMessageCopyWithImpl(_RpcAccountBlockMessage _value,
-      $Res Function(_RpcAccountBlockMessage) _then)
-      : super(_value, (v) => _then(v as _RpcAccountBlockMessage));
+    implements _$$_RpcAccountBlockMessageCopyWith<$Res> {
+  __$$_RpcAccountBlockMessageCopyWithImpl(_$_RpcAccountBlockMessage _value,
+      $Res Function(_$_RpcAccountBlockMessage) _then)
+      : super(_value, (v) => _then(v as _$_RpcAccountBlockMessage));
 
   @override
-  _RpcAccountBlockMessage get _value => super._value as _RpcAccountBlockMessage;
+  _$_RpcAccountBlockMessage get _value =>
+      super._value as _$_RpcAccountBlockMessage;
 
   @override
   $Res call({
     Object? hash = freezed,
     Object? removed = freezed,
   }) {
-    return _then(_RpcAccountBlockMessage(
+    return _then(_$_RpcAccountBlockMessage(
       hash: hash == freezed
           ? _value.hash
           : hash // ignore: cast_nullable_to_non_nullable
@@ -10472,11 +9605,12 @@ class _$_RpcAccountBlockMessage implements _RpcAccountBlockMessage {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RpcAccountBlockMessage &&
+            other is _$_RpcAccountBlockMessage &&
             const DeepCollectionEquality().equals(other.hash, hash) &&
             const DeepCollectionEquality().equals(other.removed, removed));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -10485,20 +9619,22 @@ class _$_RpcAccountBlockMessage implements _RpcAccountBlockMessage {
 
   @JsonKey(ignore: true)
   @override
-  _$RpcAccountBlockMessageCopyWith<_RpcAccountBlockMessage> get copyWith =>
-      __$RpcAccountBlockMessageCopyWithImpl<_RpcAccountBlockMessage>(
+  _$$_RpcAccountBlockMessageCopyWith<_$_RpcAccountBlockMessage> get copyWith =>
+      __$$_RpcAccountBlockMessageCopyWithImpl<_$_RpcAccountBlockMessage>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RpcAccountBlockMessageToJson(this);
+    return _$$_RpcAccountBlockMessageToJson(
+      this,
+    );
   }
 }
 
 abstract class _RpcAccountBlockMessage implements RpcAccountBlockMessage {
   const factory _RpcAccountBlockMessage(
-      {required String hash,
-      required bool removed}) = _$_RpcAccountBlockMessage;
+      {required final String hash,
+      required final bool removed}) = _$_RpcAccountBlockMessage;
 
   factory _RpcAccountBlockMessage.fromJson(Map<String, dynamic> json) =
       _$_RpcAccountBlockMessage.fromJson;
@@ -10509,7 +9645,7 @@ abstract class _RpcAccountBlockMessage implements RpcAccountBlockMessage {
   bool get removed;
   @override
   @JsonKey(ignore: true)
-  _$RpcAccountBlockMessageCopyWith<_RpcAccountBlockMessage> get copyWith =>
+  _$$_RpcAccountBlockMessageCopyWith<_$_RpcAccountBlockMessage> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -10517,28 +9653,6 @@ RpcAccountBlockWithHeightMessage _$RpcAccountBlockWithHeightMessageFromJson(
     Map<String, dynamic> json) {
   return _RpcAccountBlockWithHeightMessage.fromJson(json);
 }
-
-/// @nodoc
-class _$RpcAccountBlockWithHeightMessageTearOff {
-  const _$RpcAccountBlockWithHeightMessageTearOff();
-
-  _RpcAccountBlockWithHeightMessage call(
-      {required String hash, required String height, required bool removed}) {
-    return _RpcAccountBlockWithHeightMessage(
-      hash: hash,
-      height: height,
-      removed: removed,
-    );
-  }
-
-  RpcAccountBlockWithHeightMessage fromJson(Map<String, Object?> json) {
-    return RpcAccountBlockWithHeightMessage.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RpcAccountBlockWithHeightMessage =
-    _$RpcAccountBlockWithHeightMessageTearOff();
 
 /// @nodoc
 mixin _$RpcAccountBlockWithHeightMessage {
@@ -10594,28 +9708,28 @@ class _$RpcAccountBlockWithHeightMessageCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$RpcAccountBlockWithHeightMessageCopyWith<$Res>
+abstract class _$$_RpcAccountBlockWithHeightMessageCopyWith<$Res>
     implements $RpcAccountBlockWithHeightMessageCopyWith<$Res> {
-  factory _$RpcAccountBlockWithHeightMessageCopyWith(
-          _RpcAccountBlockWithHeightMessage value,
-          $Res Function(_RpcAccountBlockWithHeightMessage) then) =
-      __$RpcAccountBlockWithHeightMessageCopyWithImpl<$Res>;
+  factory _$$_RpcAccountBlockWithHeightMessageCopyWith(
+          _$_RpcAccountBlockWithHeightMessage value,
+          $Res Function(_$_RpcAccountBlockWithHeightMessage) then) =
+      __$$_RpcAccountBlockWithHeightMessageCopyWithImpl<$Res>;
   @override
   $Res call({String hash, String height, bool removed});
 }
 
 /// @nodoc
-class __$RpcAccountBlockWithHeightMessageCopyWithImpl<$Res>
+class __$$_RpcAccountBlockWithHeightMessageCopyWithImpl<$Res>
     extends _$RpcAccountBlockWithHeightMessageCopyWithImpl<$Res>
-    implements _$RpcAccountBlockWithHeightMessageCopyWith<$Res> {
-  __$RpcAccountBlockWithHeightMessageCopyWithImpl(
-      _RpcAccountBlockWithHeightMessage _value,
-      $Res Function(_RpcAccountBlockWithHeightMessage) _then)
-      : super(_value, (v) => _then(v as _RpcAccountBlockWithHeightMessage));
+    implements _$$_RpcAccountBlockWithHeightMessageCopyWith<$Res> {
+  __$$_RpcAccountBlockWithHeightMessageCopyWithImpl(
+      _$_RpcAccountBlockWithHeightMessage _value,
+      $Res Function(_$_RpcAccountBlockWithHeightMessage) _then)
+      : super(_value, (v) => _then(v as _$_RpcAccountBlockWithHeightMessage));
 
   @override
-  _RpcAccountBlockWithHeightMessage get _value =>
-      super._value as _RpcAccountBlockWithHeightMessage;
+  _$_RpcAccountBlockWithHeightMessage get _value =>
+      super._value as _$_RpcAccountBlockWithHeightMessage;
 
   @override
   $Res call({
@@ -10623,7 +9737,7 @@ class __$RpcAccountBlockWithHeightMessageCopyWithImpl<$Res>
     Object? height = freezed,
     Object? removed = freezed,
   }) {
-    return _then(_RpcAccountBlockWithHeightMessage(
+    return _then(_$_RpcAccountBlockWithHeightMessage(
       hash: hash == freezed
           ? _value.hash
           : hash // ignore: cast_nullable_to_non_nullable
@@ -10667,12 +9781,13 @@ class _$_RpcAccountBlockWithHeightMessage
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RpcAccountBlockWithHeightMessage &&
+            other is _$_RpcAccountBlockWithHeightMessage &&
             const DeepCollectionEquality().equals(other.hash, hash) &&
             const DeepCollectionEquality().equals(other.height, height) &&
             const DeepCollectionEquality().equals(other.removed, removed));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -10682,22 +9797,25 @@ class _$_RpcAccountBlockWithHeightMessage
 
   @JsonKey(ignore: true)
   @override
-  _$RpcAccountBlockWithHeightMessageCopyWith<_RpcAccountBlockWithHeightMessage>
-      get copyWith => __$RpcAccountBlockWithHeightMessageCopyWithImpl<
-          _RpcAccountBlockWithHeightMessage>(this, _$identity);
+  _$$_RpcAccountBlockWithHeightMessageCopyWith<
+          _$_RpcAccountBlockWithHeightMessage>
+      get copyWith => __$$_RpcAccountBlockWithHeightMessageCopyWithImpl<
+          _$_RpcAccountBlockWithHeightMessage>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RpcAccountBlockWithHeightMessageToJson(this);
+    return _$$_RpcAccountBlockWithHeightMessageToJson(
+      this,
+    );
   }
 }
 
 abstract class _RpcAccountBlockWithHeightMessage
     implements RpcAccountBlockWithHeightMessage {
   const factory _RpcAccountBlockWithHeightMessage(
-      {required String hash,
-      required String height,
-      required bool removed}) = _$_RpcAccountBlockWithHeightMessage;
+      {required final String hash,
+      required final String height,
+      required final bool removed}) = _$_RpcAccountBlockWithHeightMessage;
 
   factory _RpcAccountBlockWithHeightMessage.fromJson(
       Map<String, dynamic> json) = _$_RpcAccountBlockWithHeightMessage.fromJson;
@@ -10710,7 +9828,8 @@ abstract class _RpcAccountBlockWithHeightMessage
   bool get removed;
   @override
   @JsonKey(ignore: true)
-  _$RpcAccountBlockWithHeightMessageCopyWith<_RpcAccountBlockWithHeightMessage>
+  _$$_RpcAccountBlockWithHeightMessageCopyWith<
+          _$_RpcAccountBlockWithHeightMessage>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -10718,27 +9837,6 @@ RpcUnreceivedBlockMessage _$RpcUnreceivedBlockMessageFromJson(
     Map<String, dynamic> json) {
   return _RpcUnreceivedBlockMessage.fromJson(json);
 }
-
-/// @nodoc
-class _$RpcUnreceivedBlockMessageTearOff {
-  const _$RpcUnreceivedBlockMessageTearOff();
-
-  _RpcUnreceivedBlockMessage call(
-      {required String hash, required bool received, required bool removed}) {
-    return _RpcUnreceivedBlockMessage(
-      hash: hash,
-      received: received,
-      removed: removed,
-    );
-  }
-
-  RpcUnreceivedBlockMessage fromJson(Map<String, Object?> json) {
-    return RpcUnreceivedBlockMessage.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RpcUnreceivedBlockMessage = _$RpcUnreceivedBlockMessageTearOff();
 
 /// @nodoc
 mixin _$RpcUnreceivedBlockMessage {
@@ -10793,26 +9891,28 @@ class _$RpcUnreceivedBlockMessageCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$RpcUnreceivedBlockMessageCopyWith<$Res>
+abstract class _$$_RpcUnreceivedBlockMessageCopyWith<$Res>
     implements $RpcUnreceivedBlockMessageCopyWith<$Res> {
-  factory _$RpcUnreceivedBlockMessageCopyWith(_RpcUnreceivedBlockMessage value,
-          $Res Function(_RpcUnreceivedBlockMessage) then) =
-      __$RpcUnreceivedBlockMessageCopyWithImpl<$Res>;
+  factory _$$_RpcUnreceivedBlockMessageCopyWith(
+          _$_RpcUnreceivedBlockMessage value,
+          $Res Function(_$_RpcUnreceivedBlockMessage) then) =
+      __$$_RpcUnreceivedBlockMessageCopyWithImpl<$Res>;
   @override
   $Res call({String hash, bool received, bool removed});
 }
 
 /// @nodoc
-class __$RpcUnreceivedBlockMessageCopyWithImpl<$Res>
+class __$$_RpcUnreceivedBlockMessageCopyWithImpl<$Res>
     extends _$RpcUnreceivedBlockMessageCopyWithImpl<$Res>
-    implements _$RpcUnreceivedBlockMessageCopyWith<$Res> {
-  __$RpcUnreceivedBlockMessageCopyWithImpl(_RpcUnreceivedBlockMessage _value,
-      $Res Function(_RpcUnreceivedBlockMessage) _then)
-      : super(_value, (v) => _then(v as _RpcUnreceivedBlockMessage));
+    implements _$$_RpcUnreceivedBlockMessageCopyWith<$Res> {
+  __$$_RpcUnreceivedBlockMessageCopyWithImpl(
+      _$_RpcUnreceivedBlockMessage _value,
+      $Res Function(_$_RpcUnreceivedBlockMessage) _then)
+      : super(_value, (v) => _then(v as _$_RpcUnreceivedBlockMessage));
 
   @override
-  _RpcUnreceivedBlockMessage get _value =>
-      super._value as _RpcUnreceivedBlockMessage;
+  _$_RpcUnreceivedBlockMessage get _value =>
+      super._value as _$_RpcUnreceivedBlockMessage;
 
   @override
   $Res call({
@@ -10820,7 +9920,7 @@ class __$RpcUnreceivedBlockMessageCopyWithImpl<$Res>
     Object? received = freezed,
     Object? removed = freezed,
   }) {
-    return _then(_RpcUnreceivedBlockMessage(
+    return _then(_$_RpcUnreceivedBlockMessage(
       hash: hash == freezed
           ? _value.hash
           : hash // ignore: cast_nullable_to_non_nullable
@@ -10862,12 +9962,13 @@ class _$_RpcUnreceivedBlockMessage implements _RpcUnreceivedBlockMessage {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RpcUnreceivedBlockMessage &&
+            other is _$_RpcUnreceivedBlockMessage &&
             const DeepCollectionEquality().equals(other.hash, hash) &&
             const DeepCollectionEquality().equals(other.received, received) &&
             const DeepCollectionEquality().equals(other.removed, removed));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -10877,22 +9978,23 @@ class _$_RpcUnreceivedBlockMessage implements _RpcUnreceivedBlockMessage {
 
   @JsonKey(ignore: true)
   @override
-  _$RpcUnreceivedBlockMessageCopyWith<_RpcUnreceivedBlockMessage>
-      get copyWith =>
-          __$RpcUnreceivedBlockMessageCopyWithImpl<_RpcUnreceivedBlockMessage>(
-              this, _$identity);
+  _$$_RpcUnreceivedBlockMessageCopyWith<_$_RpcUnreceivedBlockMessage>
+      get copyWith => __$$_RpcUnreceivedBlockMessageCopyWithImpl<
+          _$_RpcUnreceivedBlockMessage>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RpcUnreceivedBlockMessageToJson(this);
+    return _$$_RpcUnreceivedBlockMessageToJson(
+      this,
+    );
   }
 }
 
 abstract class _RpcUnreceivedBlockMessage implements RpcUnreceivedBlockMessage {
   const factory _RpcUnreceivedBlockMessage(
-      {required String hash,
-      required bool received,
-      required bool removed}) = _$_RpcUnreceivedBlockMessage;
+      {required final String hash,
+      required final bool received,
+      required final bool removed}) = _$_RpcUnreceivedBlockMessage;
 
   factory _RpcUnreceivedBlockMessage.fromJson(Map<String, dynamic> json) =
       _$_RpcUnreceivedBlockMessage.fromJson;
@@ -10905,6 +10007,6 @@ abstract class _RpcUnreceivedBlockMessage implements RpcUnreceivedBlockMessage {
   bool get removed;
   @override
   @JsonKey(ignore: true)
-  _$RpcUnreceivedBlockMessageCopyWith<_RpcUnreceivedBlockMessage>
+  _$$_RpcUnreceivedBlockMessageCopyWith<_$_RpcUnreceivedBlockMessage>
       get copyWith => throw _privateConstructorUsedError;
 }

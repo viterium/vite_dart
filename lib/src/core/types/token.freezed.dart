@@ -12,21 +12,7 @@ part of 'token.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$TokenTearOff {
-  const _$TokenTearOff();
-
-  _Token call(Uint8List core) {
-    return _Token(
-      core,
-    );
-  }
-}
-
-/// @nodoc
-const $Token = _$TokenTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$Token {
@@ -65,27 +51,27 @@ class _$TokenCopyWithImpl<$Res> implements $TokenCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$TokenCopyWith<$Res> implements $TokenCopyWith<$Res> {
-  factory _$TokenCopyWith(_Token value, $Res Function(_Token) then) =
-      __$TokenCopyWithImpl<$Res>;
+abstract class _$$_TokenCopyWith<$Res> implements $TokenCopyWith<$Res> {
+  factory _$$_TokenCopyWith(_$_Token value, $Res Function(_$_Token) then) =
+      __$$_TokenCopyWithImpl<$Res>;
   @override
   $Res call({Uint8List core});
 }
 
 /// @nodoc
-class __$TokenCopyWithImpl<$Res> extends _$TokenCopyWithImpl<$Res>
-    implements _$TokenCopyWith<$Res> {
-  __$TokenCopyWithImpl(_Token _value, $Res Function(_Token) _then)
-      : super(_value, (v) => _then(v as _Token));
+class __$$_TokenCopyWithImpl<$Res> extends _$TokenCopyWithImpl<$Res>
+    implements _$$_TokenCopyWith<$Res> {
+  __$$_TokenCopyWithImpl(_$_Token _value, $Res Function(_$_Token) _then)
+      : super(_value, (v) => _then(v as _$_Token));
 
   @override
-  _Token get _value => super._value as _Token;
+  _$_Token get _value => super._value as _$_Token;
 
   @override
   $Res call({
     Object? core = freezed,
   }) {
-    return _then(_Token(
+    return _then(_$_Token(
       core == freezed
           ? _value.core
           : core // ignore: cast_nullable_to_non_nullable
@@ -108,7 +94,7 @@ class _$_Token extends _Token {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Token &&
+            other is _$_Token &&
             const DeepCollectionEquality().equals(other.core, core));
   }
 
@@ -118,17 +104,18 @@ class _$_Token extends _Token {
 
   @JsonKey(ignore: true)
   @override
-  _$TokenCopyWith<_Token> get copyWith =>
-      __$TokenCopyWithImpl<_Token>(this, _$identity);
+  _$$_TokenCopyWith<_$_Token> get copyWith =>
+      __$$_TokenCopyWithImpl<_$_Token>(this, _$identity);
 }
 
 abstract class _Token extends Token {
-  factory _Token(Uint8List core) = _$_Token;
+  factory _Token(final Uint8List core) = _$_Token;
   _Token._() : super._();
 
   @override
   Uint8List get core;
   @override
   @JsonKey(ignore: true)
-  _$TokenCopyWith<_Token> get copyWith => throw _privateConstructorUsedError;
+  _$$_TokenCopyWith<_$_Token> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -12,36 +12,11 @@ part of 'pow_difficulty_result.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 PowDifficultyResult _$PowDifficultyResultFromJson(Map<String, dynamic> json) {
   return _PowDifficultyResult.fromJson(json);
 }
-
-/// @nodoc
-class _$PowDifficultyResultTearOff {
-  const _$PowDifficultyResultTearOff();
-
-  _PowDifficultyResult call(
-      {required String requiredQuota,
-      @JsonKey(fromJson: BigInt.tryParse) BigInt? difficulty,
-      required BigInt qc,
-      required bool isCongestion}) {
-    return _PowDifficultyResult(
-      requiredQuota: requiredQuota,
-      difficulty: difficulty,
-      qc: qc,
-      isCongestion: isCongestion,
-    );
-  }
-
-  PowDifficultyResult fromJson(Map<String, Object?> json) {
-    return PowDifficultyResult.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $PowDifficultyResult = _$PowDifficultyResultTearOff();
 
 /// @nodoc
 mixin _$PowDifficultyResult {
@@ -107,11 +82,11 @@ class _$PowDifficultyResultCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$PowDifficultyResultCopyWith<$Res>
+abstract class _$$_PowDifficultyResultCopyWith<$Res>
     implements $PowDifficultyResultCopyWith<$Res> {
-  factory _$PowDifficultyResultCopyWith(_PowDifficultyResult value,
-          $Res Function(_PowDifficultyResult) then) =
-      __$PowDifficultyResultCopyWithImpl<$Res>;
+  factory _$$_PowDifficultyResultCopyWith(_$_PowDifficultyResult value,
+          $Res Function(_$_PowDifficultyResult) then) =
+      __$$_PowDifficultyResultCopyWithImpl<$Res>;
   @override
   $Res call(
       {String requiredQuota,
@@ -121,15 +96,15 @@ abstract class _$PowDifficultyResultCopyWith<$Res>
 }
 
 /// @nodoc
-class __$PowDifficultyResultCopyWithImpl<$Res>
+class __$$_PowDifficultyResultCopyWithImpl<$Res>
     extends _$PowDifficultyResultCopyWithImpl<$Res>
-    implements _$PowDifficultyResultCopyWith<$Res> {
-  __$PowDifficultyResultCopyWithImpl(
-      _PowDifficultyResult _value, $Res Function(_PowDifficultyResult) _then)
-      : super(_value, (v) => _then(v as _PowDifficultyResult));
+    implements _$$_PowDifficultyResultCopyWith<$Res> {
+  __$$_PowDifficultyResultCopyWithImpl(_$_PowDifficultyResult _value,
+      $Res Function(_$_PowDifficultyResult) _then)
+      : super(_value, (v) => _then(v as _$_PowDifficultyResult));
 
   @override
-  _PowDifficultyResult get _value => super._value as _PowDifficultyResult;
+  _$_PowDifficultyResult get _value => super._value as _$_PowDifficultyResult;
 
   @override
   $Res call({
@@ -138,7 +113,7 @@ class __$PowDifficultyResultCopyWithImpl<$Res>
     Object? qc = freezed,
     Object? isCongestion = freezed,
   }) {
-    return _then(_PowDifficultyResult(
+    return _then(_$_PowDifficultyResult(
       requiredQuota: requiredQuota == freezed
           ? _value.requiredQuota
           : requiredQuota // ignore: cast_nullable_to_non_nullable
@@ -190,7 +165,7 @@ class _$_PowDifficultyResult implements _PowDifficultyResult {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _PowDifficultyResult &&
+            other is _$_PowDifficultyResult &&
             const DeepCollectionEquality()
                 .equals(other.requiredQuota, requiredQuota) &&
             const DeepCollectionEquality()
@@ -200,6 +175,7 @@ class _$_PowDifficultyResult implements _PowDifficultyResult {
                 .equals(other.isCongestion, isCongestion));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -210,22 +186,24 @@ class _$_PowDifficultyResult implements _PowDifficultyResult {
 
   @JsonKey(ignore: true)
   @override
-  _$PowDifficultyResultCopyWith<_PowDifficultyResult> get copyWith =>
-      __$PowDifficultyResultCopyWithImpl<_PowDifficultyResult>(
+  _$$_PowDifficultyResultCopyWith<_$_PowDifficultyResult> get copyWith =>
+      __$$_PowDifficultyResultCopyWithImpl<_$_PowDifficultyResult>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PowDifficultyResultToJson(this);
+    return _$$_PowDifficultyResultToJson(
+      this,
+    );
   }
 }
 
 abstract class _PowDifficultyResult implements PowDifficultyResult {
   const factory _PowDifficultyResult(
-      {required String requiredQuota,
-      @JsonKey(fromJson: BigInt.tryParse) BigInt? difficulty,
-      required BigInt qc,
-      required bool isCongestion}) = _$_PowDifficultyResult;
+      {required final String requiredQuota,
+      @JsonKey(fromJson: BigInt.tryParse) final BigInt? difficulty,
+      required final BigInt qc,
+      required final bool isCongestion}) = _$_PowDifficultyResult;
 
   factory _PowDifficultyResult.fromJson(Map<String, dynamic> json) =
       _$_PowDifficultyResult.fromJson;
@@ -241,6 +219,6 @@ abstract class _PowDifficultyResult implements PowDifficultyResult {
   bool get isCongestion;
   @override
   @JsonKey(ignore: true)
-  _$PowDifficultyResultCopyWith<_PowDifficultyResult> get copyWith =>
+  _$$_PowDifficultyResultCopyWith<_$_PowDifficultyResult> get copyWith =>
       throw _privateConstructorUsedError;
 }

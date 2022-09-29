@@ -12,84 +12,11 @@ part of 'account_block.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 AccountBlock _$AccountBlockFromJson(Map<String, dynamic> json) {
   return _AccountBlock.fromJson(json);
 }
-
-/// @nodoc
-class _$AccountBlockTearOff {
-  const _$AccountBlockTearOff();
-
-  _AccountBlock call(
-      {@BlockTypeConverter() required BlockType blockType,
-      required Address address,
-      required Address producer,
-      required Address fromAddress,
-      required Address toAddress,
-      required Hash hash,
-      required Hash sendBlockHash,
-      required Hash previousHash,
-      Hash? firstSnapshotHash,
-      BigInt? firstSnapshotHeight,
-      required int timestamp,
-      BigInt? confirmations,
-      @JsonKey(name: 'tokenId') required Token token,
-      @JsonKey(readValue: _readTokenInfo) required TokenInfo tokenInfo,
-      @JsonKey(readValue: _readAmount) required BigInt amount,
-      required BigInt height,
-      BigInt? fee,
-      BigInt? difficulty,
-      required BigInt quotaByStake,
-      required BigInt totalQuota,
-      Hash? vmLogHash,
-      @NullableUint8ListBase64Converter() Uint8List? data,
-      @NullableUint8ListBase64Converter() Uint8List? nonce,
-      @NullableUint8ListBase64Converter() Uint8List? signature,
-      @NullableUint8ListBase64Converter() Uint8List? publicKey,
-      Hash? receiveBlockHash,
-      BigInt? receiveBlockHeight,
-      List<AccountBlock> triggeredSendBlockList = const []}) {
-    return _AccountBlock(
-      blockType: blockType,
-      address: address,
-      producer: producer,
-      fromAddress: fromAddress,
-      toAddress: toAddress,
-      hash: hash,
-      sendBlockHash: sendBlockHash,
-      previousHash: previousHash,
-      firstSnapshotHash: firstSnapshotHash,
-      firstSnapshotHeight: firstSnapshotHeight,
-      timestamp: timestamp,
-      confirmations: confirmations,
-      token: token,
-      tokenInfo: tokenInfo,
-      amount: amount,
-      height: height,
-      fee: fee,
-      difficulty: difficulty,
-      quotaByStake: quotaByStake,
-      totalQuota: totalQuota,
-      vmLogHash: vmLogHash,
-      data: data,
-      nonce: nonce,
-      signature: signature,
-      publicKey: publicKey,
-      receiveBlockHash: receiveBlockHash,
-      receiveBlockHeight: receiveBlockHeight,
-      triggeredSendBlockList: triggeredSendBlockList,
-    );
-  }
-
-  AccountBlock fromJson(Map<String, Object?> json) {
-    return AccountBlock.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $AccountBlock = _$AccountBlockTearOff();
 
 /// @nodoc
 mixin _$AccountBlock {
@@ -439,11 +366,11 @@ class _$AccountBlockCopyWithImpl<$Res> implements $AccountBlockCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$AccountBlockCopyWith<$Res>
+abstract class _$$_AccountBlockCopyWith<$Res>
     implements $AccountBlockCopyWith<$Res> {
-  factory _$AccountBlockCopyWith(
-          _AccountBlock value, $Res Function(_AccountBlock) then) =
-      __$AccountBlockCopyWithImpl<$Res>;
+  factory _$$_AccountBlockCopyWith(
+          _$_AccountBlock value, $Res Function(_$_AccountBlock) then) =
+      __$$_AccountBlockCopyWithImpl<$Res>;
   @override
   $Res call(
       {@BlockTypeConverter() BlockType blockType,
@@ -502,14 +429,15 @@ abstract class _$AccountBlockCopyWith<$Res>
 }
 
 /// @nodoc
-class __$AccountBlockCopyWithImpl<$Res> extends _$AccountBlockCopyWithImpl<$Res>
-    implements _$AccountBlockCopyWith<$Res> {
-  __$AccountBlockCopyWithImpl(
-      _AccountBlock _value, $Res Function(_AccountBlock) _then)
-      : super(_value, (v) => _then(v as _AccountBlock));
+class __$$_AccountBlockCopyWithImpl<$Res>
+    extends _$AccountBlockCopyWithImpl<$Res>
+    implements _$$_AccountBlockCopyWith<$Res> {
+  __$$_AccountBlockCopyWithImpl(
+      _$_AccountBlock _value, $Res Function(_$_AccountBlock) _then)
+      : super(_value, (v) => _then(v as _$_AccountBlock));
 
   @override
-  _AccountBlock get _value => super._value as _AccountBlock;
+  _$_AccountBlock get _value => super._value as _$_AccountBlock;
 
   @override
   $Res call({
@@ -542,7 +470,7 @@ class __$AccountBlockCopyWithImpl<$Res> extends _$AccountBlockCopyWithImpl<$Res>
     Object? receiveBlockHeight = freezed,
     Object? triggeredSendBlockList = freezed,
   }) {
-    return _then(_AccountBlock(
+    return _then(_$_AccountBlock(
       blockType: blockType == freezed
           ? _value.blockType
           : blockType // ignore: cast_nullable_to_non_nullable
@@ -652,7 +580,7 @@ class __$AccountBlockCopyWithImpl<$Res> extends _$AccountBlockCopyWithImpl<$Res>
           : receiveBlockHeight // ignore: cast_nullable_to_non_nullable
               as BigInt?,
       triggeredSendBlockList: triggeredSendBlockList == freezed
-          ? _value.triggeredSendBlockList
+          ? _value._triggeredSendBlockList
           : triggeredSendBlockList // ignore: cast_nullable_to_non_nullable
               as List<AccountBlock>,
     ));
@@ -690,8 +618,9 @@ class _$_AccountBlock extends _AccountBlock {
       @NullableUint8ListBase64Converter() this.publicKey,
       this.receiveBlockHash,
       this.receiveBlockHeight,
-      this.triggeredSendBlockList = const []})
-      : super._();
+      final List<AccountBlock> triggeredSendBlockList = const []})
+      : _triggeredSendBlockList = triggeredSendBlockList,
+        super._();
 
   factory _$_AccountBlock.fromJson(Map<String, dynamic> json) =>
       _$$_AccountBlockFromJson(json);
@@ -758,9 +687,13 @@ class _$_AccountBlock extends _AccountBlock {
   final Hash? receiveBlockHash;
   @override
   final BigInt? receiveBlockHeight;
-  @JsonKey()
+  final List<AccountBlock> _triggeredSendBlockList;
   @override
-  final List<AccountBlock> triggeredSendBlockList;
+  @JsonKey()
+  List<AccountBlock> get triggeredSendBlockList {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_triggeredSendBlockList);
+  }
 
   @override
   String toString() {
@@ -771,7 +704,7 @@ class _$_AccountBlock extends _AccountBlock {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _AccountBlock &&
+            other is _$_AccountBlock &&
             const DeepCollectionEquality().equals(other.blockType, blockType) &&
             const DeepCollectionEquality().equals(other.address, address) &&
             const DeepCollectionEquality().equals(other.producer, producer) &&
@@ -810,10 +743,11 @@ class _$_AccountBlock extends _AccountBlock {
                 .equals(other.receiveBlockHash, receiveBlockHash) &&
             const DeepCollectionEquality()
                 .equals(other.receiveBlockHeight, receiveBlockHeight) &&
-            const DeepCollectionEquality()
-                .equals(other.triggeredSendBlockList, triggeredSendBlockList));
+            const DeepCollectionEquality().equals(
+                other._triggeredSendBlockList, _triggeredSendBlockList));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -844,50 +778,52 @@ class _$_AccountBlock extends _AccountBlock {
         const DeepCollectionEquality().hash(publicKey),
         const DeepCollectionEquality().hash(receiveBlockHash),
         const DeepCollectionEquality().hash(receiveBlockHeight),
-        const DeepCollectionEquality().hash(triggeredSendBlockList)
+        const DeepCollectionEquality().hash(_triggeredSendBlockList)
       ]);
 
   @JsonKey(ignore: true)
   @override
-  _$AccountBlockCopyWith<_AccountBlock> get copyWith =>
-      __$AccountBlockCopyWithImpl<_AccountBlock>(this, _$identity);
+  _$$_AccountBlockCopyWith<_$_AccountBlock> get copyWith =>
+      __$$_AccountBlockCopyWithImpl<_$_AccountBlock>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_AccountBlockToJson(this);
+    return _$$_AccountBlockToJson(
+      this,
+    );
   }
 }
 
 abstract class _AccountBlock extends AccountBlock {
   factory _AccountBlock(
-      {@BlockTypeConverter() required BlockType blockType,
-      required Address address,
-      required Address producer,
-      required Address fromAddress,
-      required Address toAddress,
-      required Hash hash,
-      required Hash sendBlockHash,
-      required Hash previousHash,
-      Hash? firstSnapshotHash,
-      BigInt? firstSnapshotHeight,
-      required int timestamp,
-      BigInt? confirmations,
-      @JsonKey(name: 'tokenId') required Token token,
-      @JsonKey(readValue: _readTokenInfo) required TokenInfo tokenInfo,
-      @JsonKey(readValue: _readAmount) required BigInt amount,
-      required BigInt height,
-      BigInt? fee,
-      BigInt? difficulty,
-      required BigInt quotaByStake,
-      required BigInt totalQuota,
-      Hash? vmLogHash,
-      @NullableUint8ListBase64Converter() Uint8List? data,
-      @NullableUint8ListBase64Converter() Uint8List? nonce,
-      @NullableUint8ListBase64Converter() Uint8List? signature,
-      @NullableUint8ListBase64Converter() Uint8List? publicKey,
-      Hash? receiveBlockHash,
-      BigInt? receiveBlockHeight,
-      List<AccountBlock> triggeredSendBlockList}) = _$_AccountBlock;
+      {@BlockTypeConverter() required final BlockType blockType,
+      required final Address address,
+      required final Address producer,
+      required final Address fromAddress,
+      required final Address toAddress,
+      required final Hash hash,
+      required final Hash sendBlockHash,
+      required final Hash previousHash,
+      final Hash? firstSnapshotHash,
+      final BigInt? firstSnapshotHeight,
+      required final int timestamp,
+      final BigInt? confirmations,
+      @JsonKey(name: 'tokenId') required final Token token,
+      @JsonKey(readValue: _readTokenInfo) required final TokenInfo tokenInfo,
+      @JsonKey(readValue: _readAmount) required final BigInt amount,
+      required final BigInt height,
+      final BigInt? fee,
+      final BigInt? difficulty,
+      required final BigInt quotaByStake,
+      required final BigInt totalQuota,
+      final Hash? vmLogHash,
+      @NullableUint8ListBase64Converter() final Uint8List? data,
+      @NullableUint8ListBase64Converter() final Uint8List? nonce,
+      @NullableUint8ListBase64Converter() final Uint8List? signature,
+      @NullableUint8ListBase64Converter() final Uint8List? publicKey,
+      final Hash? receiveBlockHash,
+      final BigInt? receiveBlockHeight,
+      final List<AccountBlock> triggeredSendBlockList}) = _$_AccountBlock;
   _AccountBlock._() : super._();
 
   factory _AccountBlock.fromJson(Map<String, dynamic> json) =
@@ -959,6 +895,6 @@ abstract class _AccountBlock extends AccountBlock {
   List<AccountBlock> get triggeredSendBlockList;
   @override
   @JsonKey(ignore: true)
-  _$AccountBlockCopyWith<_AccountBlock> get copyWith =>
+  _$$_AccountBlockCopyWith<_$_AccountBlock> get copyWith =>
       throw _privateConstructorUsedError;
 }

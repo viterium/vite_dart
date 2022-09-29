@@ -12,33 +12,11 @@ part of 'subscription_types.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 CallbackParam _$CallbackParamFromJson(Map<String, dynamic> json) {
   return _CallbackParam.fromJson(json);
 }
-
-/// @nodoc
-class _$CallbackParamTearOff {
-  const _$CallbackParamTearOff();
-
-  _CallbackParam call(
-      {required String subscription,
-      @JsonKey(name: 'result')
-          List<Map<String, dynamic>> messages = const []}) {
-    return _CallbackParam(
-      subscription: subscription,
-      messages: messages,
-    );
-  }
-
-  CallbackParam fromJson(Map<String, Object?> json) {
-    return CallbackParam.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $CallbackParam = _$CallbackParamTearOff();
 
 /// @nodoc
 mixin _$CallbackParam {
@@ -90,11 +68,11 @@ class _$CallbackParamCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$CallbackParamCopyWith<$Res>
+abstract class _$$_CallbackParamCopyWith<$Res>
     implements $CallbackParamCopyWith<$Res> {
-  factory _$CallbackParamCopyWith(
-          _CallbackParam value, $Res Function(_CallbackParam) then) =
-      __$CallbackParamCopyWithImpl<$Res>;
+  factory _$$_CallbackParamCopyWith(
+          _$_CallbackParam value, $Res Function(_$_CallbackParam) then) =
+      __$$_CallbackParamCopyWithImpl<$Res>;
   @override
   $Res call(
       {String subscription,
@@ -102,28 +80,28 @@ abstract class _$CallbackParamCopyWith<$Res>
 }
 
 /// @nodoc
-class __$CallbackParamCopyWithImpl<$Res>
+class __$$_CallbackParamCopyWithImpl<$Res>
     extends _$CallbackParamCopyWithImpl<$Res>
-    implements _$CallbackParamCopyWith<$Res> {
-  __$CallbackParamCopyWithImpl(
-      _CallbackParam _value, $Res Function(_CallbackParam) _then)
-      : super(_value, (v) => _then(v as _CallbackParam));
+    implements _$$_CallbackParamCopyWith<$Res> {
+  __$$_CallbackParamCopyWithImpl(
+      _$_CallbackParam _value, $Res Function(_$_CallbackParam) _then)
+      : super(_value, (v) => _then(v as _$_CallbackParam));
 
   @override
-  _CallbackParam get _value => super._value as _CallbackParam;
+  _$_CallbackParam get _value => super._value as _$_CallbackParam;
 
   @override
   $Res call({
     Object? subscription = freezed,
     Object? messages = freezed,
   }) {
-    return _then(_CallbackParam(
+    return _then(_$_CallbackParam(
       subscription: subscription == freezed
           ? _value.subscription
           : subscription // ignore: cast_nullable_to_non_nullable
               as String,
       messages: messages == freezed
-          ? _value.messages
+          ? _value._messages
           : messages // ignore: cast_nullable_to_non_nullable
               as List<Map<String, dynamic>>,
     ));
@@ -135,17 +113,23 @@ class __$CallbackParamCopyWithImpl<$Res>
 class _$_CallbackParam extends _CallbackParam {
   const _$_CallbackParam(
       {required this.subscription,
-      @JsonKey(name: 'result') this.messages = const []})
-      : super._();
+      @JsonKey(name: 'result')
+          final List<Map<String, dynamic>> messages = const []})
+      : _messages = messages,
+        super._();
 
   factory _$_CallbackParam.fromJson(Map<String, dynamic> json) =>
       _$$_CallbackParamFromJson(json);
 
   @override
   final String subscription;
+  final List<Map<String, dynamic>> _messages;
   @override
   @JsonKey(name: 'result')
-  final List<Map<String, dynamic>> messages;
+  List<Map<String, dynamic>> get messages {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_messages);
+  }
 
   @override
   String toString() {
@@ -156,33 +140,36 @@ class _$_CallbackParam extends _CallbackParam {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _CallbackParam &&
+            other is _$_CallbackParam &&
             const DeepCollectionEquality()
                 .equals(other.subscription, subscription) &&
-            const DeepCollectionEquality().equals(other.messages, messages));
+            const DeepCollectionEquality().equals(other._messages, _messages));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(subscription),
-      const DeepCollectionEquality().hash(messages));
+      const DeepCollectionEquality().hash(_messages));
 
   @JsonKey(ignore: true)
   @override
-  _$CallbackParamCopyWith<_CallbackParam> get copyWith =>
-      __$CallbackParamCopyWithImpl<_CallbackParam>(this, _$identity);
+  _$$_CallbackParamCopyWith<_$_CallbackParam> get copyWith =>
+      __$$_CallbackParamCopyWithImpl<_$_CallbackParam>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CallbackParamToJson(this);
+    return _$$_CallbackParamToJson(
+      this,
+    );
   }
 }
 
 abstract class _CallbackParam extends CallbackParam {
   const factory _CallbackParam(
-          {required String subscription,
-          @JsonKey(name: 'result') List<Map<String, dynamic>> messages}) =
+          {required final String subscription,
+          @JsonKey(name: 'result') final List<Map<String, dynamic>> messages}) =
       _$_CallbackParam;
   const _CallbackParam._() : super._();
 
@@ -196,34 +183,13 @@ abstract class _CallbackParam extends CallbackParam {
   List<Map<String, dynamic>> get messages;
   @override
   @JsonKey(ignore: true)
-  _$CallbackParamCopyWith<_CallbackParam> get copyWith =>
+  _$$_CallbackParamCopyWith<_$_CallbackParam> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 SnapshotBlockMessage _$SnapshotBlockMessageFromJson(Map<String, dynamic> json) {
   return _SnapshotBlockMessage.fromJson(json);
 }
-
-/// @nodoc
-class _$SnapshotBlockMessageTearOff {
-  const _$SnapshotBlockMessageTearOff();
-
-  _SnapshotBlockMessage call(
-      {required Hash hash, required BigInt height, required bool removed}) {
-    return _SnapshotBlockMessage(
-      hash: hash,
-      height: height,
-      removed: removed,
-    );
-  }
-
-  SnapshotBlockMessage fromJson(Map<String, Object?> json) {
-    return SnapshotBlockMessage.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $SnapshotBlockMessage = _$SnapshotBlockMessageTearOff();
 
 /// @nodoc
 mixin _$SnapshotBlockMessage {
@@ -287,11 +253,11 @@ class _$SnapshotBlockMessageCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$SnapshotBlockMessageCopyWith<$Res>
+abstract class _$$_SnapshotBlockMessageCopyWith<$Res>
     implements $SnapshotBlockMessageCopyWith<$Res> {
-  factory _$SnapshotBlockMessageCopyWith(_SnapshotBlockMessage value,
-          $Res Function(_SnapshotBlockMessage) then) =
-      __$SnapshotBlockMessageCopyWithImpl<$Res>;
+  factory _$$_SnapshotBlockMessageCopyWith(_$_SnapshotBlockMessage value,
+          $Res Function(_$_SnapshotBlockMessage) then) =
+      __$$_SnapshotBlockMessageCopyWithImpl<$Res>;
   @override
   $Res call({Hash hash, BigInt height, bool removed});
 
@@ -300,15 +266,15 @@ abstract class _$SnapshotBlockMessageCopyWith<$Res>
 }
 
 /// @nodoc
-class __$SnapshotBlockMessageCopyWithImpl<$Res>
+class __$$_SnapshotBlockMessageCopyWithImpl<$Res>
     extends _$SnapshotBlockMessageCopyWithImpl<$Res>
-    implements _$SnapshotBlockMessageCopyWith<$Res> {
-  __$SnapshotBlockMessageCopyWithImpl(
-      _SnapshotBlockMessage _value, $Res Function(_SnapshotBlockMessage) _then)
-      : super(_value, (v) => _then(v as _SnapshotBlockMessage));
+    implements _$$_SnapshotBlockMessageCopyWith<$Res> {
+  __$$_SnapshotBlockMessageCopyWithImpl(_$_SnapshotBlockMessage _value,
+      $Res Function(_$_SnapshotBlockMessage) _then)
+      : super(_value, (v) => _then(v as _$_SnapshotBlockMessage));
 
   @override
-  _SnapshotBlockMessage get _value => super._value as _SnapshotBlockMessage;
+  _$_SnapshotBlockMessage get _value => super._value as _$_SnapshotBlockMessage;
 
   @override
   $Res call({
@@ -316,7 +282,7 @@ class __$SnapshotBlockMessageCopyWithImpl<$Res>
     Object? height = freezed,
     Object? removed = freezed,
   }) {
-    return _then(_SnapshotBlockMessage(
+    return _then(_$_SnapshotBlockMessage(
       hash: hash == freezed
           ? _value.hash
           : hash // ignore: cast_nullable_to_non_nullable
@@ -358,12 +324,13 @@ class _$_SnapshotBlockMessage implements _SnapshotBlockMessage {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _SnapshotBlockMessage &&
+            other is _$_SnapshotBlockMessage &&
             const DeepCollectionEquality().equals(other.hash, hash) &&
             const DeepCollectionEquality().equals(other.height, height) &&
             const DeepCollectionEquality().equals(other.removed, removed));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -373,21 +340,23 @@ class _$_SnapshotBlockMessage implements _SnapshotBlockMessage {
 
   @JsonKey(ignore: true)
   @override
-  _$SnapshotBlockMessageCopyWith<_SnapshotBlockMessage> get copyWith =>
-      __$SnapshotBlockMessageCopyWithImpl<_SnapshotBlockMessage>(
+  _$$_SnapshotBlockMessageCopyWith<_$_SnapshotBlockMessage> get copyWith =>
+      __$$_SnapshotBlockMessageCopyWithImpl<_$_SnapshotBlockMessage>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SnapshotBlockMessageToJson(this);
+    return _$$_SnapshotBlockMessageToJson(
+      this,
+    );
   }
 }
 
 abstract class _SnapshotBlockMessage implements SnapshotBlockMessage {
   const factory _SnapshotBlockMessage(
-      {required Hash hash,
-      required BigInt height,
-      required bool removed}) = _$_SnapshotBlockMessage;
+      {required final Hash hash,
+      required final BigInt height,
+      required final bool removed}) = _$_SnapshotBlockMessage;
 
   factory _SnapshotBlockMessage.fromJson(Map<String, dynamic> json) =
       _$_SnapshotBlockMessage.fromJson;
@@ -400,32 +369,13 @@ abstract class _SnapshotBlockMessage implements SnapshotBlockMessage {
   bool get removed;
   @override
   @JsonKey(ignore: true)
-  _$SnapshotBlockMessageCopyWith<_SnapshotBlockMessage> get copyWith =>
+  _$$_SnapshotBlockMessageCopyWith<_$_SnapshotBlockMessage> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 AccountBlockMessage _$AccountBlockMessageFromJson(Map<String, dynamic> json) {
   return _AccountBlockMessage.fromJson(json);
 }
-
-/// @nodoc
-class _$AccountBlockMessageTearOff {
-  const _$AccountBlockMessageTearOff();
-
-  _AccountBlockMessage call({required Hash hash, required bool removed}) {
-    return _AccountBlockMessage(
-      hash: hash,
-      removed: removed,
-    );
-  }
-
-  AccountBlockMessage fromJson(Map<String, Object?> json) {
-    return AccountBlockMessage.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $AccountBlockMessage = _$AccountBlockMessageTearOff();
 
 /// @nodoc
 mixin _$AccountBlockMessage {
@@ -483,11 +433,11 @@ class _$AccountBlockMessageCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$AccountBlockMessageCopyWith<$Res>
+abstract class _$$_AccountBlockMessageCopyWith<$Res>
     implements $AccountBlockMessageCopyWith<$Res> {
-  factory _$AccountBlockMessageCopyWith(_AccountBlockMessage value,
-          $Res Function(_AccountBlockMessage) then) =
-      __$AccountBlockMessageCopyWithImpl<$Res>;
+  factory _$$_AccountBlockMessageCopyWith(_$_AccountBlockMessage value,
+          $Res Function(_$_AccountBlockMessage) then) =
+      __$$_AccountBlockMessageCopyWithImpl<$Res>;
   @override
   $Res call({Hash hash, bool removed});
 
@@ -496,22 +446,22 @@ abstract class _$AccountBlockMessageCopyWith<$Res>
 }
 
 /// @nodoc
-class __$AccountBlockMessageCopyWithImpl<$Res>
+class __$$_AccountBlockMessageCopyWithImpl<$Res>
     extends _$AccountBlockMessageCopyWithImpl<$Res>
-    implements _$AccountBlockMessageCopyWith<$Res> {
-  __$AccountBlockMessageCopyWithImpl(
-      _AccountBlockMessage _value, $Res Function(_AccountBlockMessage) _then)
-      : super(_value, (v) => _then(v as _AccountBlockMessage));
+    implements _$$_AccountBlockMessageCopyWith<$Res> {
+  __$$_AccountBlockMessageCopyWithImpl(_$_AccountBlockMessage _value,
+      $Res Function(_$_AccountBlockMessage) _then)
+      : super(_value, (v) => _then(v as _$_AccountBlockMessage));
 
   @override
-  _AccountBlockMessage get _value => super._value as _AccountBlockMessage;
+  _$_AccountBlockMessage get _value => super._value as _$_AccountBlockMessage;
 
   @override
   $Res call({
     Object? hash = freezed,
     Object? removed = freezed,
   }) {
-    return _then(_AccountBlockMessage(
+    return _then(_$_AccountBlockMessage(
       hash: hash == freezed
           ? _value.hash
           : hash // ignore: cast_nullable_to_non_nullable
@@ -546,11 +496,12 @@ class _$_AccountBlockMessage implements _AccountBlockMessage {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _AccountBlockMessage &&
+            other is _$_AccountBlockMessage &&
             const DeepCollectionEquality().equals(other.hash, hash) &&
             const DeepCollectionEquality().equals(other.removed, removed));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -559,19 +510,22 @@ class _$_AccountBlockMessage implements _AccountBlockMessage {
 
   @JsonKey(ignore: true)
   @override
-  _$AccountBlockMessageCopyWith<_AccountBlockMessage> get copyWith =>
-      __$AccountBlockMessageCopyWithImpl<_AccountBlockMessage>(
+  _$$_AccountBlockMessageCopyWith<_$_AccountBlockMessage> get copyWith =>
+      __$$_AccountBlockMessageCopyWithImpl<_$_AccountBlockMessage>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_AccountBlockMessageToJson(this);
+    return _$$_AccountBlockMessageToJson(
+      this,
+    );
   }
 }
 
 abstract class _AccountBlockMessage implements AccountBlockMessage {
   const factory _AccountBlockMessage(
-      {required Hash hash, required bool removed}) = _$_AccountBlockMessage;
+      {required final Hash hash,
+      required final bool removed}) = _$_AccountBlockMessage;
 
   factory _AccountBlockMessage.fromJson(Map<String, dynamic> json) =
       _$_AccountBlockMessage.fromJson;
@@ -582,7 +536,7 @@ abstract class _AccountBlockMessage implements AccountBlockMessage {
   bool get removed;
   @override
   @JsonKey(ignore: true)
-  _$AccountBlockMessageCopyWith<_AccountBlockMessage> get copyWith =>
+  _$$_AccountBlockMessageCopyWith<_$_AccountBlockMessage> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -590,27 +544,6 @@ AccountBlockWithHeightMessage _$AccountBlockWithHeightMessageFromJson(
     Map<String, dynamic> json) {
   return _AccountBlockWithHeightMessage.fromJson(json);
 }
-
-/// @nodoc
-class _$AccountBlockWithHeightMessageTearOff {
-  const _$AccountBlockWithHeightMessageTearOff();
-
-  _AccountBlockWithHeightMessage call(
-      {required Hash hash, required BigInt height, required bool removed}) {
-    return _AccountBlockWithHeightMessage(
-      hash: hash,
-      height: height,
-      removed: removed,
-    );
-  }
-
-  AccountBlockWithHeightMessage fromJson(Map<String, Object?> json) {
-    return AccountBlockWithHeightMessage.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $AccountBlockWithHeightMessage = _$AccountBlockWithHeightMessageTearOff();
 
 /// @nodoc
 mixin _$AccountBlockWithHeightMessage {
@@ -675,12 +608,12 @@ class _$AccountBlockWithHeightMessageCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$AccountBlockWithHeightMessageCopyWith<$Res>
+abstract class _$$_AccountBlockWithHeightMessageCopyWith<$Res>
     implements $AccountBlockWithHeightMessageCopyWith<$Res> {
-  factory _$AccountBlockWithHeightMessageCopyWith(
-          _AccountBlockWithHeightMessage value,
-          $Res Function(_AccountBlockWithHeightMessage) then) =
-      __$AccountBlockWithHeightMessageCopyWithImpl<$Res>;
+  factory _$$_AccountBlockWithHeightMessageCopyWith(
+          _$_AccountBlockWithHeightMessage value,
+          $Res Function(_$_AccountBlockWithHeightMessage) then) =
+      __$$_AccountBlockWithHeightMessageCopyWithImpl<$Res>;
   @override
   $Res call({Hash hash, BigInt height, bool removed});
 
@@ -689,17 +622,17 @@ abstract class _$AccountBlockWithHeightMessageCopyWith<$Res>
 }
 
 /// @nodoc
-class __$AccountBlockWithHeightMessageCopyWithImpl<$Res>
+class __$$_AccountBlockWithHeightMessageCopyWithImpl<$Res>
     extends _$AccountBlockWithHeightMessageCopyWithImpl<$Res>
-    implements _$AccountBlockWithHeightMessageCopyWith<$Res> {
-  __$AccountBlockWithHeightMessageCopyWithImpl(
-      _AccountBlockWithHeightMessage _value,
-      $Res Function(_AccountBlockWithHeightMessage) _then)
-      : super(_value, (v) => _then(v as _AccountBlockWithHeightMessage));
+    implements _$$_AccountBlockWithHeightMessageCopyWith<$Res> {
+  __$$_AccountBlockWithHeightMessageCopyWithImpl(
+      _$_AccountBlockWithHeightMessage _value,
+      $Res Function(_$_AccountBlockWithHeightMessage) _then)
+      : super(_value, (v) => _then(v as _$_AccountBlockWithHeightMessage));
 
   @override
-  _AccountBlockWithHeightMessage get _value =>
-      super._value as _AccountBlockWithHeightMessage;
+  _$_AccountBlockWithHeightMessage get _value =>
+      super._value as _$_AccountBlockWithHeightMessage;
 
   @override
   $Res call({
@@ -707,7 +640,7 @@ class __$AccountBlockWithHeightMessageCopyWithImpl<$Res>
     Object? height = freezed,
     Object? removed = freezed,
   }) {
-    return _then(_AccountBlockWithHeightMessage(
+    return _then(_$_AccountBlockWithHeightMessage(
       hash: hash == freezed
           ? _value.hash
           : hash // ignore: cast_nullable_to_non_nullable
@@ -751,12 +684,13 @@ class _$_AccountBlockWithHeightMessage
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _AccountBlockWithHeightMessage &&
+            other is _$_AccountBlockWithHeightMessage &&
             const DeepCollectionEquality().equals(other.hash, hash) &&
             const DeepCollectionEquality().equals(other.height, height) &&
             const DeepCollectionEquality().equals(other.removed, removed));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -766,22 +700,24 @@ class _$_AccountBlockWithHeightMessage
 
   @JsonKey(ignore: true)
   @override
-  _$AccountBlockWithHeightMessageCopyWith<_AccountBlockWithHeightMessage>
-      get copyWith => __$AccountBlockWithHeightMessageCopyWithImpl<
-          _AccountBlockWithHeightMessage>(this, _$identity);
+  _$$_AccountBlockWithHeightMessageCopyWith<_$_AccountBlockWithHeightMessage>
+      get copyWith => __$$_AccountBlockWithHeightMessageCopyWithImpl<
+          _$_AccountBlockWithHeightMessage>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_AccountBlockWithHeightMessageToJson(this);
+    return _$$_AccountBlockWithHeightMessageToJson(
+      this,
+    );
   }
 }
 
 abstract class _AccountBlockWithHeightMessage
     implements AccountBlockWithHeightMessage {
   const factory _AccountBlockWithHeightMessage(
-      {required Hash hash,
-      required BigInt height,
-      required bool removed}) = _$_AccountBlockWithHeightMessage;
+      {required final Hash hash,
+      required final BigInt height,
+      required final bool removed}) = _$_AccountBlockWithHeightMessage;
 
   factory _AccountBlockWithHeightMessage.fromJson(Map<String, dynamic> json) =
       _$_AccountBlockWithHeightMessage.fromJson;
@@ -794,7 +730,7 @@ abstract class _AccountBlockWithHeightMessage
   bool get removed;
   @override
   @JsonKey(ignore: true)
-  _$AccountBlockWithHeightMessageCopyWith<_AccountBlockWithHeightMessage>
+  _$$_AccountBlockWithHeightMessageCopyWith<_$_AccountBlockWithHeightMessage>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -802,27 +738,6 @@ UnreceivedBlockMessage _$UnreceivedBlockMessageFromJson(
     Map<String, dynamic> json) {
   return _UnreceivedBlockMessage.fromJson(json);
 }
-
-/// @nodoc
-class _$UnreceivedBlockMessageTearOff {
-  const _$UnreceivedBlockMessageTearOff();
-
-  _UnreceivedBlockMessage call(
-      {required Hash hash, required bool received, required bool removed}) {
-    return _UnreceivedBlockMessage(
-      hash: hash,
-      received: received,
-      removed: removed,
-    );
-  }
-
-  UnreceivedBlockMessage fromJson(Map<String, Object?> json) {
-    return UnreceivedBlockMessage.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $UnreceivedBlockMessage = _$UnreceivedBlockMessageTearOff();
 
 /// @nodoc
 mixin _$UnreceivedBlockMessage {
@@ -886,11 +801,11 @@ class _$UnreceivedBlockMessageCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$UnreceivedBlockMessageCopyWith<$Res>
+abstract class _$$_UnreceivedBlockMessageCopyWith<$Res>
     implements $UnreceivedBlockMessageCopyWith<$Res> {
-  factory _$UnreceivedBlockMessageCopyWith(_UnreceivedBlockMessage value,
-          $Res Function(_UnreceivedBlockMessage) then) =
-      __$UnreceivedBlockMessageCopyWithImpl<$Res>;
+  factory _$$_UnreceivedBlockMessageCopyWith(_$_UnreceivedBlockMessage value,
+          $Res Function(_$_UnreceivedBlockMessage) then) =
+      __$$_UnreceivedBlockMessageCopyWithImpl<$Res>;
   @override
   $Res call({Hash hash, bool received, bool removed});
 
@@ -899,15 +814,16 @@ abstract class _$UnreceivedBlockMessageCopyWith<$Res>
 }
 
 /// @nodoc
-class __$UnreceivedBlockMessageCopyWithImpl<$Res>
+class __$$_UnreceivedBlockMessageCopyWithImpl<$Res>
     extends _$UnreceivedBlockMessageCopyWithImpl<$Res>
-    implements _$UnreceivedBlockMessageCopyWith<$Res> {
-  __$UnreceivedBlockMessageCopyWithImpl(_UnreceivedBlockMessage _value,
-      $Res Function(_UnreceivedBlockMessage) _then)
-      : super(_value, (v) => _then(v as _UnreceivedBlockMessage));
+    implements _$$_UnreceivedBlockMessageCopyWith<$Res> {
+  __$$_UnreceivedBlockMessageCopyWithImpl(_$_UnreceivedBlockMessage _value,
+      $Res Function(_$_UnreceivedBlockMessage) _then)
+      : super(_value, (v) => _then(v as _$_UnreceivedBlockMessage));
 
   @override
-  _UnreceivedBlockMessage get _value => super._value as _UnreceivedBlockMessage;
+  _$_UnreceivedBlockMessage get _value =>
+      super._value as _$_UnreceivedBlockMessage;
 
   @override
   $Res call({
@@ -915,7 +831,7 @@ class __$UnreceivedBlockMessageCopyWithImpl<$Res>
     Object? received = freezed,
     Object? removed = freezed,
   }) {
-    return _then(_UnreceivedBlockMessage(
+    return _then(_$_UnreceivedBlockMessage(
       hash: hash == freezed
           ? _value.hash
           : hash // ignore: cast_nullable_to_non_nullable
@@ -957,12 +873,13 @@ class _$_UnreceivedBlockMessage implements _UnreceivedBlockMessage {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _UnreceivedBlockMessage &&
+            other is _$_UnreceivedBlockMessage &&
             const DeepCollectionEquality().equals(other.hash, hash) &&
             const DeepCollectionEquality().equals(other.received, received) &&
             const DeepCollectionEquality().equals(other.removed, removed));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -972,21 +889,23 @@ class _$_UnreceivedBlockMessage implements _UnreceivedBlockMessage {
 
   @JsonKey(ignore: true)
   @override
-  _$UnreceivedBlockMessageCopyWith<_UnreceivedBlockMessage> get copyWith =>
-      __$UnreceivedBlockMessageCopyWithImpl<_UnreceivedBlockMessage>(
+  _$$_UnreceivedBlockMessageCopyWith<_$_UnreceivedBlockMessage> get copyWith =>
+      __$$_UnreceivedBlockMessageCopyWithImpl<_$_UnreceivedBlockMessage>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_UnreceivedBlockMessageToJson(this);
+    return _$$_UnreceivedBlockMessageToJson(
+      this,
+    );
   }
 }
 
 abstract class _UnreceivedBlockMessage implements UnreceivedBlockMessage {
   const factory _UnreceivedBlockMessage(
-      {required Hash hash,
-      required bool received,
-      required bool removed}) = _$_UnreceivedBlockMessage;
+      {required final Hash hash,
+      required final bool received,
+      required final bool removed}) = _$_UnreceivedBlockMessage;
 
   factory _UnreceivedBlockMessage.fromJson(Map<String, dynamic> json) =
       _$_UnreceivedBlockMessage.fromJson;
@@ -999,40 +918,13 @@ abstract class _UnreceivedBlockMessage implements UnreceivedBlockMessage {
   bool get removed;
   @override
   @JsonKey(ignore: true)
-  _$UnreceivedBlockMessageCopyWith<_UnreceivedBlockMessage> get copyWith =>
+  _$$_UnreceivedBlockMessageCopyWith<_$_UnreceivedBlockMessage> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 VmLogMessage _$VmLogMessageFromJson(Map<String, dynamic> json) {
   return _VmLogMessage.fromJson(json);
 }
-
-/// @nodoc
-class _$VmLogMessageTearOff {
-  const _$VmLogMessageTearOff();
-
-  _VmLogMessage call(
-      {required Hash accountBlockHash,
-      required BigInt accountBlockHeight,
-      required Address address,
-      @JsonKey(name: 'vmlog') required VmLog vmLog,
-      bool removed = false}) {
-    return _VmLogMessage(
-      accountBlockHash: accountBlockHash,
-      accountBlockHeight: accountBlockHeight,
-      address: address,
-      vmLog: vmLog,
-      removed: removed,
-    );
-  }
-
-  VmLogMessage fromJson(Map<String, Object?> json) {
-    return VmLogMessage.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $VmLogMessage = _$VmLogMessageTearOff();
 
 /// @nodoc
 mixin _$VmLogMessage {
@@ -1129,11 +1021,11 @@ class _$VmLogMessageCopyWithImpl<$Res> implements $VmLogMessageCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$VmLogMessageCopyWith<$Res>
+abstract class _$$_VmLogMessageCopyWith<$Res>
     implements $VmLogMessageCopyWith<$Res> {
-  factory _$VmLogMessageCopyWith(
-          _VmLogMessage value, $Res Function(_VmLogMessage) then) =
-      __$VmLogMessageCopyWithImpl<$Res>;
+  factory _$$_VmLogMessageCopyWith(
+          _$_VmLogMessage value, $Res Function(_$_VmLogMessage) then) =
+      __$$_VmLogMessageCopyWithImpl<$Res>;
   @override
   $Res call(
       {Hash accountBlockHash,
@@ -1151,14 +1043,15 @@ abstract class _$VmLogMessageCopyWith<$Res>
 }
 
 /// @nodoc
-class __$VmLogMessageCopyWithImpl<$Res> extends _$VmLogMessageCopyWithImpl<$Res>
-    implements _$VmLogMessageCopyWith<$Res> {
-  __$VmLogMessageCopyWithImpl(
-      _VmLogMessage _value, $Res Function(_VmLogMessage) _then)
-      : super(_value, (v) => _then(v as _VmLogMessage));
+class __$$_VmLogMessageCopyWithImpl<$Res>
+    extends _$VmLogMessageCopyWithImpl<$Res>
+    implements _$$_VmLogMessageCopyWith<$Res> {
+  __$$_VmLogMessageCopyWithImpl(
+      _$_VmLogMessage _value, $Res Function(_$_VmLogMessage) _then)
+      : super(_value, (v) => _then(v as _$_VmLogMessage));
 
   @override
-  _VmLogMessage get _value => super._value as _VmLogMessage;
+  _$_VmLogMessage get _value => super._value as _$_VmLogMessage;
 
   @override
   $Res call({
@@ -1168,7 +1061,7 @@ class __$VmLogMessageCopyWithImpl<$Res> extends _$VmLogMessageCopyWithImpl<$Res>
     Object? vmLog = freezed,
     Object? removed = freezed,
   }) {
-    return _then(_VmLogMessage(
+    return _then(_$_VmLogMessage(
       accountBlockHash: accountBlockHash == freezed
           ? _value.accountBlockHash
           : accountBlockHash // ignore: cast_nullable_to_non_nullable
@@ -1215,8 +1108,8 @@ class _$_VmLogMessage implements _VmLogMessage {
   @override
   @JsonKey(name: 'vmlog')
   final VmLog vmLog;
-  @JsonKey()
   @override
+  @JsonKey()
   final bool removed;
 
   @override
@@ -1228,7 +1121,7 @@ class _$_VmLogMessage implements _VmLogMessage {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _VmLogMessage &&
+            other is _$_VmLogMessage &&
             const DeepCollectionEquality()
                 .equals(other.accountBlockHash, accountBlockHash) &&
             const DeepCollectionEquality()
@@ -1238,6 +1131,7 @@ class _$_VmLogMessage implements _VmLogMessage {
             const DeepCollectionEquality().equals(other.removed, removed));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -1249,22 +1143,24 @@ class _$_VmLogMessage implements _VmLogMessage {
 
   @JsonKey(ignore: true)
   @override
-  _$VmLogMessageCopyWith<_VmLogMessage> get copyWith =>
-      __$VmLogMessageCopyWithImpl<_VmLogMessage>(this, _$identity);
+  _$$_VmLogMessageCopyWith<_$_VmLogMessage> get copyWith =>
+      __$$_VmLogMessageCopyWithImpl<_$_VmLogMessage>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_VmLogMessageToJson(this);
+    return _$$_VmLogMessageToJson(
+      this,
+    );
   }
 }
 
 abstract class _VmLogMessage implements VmLogMessage {
   const factory _VmLogMessage(
-      {required Hash accountBlockHash,
-      required BigInt accountBlockHeight,
-      required Address address,
-      @JsonKey(name: 'vmlog') required VmLog vmLog,
-      bool removed}) = _$_VmLogMessage;
+      {required final Hash accountBlockHash,
+      required final BigInt accountBlockHeight,
+      required final Address address,
+      @JsonKey(name: 'vmlog') required final VmLog vmLog,
+      final bool removed}) = _$_VmLogMessage;
 
   factory _VmLogMessage.fromJson(Map<String, dynamic> json) =
       _$_VmLogMessage.fromJson;
@@ -1282,6 +1178,6 @@ abstract class _VmLogMessage implements VmLogMessage {
   bool get removed;
   @override
   @JsonKey(ignore: true)
-  _$VmLogMessageCopyWith<_VmLogMessage> get copyWith =>
+  _$$_VmLogMessageCopyWith<_$_VmLogMessage> get copyWith =>
       throw _privateConstructorUsedError;
 }

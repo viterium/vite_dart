@@ -12,48 +12,11 @@ part of 'token_info.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 TokenInfo _$TokenInfoFromJson(Map<String, dynamic> json) {
   return _TokenInfo.fromJson(json);
 }
-
-/// @nodoc
-class _$TokenInfoTearOff {
-  const _$TokenInfoTearOff();
-
-  _TokenInfo call(
-      {@JsonKey(name: 'tokenId') required Token token,
-      required String tokenName,
-      required String tokenSymbol,
-      required int decimals,
-      required BigInt totalSupply,
-      required Address owner,
-      required bool isReIssuable,
-      required bool isOwnerBurnOnly,
-      required BigInt maxSupply,
-      required int index}) {
-    return _TokenInfo(
-      token: token,
-      tokenName: tokenName,
-      tokenSymbol: tokenSymbol,
-      decimals: decimals,
-      totalSupply: totalSupply,
-      owner: owner,
-      isReIssuable: isReIssuable,
-      isOwnerBurnOnly: isOwnerBurnOnly,
-      maxSupply: maxSupply,
-      index: index,
-    );
-  }
-
-  TokenInfo fromJson(Map<String, Object?> json) {
-    return TokenInfo.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $TokenInfo = _$TokenInfoTearOff();
 
 /// @nodoc
 mixin _$TokenInfo {
@@ -176,10 +139,10 @@ class _$TokenInfoCopyWithImpl<$Res> implements $TokenInfoCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$TokenInfoCopyWith<$Res> implements $TokenInfoCopyWith<$Res> {
-  factory _$TokenInfoCopyWith(
-          _TokenInfo value, $Res Function(_TokenInfo) then) =
-      __$TokenInfoCopyWithImpl<$Res>;
+abstract class _$$_TokenInfoCopyWith<$Res> implements $TokenInfoCopyWith<$Res> {
+  factory _$$_TokenInfoCopyWith(
+          _$_TokenInfo value, $Res Function(_$_TokenInfo) then) =
+      __$$_TokenInfoCopyWithImpl<$Res>;
   @override
   $Res call(
       {@JsonKey(name: 'tokenId') Token token,
@@ -200,13 +163,14 @@ abstract class _$TokenInfoCopyWith<$Res> implements $TokenInfoCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$TokenInfoCopyWithImpl<$Res> extends _$TokenInfoCopyWithImpl<$Res>
-    implements _$TokenInfoCopyWith<$Res> {
-  __$TokenInfoCopyWithImpl(_TokenInfo _value, $Res Function(_TokenInfo) _then)
-      : super(_value, (v) => _then(v as _TokenInfo));
+class __$$_TokenInfoCopyWithImpl<$Res> extends _$TokenInfoCopyWithImpl<$Res>
+    implements _$$_TokenInfoCopyWith<$Res> {
+  __$$_TokenInfoCopyWithImpl(
+      _$_TokenInfo _value, $Res Function(_$_TokenInfo) _then)
+      : super(_value, (v) => _then(v as _$_TokenInfo));
 
   @override
-  _TokenInfo get _value => super._value as _TokenInfo;
+  _$_TokenInfo get _value => super._value as _$_TokenInfo;
 
   @override
   $Res call({
@@ -221,7 +185,7 @@ class __$TokenInfoCopyWithImpl<$Res> extends _$TokenInfoCopyWithImpl<$Res>
     Object? maxSupply = freezed,
     Object? index = freezed,
   }) {
-    return _then(_TokenInfo(
+    return _then(_$_TokenInfo(
       token: token == freezed
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
@@ -316,7 +280,7 @@ class _$_TokenInfo extends _TokenInfo {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _TokenInfo &&
+            other is _$_TokenInfo &&
             const DeepCollectionEquality().equals(other.token, token) &&
             const DeepCollectionEquality().equals(other.tokenName, tokenName) &&
             const DeepCollectionEquality()
@@ -333,6 +297,7 @@ class _$_TokenInfo extends _TokenInfo {
             const DeepCollectionEquality().equals(other.index, index));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -349,27 +314,29 @@ class _$_TokenInfo extends _TokenInfo {
 
   @JsonKey(ignore: true)
   @override
-  _$TokenInfoCopyWith<_TokenInfo> get copyWith =>
-      __$TokenInfoCopyWithImpl<_TokenInfo>(this, _$identity);
+  _$$_TokenInfoCopyWith<_$_TokenInfo> get copyWith =>
+      __$$_TokenInfoCopyWithImpl<_$_TokenInfo>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TokenInfoToJson(this);
+    return _$$_TokenInfoToJson(
+      this,
+    );
   }
 }
 
 abstract class _TokenInfo extends TokenInfo {
   factory _TokenInfo(
-      {@JsonKey(name: 'tokenId') required Token token,
-      required String tokenName,
-      required String tokenSymbol,
-      required int decimals,
-      required BigInt totalSupply,
-      required Address owner,
-      required bool isReIssuable,
-      required bool isOwnerBurnOnly,
-      required BigInt maxSupply,
-      required int index}) = _$_TokenInfo;
+      {@JsonKey(name: 'tokenId') required final Token token,
+      required final String tokenName,
+      required final String tokenSymbol,
+      required final int decimals,
+      required final BigInt totalSupply,
+      required final Address owner,
+      required final bool isReIssuable,
+      required final bool isOwnerBurnOnly,
+      required final BigInt maxSupply,
+      required final int index}) = _$_TokenInfo;
   _TokenInfo._() : super._();
 
   factory _TokenInfo.fromJson(Map<String, dynamic> json) =
@@ -398,6 +365,6 @@ abstract class _TokenInfo extends TokenInfo {
   int get index;
   @override
   @JsonKey(ignore: true)
-  _$TokenInfoCopyWith<_TokenInfo> get copyWith =>
+  _$$_TokenInfoCopyWith<_$_TokenInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }

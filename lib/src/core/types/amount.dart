@@ -6,6 +6,7 @@ import 'token.dart';
 import 'token_info.dart';
 
 part 'amount.freezed.dart';
+part 'amount.g.dart';
 
 @freezed
 class Amount with _$Amount {
@@ -19,7 +20,8 @@ class Amount with _$Amount {
       Amount(raw: raw, tokenInfo: tokenInfo);
 
   factory Amount.value(Decimal value, {required TokenInfo tokenInfo}) => Amount(
-        raw: (value * Decimal.ten.pow(tokenInfo.decimals)).toBigInt(),
+        raw: (value * BigInt.from(10).pow(tokenInfo.decimals).toDecimal())
+            .toBigInt(),
         tokenInfo: tokenInfo,
       );
 
@@ -29,6 +31,9 @@ class Amount with _$Amount {
   String get symbolLabel => tokenInfo.symbolLabel;
   int get decimals => tokenInfo.decimals;
 
-  late final value = (raw.toDecimal() / Decimal.ten.pow(tokenInfo.decimals))
+  late final value =
+      (raw.toDecimal() / BigInt.from(10).pow(tokenInfo.decimals).toDecimal())
       .toDecimal(scaleOnInfinitePrecision: tokenInfo.decimals);
+
+  factory Amount.fromJson(Map<String, dynamic> json) => _$AmountFromJson(json);
 }

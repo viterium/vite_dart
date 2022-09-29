@@ -12,30 +12,11 @@ part of 'hash_height.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 HashHeight _$HashHeightFromJson(Map<String, dynamic> json) {
   return _HashHeight.fromJson(json);
 }
-
-/// @nodoc
-class _$HashHeightTearOff {
-  const _$HashHeightTearOff();
-
-  _HashHeight call({required Hash hash, required int height}) {
-    return _HashHeight(
-      hash: hash,
-      height: height,
-    );
-  }
-
-  HashHeight fromJson(Map<String, Object?> json) {
-    return HashHeight.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $HashHeight = _$HashHeightTearOff();
 
 /// @nodoc
 mixin _$HashHeight {
@@ -92,10 +73,11 @@ class _$HashHeightCopyWithImpl<$Res> implements $HashHeightCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$HashHeightCopyWith<$Res> implements $HashHeightCopyWith<$Res> {
-  factory _$HashHeightCopyWith(
-          _HashHeight value, $Res Function(_HashHeight) then) =
-      __$HashHeightCopyWithImpl<$Res>;
+abstract class _$$_HashHeightCopyWith<$Res>
+    implements $HashHeightCopyWith<$Res> {
+  factory _$$_HashHeightCopyWith(
+          _$_HashHeight value, $Res Function(_$_HashHeight) then) =
+      __$$_HashHeightCopyWithImpl<$Res>;
   @override
   $Res call({Hash hash, int height});
 
@@ -104,21 +86,21 @@ abstract class _$HashHeightCopyWith<$Res> implements $HashHeightCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$HashHeightCopyWithImpl<$Res> extends _$HashHeightCopyWithImpl<$Res>
-    implements _$HashHeightCopyWith<$Res> {
-  __$HashHeightCopyWithImpl(
-      _HashHeight _value, $Res Function(_HashHeight) _then)
-      : super(_value, (v) => _then(v as _HashHeight));
+class __$$_HashHeightCopyWithImpl<$Res> extends _$HashHeightCopyWithImpl<$Res>
+    implements _$$_HashHeightCopyWith<$Res> {
+  __$$_HashHeightCopyWithImpl(
+      _$_HashHeight _value, $Res Function(_$_HashHeight) _then)
+      : super(_value, (v) => _then(v as _$_HashHeight));
 
   @override
-  _HashHeight get _value => super._value as _HashHeight;
+  _$_HashHeight get _value => super._value as _$_HashHeight;
 
   @override
   $Res call({
     Object? hash = freezed,
     Object? height = freezed,
   }) {
-    return _then(_HashHeight(
+    return _then(_$_HashHeight(
       hash: hash == freezed
           ? _value.hash
           : hash // ignore: cast_nullable_to_non_nullable
@@ -153,11 +135,12 @@ class _$_HashHeight implements _HashHeight {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _HashHeight &&
+            other is _$_HashHeight &&
             const DeepCollectionEquality().equals(other.hash, hash) &&
             const DeepCollectionEquality().equals(other.height, height));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -166,18 +149,20 @@ class _$_HashHeight implements _HashHeight {
 
   @JsonKey(ignore: true)
   @override
-  _$HashHeightCopyWith<_HashHeight> get copyWith =>
-      __$HashHeightCopyWithImpl<_HashHeight>(this, _$identity);
+  _$$_HashHeightCopyWith<_$_HashHeight> get copyWith =>
+      __$$_HashHeightCopyWithImpl<_$_HashHeight>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_HashHeightToJson(this);
+    return _$$_HashHeightToJson(
+      this,
+    );
   }
 }
 
 abstract class _HashHeight implements HashHeight {
-  const factory _HashHeight({required Hash hash, required int height}) =
-      _$_HashHeight;
+  const factory _HashHeight(
+      {required final Hash hash, required final int height}) = _$_HashHeight;
 
   factory _HashHeight.fromJson(Map<String, dynamic> json) =
       _$_HashHeight.fromJson;
@@ -188,6 +173,6 @@ abstract class _HashHeight implements HashHeight {
   int get height;
   @override
   @JsonKey(ignore: true)
-  _$HashHeightCopyWith<_HashHeight> get copyWith =>
+  _$$_HashHeightCopyWith<_$_HashHeight> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -12,34 +12,7 @@ part of 'contract.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$IssueTokenParamsTearOff {
-  const _$IssueTokenParamsTearOff();
-
-  _IssueTokenParams call(
-      {bool isReIssuable = false,
-      required String tokenName,
-      required String tokenSymbol,
-      required BigInt totalSupply,
-      required int decimals,
-      required BigInt maxSupply,
-      dynamic isOwnerBurnOnly = false}) {
-    return _IssueTokenParams(
-      isReIssuable: isReIssuable,
-      tokenName: tokenName,
-      tokenSymbol: tokenSymbol,
-      totalSupply: totalSupply,
-      decimals: decimals,
-      maxSupply: maxSupply,
-      isOwnerBurnOnly: isOwnerBurnOnly,
-    );
-  }
-}
-
-/// @nodoc
-const $IssueTokenParams = _$IssueTokenParamsTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$IssueTokenParams {
@@ -124,11 +97,11 @@ class _$IssueTokenParamsCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$IssueTokenParamsCopyWith<$Res>
+abstract class _$$_IssueTokenParamsCopyWith<$Res>
     implements $IssueTokenParamsCopyWith<$Res> {
-  factory _$IssueTokenParamsCopyWith(
-          _IssueTokenParams value, $Res Function(_IssueTokenParams) then) =
-      __$IssueTokenParamsCopyWithImpl<$Res>;
+  factory _$$_IssueTokenParamsCopyWith(
+          _$_IssueTokenParams value, $Res Function(_$_IssueTokenParams) then) =
+      __$$_IssueTokenParamsCopyWithImpl<$Res>;
   @override
   $Res call(
       {bool isReIssuable,
@@ -141,15 +114,15 @@ abstract class _$IssueTokenParamsCopyWith<$Res>
 }
 
 /// @nodoc
-class __$IssueTokenParamsCopyWithImpl<$Res>
+class __$$_IssueTokenParamsCopyWithImpl<$Res>
     extends _$IssueTokenParamsCopyWithImpl<$Res>
-    implements _$IssueTokenParamsCopyWith<$Res> {
-  __$IssueTokenParamsCopyWithImpl(
-      _IssueTokenParams _value, $Res Function(_IssueTokenParams) _then)
-      : super(_value, (v) => _then(v as _IssueTokenParams));
+    implements _$$_IssueTokenParamsCopyWith<$Res> {
+  __$$_IssueTokenParamsCopyWithImpl(
+      _$_IssueTokenParams _value, $Res Function(_$_IssueTokenParams) _then)
+      : super(_value, (v) => _then(v as _$_IssueTokenParams));
 
   @override
-  _IssueTokenParams get _value => super._value as _IssueTokenParams;
+  _$_IssueTokenParams get _value => super._value as _$_IssueTokenParams;
 
   @override
   $Res call({
@@ -161,7 +134,7 @@ class __$IssueTokenParamsCopyWithImpl<$Res>
     Object? maxSupply = freezed,
     Object? isOwnerBurnOnly = freezed,
   }) {
-    return _then(_IssueTokenParams(
+    return _then(_$_IssueTokenParams(
       isReIssuable: isReIssuable == freezed
           ? _value.isReIssuable
           : isReIssuable // ignore: cast_nullable_to_non_nullable
@@ -204,8 +177,8 @@ class _$_IssueTokenParams implements _IssueTokenParams {
       required this.maxSupply,
       this.isOwnerBurnOnly = false});
 
-  @JsonKey()
   @override
+  @JsonKey()
   final bool isReIssuable;
   @override
   final String tokenName;
@@ -217,8 +190,8 @@ class _$_IssueTokenParams implements _IssueTokenParams {
   final int decimals;
   @override
   final BigInt maxSupply;
-  @JsonKey()
   @override
+  @JsonKey()
   final dynamic isOwnerBurnOnly;
 
   @override
@@ -230,7 +203,7 @@ class _$_IssueTokenParams implements _IssueTokenParams {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _IssueTokenParams &&
+            other is _$_IssueTokenParams &&
             const DeepCollectionEquality()
                 .equals(other.isReIssuable, isReIssuable) &&
             const DeepCollectionEquality().equals(other.tokenName, tokenName) &&
@@ -257,19 +230,19 @@ class _$_IssueTokenParams implements _IssueTokenParams {
 
   @JsonKey(ignore: true)
   @override
-  _$IssueTokenParamsCopyWith<_IssueTokenParams> get copyWith =>
-      __$IssueTokenParamsCopyWithImpl<_IssueTokenParams>(this, _$identity);
+  _$$_IssueTokenParamsCopyWith<_$_IssueTokenParams> get copyWith =>
+      __$$_IssueTokenParamsCopyWithImpl<_$_IssueTokenParams>(this, _$identity);
 }
 
 abstract class _IssueTokenParams implements IssueTokenParams {
   factory _IssueTokenParams(
-      {bool isReIssuable,
-      required String tokenName,
-      required String tokenSymbol,
-      required BigInt totalSupply,
-      required int decimals,
-      required BigInt maxSupply,
-      dynamic isOwnerBurnOnly}) = _$_IssueTokenParams;
+      {final bool isReIssuable,
+      required final String tokenName,
+      required final String tokenSymbol,
+      required final BigInt totalSupply,
+      required final int decimals,
+      required final BigInt maxSupply,
+      final dynamic isOwnerBurnOnly}) = _$_IssueTokenParams;
 
   @override
   bool get isReIssuable;
@@ -287,28 +260,9 @@ abstract class _IssueTokenParams implements IssueTokenParams {
   dynamic get isOwnerBurnOnly;
   @override
   @JsonKey(ignore: true)
-  _$IssueTokenParamsCopyWith<_IssueTokenParams> get copyWith =>
+  _$$_IssueTokenParamsCopyWith<_$_IssueTokenParams> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$CallOffChainMethodParamsTearOff {
-  const _$CallOffChainMethodParamsTearOff();
-
-  _CallOffChainMethodParams call(
-      {required String address,
-      required String offChainCode,
-      required String data}) {
-    return _CallOffChainMethodParams(
-      address: address,
-      offChainCode: offChainCode,
-      data: data,
-    );
-  }
-}
-
-/// @nodoc
-const $CallOffChainMethodParams = _$CallOffChainMethodParamsTearOff();
 
 /// @nodoc
 mixin _$CallOffChainMethodParams {
@@ -362,26 +316,27 @@ class _$CallOffChainMethodParamsCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$CallOffChainMethodParamsCopyWith<$Res>
+abstract class _$$_CallOffChainMethodParamsCopyWith<$Res>
     implements $CallOffChainMethodParamsCopyWith<$Res> {
-  factory _$CallOffChainMethodParamsCopyWith(_CallOffChainMethodParams value,
-          $Res Function(_CallOffChainMethodParams) then) =
-      __$CallOffChainMethodParamsCopyWithImpl<$Res>;
+  factory _$$_CallOffChainMethodParamsCopyWith(
+          _$_CallOffChainMethodParams value,
+          $Res Function(_$_CallOffChainMethodParams) then) =
+      __$$_CallOffChainMethodParamsCopyWithImpl<$Res>;
   @override
   $Res call({String address, String offChainCode, String data});
 }
 
 /// @nodoc
-class __$CallOffChainMethodParamsCopyWithImpl<$Res>
+class __$$_CallOffChainMethodParamsCopyWithImpl<$Res>
     extends _$CallOffChainMethodParamsCopyWithImpl<$Res>
-    implements _$CallOffChainMethodParamsCopyWith<$Res> {
-  __$CallOffChainMethodParamsCopyWithImpl(_CallOffChainMethodParams _value,
-      $Res Function(_CallOffChainMethodParams) _then)
-      : super(_value, (v) => _then(v as _CallOffChainMethodParams));
+    implements _$$_CallOffChainMethodParamsCopyWith<$Res> {
+  __$$_CallOffChainMethodParamsCopyWithImpl(_$_CallOffChainMethodParams _value,
+      $Res Function(_$_CallOffChainMethodParams) _then)
+      : super(_value, (v) => _then(v as _$_CallOffChainMethodParams));
 
   @override
-  _CallOffChainMethodParams get _value =>
-      super._value as _CallOffChainMethodParams;
+  _$_CallOffChainMethodParams get _value =>
+      super._value as _$_CallOffChainMethodParams;
 
   @override
   $Res call({
@@ -389,7 +344,7 @@ class __$CallOffChainMethodParamsCopyWithImpl<$Res>
     Object? offChainCode = freezed,
     Object? data = freezed,
   }) {
-    return _then(_CallOffChainMethodParams(
+    return _then(_$_CallOffChainMethodParams(
       address: address == freezed
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
@@ -428,7 +383,7 @@ class _$_CallOffChainMethodParams implements _CallOffChainMethodParams {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _CallOffChainMethodParams &&
+            other is _$_CallOffChainMethodParams &&
             const DeepCollectionEquality().equals(other.address, address) &&
             const DeepCollectionEquality()
                 .equals(other.offChainCode, offChainCode) &&
@@ -444,16 +399,16 @@ class _$_CallOffChainMethodParams implements _CallOffChainMethodParams {
 
   @JsonKey(ignore: true)
   @override
-  _$CallOffChainMethodParamsCopyWith<_CallOffChainMethodParams> get copyWith =>
-      __$CallOffChainMethodParamsCopyWithImpl<_CallOffChainMethodParams>(
-          this, _$identity);
+  _$$_CallOffChainMethodParamsCopyWith<_$_CallOffChainMethodParams>
+      get copyWith => __$$_CallOffChainMethodParamsCopyWithImpl<
+          _$_CallOffChainMethodParams>(this, _$identity);
 }
 
 abstract class _CallOffChainMethodParams implements CallOffChainMethodParams {
   const factory _CallOffChainMethodParams(
-      {required String address,
-      required String offChainCode,
-      required String data}) = _$_CallOffChainMethodParams;
+      {required final String address,
+      required final String offChainCode,
+      required final String data}) = _$_CallOffChainMethodParams;
 
   @override
   String get address;
@@ -463,23 +418,9 @@ abstract class _CallOffChainMethodParams implements CallOffChainMethodParams {
   String get data;
   @override
   @JsonKey(ignore: true)
-  _$CallOffChainMethodParamsCopyWith<_CallOffChainMethodParams> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_CallOffChainMethodParamsCopyWith<_$_CallOffChainMethodParams>
+      get copyWith => throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$CallOffChainMethodResultTearOff {
-  const _$CallOffChainMethodResultTearOff();
-
-  _CallOffChainMethodResult call({required Uint8List data}) {
-    return _CallOffChainMethodResult(
-      data: data,
-    );
-  }
-}
-
-/// @nodoc
-const $CallOffChainMethodResult = _$CallOffChainMethodResultTearOff();
 
 /// @nodoc
 mixin _$CallOffChainMethodResult {
@@ -521,32 +462,33 @@ class _$CallOffChainMethodResultCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$CallOffChainMethodResultCopyWith<$Res>
+abstract class _$$_CallOffChainMethodResultCopyWith<$Res>
     implements $CallOffChainMethodResultCopyWith<$Res> {
-  factory _$CallOffChainMethodResultCopyWith(_CallOffChainMethodResult value,
-          $Res Function(_CallOffChainMethodResult) then) =
-      __$CallOffChainMethodResultCopyWithImpl<$Res>;
+  factory _$$_CallOffChainMethodResultCopyWith(
+          _$_CallOffChainMethodResult value,
+          $Res Function(_$_CallOffChainMethodResult) then) =
+      __$$_CallOffChainMethodResultCopyWithImpl<$Res>;
   @override
   $Res call({Uint8List data});
 }
 
 /// @nodoc
-class __$CallOffChainMethodResultCopyWithImpl<$Res>
+class __$$_CallOffChainMethodResultCopyWithImpl<$Res>
     extends _$CallOffChainMethodResultCopyWithImpl<$Res>
-    implements _$CallOffChainMethodResultCopyWith<$Res> {
-  __$CallOffChainMethodResultCopyWithImpl(_CallOffChainMethodResult _value,
-      $Res Function(_CallOffChainMethodResult) _then)
-      : super(_value, (v) => _then(v as _CallOffChainMethodResult));
+    implements _$$_CallOffChainMethodResultCopyWith<$Res> {
+  __$$_CallOffChainMethodResultCopyWithImpl(_$_CallOffChainMethodResult _value,
+      $Res Function(_$_CallOffChainMethodResult) _then)
+      : super(_value, (v) => _then(v as _$_CallOffChainMethodResult));
 
   @override
-  _CallOffChainMethodResult get _value =>
-      super._value as _CallOffChainMethodResult;
+  _$_CallOffChainMethodResult get _value =>
+      super._value as _$_CallOffChainMethodResult;
 
   @override
   $Res call({
     Object? data = freezed,
   }) {
-    return _then(_CallOffChainMethodResult(
+    return _then(_$_CallOffChainMethodResult(
       data: data == freezed
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -572,7 +514,7 @@ class _$_CallOffChainMethodResult implements _CallOffChainMethodResult {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _CallOffChainMethodResult &&
+            other is _$_CallOffChainMethodResult &&
             const DeepCollectionEquality().equals(other.data, data));
   }
 
@@ -582,19 +524,19 @@ class _$_CallOffChainMethodResult implements _CallOffChainMethodResult {
 
   @JsonKey(ignore: true)
   @override
-  _$CallOffChainMethodResultCopyWith<_CallOffChainMethodResult> get copyWith =>
-      __$CallOffChainMethodResultCopyWithImpl<_CallOffChainMethodResult>(
-          this, _$identity);
+  _$$_CallOffChainMethodResultCopyWith<_$_CallOffChainMethodResult>
+      get copyWith => __$$_CallOffChainMethodResultCopyWithImpl<
+          _$_CallOffChainMethodResult>(this, _$identity);
 }
 
 abstract class _CallOffChainMethodResult implements CallOffChainMethodResult {
-  const factory _CallOffChainMethodResult({required Uint8List data}) =
+  const factory _CallOffChainMethodResult({required final Uint8List data}) =
       _$_CallOffChainMethodResult;
 
   @override
   Uint8List get data;
   @override
   @JsonKey(ignore: true)
-  _$CallOffChainMethodResultCopyWith<_CallOffChainMethodResult> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_CallOffChainMethodResultCopyWith<_$_CallOffChainMethodResult>
+      get copyWith => throw _privateConstructorUsedError;
 }

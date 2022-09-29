@@ -12,48 +12,11 @@ part of 'snapshot_block.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 SnapshotBlock _$SnapshotBlockFromJson(Map<String, dynamic> json) {
   return _SnapshotBlock.fromJson(json);
 }
-
-/// @nodoc
-class _$SnapshotBlockTearOff {
-  const _$SnapshotBlockTearOff();
-
-  _SnapshotBlock call(
-      {required Address producer,
-      required Hash hash,
-      required Hash previousHash,
-      required int height,
-      @NullableUint8ListBase64Converter() Uint8List? publicKey,
-      @NullableUint8ListBase64Converter() Uint8List? signature,
-      required int timestamp,
-      required num seed,
-      Hash? nextSeedHash,
-      Map<String, HashHeight> snapshotData = const {}}) {
-    return _SnapshotBlock(
-      producer: producer,
-      hash: hash,
-      previousHash: previousHash,
-      height: height,
-      publicKey: publicKey,
-      signature: signature,
-      timestamp: timestamp,
-      seed: seed,
-      nextSeedHash: nextSeedHash,
-      snapshotData: snapshotData,
-    );
-  }
-
-  SnapshotBlock fromJson(Map<String, Object?> json) {
-    return SnapshotBlock.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $SnapshotBlock = _$SnapshotBlockTearOff();
 
 /// @nodoc
 mixin _$SnapshotBlock {
@@ -200,11 +163,11 @@ class _$SnapshotBlockCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$SnapshotBlockCopyWith<$Res>
+abstract class _$$_SnapshotBlockCopyWith<$Res>
     implements $SnapshotBlockCopyWith<$Res> {
-  factory _$SnapshotBlockCopyWith(
-          _SnapshotBlock value, $Res Function(_SnapshotBlock) then) =
-      __$SnapshotBlockCopyWithImpl<$Res>;
+  factory _$$_SnapshotBlockCopyWith(
+          _$_SnapshotBlock value, $Res Function(_$_SnapshotBlock) then) =
+      __$$_SnapshotBlockCopyWithImpl<$Res>;
   @override
   $Res call(
       {Address producer,
@@ -229,15 +192,15 @@ abstract class _$SnapshotBlockCopyWith<$Res>
 }
 
 /// @nodoc
-class __$SnapshotBlockCopyWithImpl<$Res>
+class __$$_SnapshotBlockCopyWithImpl<$Res>
     extends _$SnapshotBlockCopyWithImpl<$Res>
-    implements _$SnapshotBlockCopyWith<$Res> {
-  __$SnapshotBlockCopyWithImpl(
-      _SnapshotBlock _value, $Res Function(_SnapshotBlock) _then)
-      : super(_value, (v) => _then(v as _SnapshotBlock));
+    implements _$$_SnapshotBlockCopyWith<$Res> {
+  __$$_SnapshotBlockCopyWithImpl(
+      _$_SnapshotBlock _value, $Res Function(_$_SnapshotBlock) _then)
+      : super(_value, (v) => _then(v as _$_SnapshotBlock));
 
   @override
-  _SnapshotBlock get _value => super._value as _SnapshotBlock;
+  _$_SnapshotBlock get _value => super._value as _$_SnapshotBlock;
 
   @override
   $Res call({
@@ -252,7 +215,7 @@ class __$SnapshotBlockCopyWithImpl<$Res>
     Object? nextSeedHash = freezed,
     Object? snapshotData = freezed,
   }) {
-    return _then(_SnapshotBlock(
+    return _then(_$_SnapshotBlock(
       producer: producer == freezed
           ? _value.producer
           : producer // ignore: cast_nullable_to_non_nullable
@@ -290,7 +253,7 @@ class __$SnapshotBlockCopyWithImpl<$Res>
           : nextSeedHash // ignore: cast_nullable_to_non_nullable
               as Hash?,
       snapshotData: snapshotData == freezed
-          ? _value.snapshotData
+          ? _value._snapshotData
           : snapshotData // ignore: cast_nullable_to_non_nullable
               as Map<String, HashHeight>,
     ));
@@ -310,7 +273,8 @@ class _$_SnapshotBlock implements _SnapshotBlock {
       required this.timestamp,
       required this.seed,
       this.nextSeedHash,
-      this.snapshotData = const {}});
+      final Map<String, HashHeight> snapshotData = const {}})
+      : _snapshotData = snapshotData;
 
   factory _$_SnapshotBlock.fromJson(Map<String, dynamic> json) =>
       _$$_SnapshotBlockFromJson(json);
@@ -335,9 +299,13 @@ class _$_SnapshotBlock implements _SnapshotBlock {
   final num seed;
   @override
   final Hash? nextSeedHash;
-  @JsonKey()
+  final Map<String, HashHeight> _snapshotData;
   @override
-  final Map<String, HashHeight> snapshotData;
+  @JsonKey()
+  Map<String, HashHeight> get snapshotData {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_snapshotData);
+  }
 
   @override
   String toString() {
@@ -348,7 +316,7 @@ class _$_SnapshotBlock implements _SnapshotBlock {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _SnapshotBlock &&
+            other is _$_SnapshotBlock &&
             const DeepCollectionEquality().equals(other.producer, producer) &&
             const DeepCollectionEquality().equals(other.hash, hash) &&
             const DeepCollectionEquality()
@@ -361,9 +329,10 @@ class _$_SnapshotBlock implements _SnapshotBlock {
             const DeepCollectionEquality()
                 .equals(other.nextSeedHash, nextSeedHash) &&
             const DeepCollectionEquality()
-                .equals(other.snapshotData, snapshotData));
+                .equals(other._snapshotData, _snapshotData));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -376,31 +345,33 @@ class _$_SnapshotBlock implements _SnapshotBlock {
       const DeepCollectionEquality().hash(timestamp),
       const DeepCollectionEquality().hash(seed),
       const DeepCollectionEquality().hash(nextSeedHash),
-      const DeepCollectionEquality().hash(snapshotData));
+      const DeepCollectionEquality().hash(_snapshotData));
 
   @JsonKey(ignore: true)
   @override
-  _$SnapshotBlockCopyWith<_SnapshotBlock> get copyWith =>
-      __$SnapshotBlockCopyWithImpl<_SnapshotBlock>(this, _$identity);
+  _$$_SnapshotBlockCopyWith<_$_SnapshotBlock> get copyWith =>
+      __$$_SnapshotBlockCopyWithImpl<_$_SnapshotBlock>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SnapshotBlockToJson(this);
+    return _$$_SnapshotBlockToJson(
+      this,
+    );
   }
 }
 
 abstract class _SnapshotBlock implements SnapshotBlock {
   const factory _SnapshotBlock(
-      {required Address producer,
-      required Hash hash,
-      required Hash previousHash,
-      required int height,
-      @NullableUint8ListBase64Converter() Uint8List? publicKey,
-      @NullableUint8ListBase64Converter() Uint8List? signature,
-      required int timestamp,
-      required num seed,
-      Hash? nextSeedHash,
-      Map<String, HashHeight> snapshotData}) = _$_SnapshotBlock;
+      {required final Address producer,
+      required final Hash hash,
+      required final Hash previousHash,
+      required final int height,
+      @NullableUint8ListBase64Converter() final Uint8List? publicKey,
+      @NullableUint8ListBase64Converter() final Uint8List? signature,
+      required final int timestamp,
+      required final num seed,
+      final Hash? nextSeedHash,
+      final Map<String, HashHeight> snapshotData}) = _$_SnapshotBlock;
 
   factory _SnapshotBlock.fromJson(Map<String, dynamic> json) =
       _$_SnapshotBlock.fromJson;
@@ -429,6 +400,6 @@ abstract class _SnapshotBlock implements SnapshotBlock {
   Map<String, HashHeight> get snapshotData;
   @override
   @JsonKey(ignore: true)
-  _$SnapshotBlockCopyWith<_SnapshotBlock> get copyWith =>
+  _$$_SnapshotBlockCopyWith<_$_SnapshotBlock> get copyWith =>
       throw _privateConstructorUsedError;
 }

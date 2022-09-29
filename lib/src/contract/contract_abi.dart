@@ -101,7 +101,7 @@ class ContractAbi {
     if (e == null) {
       throw Exception('Unknown event $name');
     }
-    return e.signatureHash;
+    return e.asTopic;
   }
 
   List<Object> decodeEventWithTopics(Uint8List data, List<Uint8List> topics) {

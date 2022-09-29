@@ -33,8 +33,7 @@ String _readAmount(Map<dynamic, dynamic> json, String key) => json[key] ?? '0';
 class AccountBlock with _$AccountBlock {
   AccountBlock._();
   factory AccountBlock({
-    @BlockTypeConverter()
-        required BlockType blockType,
+    @BlockTypeConverter() required BlockType blockType,
     required Address address,
     required Address producer,
     required Address fromAddress,
@@ -46,30 +45,22 @@ class AccountBlock with _$AccountBlock {
     BigInt? firstSnapshotHeight,
     required int timestamp,
     BigInt? confirmations,
-    @JsonKey(name: 'tokenId')
-        required Token token,
-    @JsonKey(readValue: _readTokenInfo)
-        required TokenInfo tokenInfo,
-    @JsonKey(readValue: _readAmount)
-        required BigInt amount,
+    @JsonKey(name: 'tokenId') required Token token,
+    @JsonKey(readValue: _readTokenInfo) required TokenInfo tokenInfo,
+    @JsonKey(readValue: _readAmount) required BigInt amount,
     required BigInt height,
     BigInt? fee,
     BigInt? difficulty,
     required BigInt quotaByStake,
     required BigInt totalQuota,
     Hash? vmLogHash,
-    @NullableUint8ListBase64Converter()
-        Uint8List? data,
-    @NullableUint8ListBase64Converter()
-        Uint8List? nonce,
-    @NullableUint8ListBase64Converter()
-        Uint8List? signature,
-    @NullableUint8ListBase64Converter()
-        Uint8List? publicKey,
+    @NullableUint8ListBase64Converter() Uint8List? data,
+    @NullableUint8ListBase64Converter() Uint8List? nonce,
+    @NullableUint8ListBase64Converter() Uint8List? signature,
+    @NullableUint8ListBase64Converter() Uint8List? publicKey,
     Hash? receiveBlockHash,
     BigInt? receiveBlockHeight,
-    @Default([])
-        List<AccountBlock> triggeredSendBlockList,
+    @Default([]) List<AccountBlock> triggeredSendBlockList,
   }) = _AccountBlock;
 
   factory AccountBlock.fromJson(Map<String, dynamic> json) =>
@@ -80,6 +71,6 @@ class AccountBlock with _$AccountBlock {
   Address get otherAddress => blockType.isSendType ? toAddress : fromAddress;
 
   late final Decimal value =
-      (amount.toDecimal() / Decimal.ten.pow(tokenInfo.decimals))
+      (amount.toDecimal() / BigInt.from(10).pow(tokenInfo.decimals).toDecimal())
           .toDecimal(scaleOnInfinitePrecision: tokenInfo.decimals);
 }
