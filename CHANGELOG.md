@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.1
+
+* Downgrade stream_channel to v2.1.0
+
 ## 0.3.0
 
 * Update dependencies
